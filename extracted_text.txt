@@ -6,6 +6,10 @@
 ===== PAGE 1 =====
 Putting It   All Together Mathematics Teacher Guide
 
+[IMAGE 1: Visual: a box full of dice]
+[IMAGE 2: Visual: kids studying in classroom illustration]
+
+
 ===== PAGE 2 =====
 ISBN: 979-8-88970-973-2 Creative Commons Licensing This work is licensed under a   Creative Commons Attribution-NonCommercial-ShareAlike  4.0 International License. You are free: to Share—to copy, distribute, and transmit the work  to Remix—to adapt the work  Under the following conditions: Attribution—You must attribute the work in the   following manner: CKMath 6–8 was originally developed by Open Up  Resources and authored by Illustrative Mathematics,  https://www.illustrativemathematics.org, and is copyrighted as 2017–2019 by Open Up Resources.  It is licensed under the Creative Commons Attribution 4.0  International License (CC BY 4.0). The Open Up Resources  6–8 Math Curriculum is available at:  https://www.openupresources.org/math-curriculum/.  Adaptations and updates to the IM 6–8 Math English  language learner supports and the additional English  assessments marked as "B" are copyright 2019 by Open  Up Resources and licensed under the Creative Commons  Attribution 4.0 International License (CC BY 4.0). Adaptations and updates to the IM K–8 Math Spanish  translation of assessments marked as "B" are copyright  2019 by Illustrative Mathematics. These adaptions and  updates are licensed under the Creative Commons  Attribution 4.0 International License (CC BY 4.0). This particular work is based on additional work of the Core  Knowledge® Foundation (www.coreknowledge.org) made  available through licensing under a Creative Commons  Attribution-Non Commercial-Share Alike 4.0 International  License. This does not in any way imply that the Core  Knowledge Foundation endorses this work. Noncommercial—You may not use this work for  commercial purposes.  Share Alike—If you alter, transform, or build upon this work,  you may distribute the resulting work only under the same or  similar license to this one.  With the understanding that:  For any reuse or distribution, you must make clear to  others the license terms of this work. The best way to  do this is with a link to this web page: https://creativecommons.org/licenses/by-nc-sa/4.0/ Copyright © 2023 Core Knowledge Foundation  www.coreknowledge.org All Rights Reserved. Core Knowledge®, Core Knowledge Curriculum Series™,  Core Knowledge Math™ and CKMath™ are trademarks of the  Core Knowledge Foundation. Trademarks and trade names are shown in this book strictly for  illustrative and educational purposes and are the property of  their respective owners. References herein should not be  regarded as affecting the validity of said trademarks and trade  names.
 
@@ -14,6 +18,9 @@ Putting It All Together  Table of Contents Unit Overview  1  Section Overview  2
 
 ===== PAGE 5 =====
 Putting It All Together Teacher Guide Core Knowledge Mathematics™
+
+[IMAGE 1: Visual: a box full of dice]
+
 
 ===== PAGE 7 =====
 Unit 8: Putting It All Together  At a Glance    Unit 8 is estimated to be completed in 12 days including 2 days for assessment.  This unit is divided into three sections including 10 lessons.       Section A—Add and Subtract Within 20 (Lessons 1-3)      Section B—Story Problems (Lessons 4-6)      Section C—Numbers to 120  (Lessons 7-10)    On pages 5-6 of this Teacher Guide is a chart that identifies the section each lesson belongs in  and the materials needed for each lesson.  There are no new centers in this unit. Students choose from centers that have been introduced  throughout the year. Students can work at any previously introduced stages of the centers.
@@ -80,6 +87,9 @@ Grade 1 away from 8 and have 3 left, you took away 5. 5. 3. I thought about 4 + 
 
 ===== PAGE 29 =====
 Unit 8 Lesson 2 Write each difference that is not colored, on an index card. Write an addition equation on the card that can help you find the value of the difference. Student Responses Students color in the differences they know the value of from memory and write the others on index cards. just like you did on the addition chart. When you are done, you will probably have some boxes that are not colored in. These are the differences you are still working on. Write each of these differences on a card. On the back of the card, write an addition equation that can help you find the difference. Then you can use the cards to practice.” Activity 8 minutes: independent work time Synthesis “Choose one difference you are still working on. Tell your partner the sum that can help you find the value of the difference.” Lesson Synthesis 10 min “Today we identified the differences within 10 that we are still working on. We thought about using sums we know to help us find the value of differences. What sum would be helpful in finding the value of ? How would that sum be helpful?” ( if you know you get 7 when you put together 3 and 4, then you know if you start with 7 and take away 3 you will have 4 left. )     Complete Cool-Down Grade 1, Unit 8 21
+
+[IMAGE 1: Visual: a cartoon of a child sitting at a desk with a thought bubble above it]
+
 
 ===== PAGE 30 =====
 Grade 1 Response to Student Thinking Students do not write a related addition equation. Next Day Support Before the first activity, pair students up to discuss their responses. The work in this lesson builds from the addition and subtraction concepts developed in a prior unit. Prior Unit Support Grade 1, Unit 3, Section A: Develop Fluency with Addition and Subtraction within 10 Grade 1, Unit 8 22
@@ -434,6 +444,9 @@ Credits CKMath K–8 was originally developed by Open Up  Resources and authored
 
 ===== PAGE 150 =====
 CKMath™ Core Knowledge MatheMatics™
+
+[IMAGE 1: Text in image: cq ail | Visual: the logo for the new york school]
+
 
 ===== CHUNK PAGES 151 - 151 =====
 
