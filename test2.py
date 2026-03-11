@@ -4,7 +4,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 import numpy as np
 
 # Open PDF
-doc = fitz.open(r"D:\GUC\The Curriculum Architect\Test\Math Curriculum For Children.pdf")
+doc = fitz.open(r"D:\GUC\The Curriculum Architect\Dataset\Math Curriculum For Children.pdf")
 total_pages = len(doc)
 chunk_size = 50  # pages per chunk
 
