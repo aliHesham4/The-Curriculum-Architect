@@ -153,6 +153,33 @@ Unit 8 Lesson 5 Standards Alignments Addressing 1.NBT.C.4, 1.OA.D.7 The purpose 
 
 ===== PAGE 50 =====
 Grade 1 The purpose of this activity is for students to make sense of and solve Put Together/Take Apart, Addend Unknown story problems (MP2). In the synthesis, students discuss different methods used to solve these problems, including using addition and subtraction. The teacher may want to incorporate movement into this activity by writing each problem on a piece of chart paper and placing each one in a different location around the classroom. Students can solve the problem at one location, discuss the problem with their partner, then move on to a new problem at a new location. Engagement: Provide Access by Recruiting Interest. Provide choice. Invite students to decide which problem to start with. Supports accessibility for: Attention, Social-Emotional Functioning Access for Students with Disabilities Materials to Gather Connecting cubes in towers of 10 and singles Student-facing Task Statement Solve each problem. Show your thinking using drawings, numbers, or words. 1. There are 7 first graders and some second graders at the planetarium. There are 18 students at the planetarium. How many second graders are at the planetarium? 2. When the show started, 18 stars lit up in the sky. 13 stars were bright. Some of the stars were dim. How many stars were dim? 3. Together, Diego and Tyler saw 15 shooting stars during the show. Launch Groups of 2 Give each group access to connecting cubes in towers of 10 and singles. Display the image in the student book. “What do you notice in this picture? What do you wonder?” (There are bright colors. This looks like stars in the sky. Why is there red in the sky? Where is this?) “This is a picture of something called the Helix Nebula. It is one of many interesting things that can be seen in our sky. People who are interested in learning more about stars, planets, or anything else that is found in the sky, can visit a planetarium to learn all about these things. We are going to solve some problems about a field trip to the planetarium.” Activity 8 minutes: independent work time             Grade 1, Unit 8 42
+===== KEYWORD CLUSTERS FOR CHUNK PAGES 1 - 50 =====
+
+  [MATH CKMATH TRADEMARKS]
+      math ckmath trademarks: 0.511
+      knowledge math ckmath: 0.509
+      math ckmath: 0.486
+
+  [OPEN RESOURCES MATH]
+      open resources math: 0.490
+      mathematics teacher guide: 0.481
+      openupresources org math: 0.476
+      resources math: 0.469
+      math curriculum available: 0.464
+      resources math curriculum: 0.461
+      math curriculum adaptations: 0.448
+
+  [ILLUSTRATIVE MATHEMATICS HTTPS]
+      illustrative mathematics https: 0.486
+      mathematics https www: 0.451
+      mathematics https: 0.447
+
+  [DICE KIDS STUDYING]
+      dice kids studying: 0.441
+
+  [MATHEMATICS ADAPTIONS UPDATES]
+      mathematics adaptions updates: 0.440
+
 
 ===== CHUNK PAGES 51 - 100 =====
 
@@ -300,6 +327,33 @@ Putting It All Together: End-of-Course Assessment and Resources 1. How many conn
 
 ===== PAGE 100 =====
 b. c. Grade 1 Unit 8 End-of-Course Assessment and Resources 2
+===== KEYWORD CLUSTERS FOR CHUNK PAGES 51 - 100 =====
+
+  [STUDENTS SOLVE]
+      students solve: 0.562
+      addition students solve: 0.559
+      classroom students solve: 0.546
+      students attempt solve: 0.535
+      students solve number: 0.529
+      students discuss solve: 0.529
+      student solve: 0.527
+      students solve problem: 0.523
+      students solve compare: 0.522
+      ask student solve: 0.522
+
+  [OBJECTS STUDENTS COUNT]
+      objects students count: 0.542
+      students methods counting: 0.535
+
+  [STUDENTS DRAW SHAPES]
+      students draw shapes: 0.532
+
+  [LESSON SOLVE NUMBER]
+      lesson solve number: 0.527
+
+  [EQUATIONS STUDENT RESPONSES]
+      equations student responses: 0.521
+
 
 ===== CHUNK PAGES 101 - 150 =====
 
@@ -447,9 +501,62 @@ CKMath™ Core Knowledge MatheMatics™
 
 [IMAGE 1: Text in image: cq ail | Visual: the logo for the new york school]
 
+===== KEYWORD CLUSTERS FOR CHUNK PAGES 101 - 150 =====
+
+  [STUDENTS VALUE EXPRESSIONS]
+      students value expressions: 0.515
+      represent thinking equations: 0.497
+      thinking use equations: 0.487
+      lesson solve number: 0.483
+      correct equations students: 0.480
+      students solve: 0.470
+      thinking equations: 0.469
+      expression thinking using: 0.465
+      equations students select: 0.462
+
+  [ASSESSMENT RESOURCES PROBLEM]
+      assessment resources problem: 0.480
+
+  [RESOURCES MATH]
+      resources math: 0.475
+
+  [TASK MATHEMATICS WORKING]
+      task mathematics working: 0.463
+
+  [USE EQUATIONS DRAW]
+      use equations draw: 0.462
+      thinking drawings numbers: 0.462
+      thinking using drawings: 0.461
+
 
 ===== CHUNK PAGES 151 - 151 =====
 
 
 ===== PAGE 151 =====
 Core Knowledge Curriculum Series™ CKMath™ Core Knowledge Mathematics™ A comprehensive program for mathematical skills and concepts as specified in the Core Knowledge Sequence   (content and skill guidelines for Grades K–8). Core Knowledge Mathematics™ units at this level include: Adding, Subtracting, and Working with Data Addition and Subtraction Story Problems Adding and Subtracting Within 20 Numbers to 99 Adding Within 100 Length Measurements Within 120 Units Geometry and Time Putting it All Together www.coreknowledge.org ISBN: 979-8-88970-973-2
+===== KEYWORD CLUSTERS FOR CHUNK PAGES 151 - 151 =====
+
+  [CORE KNOWLEDGE MATHEMATICS]
+      core knowledge mathematics: 0.717
+      knowledge mathematics units: 0.606
+      knowledge mathematics: 0.533
+
+  [CKMATH CORE KNOWLEDGE]
+      ckmath core knowledge: 0.629
+      ckmath core: 0.559
+      series ckmath core: 0.558
+
+  [GRADES CORE KNOWLEDGE]
+      grades core knowledge: 0.613
+      core knowledge curriculum: 0.610
+      grades core: 0.560
+      151 core knowledge: 0.536
+      core knowledge: 0.528
+      specified core knowledge: 0.514
+
+  [CURRICULUM SERIES CKMATH]
+      curriculum series ckmath: 0.585
+      knowledge curriculum series: 0.524
+
+  [MATHEMATICS UNITS LEVEL]
+      mathematics units level: 0.536
