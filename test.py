@@ -1,5 +1,9 @@
 import fitz
 import re
+import os
+import json
+from dotenv import load_dotenv
+from groq import Groq
 from PIL import Image
 from keybert import KeyBERT
 import pytesseract
@@ -10,6 +14,7 @@ import numpy as np
 from sklearn.cluster import AgglomerativeClustering
 from sklearn.metrics.pairwise import cosine_similarity
 from sentence_transformers import SentenceTransformer
+
 
 # ══════════════════════════════════════════════════════
 #  Setup
@@ -31,31 +36,117 @@ doc = fitz.open(pdf_path)
 total_pages = len(doc)
 
 output_file = r"D:\GUC\The Curriculum Architect\Python Files\extracted_text.txt"
+concepts_file = r"D:\GUC\The Curriculum Architect\Python Files\concepts.json"
+
+load_dotenv()
+
+print("Loading LLAMA API")
+client = Groq(api_key=os.getenv("GROQ_KEY"))
+response = client.chat.completions.create(
+    model="llama-3.3-70b-versatile",
+    messages=[
+        {"role": "user", "content": "Say hello"}
+    ]
+)
+
+print(response.choices[0].message.content)
 
 
 # ══════════════════════════════════════════════════════
 #  Text Cleaning
 # ══════════════════════════════════════════════════════
 
+def is_metadata_page(text):
+    """Skip entire pages that are mostly legal/credits/licensing content."""
+    keywords = [
+        "copyright", "license", "creative commons",
+        "all rights reserved", "open up resources",
+        "illustrative mathematics", "credits",
+        "acknowledgement", "photo credits", "illustration credits"
+    ]
+    count = sum(k in text.lower() for k in keywords)
+    return count >= 3
+
+# ══════════════════════════════════════════════════════
+#  Text Cleaning
+# ══════════════════════════════════════════════════════
+
+def is_metadata_page(text):
+    """Skip entire pages that are mostly legal/credits/licensing content."""
+    keywords = [
+        "copyright", "license", "creative commons",
+        "all rights reserved", "open up resources",
+        "illustrative mathematics", "credits",
+        "acknowledgement", "photo credits", "illustration credits"
+    ]
+    count = sum(k in text.lower() for k in keywords)
+    return count >= 3
+
+
 def clean_text(text):
-    text = re.sub(r'[\x00-\x1F\x7F]', ' ', text)
-    text = re.sub(r'[\ufffd\u25a0\u25cf\u2022\u00b7]', ' ', text)
+
+    # 1. Normalize line endings
+    text = text.replace('\r\n', '\n').replace('\r', '\n')
+
+    # 2. Remove control characters but preserve newlines
+    text = re.sub(r'[\x00-\x09\x0B-\x1F\x7F]', ' ', text)
+
+    # 3. Remove unicode junk
+    text = re.sub(r'[\ufffd\u25a0\u25cf\u2022\u00b7\u2013\u2014\u00a0]', ' ', text)
+
+    # 4. Remove dot leaders
     text = re.sub(r'\.{2,}', ' ', text)
     text = re.sub(r'(\. ){2,}', ' ', text)
-    text = re.sub(r'^\s*\d+\s*$', '', text, flags=re.MULTILINE)
+
+    # 5. Block-level removal — nukes entire licensing/credits sections
     text = re.sub(
-        r'.*?(copyright|copyrighted|©|\(c\)|all rights reserved|reproduction prohibited'
-        r'|unauthorized|licensed to|published by|printed in).*?\n',
-        '', text, flags=re.IGNORECASE
+        r'(credits|copyright|licen[sc]e|creative commons).*?(?=\n\s*\n|$)',
+        '',
+        text,
+        flags=re.IGNORECASE | re.DOTALL
     )
+
+    # 6. Remove standalone page numbers
+    text = re.sub(r'^\s*[\-–]?\s*\d+\s*[\-–]?\s*$', '', text, flags=re.MULTILINE)
+
+    # 7. Remove isolated special characters on their own line
+    text = re.sub(r'^\s*[\W_]+\s*$', '', text, flags=re.MULTILINE)
+
+    # 8. Remove header/footer noise
+    text = re.sub(r'^\s*(grade\s*\d+|unit\s*\d+|lesson\s*\d+|page\s*\d+)\s*$',
+                  '', text, flags=re.IGNORECASE | re.MULTILINE)
+
+    # 9. Collapse whitespace
+    text = re.sub(r' {2,}', ' ', text)
+    text = re.sub(r'\n{3,}', '\n\n', text)
+
+    # 10. Line-level filtering — catches leftover licensing lines
+    bad_line_patterns = [
+        r'copyright', r'creative commons', r'licen[sc]ed',
+        r'open up resources', r'illustrative mathematics',
+        r'core knowledge', r'photo credits', r'illustration',
+        r'all rights reserved', r'do not reproduce',
+        r'may not be reproduced', r'for classroom use',
+        r'©',
+    ]
+
+    # 11. Drop lines that are mostly non-alphabetic or contain bad patterns
     cleaned_lines = []
     for line in text.splitlines():
         stripped = line.strip()
         if not stripped:
             continue
+
+        # Skip bad pattern lines
+        lower = stripped.lower()
+        if any(re.search(p, lower) for p in bad_line_patterns):
+            continue
+
+        # Skip lines with too few real words
         alpha_chars = sum(c.isalpha() for c in stripped)
         if alpha_chars >= 5 and alpha_chars / max(len(stripped), 1) > 0.4:
             cleaned_lines.append(stripped)
+
     return '\n'.join(cleaned_lines)
 
 
@@ -68,6 +159,31 @@ def clean_for_keybert(text):
     text = re.sub(r'\|', ' ', text)
     text = re.sub(r' {2,}', ' ', text)
     return text
+
+def is_good_keyword(kw):
+    kw = kw.lower()
+
+    bad_patterns = [
+        r'\bstudents?\b',
+        r'\bteacher\b',
+        r'\bactivity\b',
+        r'\blesson\b',
+        r'\bwork\b',
+        r'\bdiscussion\b',
+        r'\bgroup\b',
+        r'\bpractice\b',
+        r'\bexample\b',
+        r'\bproblem\b',
+        r'\bpage\b'
+    ]
+
+    if len(kw.split()) > 4:
+        return False
+
+    if any(re.search(p, kw) for p in bad_patterns):
+        return False
+
+    return True
 
 
 # ══════════════════════════════════════════════════════
@@ -145,15 +261,6 @@ def semantic_chunk(doc, total_pages,
                    drop_threshold,
                    min_pages,
                    max_pages):
-    """
-    Chunks purely by semantic topic shift between pages.
-    No layout knowledge required — works on any PDF structure.
-
-    drop_threshold: 0.0 - 1.0
-        lower  = more sensitive, more chunks, catches subtle shifts
-        higher = less sensitive, fewer chunks, only catches big shifts
-        0.25 is a safe default — tune up if chunks are too small
-    """
     print("Embedding pages for semantic chunking...")
     page_texts = []
     for i in range(total_pages):
@@ -182,7 +289,6 @@ def semantic_chunk(doc, total_pages,
 
         if sim < (1 - drop_threshold) and current_size >= min_pages:
             chunks.append(current_chunk)
-            print(f"  → Semantic boundary at page {next_page + 1} (similarity={sim:.3f})")
             current_chunk = [next_page]
             continue
 
@@ -215,6 +321,8 @@ def print_similarity_report(similarities, chunks):
 # ══════════════════════════════════════════════════════
 #  Embedding Clustering
 # ══════════════════════════════════════════════════════
+
+
 
 def cluster_keywords(keywords, min_clusters=2):
     """
@@ -252,6 +360,30 @@ def cluster_keywords(keywords, min_clusters=2):
 
     return named_clusters
 
+def filter_clusters(clusters, min_avg_score=0.3, min_size=2):
+    filtered = {}
+
+    for name, members in clusters.items():
+        scores = [score for _, score in members]
+        avg_score = sum(scores) / len(scores)
+
+        if len(members) >= min_size and avg_score >= min_avg_score:
+            filtered[name] = members
+
+    return filtered
+
+def cluster_coherence(members):
+    terms = [kw for kw, _ in members]
+    emb = embedder.encode(terms, convert_to_numpy=True)
+    sim = cosine_similarity(emb)
+    return sim.mean()
+
+def filter_by_coherence(clusters, threshold=0.5):
+    good = {}
+    for name, members in clusters.items():
+        if cluster_coherence(members) >= threshold:
+            good[name] = members
+    return good
 
 def print_and_save_clusters(clusters, chunk_label, file_handle):
     header = f"\n===== KEYWORD CLUSTERS FOR {chunk_label} =====\n"
@@ -262,27 +394,126 @@ def print_and_save_clusters(clusters, chunk_label, file_handle):
         line = f"\n  [{cluster_name.upper()}]\n"
         print(line, end="")
         file_handle.write(line)
+
         for keyword, score in members:
-            entry = f"      {keyword}: {score:.3f}\n"
-            print(entry, end="")
-            file_handle.write(entry)
+            kw_line = f"      {keyword}: {score:.3f}\n"
+            print(kw_line, end="")
+            file_handle.write(kw_line)
+
+# ══════════════════════════════════════════════════════
+#  LLM Concept Extraction
+# ══════════════════════════════════════════════════════
+def build_prompt(all_clusters_by_chunk, toc_context):
+   
+
+    # Format all clusters across all chunks
+    clusters_section = ""
+    for chunk_label, cluster_names in all_clusters_by_chunk.items():
+        clusters_section += f"\n  {chunk_label}\n"
+        for name in cluster_names:
+            clusters_section += f"    - {name}\n"
+
+    prompt = f"""
+
+You are a curriculum analyst.
+Use the table of contents if present and the topic clusters extracted from each 
+section of a curriculum document. Your job is to use your relational reasoning to identify and link educational concepts
+and their prerequisite relationships. Pass through all TOC context and cluster names to inform your analysis.
+{toc_context}
+
+ALL TOPIC CLUSTERS BY SECTION:
+{clusters_section}
+
+Your task:
+1. Identify all distinct educational concepts.
+2. For each concept, list its prerequisites — concepts a student must 
+   understand BEFORE learning it.
+3. IMPORTANT: Prerequisites must only come from concepts that also appear 
+   in the clusters above. Do not invent external prerequisites.
+4. Avoid making concept names too broad or too narrow. Use your judgment to find the right level of granularity.
+5. If a concept has no prerequisites within this curriculum, set prerequisites to [].
+6. Recognize students level based on  curriculum context and avoid suggesting prerequisites that are advanced for curriculum's target audience.
+
+Return ONLY valid JSON, no explanation, no markdown:
+{{
+  "concepts": [
+    {{
+      "name": "concept name",
+      "prerequisites": ["prerequisite 1", "prerequisite 2",...]
+    }}
+  ]
+}}
+"""
+    return prompt
 
 
+def query_llm(all_clusters_by_chunk, toc_context):
+
+    print("\n===== SENDING ALL CLUSTERS TO LLaMA =====")
+    prompt = build_prompt(all_clusters_by_chunk, toc_context)
+    if len(prompt) > 20000:
+     print("⚠ Prompt is large — consider reducing top_n or chunk count")
+    else:
+        try:
+            response = client.chat.completions.create(
+                model="llama-3.3-70b-versatile",
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0.2
+            )
+            raw = response.choices[0].message.content.strip()
+
+            # Strip code fences if model wraps output in ```json
+            raw = re.sub(r'^```json\s*', '', raw)
+            raw = re.sub(r'^```\s*', '', raw)
+            raw = re.sub(r'\s*```$', '', raw)
+
+            return json.loads(raw)
+
+        except json.JSONDecodeError as e:
+            print(f"  ⚠ JSON parse error: {e}")
+            print(f"  Raw response was:\n{raw}")
+            return None
+        except Exception as e:
+            print(f"  ⚠ LLM error: {e}")
+            return None
+    
+def save_concepts(parsed, file_handle):
+    """Prints and saves the final concept/prerequisite list."""
+    header = "\n\n══════════════════════════════════════════════════════\n"
+    header += "  FINAL CONCEPTS AND PREREQUISITES\n"
+    header += "══════════════════════════════════════════════════════\n"
+    print(header)
+    file_handle.write(header)
+
+    if not parsed:
+        msg = "  No concepts extracted.\n"
+        print(msg)
+        file_handle.write(msg)
+        return
+
+    for concept in parsed.get("concepts", []):
+        name    = concept.get("name", "Unknown")
+        prereqs = concept.get("prerequisites", [])
+        prereq_str = ", ".join(prereqs) if prereqs else "None"
+        line = f"  Concept: {name}\n  Prerequisites: {prereq_str}\n\n"
+        print(line, end="")
+        file_handle.write(line)
 # ══════════════════════════════════════════════════════
 #  MAIN LOOP
 # ══════════════════════════════════════════════════════
-
+ 
 # Run semantic chunking before processing
 chunks, similarities = semantic_chunk(
     doc, total_pages,
-    drop_threshold=0.45,
+    drop_threshold=0.3,
     min_pages=3,
     max_pages=20
 )
 
 # Print similarity report for inspection/tuning
 print_similarity_report(similarities, chunks)
-
+all_clusters_by_chunk = {} 
+toc_context = ""
 with open(output_file, "w", encoding="utf-8") as f:
 
     for chunk_index, page_numbers in enumerate(chunks):
@@ -294,9 +525,15 @@ with open(output_file, "w", encoding="utf-8") as f:
             raw_text = page.get_text()
             text = clean_text(raw_text)
 
+              # Skip metadata/licensing pages entirely
+            if is_metadata_page(raw_text):
+                print(f"  → Page {page_number + 1} skipped (metadata/credits)")
+                continue
+
             if is_toc_page(raw_text):
                 print(f"\n===== PAGE {page_number + 1} (TOC) =====")
                 print(f" TOC page:\n {text}...")
+                toc_context= text + "\n"
                 chunk_text += f"\n\n===== PAGE {page_number + 1} (TOC) =====\n{text}"
                 continue
 
@@ -323,12 +560,29 @@ with open(output_file, "w", encoding="utf-8") as f:
             top_n=10
         )
 
+        # keywords = [kw for kw in keywords if is_good_keyword(kw[0])]
+
         if not keywords:
             print(f"{chunk_label}: No keywords found.")
             continue
 
         clusters = cluster_keywords(keywords, min_clusters=2)
+        # clusters = filter_clusters(clusters, min_avg_score=0.3, min_size=2)
         print_and_save_clusters(clusters, chunk_label, f)
+
+
+     # ── Accumulate cluster names for final LLaMA call ──
+        all_clusters_by_chunk[chunk_label] = list(clusters.keys())
+
+    # ── After ALL chunks: single LLaMA call with everything ──
+    parsed = query_llm(all_clusters_by_chunk, toc_context)
+    save_concepts(parsed, f)
+
+    # ── Save concepts as JSON for DAG construction later ──
+    if parsed:
+        with open(concepts_file, "w", encoding="utf-8") as jf:
+            json.dump(parsed, jf, indent=2)
+        print(f"\n✅ Concepts saved to {concepts_file}")
 
 doc.close()
 print(f"\nAll text saved to {output_file}")
