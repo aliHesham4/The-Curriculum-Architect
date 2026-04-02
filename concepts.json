@@ -1,121 +1,102 @@
 {
   "concepts": [
     {
-      "name": "Add and Subtract Within 20",
+      "name": "Addition within 20",
       "prerequisites": []
+    },
+    {
+      "name": "Subtraction within 20",
+      "prerequisites": [
+        "Addition within 20"
+      ]
     },
     {
       "name": "Story Problems",
       "prerequisites": [
-        "Add and Subtract Within 20"
+        "Addition within 20",
+        "Subtraction within 20"
       ]
     },
     {
       "name": "Numbers to 120",
       "prerequisites": [
-        "Add and Subtract Within 20"
+        "Addition within 20",
+        "Subtraction within 20"
       ]
     },
     {
-      "name": "Solve Story Problems",
+      "name": "Fluency in Addition and Subtraction",
       "prerequisites": [
-        "Story Problems",
-        "Add and Subtract Within 20"
+        "Addition within 20",
+        "Subtraction within 20"
       ]
     },
     {
-      "name": "Addition and Subtraction",
+      "name": "Mental Math in Addition and Subtraction",
       "prerequisites": [
-        "Add and Subtract Within 20"
+        "Fluency in Addition and Subtraction"
       ]
     },
     {
-      "name": "Drawing and Numbers",
+      "name": "Solving Story Problems with Unknowns",
       "prerequisites": [
-        "Numbers to 120"
-      ]
-    },
-    {
-      "name": "Section Checkpoint",
-      "prerequisites": [
-        "Add and Subtract Within 20",
         "Story Problems"
       ]
     },
     {
-      "name": "Assessment Resources",
-      "prerequisites": [
-        "Section Checkpoint"
-      ]
-    },
-    {
-      "name": "Thinking Using Drawings",
-      "prerequisites": [
-        "Drawing and Numbers"
-      ]
-    },
-    {
-      "name": "Correct Equations",
-      "prerequisites": [
-        "Add and Subtract Within 20",
-        "Numbers to 120"
-      ]
-    },
-    {
-      "name": "Grade Unit End Assessment",
-      "prerequisites": [
-        "Correct Equations",
-        "Section Checkpoint"
-      ]
-    },
-    {
-      "name": "Value Difference",
-      "prerequisites": [
-        "Add and Subtract Within 20"
-      ]
-    },
-    {
-      "name": "Checkpoint Assessment",
-      "prerequisites": [
-        "Section Checkpoint",
-        "Grade Unit End Assessment"
-      ]
-    },
-    {
-      "name": "Accurately Addressing Grade",
-      "prerequisites": [
-        "Grade Unit End Assessment"
-      ]
-    },
-    {
-      "name": "Addition and Subtraction Cool",
-      "prerequisites": [
-        "Add and Subtract Within 20",
-        "Story Problems"
-      ]
-    },
-    {
-      "name": "Number Riddles",
+      "name": "Using Drawings for Number Thinking",
       "prerequisites": [
         "Numbers to 120"
       ]
     },
     {
-      "name": "Riddle Cards Assessment",
+      "name": "Subtraction with Numbers up to 20",
       "prerequisites": [
-        "Number Riddles"
+        "Subtraction within 20"
       ]
     },
     {
-      "name": "Subtracting 20 Checkpoint",
+      "name": "Addition and Subtraction with Multi-digit Numbers",
       "prerequisites": [
-        "Add and Subtract Within 20"
+        "Numbers to 120",
+        "Fluency in Addition and Subtraction"
       ]
     },
     {
-      "name": "Amounts and Tens Checkpoint",
+      "name": "Understanding Place Value",
       "prerequisites": [
         "Numbers to 120"
+      ]
+    },
+    {
+      "name": "Comparing Lengths",
+      "prerequisites": [
+        "Numbers to 120"
+      ]
+    },
+    {
+      "name": "Representing Numbers with Words and Drawings",
+      "prerequisites": [
+        "Numbers to 120"
+      ]
+    },
+    {
+      "name": "Solving Challenging Math Riddles",
+      "prerequisites": [
+        "Addition and Subtraction with Multi-digit Numbers",
+        "Fluency in Addition and Subtraction"
+      ]
+    },
+    {
+      "name": "Demonstrating Understanding of Digits",
+      "prerequisites": [
+        "Understanding Place Value"
+      ]
+    },
+    {
+      "name": "Using Riddle Cards for Math Practice",
+      "prerequisites": [
+        "Solving Challenging Math Riddles"
       ]
     }
   ]

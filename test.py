@@ -342,18 +342,6 @@ def cluster_keywords(keywords, min_clusters=2):
 
     return named_clusters
 
-def filter_clusters(clusters, min_avg_score=0.3, min_size=2):
-    filtered = {}
-
-    for name, members in clusters.items():
-        scores = [score for _, score in members]
-        avg_score = sum(scores) / len(scores)
-
-        if len(members) >= min_size and avg_score >= min_avg_score:
-            filtered[name] = members
-
-    return filtered
-
 def cluster_coherence(members):
     terms = [kw for kw, _ in members]
     emb = embedder.encode(terms, convert_to_numpy=True)
@@ -412,7 +400,7 @@ Your task:
    understand BEFORE learning it.
 3. IMPORTANT: Prerequisites must only come from concepts that also appear 
    in the clusters above. Do not invent external prerequisites.
-4. Avoid making concept names too broad or too narrow. Use your judgment to find the right level of granularity.
+4. Avoid making concept names too broad or too narrow and do not create duplicate concepts. Use your judgment to find the right level of granularity.
 5. If a concept has no prerequisites within this curriculum, set prerequisites to [].
 6. Recognize students level based on  curriculum context and avoid suggesting prerequisites that are advanced for curriculum's target audience.
 
@@ -533,9 +521,10 @@ with open(output_file, "w", encoding="utf-8") as f:
 
         keywords = kw_model.extract_keywords(
             keybert_input,
-            keyphrase_ngram_range=(1, 3),
+            keyphrase_ngram_range=(1, 4),
             stop_words='english',
-            top_n=10
+            top_n=10,
+            use_maxsum=True   # avoids overlapping keywords
         )
 
         keywords = [kw for kw in keywords if is_good_keyword(kw[0])]
@@ -545,7 +534,6 @@ with open(output_file, "w", encoding="utf-8") as f:
             continue
 
         clusters = cluster_keywords(keywords, min_clusters=2)
-        #clusters = filter_clusters(clusters, min_avg_score=0.3, min_size=2)
         clusters = filter_by_coherence(clusters, threshold=0.3)
         print_and_save_clusters(clusters, chunk_label, f)
 
