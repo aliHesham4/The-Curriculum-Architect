@@ -14,7 +14,8 @@ def build_prompt(all_clusters_by_chunk, toc_context):
 You are a curriculum analyst.
 Use the table of contents if present and the topic clusters extracted from each 
 section of a curriculum document. Your job is to use your relational reasoning to identify and link educational concepts
-and their prerequisite relationships.
+and their prerequisite relationships. Pass through all TOC context and cluster names to inform your analysis.
+ Ignore any cluster that refers to materials, objects, or activities rather than math concepts.
 {toc_context}
 
 ALL TOPIC CLUSTERS BY SECTION:
@@ -22,18 +23,20 @@ ALL TOPIC CLUSTERS BY SECTION:
 
 Your task:
 1. Identify all distinct educational concepts.
-2. For each concept, list its prerequisites — concepts a student must understand BEFORE learning it.
-3. IMPORTANT: Prerequisites must only come from concepts that also appear in the clusters above.
-4. Avoid making concept names too broad or too narrow and do not create duplicate concepts.
+2. For each concept, list its prerequisites — concepts a student must 
+   understand BEFORE learning it.
+3. IMPORTANT: Prerequisites must only come from concepts that also appear 
+   in the clusters above. Do not invent external prerequisites.
+4. Avoid making concept names too broad or too narrow and do not create duplicate concepts. Use your judgment to find the right level of granularity.
 5. If a concept has no prerequisites within this curriculum, set prerequisites to [].
-6. Recognize students level based on curriculum context.
+6. Recognize students level based on  curriculum context and avoid suggesting prerequisites that are advanced for curriculum's target audience.
 
 Return ONLY valid JSON, no explanation, no markdown:
 {{
   "concepts": [
     {{
       "name": "concept name",
-      "prerequisites": ["prerequisite 1", "prerequisite 2"]
+      "prerequisites": ["prerequisite 1", "prerequisite 2",...]
     }}
   ]
 }}

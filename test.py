@@ -475,7 +475,7 @@ def save_concepts(parsed, file_handle):
 # Run semantic chunking before processing
 chunks, similarities = semantic_chunk(
     doc, total_pages,
-    drop_threshold=0.3,
+    drop_threshold=0.45,
     min_pages=3,
     max_pages=20
 )
@@ -524,7 +524,7 @@ with open(output_file, "w", encoding="utf-8") as f:
             keyphrase_ngram_range=(1, 4),
             stop_words='english',
             top_n=10,
-            use_maxsum=True   # avoids overlapping keywords
+            # use_maxsum=True 
         )
 
         keywords = [kw for kw in keywords if is_good_keyword(kw[0])]

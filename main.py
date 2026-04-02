@@ -1,7 +1,7 @@
 import json
 from config import doc, total_pages, OUTPUT_FILE, CONCEPTS_FILE, kw_model
 from cleaning import clean_text, clean_for_keybert, is_good_keyword
-from detection import is_toc_page, is_metadata_page
+from detection import is_toc_page
 from images import extract_page_images
 from chunking import semantic_chunk, print_similarity_report
 from clustering import cluster_keywords, filter_by_coherence, print_and_save_clusters
@@ -9,7 +9,7 @@ from llm import query_llm, save_concepts
 
 chunks, similarities = semantic_chunk(
     doc, total_pages,
-    drop_threshold=0.3,
+    drop_threshold=0.45,
     min_pages=3,
     max_pages=20
 )
@@ -58,8 +58,8 @@ with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
             keybert_input,
             keyphrase_ngram_range=(1, 3),
             stop_words='english',
-            top_n=10,
-            use_maxsum=True
+            top_n=15,
+            # use_maxsum=True
         )
         keywords = [kw for kw in keywords if is_good_keyword(kw[0])]
 
@@ -67,8 +67,8 @@ with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
             print(f"\n===== KEYWORD CLUSTERS FOR {chunk_label} =====\n")
             continue
 
-        clusters = cluster_keywords(keywords, min_clusters=2)
-        clusters = filter_by_coherence(clusters, threshold=0.3)
+        clusters, term_embeddings = cluster_keywords(keywords, min_clusters=2)
+        clusters = filter_by_coherence(clusters, term_embeddings, threshold=0.45)
         print_and_save_clusters(clusters, chunk_label, f)
         all_clusters_by_chunk[chunk_label] = list(clusters.keys())
 

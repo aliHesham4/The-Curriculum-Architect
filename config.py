@@ -11,8 +11,8 @@ pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tessera
 
 # ── Paths ──
 PDF_PATH     = r"D:\GUC\The Curriculum Architect\Dataset\Math Curriculum For Children.pdf"
-OUTPUT_FILE  = r"D:\GUC\The Curriculum Architect\Python Files\extracted_text.txt"
-CONCEPTS_FILE = r"D:\GUC\The Curriculum Architect\Python Files\concepts.json"
+OUTPUT_FILE  = r"D:\GUC\The Curriculum Architect\Python Files\Debugging\extracted_text.txt"
+CONCEPTS_FILE = r"D:\GUC\The Curriculum Architect\Python Files\Debugging\concepts.json"
 
 # ── PDF ──
 doc          = fitz.open(PDF_PATH)

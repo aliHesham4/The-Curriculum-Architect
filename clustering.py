@@ -9,7 +9,7 @@ def cluster_keywords(keywords, min_clusters=2):
         return {}
     if len(keywords) < 2:
         term, score = keywords[0]
-        return {term: [(term, score)]}
+        return {term: [(term, score)]}, {}
 
     terms  = [kw for kw, score in keywords]
     scores = {kw: score for kw, score in keywords}
@@ -17,14 +17,17 @@ def cluster_keywords(keywords, min_clusters=2):
     embeddings      = embedder.encode(terms, convert_to_numpy=True)
     sim_matrix      = cosine_similarity(embeddings)
     distance_matrix = np.clip(1 - sim_matrix, 0, None)
-    n_clusters      = max(min_clusters, int(len(terms) / 3))
+    n_clusters      = max(min_clusters, min(int(len(terms) / 3), len(terms) - 1))
 
     clustering = AgglomerativeClustering(
         n_clusters=n_clusters,
         metric='precomputed',
         linkage='average'
-         )
+    )
     labels = clustering.fit_predict(distance_matrix)
+
+    # Save embeddings mapped to each term
+    term_embeddings = {term: embeddings[i] for i, term in enumerate(terms)}
 
     raw_clusters = {}
     for term, label in zip(terms, labels):
@@ -35,21 +38,20 @@ def cluster_keywords(keywords, min_clusters=2):
         members_sorted = sorted(members, key=lambda x: x[1], reverse=True)
         named_clusters[members_sorted[0][0]] = members_sorted
 
-    return named_clusters
+    return named_clusters, term_embeddings  # ← pass embeddings out
 
 
-def cluster_coherence(members):
+def cluster_coherence(members, term_embeddings):
     terms = [kw for kw, _ in members]
-    emb   = embedder.encode(terms, convert_to_numpy=True)
+    emb   = np.array([term_embeddings[t] for t in terms])  # ← reuse, no re-encoding
     return cosine_similarity(emb).mean()
 
 
-def filter_by_coherence(clusters, threshold=0.3):
+def filter_by_coherence(clusters, term_embeddings, threshold=0.3):
     return {
         name: members for name, members in clusters.items()
-        if cluster_coherence(members) >= threshold
+        if cluster_coherence(members, term_embeddings) >= threshold
     }
-
 
 def print_and_save_clusters(clusters, chunk_label, file_handle):
     header = f"\n===== KEYWORD CLUSTERS FOR {chunk_label} =====\n"
