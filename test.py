@@ -56,32 +56,6 @@ print(response.choices[0].message.content)
 #  Text Cleaning
 # ══════════════════════════════════════════════════════
 
-def is_metadata_page(text):
-    """Skip entire pages that are mostly legal/credits/licensing content."""
-    keywords = [
-        "copyright", "license", "creative commons",
-        "all rights reserved", "open up resources",
-        "illustrative mathematics", "credits",
-        "acknowledgement", "photo credits", "illustration credits"
-    ]
-    count = sum(k in text.lower() for k in keywords)
-    return count >= 3
-
-# ══════════════════════════════════════════════════════
-#  Text Cleaning
-# ══════════════════════════════════════════════════════
-
-def is_metadata_page(text):
-    """Skip entire pages that are mostly legal/credits/licensing content."""
-    keywords = [
-        "copyright", "license", "creative commons",
-        "all rights reserved", "open up resources",
-        "illustrative mathematics", "credits",
-        "acknowledgement", "photo credits", "illustration credits"
-    ]
-    count = sum(k in text.lower() for k in keywords)
-    return count >= 3
-
 
 def clean_text(text):
 
@@ -98,12 +72,14 @@ def clean_text(text):
     text = re.sub(r'\.{2,}', ' ', text)
     text = re.sub(r'(\. ){2,}', ' ', text)
 
-    # 5. Block-level removal — nukes entire licensing/credits sections
+    # 5. Block-level removal — only nuke sections that START with a clear legal header
     text = re.sub(
-        r'(credits|copyright|licen[sc]e|creative commons).*?(?=\n\s*\n|$)',
+        r'^(credits|copyright notice|licensing information|creative commons attribution)[^\n]*\n'
+        r'(.*?\n)*?'
+        r'(?=\n|\Z)',
         '',
         text,
-        flags=re.IGNORECASE | re.DOTALL
+        flags=re.IGNORECASE | re.MULTILINE
     )
 
     # 6. Remove standalone page numbers
@@ -329,8 +305,14 @@ def cluster_keywords(keywords, min_clusters=2):
     Clusters KeyBERT keywords by semantic similarity.
     Names each cluster after its highest-scoring keyword.
     """
+    if not keywords:
+        return {}
+    
     if len(keywords) < 2:
-        return {"Cluster 1": keywords}
+        term, score = keywords[0]
+        return {term: [(term, score)]}
+
+
 
     terms = [kw for kw, score in keywords]
     scores = {kw: score for kw, score in keywords}
@@ -525,11 +507,6 @@ with open(output_file, "w", encoding="utf-8") as f:
             raw_text = page.get_text()
             text = clean_text(raw_text)
 
-              # Skip metadata/licensing pages entirely
-            if is_metadata_page(raw_text):
-                print(f"  → Page {page_number + 1} skipped (metadata/credits)")
-                continue
-
             if is_toc_page(raw_text):
                 print(f"\n===== PAGE {page_number + 1} (TOC) =====")
                 print(f" TOC page:\n {text}...")
@@ -538,6 +515,7 @@ with open(output_file, "w", encoding="utf-8") as f:
                 continue
 
             if len(text.strip()) < 20:
+                chunk_text += f"\n\n===== PAGE {page_number + 1} =====\n"
                 continue
 
             image_context = extract_page_images(page, page_number)
@@ -560,14 +538,15 @@ with open(output_file, "w", encoding="utf-8") as f:
             top_n=10
         )
 
-        # keywords = [kw for kw in keywords if is_good_keyword(kw[0])]
+        keywords = [kw for kw in keywords if is_good_keyword(kw[0])]
 
         if not keywords:
-            print(f"{chunk_label}: No keywords found.")
+            print(f"\n===== KEYWORD CLUSTERS FOR {chunk_label} =====\n")
             continue
 
         clusters = cluster_keywords(keywords, min_clusters=2)
-        # clusters = filter_clusters(clusters, min_avg_score=0.3, min_size=2)
+        #clusters = filter_clusters(clusters, min_avg_score=0.3, min_size=2)
+        clusters = filter_by_coherence(clusters, threshold=0.3)
         print_and_save_clusters(clusters, chunk_label, f)
 
 

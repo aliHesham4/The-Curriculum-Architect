@@ -13,6 +13,9 @@ Teacher Guide
 [IMAGE 2: Visual: kids studying in classroom illustration]
 
 
+===== PAGE 2 =====
+(Skipped page with insufficient text content)
+
 ===== PAGE 3 (TOC) =====
 Putting It All Together
 Table of Contents
@@ -29,25 +32,22 @@ Cool Downs
 Instructional Masters
 ===== KEYWORD CLUSTERS FOR CHUNK 1 (Pages 1–3) =====
 
-  [TEACHER GUIDE BOX]
-      teacher guide box: 0.600
-      teacher guide: 0.586
-      classroom illustration page: 0.556
-      mathematics teacher guide: 0.550
-
   [20 SECTION LESSONS]
-      20 section lessons: 0.573
-      section lessons add: 0.573
-      section overview lessons: 0.566
-      section lessons: 0.566
-      31 section lessons: 0.559
+      20 section lessons: 0.570
+      section lessons add: 0.563
+      section lessons: 0.554
+      section overview lessons: 0.546
+      31 section lessons: 0.543
 
   [DICE KIDS STUDYING]
-      dice kids studying: 0.556
+      dice kids studying: 0.553
 
 
 ===== CHUNK 2 (Pages 4–6) =====
 
+
+===== PAGE 4 =====
+(Skipped page with insufficient text content)
 
 ===== PAGE 5 =====
 Putting It All Together
@@ -55,26 +55,19 @@ Teacher Guide
 
 [IMAGE 1: Visual: a box full of dice]
 
+
+===== PAGE 6 =====
+(Skipped page with insufficient text content)
 ===== KEYWORD CLUSTERS FOR CHUNK 2 (Pages 4–6) =====
 
   [GUIDE BOX DICE]
-      guide box dice: 0.750
-      box dice: 0.633
-      dice: 0.545
+      guide box dice: 0.569
 
-  [TEACHER GUIDE BOX]
-      teacher guide box: 0.690
-      putting teacher guide: 0.597
-      guide box: 0.560
-      teacher guide: 0.549
-      guide: 0.382
-
-  [PAGE PUTTING TEACHER]
-      page putting teacher: 0.540
-      putting teacher: 0.424
+  [INSUFFICIENT TEXT CONTENT]
+      insufficient text content: 0.524
 
 
-===== CHUNK 3 (Pages 7–9) =====
+===== CHUNK 3 (Pages 7–12) =====
 
 
 ===== PAGE 7 =====
@@ -89,6 +82,9 @@ On pages 5-6 of this Teacher Guide is a chart that identifies the section each l
 and the materials needed for each lesson.
 There are no new centers in this unit. Students choose from centers that have been introduced
 throughout the year. Students can work at any previously introduced stages of the centers.
+
+===== PAGE 8 =====
+(Skipped page with insufficient text content)
 
 ===== PAGE 9 =====
 Unit 8: Putting It All Together
@@ -107,27 +103,6 @@ The sections in this unit are standalone sections, not required to be completed 
 offer ample opportunities for students to integrate the knowledge they have gained and to practice
 skills related to the expected fluencies of the grade.
 Grade 1, Unit 8
-===== KEYWORD CLUSTERS FOR CHUNK 3 (Pages 7–9) =====
-
-  [LESSONS SECTION NUMBERS]
-      lessons section numbers: 0.653
-      20 lessons section: 0.619
-      10 lessons section: 0.612
-      lessons section add: 0.596
-      learning section students: 0.595
-      identifies section lesson: 0.593
-      lessons section: 0.591
-
-  [UNITS SECTION STUDENTS]
-      units section students: 0.613
-      unit students revisit: 0.589
-
-  [SUBTRACT 20 LESSONS]
-      subtract 20 lessons: 0.592
-
-
-===== CHUNK 4 (Pages 10–12) =====
-
 
 ===== PAGE 10 =====
 Section A: Add and Subtract Within 20
@@ -200,26 +175,19 @@ warm-ups support students' fluency within 10 and addition up to 100.
 There are no new centers introduced in this unit. Students choose from centers that have been
 introduced throughout the year. Students can work at any previously introduced stages of the centers.
 Grade 1, Unit 8
-===== KEYWORD CLUSTERS FOR CHUNK 4 (Pages 10–12) =====
+===== KEYWORD CLUSTERS FOR CHUNK 3 (Pages 7–12) =====
 
-  [FLUENCY ADDITION SUBTRACTION]
-      fluency addition subtraction: 0.685
-      fluently add subtract: 0.612
-      addition subtraction idea: 0.611
-      practice adding subtracting: 0.609
-      subtraction idea making: 0.594
-      addition subtraction: 0.565
-      addition subtraction continues: 0.562
-      subtract 20 fluently: 0.561
+  [LESSONS SECTION NUMBERS]
+      lessons section numbers: 0.616
+      20 lessons section: 0.592
+      10 lessons section: 0.588
 
-  [SUBTRACTION FACTS STUDENTS]
-      subtraction facts students: 0.581
-
-  [ADD SUBTRACT GRADE]
-      add subtract grade: 0.559
+  [UNIT LEARNING GOALS]
+      unit learning goals: 0.596
+      section learning goals: 0.582
 
 
-===== CHUNK 5 (Pages 13–15) =====
+===== CHUNK 4 (Pages 13–20) =====
 
 
 ===== PAGE 13 =====
@@ -299,27 +267,6 @@ Materials to Gather
 Colored pencils: Activity 1
 Grade 1, Unit 8
 Unit 8 Lesson 1
-===== KEYWORD CLUSTERS FOR CHUNK 5 (Pages 13–15) =====
-
-  [LESSON ADDITION FLUENCY]
-      lesson addition fluency: 0.625
-      20 lesson addition: 0.598
-      lesson addition: 0.578
-      subtract 20 lesson: 0.527
-
-  [MATERIALS NEEDED LESSON]
-      materials needed lesson: 0.576
-
-  [GRADE PURPOSE LESSON]
-      grade purpose lesson: 0.570
-      purpose lesson students: 0.546
-      concepts lesson: 0.540
-      lesson activities: 0.537
-      lesson purpose: 0.514
-
-
-===== CHUNK 6 (Pages 16–20) =====
-
 
 ===== PAGE 16 =====
 Index cards: Activity 1
@@ -494,26 +441,13 @@ Synthesis
 index cards, or to play games using
 addition within 10?” (Index cards because
 Grade 1, Unit 8
-===== KEYWORD CLUSTERS FOR CHUNK 6 (Pages 16–20) =====
+===== KEYWORD CLUSTERS FOR CHUNK 4 (Pages 13–20) =====
 
-  [LESSON OBSERVATIONS STUDENT]
-      lesson observations student: 0.598
-      lesson observations: 0.589
-      unit lesson activity: 0.586
-      lesson activity: 0.544
-      lesson activity 10: 0.531
-      observations student responses: 0.529
-      activity lesson synthesis: 0.521
-      lesson synthesis: 0.520
-
-  [STUDENTS IDENTIFY SUMS]
-      students identify sums: 0.549
-
-  [10 INSTRUCTIONAL ROUTINES]
-      10 instructional routines: 0.528
+  [LEARNERS MATERIALS GATHER]
+      learners materials gather: 0.559
 
 
-===== CHUNK 7 (Pages 21–23) =====
+===== CHUNK 5 (Pages 21–35) =====
 
 
 ===== PAGE 21 =====
@@ -592,27 +526,6 @@ Warm-up
 Begin Lesson
 Grade 1, Unit 8
 Unit 8 Lesson 2
-===== KEYWORD CLUSTERS FOR CHUNK 7 (Pages 21–23) =====
-
-  [ADDITION SUBTRACTION STUDENT]
-      addition subtraction student: 0.673
-      10 students subtraction: 0.636
-      students subtraction difficult: 0.632
-      fluency addition subtraction: 0.632
-      students subtraction: 0.625
-      subtraction 10 students: 0.598
-      subtraction student: 0.594
-      addition subtraction standards: 0.592
-
-  [LESSON RELATE ADDITION]
-      lesson relate addition: 0.662
-
-  [BUILDING FLUENCY ADDITION]
-      building fluency addition: 0.590
-
-
-===== CHUNK 8 (Pages 24–27) =====
-
 
 ===== PAGE 24 =====
 Standards Alignments
@@ -749,27 +662,6 @@ Synthesis
 Invite previously identified students to
 share.
 Grade 1, Unit 8
-===== KEYWORD CLUSTERS FOR CHUNK 8 (Pages 24–27) =====
-
-  [STRATEGIES UNDERSTANDINGS STUDENTS]
-      strategies understandings students: 0.575
-      students build understanding: 0.563
-      understandings help students: 0.543
-      students identify sums: 0.525
-      students use number: 0.514
-
-  [LESSON SUBTRACTION]
-      lesson subtraction: 0.543
-      unit lesson subtraction: 0.517
-      lesson subtraction equation: 0.498
-
-  [NUMBER TALK ELICIT]
-      number talk elicit: 0.519
-      number talk student: 0.501
-
-
-===== CHUNK 9 (Pages 28–32) =====
-
 
 ===== PAGE 28 =====
 away from 8 and have 3 left, you took away
@@ -920,27 +812,6 @@ Standards Alignments
 Addressing
 Begin Lesson
 Grade 1, Unit 8
-===== KEYWORD CLUSTERS FOR CHUNK 9 (Pages 28–32) =====
-
-  [LESSON IDENTIFYING DIFFERENCES]
-      lesson identifying differences: 0.632
-      subtraction lesson helps: 0.555
-      subtract 20 lesson: 0.554
-      subtracting 10 lesson: 0.553
-      difference lesson synthesis: 0.543
-
-  [STUDENTS IDENTIFY DIFFERENCES]
-      students identify differences: 0.581
-      students accurately distinguish: 0.548
-      students routine improvements: 0.542
-
-  [MEMORY FLUENCY USING]
-      memory fluency using: 0.568
-      know memory students: 0.534
-
-
-===== CHUNK 10 (Pages 33–35) =====
-
 
 ===== PAGE 33 =====
 Unit 8 Lesson 3
@@ -1047,26 +918,8 @@ The purpose of this activity is for students to practice adding and subtracting 
 add to find the sum of two numbers, and either add or subtract to find the unknown addend
 when one addend and the sum are given.
 Grade 1, Unit 8
-===== KEYWORD CLUSTERS FOR CHUNK 10 (Pages 33–35) =====
 
-  [STUDENTS ADD SUBTRACT]
-      students add subtract: 0.658
-      addition subtraction mentally: 0.619
-      subtraction mentally solve: 0.586
-      practice adding subtracting: 0.560
-      used help subtraction: 0.554
-      subtraction mentally: 0.530
-
-  [SUBTRACT 20 INSTRUCTIONAL]
-      subtract 20 instructional: 0.649
-      subtracting 20 students: 0.542
-      subtract 20 students: 0.529
-
-  [STUDENTS PRACTICE ADDING]
-      students practice adding: 0.527
-
-
-===== CHUNK 11 (Pages 36–38) =====
+===== CHUNK 6 (Pages 36–38) =====
 
 
 ===== PAGE 36 =====
@@ -1147,26 +1000,8 @@ Grade 1, Unit 8
 helps me think of ways to make easier sums or differences. I can decompose one number and add or
 subtract in parts.)
 Grade 1, Unit 8
-===== KEYWORD CLUSTERS FOR CHUNK 11 (Pages 36–38) =====
 
-  [PLAY STUDENT RESPONSES]
-      play student responses: 0.581
-      demonstrate students ask: 0.541
-      demonstrate students: 0.539
-      round play student: 0.525
-      played students demonstrate: 0.522
-
-  [THINKING STUDENTS]
-      thinking students: 0.564
-      student thinking students: 0.539
-      advancing student thinking: 0.528
-      student thinking: 0.524
-
-  [10 ADVANCING STUDENT]
-      10 advancing student: 0.530
-
-
-===== CHUNK 12 (Pages 39–41) =====
+===== CHUNK 7 (Pages 39–42) =====
 
 
 ===== PAGE 39 =====
@@ -1261,27 +1096,6 @@ Synthesis
 “What equations could we write to represent
 the last image?” (
 Grade 1, Unit 8
-===== KEYWORD CLUSTERS FOR CHUNK 12 (Pages 39–41) =====
-
-  [LESSON STUDENTS SOLVE]
-      lesson students solve: 0.643
-      students solve: 0.532
-
-  [PROBLEMS LESSON CHANGE]
-      problems lesson change: 0.602
-      lesson section story: 0.558
-      lesson synthesis: 0.529
-
-  [STORY PROBLEMS LESSON]
-      story problems lesson: 0.589
-      solve story problems: 0.569
-      story problems addressing: 0.569
-      story problems standards: 0.552
-      story problems solved: 0.529
-
-
-===== CHUNK 13 (Pages 42–44) =====
-
 
 ===== PAGE 42 =====
 Student Responses
@@ -1305,6 +1119,18 @@ to ensure student access to word problems and other text-based content.
 Supports accessibility for: Language, Visual-Spatial Processing, Attention
 Access for Students with Disabilities
 Grade 1, Unit 8
+===== KEYWORD CLUSTERS FOR CHUNK 7 (Pages 39–42) =====
+
+  [SOLVE STORY PROBLEMS]
+      solve story problems: 0.569
+      story problems addressing: 0.569
+
+  [STORY PROBLEMS STANDARDS]
+      story problems standards: 0.552
+
+
+===== CHUNK 8 (Pages 43–61) =====
+
 
 ===== PAGE 43 =====
 Unit 8 Lesson 4
@@ -1408,27 +1234,6 @@ will say with a partner before they share with the whole class.
 Advances: Speaking
 Access for English Learners
 Grade 1, Unit 8
-===== KEYWORD CLUSTERS FOR CHUNK 13 (Pages 42–44) =====
-
-  [CLASSROOM STUDENTS SOLVE]
-      classroom students solve: 0.583
-      students represent method: 0.576
-      activity students understanding: 0.575
-      students represent solve: 0.573
-      students understanding: 0.565
-      problem students presented: 0.540
-      students solve problem: 0.533
-      students solve: 0.532
-
-  [STORY STUDENTS EQUATION]
-      story students equation: 0.564
-
-  [LESSON MATERIALS GATHER]
-      lesson materials gather: 0.533
-
-
-===== CHUNK 14 (Pages 45–47) =====
-
 
 ===== PAGE 45 =====
 Unit 8 Lesson 4
@@ -1544,27 +1349,6 @@ Connecting cubes in towers of 10 and
 singles: Activity 1, Activity 2
 Grade 1, Unit 8
 Unit 8 Lesson 5
-===== KEYWORD CLUSTERS FOR CHUNK 14 (Pages 45–47) =====
-
-  [STUDENTS SOLVE]
-      students solve: 0.516
-      lesson students solve: 0.491
-      students solve apart: 0.487
-      numbers words student: 0.475
-      student facing task: 0.462
-      students need: 0.452
-
-  [NUMBER FROGS SWAM]
-      number frogs swam: 0.455
-      16 bullfrogs aquarium: 0.450
-      16 number frogs: 0.448
-
-  [READ TASK]
-      read task: 0.443
-
-
-===== CHUNK 15 (Pages 48–50) =====
-
 
 ===== PAGE 48 =====
 Lesson Timeline
@@ -1676,27 +1460,6 @@ to the planetarium.”
 Activity
 8 minutes: independent work time
 Grade 1, Unit 8
-===== KEYWORD CLUSTERS FOR CHUNK 15 (Pages 48–50) =====
-
-  [REASONING STUDENT RESPONSES]
-      reasoning student responses: 0.623
-      students use understandings: 0.579
-      strategies understandings students: 0.574
-      explain reasoning student: 0.552
-      reasoning student: 0.551
-      students make sense: 0.533
-
-  [STUDENT RESPONSES]
-      student responses: 0.556
-      student responses false: 0.548
-      student facing task: 0.527
-
-  [LESSON STANDARDS ALIGNMENTS]
-      lesson standards alignments: 0.544
-
-
-===== CHUNK 16 (Pages 51–53) =====
-
 
 ===== PAGE 51 =====
 Unit 8 Lesson 5
@@ -1810,27 +1573,6 @@ not match? Can you add the numbers in the problem anyway you want?” (You can�
 numbers in the problem. You have to make sure they match what the story is about.)
 Complete Cool-Down
 Grade 1, Unit 8
-===== KEYWORD CLUSTERS FOR CHUNK 16 (Pages 51–53) =====
-
-  [STARS ADDITION STUDENTS]
-      stars addition students: 0.562
-      dim stars addition: 0.562
-      11 objects stars: 0.540
-      dim stars total: 0.538
-      stars addition: 0.537
-      number dim stars: 0.535
-      stars total number: 0.532
-
-  [STARS USES SUBTRACTION]
-      stars uses subtraction: 0.549
-
-  [ADDITION STUDENTS SOLVE]
-      addition students solve: 0.548
-      students solve: 0.546
-
-
-===== CHUNK 17 (Pages 54–56) =====
-
 
 ===== PAGE 54 =====
 Response to Student Thinking
@@ -1905,27 +1647,6 @@ Which One Doesn’t Belong: Equations
 Warm-up
 Begin Lesson
 Grade 1, Unit 8
-===== KEYWORD CLUSTERS FOR CHUNK 17 (Pages 54–56) =====
-
-  [STUDENTS SOLVE COMPARE]
-      students solve compare: 0.652
-
-  [COMPARE PROBLEMS STUDENTS]
-      compare problems students: 0.645
-      lesson students solve: 0.643
-      students solve problems: 0.617
-      students practice solving: 0.601
-      problems lesson students: 0.599
-      students solve: 0.593
-      problems students need: 0.592
-
-  [STORY PROBLEMS GRADE]
-      story problems grade: 0.611
-      compare story problems: 0.598
-
-
-===== CHUNK 18 (Pages 57–59) =====
-
 
 ===== PAGE 57 =====
 Unit 8 Lesson 6
@@ -2059,27 +1780,6 @@ If students add both quantities in the problems, consider asking:
 “What does your answer mean in the story? Does it make sense?”
 “How could you use the connecting cubes or a drawing to represent the problem?”
 Grade 1, Unit 8
-===== KEYWORD CLUSTERS FOR CHUNK 18 (Pages 57–59) =====
-
-  [SYNTHESIS STUDENTS COMPARE]
-      synthesis students compare: 0.602
-      synthesis students revisit: 0.560
-      synthesis students: 0.549
-
-  [CLASSROOM STUDENTS SOLVE]
-      classroom students solve: 0.591
-      students solve: 0.587
-      students practice solving: 0.586
-      students compare equation: 0.571
-      students think structure: 0.544
-
-  [ADDITION SUBTRACTION INSTRUCTIONAL]
-      addition subtraction instructional: 0.575
-      subtraction instructional: 0.548
-
-
-===== CHUNK 19 (Pages 60–63) =====
-
 
 ===== PAGE 60 =====
 How Many Rides?
@@ -2147,6 +1847,23 @@ Display equation:
 “How does the equation show the relationship between the rides Jada and Mai went on?” (It shows that
 you have to add three more rides to Mai’s rides in order to get to the number of rides Jada went on.)
 Grade 1, Unit 8
+===== KEYWORD CLUSTERS FOR CHUNK 8 (Pages 43–61) =====
+
+  [DRAWING TURTLES JOINED]
+      drawing turtles joined: 0.558
+      turtles joined 15: 0.550
+      joined 15 turtles: 0.542
+      15 turtles: 0.542
+      drawing turtles: 0.532
+      15 turtles tank: 0.523
+      drawing 12 penguins: 0.516
+
+  [14 ANIMALS SEA]
+      14 animals sea: 0.498
+
+
+===== CHUNK 9 (Pages 62–69) =====
+
 
 ===== PAGE 62 =====
 Section C: Numbers to 120
@@ -2213,27 +1930,6 @@ Represent the same number with different amounts of tens and ones.
 Addressing
 Grade 1, Unit 8
 Unit 8 Lesson 7
-===== KEYWORD CLUSTERS FOR CHUNK 19 (Pages 60–63) =====
-
-  [STUDENTS USE REPRESENT]
-      students use represent: 0.554
-      question representation helps: 0.550
-      display representation student: 0.547
-      students explain representation: 0.543
-      lesson observations student: 0.536
-
-  [LEARNERS MLR7 ACTIVITY]
-      learners mlr7 activity: 0.537
-      english learners mlr7: 0.523
-
-  [DIAGRAMS STUDENTS USE]
-      diagrams students use: 0.535
-      tape diagrams students: 0.532
-      diagrams students: 0.526
-
-
-===== CHUNK 20 (Pages 64–69) =====
-
 
 ===== PAGE 64 =====
 What Do You Know About 103?
@@ -2433,26 +2129,8 @@ groups or make your own by circling.)
 “How did you use ten today to help you count? How was ten helpful?” (We organized our objects into
 groups of ten. Then we counted the tens. It helped us keep track when we had to count lots of things.)
 Grade 1, Unit 8
-===== KEYWORD CLUSTERS FOR CHUNK 20 (Pages 64–69) =====
 
-  [STUDENTS DETERMINE NUMBER]
-      students determine number: 0.549
-      103 student responses: 0.535
-      students represent count: 0.533
-      starting number students: 0.527
-      student count represent: 0.526
-      student responses sample: 0.520
-      number students stand: 0.514
-      students count represent: 0.509
-
-  [GRADE UNIT PAGE]
-      grade unit page: 0.523
-
-  [108 LESSON SYNTHESIS]
-      108 lesson synthesis: 0.519
-
-
-===== CHUNK 21 (Pages 70–72) =====
+===== CHUNK 10 (Pages 70–72) =====
 
 
 ===== PAGE 70 =====
@@ -2548,26 +2226,8 @@ estimate? Why did you change it?”
 “Let’s look at our revised estimates. Why were
 these estimates more accurate the second
 Grade 1, Unit 8
-===== KEYWORD CLUSTERS FOR CHUNK 21 (Pages 70–72) =====
 
-  [LESSON STANDARDS ALIGNMENTS]
-      lesson standards alignments: 0.665
-      alignments lesson purpose: 0.618
-      alignments student: 0.555
-      standards alignments student: 0.541
-
-  [STUDENTS REPRESENT DIGIT]
-      students represent digit: 0.601
-
-  [LESSON STUDENTS REPRESENT]
-      lesson students represent: 0.570
-      lesson synthesis: 0.546
-      lesson grade unit: 0.546
-      lesson observations: 0.546
-      unit lesson page: 0.543
-
-
-===== CHUNK 22 (Pages 73–76) =====
+===== CHUNK 11 (Pages 73–91) =====
 
 
 ===== PAGE 73 =====
@@ -2687,27 +2347,6 @@ someone did that for their number.)
 “If you’d like, you can add to or revise the
 representations on your page.”
 Grade 1, Unit 8
-===== KEYWORD CLUSTERS FOR CHUNK 22 (Pages 73–76) =====
-
-  [STUDENTS REPRESENT NUMBERS]
-      students represent numbers: 0.605
-      students represent number: 0.598
-      activity students interpret: 0.580
-      activity students represent: 0.556
-      responses students represent: 0.528
-      students interpret representations: 0.517
-      students interpret: 0.516
-
-  [EXPRESSIONS STUDENTS DRAWINGS]
-      expressions students drawings: 0.548
-
-  [STUDENTS PLAN METHOD]
-      students plan method: 0.532
-      thinking students difficulty: 0.526
-
-
-===== CHUNK 23 (Pages 77–79) =====
-
 
 ===== PAGE 77 =====
 Unit 8 Lesson 8
@@ -2794,27 +2433,6 @@ Number Riddle Cards (groups of 20):
 Activity 2
 Grade 1, Unit 8
 Unit 8 Lesson 9
-===== KEYWORD CLUSTERS FOR CHUNK 23 (Pages 77–79) =====
-
-  [PREPARATION LESSON SYNTHESIS]
-      preparation lesson synthesis: 0.570
-      lesson synthesis create: 0.549
-      lesson synthesis: 0.538
-      lesson synthesis today: 0.520
-      today lesson synthesis: 0.512
-      synthesis students discuss: 0.510
-      lesson solve number: 0.488
-
-  [STUDENTS WORK CENTER]
-      students work center: 0.495
-      student facing task: 0.492
-
-  [ALIGNMENTS LESSON PURPOSE]
-      alignments lesson purpose: 0.491
-
-
-===== CHUNK 24 (Pages 80–83) =====
-
 
 ===== PAGE 80 =====
 chart paper so that only the first clue is showing.
@@ -2954,27 +2572,6 @@ fit the clues (MP3). Then students read the last clue (shaded grey) and identify
 Students rotate between riddles; it is also possible for students to remain in the same place and
 trade riddles.
 Grade 1, Unit 8
-===== KEYWORD CLUSTERS FOR CHUNK 24 (Pages 80–83) =====
-
-  [STUDENTS COMPARING DIGIT]
-      students comparing digit: 0.594
-      number ___________ student: 0.580
-      students work numbers: 0.576
-      students solve number: 0.560
-      number students: 0.555
-      number students solve: 0.553
-      number instructional: 0.549
-
-  [NUMBER GRADE UNIT]
-      number grade unit: 0.553
-      number grade: 0.546
-
-  [UNDERSTANDINGS STUDENTS COMPARING]
-      understandings students comparing: 0.548
-
-
-===== CHUNK 25 (Pages 84–86) =====
-
 
 ===== PAGE 84 =====
 Required Preparation
@@ -3079,27 +2676,6 @@ singles: Activity 1, Activity 2
 Index cards: Activity 1
 Materials from a previous activity: Activity 2
 Grade 1, Unit 8
-===== KEYWORD CLUSTERS FOR CHUNK 25 (Pages 84–86) =====
-
-  [RIDDLES INVITE STUDENTS]
-      riddles invite students: 0.609
-      students write riddles: 0.597
-      students share clues: 0.567
-      students choose clues: 0.538
-      number riddles student: 0.522
-      students need: 0.516
-      students disabilities materials: 0.498
-      materials access students: 0.493
-
-  [RIDDLE CARDS SUPPORTS]
-      riddle cards supports: 0.491
-
-  [LEARNERS MLR8 ACTIVITY]
-      learners mlr8 activity: 0.491
-
-
-===== CHUNK 26 (Pages 87–90) =====
-
 
 ===== PAGE 87 =====
 Unit 8 Lesson 10
@@ -3247,27 +2823,6 @@ Encourage students to challenge each other when they disagree.
 Advances: Speaking, Listening
 Access for English Learners
 Grade 1, Unit 8
-===== KEYWORD CLUSTERS FOR CHUNK 26 (Pages 87–90) =====
-
-  [NUMBER RIDDLES STUDENTS]
-      number riddles students: 0.565
-      students write number: 0.564
-      students solve number: 0.563
-      number riddles student: 0.546
-      number students: 0.542
-      students solve: 0.516
-      number students work: 0.512
-
-  [REASONING STUDENT RESPONSES]
-      reasoning student responses: 0.542
-
-  [STUDENTS ADDING 100]
-      students adding 100: 0.536
-      adding 100 instructional: 0.525
-
-
-===== CHUNK 27 (Pages 91–93) =====
-
 
 ===== PAGE 91 =====
 Unit 8 Lesson 10
@@ -3304,6 +2859,9 @@ Lesson Synthesis
 Invite students to share with the whole class.
 Grade 1, Unit 8
 
+===== CHUNK 12 (Pages 92–94) =====
+
+
 ===== PAGE 92 =====
 CKMath
 Family Support
@@ -3337,27 +2895,6 @@ In this section, students organize, count, and represent groups of up to
 120 objects using their understanding of place value. Students create
 Grade 1 Unit 8
 Putting It All Together
-===== KEYWORD CLUSTERS FOR CHUNK 27 (Pages 91–93) =====
-
-  [RIDDLES LESSON SYNTHESIS]
-      riddles lesson synthesis: 0.588
-      solve classmates riddles: 0.541
-      riddle student responses: 0.526
-      solve challenging riddles: 0.492
-      classmates riddles use: 0.475
-      challenging riddles lesson: 0.473
-      riddle student: 0.471
-
-  [RIDDLES USE WORKBOOK]
-      riddles use workbook: 0.573
-
-  [STUDENT FACING TASK]
-      student facing task: 0.485
-      problems section students: 0.472
-
-
-===== CHUNK 28 (Pages 94–96) =====
-
 
 ===== PAGE 94 =====
 multiple representations of two-digit numbers, demonstrating their
@@ -3378,6 +2915,21 @@ How did you know which number comes next?
 What is a number less than ___? What is a number more than ___?
 Grade 1 Unit 8
 Putting It All Together
+===== KEYWORD CLUSTERS FOR CHUNK 12 (Pages 92–94) =====
+
+  [ADDITION SUBTRACTION INVOLVE]
+      addition subtraction involve: 0.633
+      fluency addition subtraction: 0.632
+      addition subtraction facts: 0.619
+      addition subtraction helpful: 0.599
+
+  [SUBTRACTION INVOLVE]
+      subtraction involve: 0.616
+      related subtraction facts: 0.604
+
+
+===== CHUNK 13 (Pages 95–98) =====
+
 
 ===== PAGE 95 =====
 CKMath
@@ -3399,27 +2951,6 @@ subtraction.
 Make 10 when adding or
 subtracting within 20.
 Checkpoint
-===== KEYWORD CLUSTERS FOR CHUNK 28 (Pages 94–96) =====
-
-  [NUMBERS DEMONSTRATING UNDERSTANDING]
-      numbers demonstrating understanding: 0.610
-      demonstrating understanding digits: 0.548
-      numbers: 0.516
-      number represent amounts: 0.511
-      represent amounts tens: 0.506
-      number represent: 0.504
-
-  [STUDENT SOLVE]
-      student solve: 0.529
-      ask student solve: 0.509
-      unit ask student: 0.489
-
-  [NUMBER ___ GRADE]
-      number ___ grade: 0.492
-
-
-===== CHUNK 29 (Pages 97–99) =====
-
 
 ===== PAGE 97 =====
 Grade 1, Unit 8
@@ -3463,6 +2994,22 @@ Represent the same
 number with diﬀerent
 amounts of tens and
 Checkpoint
+===== KEYWORD CLUSTERS FOR CHUNK 13 (Pages 95–98) =====
+
+  [SECTION CHECKPOINT SOLVE]
+      section checkpoint solve: 0.604
+      unit section checkpoint: 0.514
+      section checkpoint fluently: 0.508
+
+  [CHECKPOINT SOLVE]
+      checkpoint solve: 0.597
+      subtracting 20 checkpoint: 0.580
+      checkpoint solve add: 0.565
+      question correctly checkpoint: 0.526
+
+
+===== CHUNK 14 (Pages 99–101) =====
+
 
 ===== PAGE 99 =====
 Putting It All Together: End-of-Course
@@ -3472,27 +3019,6 @@ Show your thinking using drawings, numbers, or words.
 Grade 1 Unit 8
 End-of-Course Assessment and
 Resources
-===== KEYWORD CLUSTERS FOR CHUNK 29 (Pages 97–99) =====
-
-  [REPRESENT STORY OBJECTS]
-      represent story objects: 0.533
-      represent story equations: 0.514
-      story objects drawings: 0.493
-      story problems: 0.476
-      story objects: 0.470
-      story problems way: 0.467
-      drawings represent story: 0.457
-      unknown story problems: 0.452
-
-  [SECTION CHECKPOINT SOLVE]
-      section checkpoint solve: 0.484
-
-  [120 ORGANIZE OBJECTS]
-      120 organize objects: 0.464
-
-
-===== CHUNK 30 (Pages 100–103) =====
-
 
 ===== PAGE 100 =====
 Grade 1 Unit 8
@@ -3503,6 +3029,21 @@ Resources
 Grade 1 Unit 8
 End-of-Course Assessment and
 Resources
+===== KEYWORD CLUSTERS FOR CHUNK 14 (Pages 99–101) =====
+
+  [ASSESSMENT RESOURCES CONNECTING]
+      assessment resources connecting: 0.592
+      end course assessment: 0.538
+      assessment resources: 0.514
+      course assessment resources: 0.510
+      course assessment: 0.510
+
+  [RESOURCES CONNECTING CUBES]
+      resources connecting cubes: 0.569
+
+
+===== CHUNK 15 (Pages 102–105) =====
+
 
 ===== PAGE 102 =====
 2. Find the value of each expression.
@@ -3518,27 +3059,6 @@ Use connecting cubes if they are helpful.
 Grade 1 Unit 8
 End-of-Course Assessment and
 Resources
-===== KEYWORD CLUSTERS FOR CHUNK 30 (Pages 100–103) =====
-
-  [ASSESSMENT RESOURCES PAGE]
-      assessment resources page: 0.551
-      assessment resources: 0.485
-      course assessment resources: 0.482
-      course assessment: 0.464
-      end course assessment: 0.455
-      resources page 101: 0.439
-
-  [NUMBERS WORDS GRADE]
-      numbers words grade: 0.458
-      words grade unit: 0.432
-
-  [EXPRESSION THINKING USING]
-      expression thinking using: 0.447
-      value expression: 0.431
-
-
-===== CHUNK 31 (Pages 104–106) =====
-
 
 ===== PAGE 104 =====
 4. Jada has 17 cards.
@@ -3564,6 +3084,27 @@ How many students are there altogether?
 Grade 1 Unit 8
 End-of-Course Assessment and
 Resources
+===== KEYWORD CLUSTERS FOR CHUNK 15 (Pages 102–105) =====
+
+  [THINKING USING DRAWINGS]
+      thinking using drawings: 0.493
+      numbers words classroom: 0.486
+      drawings numbers words: 0.461
+      using drawings numbers: 0.441
+      drawings numbers: 0.418
+      numbers words grade: 0.398
+
+  [EXPRESSION THINKING USING]
+      expression thinking using: 0.471
+
+  [NUMBERS WORDS JADA]
+      numbers words jada: 0.444
+      jada bracelet thinking: 0.391
+      jada bracelet 12: 0.391
+
+
+===== CHUNK 16 (Pages 106–108) =====
+
 
 ===== PAGE 106 =====
 a. Kiran says “
@@ -3576,27 +3117,6 @@ in a way that makes sense to you.
 Grade 1 Unit 8
 End-of-Course Assessment and
 Resources
-===== KEYWORD CLUSTERS FOR CHUNK 31 (Pages 104–106) =====
-
-  [NUMBERS WORDS CLASSROOM]
-      numbers words classroom: 0.506
-      numbers words grade: 0.423
-      numbers words jada: 0.409
-      students altogether grade: 0.405
-      students: 0.399
-
-  [15 EXPLAIN]
-      15 explain: 0.436
-      15 15 explain: 0.409
-
-  [THINKING USING DRAWINGS]
-      thinking using drawings: 0.428
-      drawings numbers words: 0.423
-      using drawings numbers: 0.408
-
-
-===== CHUNK 32 (Pages 107–109) =====
-
 
 ===== PAGE 107 =====
 9. Circle 3 correct equations.
@@ -3611,6 +3131,27 @@ to make each statement true.
 Grade 1 Unit 8
 End-of-Course Assessment and
 Resources
+===== KEYWORD CLUSTERS FOR CHUNK 16 (Pages 106–108) =====
+
+  [CORRECT EQUATIONS GRADE]
+      correct equations grade: 0.615
+      equations grade: 0.564
+      equations grade unit: 0.559
+      correct equations: 0.453
+      equation true thinking: 0.442
+
+  [GRADE UNIT END]
+      grade unit end: 0.466
+      grade unit: 0.457
+      statement true grade: 0.453
+      true grade unit: 0.451
+
+  [END COURSE ASSESSMENT]
+      end course assessment: 0.437
+
+
+===== CHUNK 17 (Pages 109–111) =====
+
 
 ===== PAGE 109 =====
 12. Clare says that the rectangle is 7 cubes long.
@@ -3628,27 +3169,6 @@ F. The snake is shorter than the hallway.
 Grade 1 Unit 8
 End-of-Course Assessment and
 Resources
-===== KEYWORD CLUSTERS FOR CHUNK 32 (Pages 107–109) =====
-
-  [SHORTER HALLWAY GRADE]
-      shorter hallway grade: 0.479
-      snake hallway longer: 0.432
-      hallway snake longer: 0.416
-      hallway longer snake: 0.410
-      shorter snake hallway: 0.410
-      hallway snake shorter: 0.409
-
-  [CORRECT EQUATIONS GRADE]
-      correct equations grade: 0.457
-      equations grade: 0.420
-
-  [STATEMENTS FLAGPOLE SHORTER]
-      statements flagpole shorter: 0.437
-      circle correct statements: 0.426
-
-
-===== CHUNK 33 (Pages 110–112) =====
-
 
 ===== PAGE 110 =====
 14. Find the value of each expression.
@@ -3665,6 +3185,27 @@ Show your thinking using drawings, numbers, or words.
 Grade 1 Unit 8
 End-of-Course Assessment and
 Resources
+===== KEYWORD CLUSTERS FOR CHUNK 17 (Pages 109–111) =====
+
+  [VALUE DIFFERENCE GRADE]
+      value difference grade: 0.473
+      numbers words grade: 0.469
+      difference grade: 0.435
+      value difference: 0.431
+      words grade unit: 0.423
+      grade unit end: 0.417
+      difference grade unit: 0.408
+      grade unit: 0.399
+
+  [SHORTER HALLWAY GRADE]
+      shorter hallway grade: 0.457
+
+  [DRAWINGS NUMBERS WORDS]
+      drawings numbers words: 0.409
+
+
+===== CHUNK 18 (Pages 112–116) =====
+
 
 ===== PAGE 112 =====
 17. 20 students in Lin’s class chose their favorite magical power.
@@ -3676,27 +3217,6 @@ Show your thinking with drawings, numbers, or words.
 Grade 1 Unit 8
 End-of-Course Assessment and
 Resources
-===== KEYWORD CLUSTERS FOR CHUNK 33 (Pages 110–112) =====
-
-  [NUMBERS WORDS GRADE]
-      numbers words grade: 0.525
-      value difference grade: 0.516
-      difference grade: 0.452
-      words grade unit: 0.443
-
-  [STUDENTS LIN CLASS]
-      students lin class: 0.517
-      students lin: 0.475
-      20 students lin: 0.465
-
-  [STUDENTS CHOSE]
-      students chose: 0.469
-      invisible students chose: 0.459
-      class choices thinking: 0.450
-
-
-===== CHUNK 34 (Pages 113–115) =====
-
 
 ===== PAGE 113 =====
 CKMath
@@ -3736,27 +3256,6 @@ Represent the story with equations.
 Explain how their representation matches the story.
 Answer the question correctly.
 Grade 1, Unit 8
-===== KEYWORD CLUSTERS FOR CHUNK 34 (Pages 113–115) =====
-
-  [CHECKPOINT TEACHER INSTRUCTIONS]
-      checkpoint teacher instructions: 0.579
-      teacher instructions checkpoint: 0.563
-      section checkpoint teacher: 0.528
-
-  [ASSESSMENT SECTION CHECKPOINT]
-      assessment section checkpoint: 0.550
-      checkpoint assessment section: 0.545
-      checkpoint assessment checklist: 0.526
-      instructions checkpoint assessment: 0.525
-      checkpoint assessment answer: 0.521
-      section checkpoint assessment: 0.498
-
-  [SUBTRACTING 20 GRADE]
-      subtracting 20 grade: 0.510
-
-
-===== CHUNK 35 (Pages 116–118) =====
-
 
 ===== PAGE 116 =====
 Unit 8 Section C Checkpoint
@@ -3773,6 +3272,19 @@ Represent numbers to show the base-ten structure.
 Represent the same number with different amounts of tens and ones.
 Grade 1, Unit 8
 Unit 8 Section C Checkpoint
+===== KEYWORD CLUSTERS FOR CHUNK 18 (Pages 112–116) =====
+
+  [CHECKPOINT ASSESSMENT CHECKLIST]
+      checkpoint assessment checklist: 0.561
+      assessment section checkpoint: 0.546
+      checkpoint assessment section: 0.538
+
+  [ASSESSMENT CHECKLIST]
+      assessment checklist: 0.547
+
+
+===== CHUNK 19 (Pages 117–131) =====
+
 
 ===== PAGE 117 =====
 Assessment: End-of-Course Assessment and Resources
@@ -3800,27 +3312,6 @@ Grade 1, Unit 8
 Unit 8 End-of-Course Assessment and Resources
 Grade 1, Unit 8
 Unit 8 End-of-Course Assessment and Resources
-===== KEYWORD CLUSTERS FOR CHUNK 35 (Pages 116–118) =====
-
-  [TEACHER INSTRUCTIONS CHECKPOINT]
-      teacher instructions checkpoint: 0.626
-      checkpoint teacher instructions: 0.623
-      section checkpoint teacher: 0.603
-
-  [ASSESSMENT SECTION CHECKPOINT]
-      assessment section checkpoint: 0.618
-      checkpoint assessment section: 0.606
-      checkpoint assessment checklist: 0.591
-      instructions checkpoint assessment: 0.583
-      section checkpoint assessment: 0.582
-      checkpoint assessment: 0.548
-
-  [STUDENTS ASSESSMENTS]
-      students assessments: 0.546
-
-
-===== CHUNK 36 (Pages 119–125) =====
-
 
 ===== PAGE 119 =====
 Solution
@@ -3996,27 +3487,6 @@ students can focus on the ones while the third item has one number with fewer te
 some ones and the other number has more tens and no ones.
 Addressing
 Grade 1, Unit 8
-===== KEYWORD CLUSTERS FOR CHUNK 36 (Pages 119–125) =====
-
-  [PROBLEM STUDENTS SUBTRACT]
-      problem students subtract: 0.615
-      students subtract: 0.587
-      students subtract 17: 0.570
-      correct equations students: 0.563
-      students solve: 0.556
-      students solve way: 0.540
-      students add numbers: 0.537
-      students solve addend: 0.522
-
-  [STUDENT UNDERSTANDING DIGIT]
-      student understanding digit: 0.576
-
-  [STUDENTS VALUE EXPRESSIONS]
-      students value expressions: 0.547
-
-
-===== CHUNK 37 (Pages 126–129) =====
-
 
 ===== PAGE 126 =====
 Unit 8 End-of-Course Assessment and Resources
@@ -4109,27 +3579,6 @@ Addressing
 to make the statement true.
 Show your thinking using drawings, numbers, or words.
 Grade 1, Unit 8
-===== KEYWORD CLUSTERS FOR CHUNK 37 (Pages 126–129) =====
-
-  [STUDENTS COMPARE LENGTHS]
-      students compare lengths: 0.678
-      compare lengths objects: 0.565
-      compare length objects: 0.554
-      length objects using: 0.550
-      lengths objects: 0.546
-      length objects: 0.545
-      compare lengths: 0.542
-      compare length: 0.514
-
-  [LENGTH RECTANGLE GRADE]
-      length rectangle grade: 0.577
-
-  [MEASUREMENT CONNECTING CUBES]
-      measurement connecting cubes: 0.519
-
-
-===== CHUNK 38 (Pages 130–132) =====
-
 
 ===== PAGE 130 =====
 Unit 8 End-of-Course Assessment and Resources
@@ -4178,32 +3627,22 @@ or 10 prefer to fly. That's
 prefer being invisible and 11 who prefer to fly. So I went back and changed the number who want
 to heal the sick to 5.
 Grade 1, Unit 8
+===== KEYWORD CLUSTERS FOR CHUNK 19 (Pages 117–131) =====
+
+  [ACCURATELY ADDRESSING GRADE]
+      accurately addressing grade: 0.570
+
+  [ADDRESSING GRADE UNIT]
+      addressing grade unit: 0.545
+
+
+===== CHUNK 20 (Pages 132–135) =====
+
 
 ===== PAGE 132 =====
 CKMath
 Lesson
 Cool Downs
-===== KEYWORD CLUSTERS FOR CHUNK 38 (Pages 130–132) =====
-
-  [MULTIPLE SOLUTIONS STUDENTS]
-      multiple solutions students: 0.627
-      solutions students: 0.559
-
-  [NUMBER STUDENTS NEED]
-      number students need: 0.612
-      number students chose: 0.578
-      choosing numbers students: 0.570
-      depending number students: 0.569
-      choosing number students: 0.568
-      number students: 0.562
-
-  [NUMBERS APPROACHES STUDENTS]
-      numbers approaches students: 0.585
-      numbers students preferred: 0.554
-
-
-===== CHUNK 39 (Pages 133–135) =====
-
 
 ===== PAGE 133 =====
 Lesson 2: Relate Addition and Subtraction
@@ -4232,26 +3671,25 @@ Together they saw 12 shooting stars.
 How many shooting stars did Lin see?
 Show your thinking using drawings, numbers, or words.
 Grade 1 Unit 8
-===== KEYWORD CLUSTERS FOR CHUNK 39 (Pages 133–135) =====
-
-  [STORY PROBLEMS COOL]
-      story problems cool: 0.500
-      story problems: 0.476
-      apart story problems: 0.446
+===== KEYWORD CLUSTERS FOR CHUNK 20 (Pages 132–135) =====
 
   [ADDITION SUBTRACTION COOL]
-      addition subtraction cool: 0.495
-      lesson relate addition: 0.494
-      subtraction cool: 0.480
-      relate addition subtraction: 0.472
-      subtraction cool use: 0.472
-      subtraction: 0.448
+      addition subtraction cool: 0.526
+      relate addition subtraction: 0.499
+      subtraction cool: 0.488
+      subtraction cool use: 0.479
+      addition subtraction: 0.461
+      relate addition: 0.455
+      working write addition: 0.452
 
   [NUMBERS WORDS GRADE]
-      numbers words grade: 0.474
+      numbers words grade: 0.484
+
+  [STORY PROBLEMS COOL]
+      story problems cool: 0.467
 
 
-===== CHUNK 40 (Pages 136–138) =====
+===== CHUNK 21 (Pages 136–138) =====
 
 
 ===== PAGE 136 =====
@@ -4277,7 +3715,7 @@ Grade 1 Unit 8
 CKMath
 Instructional
 Masters
-===== KEYWORD CLUSTERS FOR CHUNK 40 (Pages 136–138) =====
+===== KEYWORD CLUSTERS FOR CHUNK 21 (Pages 136–138) =====
 
   [NUMBER RIDDLES GRADE]
       number riddles grade: 0.642
@@ -4290,13 +3728,12 @@ Masters
       numbers write number: 0.533
       numbers: 0.533
       number number: 0.532
+
+  [100 NUMBER NUMBER]
       100 number number: 0.513
 
-  [LESSON SOLVE NUMBER]
-      lesson solve number: 0.515
 
-
-===== CHUNK 41 (Pages 139–144) =====
+===== CHUNK 22 (Pages 139–144) =====
 
 
 ===== PAGE 139 =====
@@ -4458,12 +3895,11 @@ Riddle J
 My number
 is 15 more
 Number Riddle Cards
-===== KEYWORD CLUSTERS FOR CHUNK 41 (Pages 139–144) =====
+===== KEYWORD CLUSTERS FOR CHUNK 22 (Pages 139–144) =====
 
   [RIDDLE CARDS ASSESSMENT]
       riddle cards assessment: 0.650
       number riddle cards: 0.609
-      riddle cards page: 0.588
       riddle cards: 0.567
 
   [ONES RIDDLE NUMBER]
@@ -4477,7 +3913,7 @@ Number Riddle Cards
       cards assessment grade1: 0.471
 
 
-===== CHUNK 42 (Pages 145–147) =====
+===== CHUNK 23 (Pages 145–147) =====
 
 
 ===== PAGE 145 =====
@@ -4514,26 +3950,25 @@ matches the story.
 Answer the question
 correctly.
 Checkpoint
-===== KEYWORD CLUSTERS FOR CHUNK 42 (Pages 145–147) =====
+
+===== PAGE 147 =====
+(Skipped page with insufficient text content)
+===== KEYWORD CLUSTERS FOR CHUNK 23 (Pages 145–147) =====
 
   [SUBTRACTING 20 CHECKPOINT]
-      subtracting 20 checkpoint: 0.620
-      checkpoint solve: 0.619
-      checkpoint solve add: 0.596
-      section checkpoint solve: 0.575
-      question correctly checkpoint: 0.552
+      subtracting 20 checkpoint: 0.605
+      checkpoint solve: 0.584
+      checkpoint solve add: 0.571
+      section checkpoint solve: 0.560
+      question correctly checkpoint: 0.527
 
   [STORY PROBLEMS]
-      story problems: 0.576
-      story problems way: 0.567
-      unknown story problems: 0.557
-
-  [REPRESENT STORY EQUATIONS]
-      represent story equations: 0.536
-      story equations: 0.534
+      story problems: 0.558
+      unknown story problems: 0.549
+      story problems way: 0.543
 
 
-===== CHUNK 43 (Pages 148–150) =====
+===== CHUNK 24 (Pages 148–150) =====
 
 
 ===== PAGE 148 =====
@@ -4558,26 +3993,28 @@ Represent the same
 number with diﬀerent
 amounts of tens and
 Checkpoint
-===== KEYWORD CLUSTERS FOR CHUNK 43 (Pages 148–150) =====
 
-  [CHECKPOINT COUNT GROUP]
-      checkpoint count group: 0.623
-      checkpoint count: 0.592
-      section checkpoint count: 0.580
-      unit section checkpoint: 0.546
+===== PAGE 149 =====
+(Skipped page with insufficient text content)
+
+===== PAGE 150 =====
+(Skipped page with insufficient text content)
+===== KEYWORD CLUSTERS FOR CHUNK 24 (Pages 148–150) =====
 
   [AMOUNTS TENS CHECKPOINT]
-      amounts tens checkpoint: 0.592
-      tens checkpoint: 0.549
+      amounts tens checkpoint: 0.574
+      section checkpoint count: 0.568
+      checkpoint count: 0.544
+      tens checkpoint: 0.502
 
   [STRUCTURE REPRESENT NUMBER]
-      structure represent number: 0.577
-      represent numbers: 0.550
-      represent number: 0.550
-      represent numbers base: 0.520
+      structure represent number: 0.540
+      represent numbers: 0.526
+      represent number: 0.519
+      quantity written numerals: 0.508
 
 
-===== CHUNK 44 (Pages 151–151) =====
+===== CHUNK 25 (Pages 151–151) =====
 
 
 ===== PAGE 151 =====
@@ -4594,7 +4031,7 @@ Length Measurements Within 120 Units
 Geometry and Time
 Putting it All Together
 www.coreknowledge.org
-===== KEYWORD CLUSTERS FOR CHUNK 44 (Pages 151–151) =====
+===== KEYWORD CLUSTERS FOR CHUNK 25 (Pages 151–151) =====
 
   [151 CKMATH COMPREHENSIVE]
       151 ckmath comprehensive: 0.677
@@ -4602,7 +4039,6 @@ www.coreknowledge.org
       ckmath comprehensive: 0.649
       151 ckmath: 0.563
       ckmath: 0.542
-      page 151 ckmath: 0.494
 
   [PROGRAM MATHEMATICAL SKILLS]
       program mathematical skills: 0.516
@@ -4616,51 +4052,60 @@ www.coreknowledge.org
 ══════════════════════════════════════════════════════
   FINAL CONCEPTS AND PREREQUISITES
 ══════════════════════════════════════════════════════
-  Concept: Addition Within 20
+  Concept: Add and Subtract Within 20
   Prerequisites: None
 
-  Concept: Subtraction Within 20
-  Prerequisites: Addition Within 20
-
   Concept: Story Problems
-  Prerequisites: Addition Within 20, Subtraction Within 20
+  Prerequisites: Add and Subtract Within 20
 
   Concept: Numbers to 120
-  Prerequisites: Addition Within 20, Subtraction Within 20
+  Prerequisites: Add and Subtract Within 20
 
-  Concept: Addition Fluency
-  Prerequisites: Addition Within 20
+  Concept: Solve Story Problems
+  Prerequisites: Story Problems, Add and Subtract Within 20
 
-  Concept: Subtraction Fluency
-  Prerequisites: Subtraction Within 20
+  Concept: Addition and Subtraction
+  Prerequisites: Add and Subtract Within 20
 
-  Concept: Number Talk
-  Prerequisites: Addition Within 20, Subtraction Within 20
-
-  Concept: Strategies for Addition and Subtraction
-  Prerequisites: Addition Within 20, Subtraction Within 20
-
-  Concept: Representing Numbers
+  Concept: Drawing and Numbers
   Prerequisites: Numbers to 120
 
-  Concept: Comparing Numbers
+  Concept: Section Checkpoint
+  Prerequisites: Add and Subtract Within 20, Story Problems
+
+  Concept: Assessment Resources
+  Prerequisites: Section Checkpoint
+
+  Concept: Thinking Using Drawings
+  Prerequisites: Drawing and Numbers
+
+  Concept: Correct Equations
+  Prerequisites: Add and Subtract Within 20, Numbers to 120
+
+  Concept: Grade Unit End Assessment
+  Prerequisites: Correct Equations, Section Checkpoint
+
+  Concept: Value Difference
+  Prerequisites: Add and Subtract Within 20
+
+  Concept: Checkpoint Assessment
+  Prerequisites: Section Checkpoint, Grade Unit End Assessment
+
+  Concept: Accurately Addressing Grade
+  Prerequisites: Grade Unit End Assessment
+
+  Concept: Addition and Subtraction Cool
+  Prerequisites: Add and Subtract Within 20, Story Problems
+
+  Concept: Number Riddles
   Prerequisites: Numbers to 120
 
-  Concept: Solving Story Problems with Addition and Subtraction
-  Prerequisites: Story Problems, Addition Within 20, Subtraction Within 20
+  Concept: Riddle Cards Assessment
+  Prerequisites: Number Riddles
 
-  Concept: Using Diagrams to Solve Problems
-  Prerequisites: Representing Numbers
+  Concept: Subtracting 20 Checkpoint
+  Prerequisites: Add and Subtract Within 20
 
-  Concept: Multi-Digit Numbers
+  Concept: Amounts and Tens Checkpoint
   Prerequisites: Numbers to 120
-
-  Concept: Adding and Subtracting Multi-Digit Numbers
-  Prerequisites: Multi-Digit Numbers, Addition Within 20, Subtraction Within 20
-
-  Concept: Understanding Place Value
-  Prerequisites: Numbers to 120
-
-  Concept: Riddles and Word Problems
-  Prerequisites: Addition Within 20, Subtraction Within 20, Story Problems
 
