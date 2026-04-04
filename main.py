@@ -76,8 +76,8 @@ with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         print_and_save_clusters(clusters, chunk_label, f)
         all_clusters_by_chunk[chunk_label] = list(clusters.keys())
 
-    parsed = query_llm(all_clusters_by_chunk, toc_context)
-    save_concepts(parsed, f)
+    parsed, flagged = query_llm(all_clusters_by_chunk, toc_context)
+    save_concepts(parsed, flagged, f)
 
     if parsed:
         with open(CONCEPTS_FILE, "w", encoding="utf-8") as jf:

@@ -1,13 +1,70 @@
 import re
 import json
-from config import groq_client
+from sentence_transformers import SentenceTransformer, util
+from config import groq_client, doc
+from cleaning import clean_text
+verification_model = SentenceTransformer("all-MiniLM-L6-v2")
+
 
 
 #-------------------------------------------------------
 # Verification and saving of LLM output
 #-------------------------------------------------------
+def build_document_index():
+    pages = []
+    for page_num in range(len(doc)):
+        raw_text = doc[page_num].get_text()
+        text     = clean_text(raw_text).strip()
+        if len(text) > 20:
+            pages.append({"page": page_num + 1, "text": text})
 
+    texts      = [p["text"] for p in pages]
+    embeddings = verification_model.encode(texts, convert_to_tensor=True)
 
+    return pages, embeddings
+
+def verify_concept_in_document(concept_name, pages, embeddings, threshold=0.5):
+    concept_emb = verification_model.encode(concept_name, convert_to_tensor=True)
+    scores      = util.cos_sim(concept_emb, embeddings)[0]
+    best_score  = scores.max().item()
+    best_page   = pages[scores.argmax().item()]["page"]
+
+    return {
+        "concept":   concept_name,
+        "found":     best_score >= threshold,
+        "score":     round(best_score, 3),
+        "best_page": best_page
+    }
+
+def rag_verify_llm_output(parsed, pages, embeddings, threshold=0.5):
+    clean   = []
+    flagged = []
+
+    for concept in parsed["concepts"]:
+        name_result = verify_concept_in_document(concept["name"], pages, embeddings, threshold)
+
+        if not name_result["found"]:
+            print(f"  ⚠ Hallucinated concept:    '{concept['name']}' (score: {name_result['score']}, best page: {name_result['best_page']})")
+            flagged.append(concept["name"])
+            continue
+
+        verified_prereqs = []
+        for prereq in concept["prerequisites"]:
+            prereq_result = verify_concept_in_document(prereq, pages, embeddings, threshold)
+            if prereq_result["found"]:
+                verified_prereqs.append(prereq)
+            else:
+                print(f"  ⚠ Hallucinated prerequisite: '{prereq}' (score: {prereq_result['score']}, best page: {prereq_result['best_page']})")
+                flagged.append(prereq)
+
+        clean.append({**concept, "prerequisites": verified_prereqs})
+
+    print(f"\n  ✅ Verified concepts:       {len(clean)}")
+    print(f"  ⚠ Flagged hallucinations:  {len(flagged)}")
+
+    return {"concepts": clean}, flagged
+
+#------------------------------------------------------------------
 
 def build_prompt(all_clusters_by_chunk, toc_context):
     clusters_section = ""
@@ -67,7 +124,21 @@ def query_llm(all_clusters_by_chunk, toc_context):
         raw = re.sub(r'^```json\s*', '', raw)
         raw = re.sub(r'^```\s*', '', raw)
         raw = re.sub(r'\s*```$', '', raw)
-        return json.loads(raw)
+        parsed = json.loads(raw)
+        # Mouse Trap for testing verification: inject a fake concept that should be flagged as hallucinated
+        parsed["concepts"].append({
+        "name": "quantum entanglement theory",
+        "prerequisites": ["relativistic calculus", "wave function collapse"]
+        })
+        print("  🧪 Injected test concept: 'quantum entanglement theory'")
+        #-------------------------------------------------------------------
+        print("\n===== RUNNING VERIFICATION CONSTRAINT =====")
+        pages, embeddings    = build_document_index()
+        parsed, flagged      = rag_verify_llm_output(parsed, pages, embeddings)
+
+        return parsed, flagged
+
+    
 
     except json.JSONDecodeError as e:
         print(f"  ⚠ JSON parse error: {e}")
@@ -77,7 +148,7 @@ def query_llm(all_clusters_by_chunk, toc_context):
         return None
 
 
-def save_concepts(parsed, file_handle):
+def save_concepts(parsed,flagged,file_handle):
     header  = "\n\n══════════════════════════════════════════════════════\n"
     header += "  FINAL CONCEPTS AND PREREQUISITES\n"
     header += "══════════════════════════════════════════════════════\n"
@@ -95,3 +166,10 @@ def save_concepts(parsed, file_handle):
         line = f"  Concept: {name}\n  Prerequisites: {prereq_str}\n\n"
         print(line, end="")
         file_handle.write(line)
+    
+    if flagged:
+        file_handle.write("\n══════════════════════════════════════════════════════\n")
+        file_handle.write("  FLAGGED HALLUCINATIONS\n")
+        file_handle.write("══════════════════════════════════════════════════════\n")
+        for item in flagged:
+            file_handle.write(f"  ⚠ {item}\n")

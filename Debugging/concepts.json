@@ -1,80 +1,78 @@
 {
   "concepts": [
     {
-      "name": "Addition",
+      "name": "Addition Within 20",
       "prerequisites": []
     },
     {
-      "name": "Subtraction",
+      "name": "Subtraction Within 20",
       "prerequisites": [
-        "Addition"
+        "Addition Within 20"
       ]
     },
     {
       "name": "Story Problems",
       "prerequisites": [
-        "Addition",
-        "Subtraction"
+        "Addition Within 20",
+        "Subtraction Within 20"
       ]
     },
     {
       "name": "Numbers to 120",
       "prerequisites": [
-        "Addition",
-        "Subtraction"
-      ]
-    },
-    {
-      "name": "Representing Numbers",
-      "prerequisites": [
-        "Numbers to 120"
-      ]
-    },
-    {
-      "name": "Related Subtraction Facts",
-      "prerequisites": [
-        "Subtraction"
+        "Addition Within 20",
+        "Subtraction Within 20"
       ]
     },
     {
       "name": "Solving Story Problems",
       "prerequisites": [
         "Story Problems",
-        "Addition",
-        "Subtraction"
+        "Addition Within 20",
+        "Subtraction Within 20"
       ]
     },
     {
-      "name": "Drawing to Represent Numbers",
+      "name": "Related Subtraction Facts",
       "prerequisites": [
-        "Representing Numbers"
+        "Subtraction Within 20"
       ]
     },
     {
-      "name": "Value Difference",
+      "name": "Subtracting 20",
       "prerequisites": [
-        "Subtraction"
+        "Subtraction Within 20"
       ]
     },
     {
-      "name": "Number Words",
+      "name": "Addition and Subtraction Relationships",
       "prerequisites": [
-        "Numbers to 120"
+        "Addition Within 20",
+        "Subtraction Within 20"
       ]
     },
     {
-      "name": "Correct Equations",
+      "name": "Representing Story Equations",
       "prerequisites": [
-        "Addition",
-        "Subtraction"
+        "Solving Story Problems",
+        "Addition Within 20",
+        "Subtraction Within 20"
       ]
     },
     {
-      "name": "Number Riddles",
+      "name": "Counting and Basic Number Sense",
+      "prerequisites": []
+    },
+    {
+      "name": "Number Sense to 120",
       "prerequisites": [
-        "Addition",
-        "Subtraction",
-        "Numbers to 120"
+        "Counting and Basic Number Sense"
+      ]
+    },
+    {
+      "name": "Basic Addition and Subtraction Facts",
+      "prerequisites": [
+        "Counting and Basic Number Sense"
       ]
     }
   ]

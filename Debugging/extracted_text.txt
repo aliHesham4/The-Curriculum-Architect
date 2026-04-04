@@ -40,9 +40,6 @@ Instructional Masters
       31 section lessons: 0.546
       section lessons story: 0.522
 
-  [DICE KIDS STUDYING]
-      dice kids studying: 0.548
-
   [OVERVIEW LESSONS PLANS]
       overview lessons plans: 0.537
       overview lessons: 0.526
@@ -197,9 +194,6 @@ Grade 1, Unit 8
   [UNIT LEARNING GOALS]
       unit learning goals: 0.591
       section learning goals: 0.586
-
-  [PROBLEMS LESSONS SECTION]
-      problems lessons section: 0.575
 
 
 ===== CHUNK 4 (Pages 13–20) =====
@@ -457,9 +451,6 @@ index cards, or to play games using
 addition within 10?” (Index cards because
 Grade 1, Unit 8
 ===== KEYWORD CLUSTERS FOR CHUNK 4 (Pages 13–20) =====
-
-  [LEARNERS MATERIALS GATHER]
-      learners materials gather: 0.559
 
 
 ===== CHUNK 5 (Pages 21–35) =====
@@ -935,12 +926,6 @@ when one addend and the sum are given.
 Grade 1, Unit 8
 ===== KEYWORD CLUSTERS FOR CHUNK 5 (Pages 21–35) =====
 
-  [ADDITION SUBTRACTION GRADE]
-      addition subtraction grade: 0.658
-
-  [ADDITION SUBTRACTION CONCEPTS]
-      addition subtraction concepts: 0.637
-
 
 ===== CHUNK 6 (Pages 36–38) =====
 
@@ -1149,9 +1134,6 @@ Grade 1, Unit 8
       story problems addressing: 0.569
       story problems solved: 0.529
       story problems: 0.526
-
-  [STORY PROBLEMS STANDARDS]
-      story problems standards: 0.552
 
 
 ===== CHUNK 8 (Pages 43–61) =====
@@ -1884,12 +1866,6 @@ Grade 1, Unit 8
       tank turtles joined: 0.487
       shapes represent turtles: 0.482
       turtles joined: 0.478
-
-  [DRAWING 12 PENGUINS]
-      drawing 12 penguins: 0.516
-
-  [14 ANIMALS SEA]
-      14 animals sea: 0.498
 
 
 ===== CHUNK 9 (Pages 62–69) =====
@@ -2890,9 +2866,6 @@ Invite students to share with the whole class.
 Grade 1, Unit 8
 ===== KEYWORD CLUSTERS FOR CHUNK 11 (Pages 73–91) =====
 
-  [REPRESENT NUMBER GRADE]
-      represent number grade: 0.535
-
 
 ===== CHUNK 12 (Pages 92–94) =====
 
@@ -3089,9 +3062,6 @@ Resources
       connecting cubes thinking: 0.453
       connecting cubes: 0.453
 
-  [GRADE UNIT END]
-      grade unit end: 0.457
-
 
 ===== CHUNK 15 (Pages 102–105) =====
 
@@ -3212,12 +3182,6 @@ Resources
       end course assessment: 0.437
       course assessment: 0.426
 
-  [CORRECT VALUE WAY]
-      correct value way: 0.430
-
-  [15 15 EXPLAIN]
-      15 15 explain: 0.406
-
 
 ===== CHUNK 17 (Pages 109–111) =====
 
@@ -3277,9 +3241,6 @@ Resources
       drawings numbers words: 0.409
       using drawings numbers: 0.393
       thinking using drawings: 0.386
-
-  [CIRCLE CORRECT STATEMENTS]
-      circle correct statements: 0.385
 
 
 ===== CHUNK 18 (Pages 112–116) =====
@@ -3711,12 +3672,6 @@ to heal the sick to 5.
 Grade 1, Unit 8
 ===== KEYWORD CLUSTERS FOR CHUNK 19 (Pages 117–131) =====
 
-  [ACCURATELY ADDRESSING GRADE]
-      accurately addressing grade: 0.570
-
-  [ADDRESSING GRADE UNIT]
-      addressing grade unit: 0.545
-
 
 ===== CHUNK 20 (Pages 132–135) =====
 
@@ -3774,9 +3729,6 @@ Grade 1 Unit 8
       story problems cool: 0.467
       story problems: 0.447
 
-  [FIGURE DIFFERENCE GRADE]
-      figure difference grade: 0.446
-
 
 ===== CHUNK 21 (Pages 136–138) =====
 
@@ -3819,9 +3771,6 @@ Masters
       number number: 0.532
       know numbers: 0.508
       numbers write: 0.501
-
-  [100 NUMBER NUMBER]
-      100 number number: 0.513
 
   [NUMBER NUMBER TENS]
       number number tens: 0.506
@@ -4010,9 +3959,6 @@ Number Riddle Cards
       greater riddle number: 0.462
       number greater riddle: 0.441
 
-  [CARDS ASSESSMENT GRADE1]
-      cards assessment grade1: 0.471
-
 
 ===== CHUNK 23 (Pages 145–147) =====
 
@@ -4167,46 +4113,48 @@ www.coreknowledge.org
       120 units geometry: 0.482
       grades units level: 0.476
 
-  [ADDITION SUBTRACTION STORY]
-      addition subtraction story: 0.454
-
 
 ══════════════════════════════════════════════════════
   FINAL CONCEPTS AND PREREQUISITES
 ══════════════════════════════════════════════════════
-  Concept: Addition
+  Concept: Addition Within 20
   Prerequisites: None
 
-  Concept: Subtraction
-  Prerequisites: Addition
+  Concept: Subtraction Within 20
+  Prerequisites: Addition Within 20
 
   Concept: Story Problems
-  Prerequisites: Addition, Subtraction
+  Prerequisites: Addition Within 20, Subtraction Within 20
 
   Concept: Numbers to 120
-  Prerequisites: Addition, Subtraction
-
-  Concept: Representing Numbers
-  Prerequisites: Numbers to 120
-
-  Concept: Related Subtraction Facts
-  Prerequisites: Subtraction
+  Prerequisites: Addition Within 20, Subtraction Within 20
 
   Concept: Solving Story Problems
-  Prerequisites: Story Problems, Addition, Subtraction
+  Prerequisites: Story Problems, Addition Within 20, Subtraction Within 20
 
-  Concept: Drawing to Represent Numbers
-  Prerequisites: Representing Numbers
+  Concept: Related Subtraction Facts
+  Prerequisites: Subtraction Within 20
 
-  Concept: Value Difference
-  Prerequisites: Subtraction
+  Concept: Subtracting 20
+  Prerequisites: Subtraction Within 20
 
-  Concept: Number Words
-  Prerequisites: Numbers to 120
+  Concept: Addition and Subtraction Relationships
+  Prerequisites: Addition Within 20, Subtraction Within 20
 
-  Concept: Correct Equations
-  Prerequisites: Addition, Subtraction
+  Concept: Representing Story Equations
+  Prerequisites: Solving Story Problems, Addition Within 20, Subtraction Within 20
 
-  Concept: Number Riddles
-  Prerequisites: Addition, Subtraction, Numbers to 120
+  Concept: Counting and Basic Number Sense
+  Prerequisites: None
 
+  Concept: Number Sense to 120
+  Prerequisites: Counting and Basic Number Sense
+
+  Concept: Basic Addition and Subtraction Facts
+  Prerequisites: Counting and Basic Number Sense
+
+
+══════════════════════════════════════════════════════
+  FLAGGED HALLUCINATIONS
+══════════════════════════════════════════════════════
+  ⚠ quantum entanglement theory
