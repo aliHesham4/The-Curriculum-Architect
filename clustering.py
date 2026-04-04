@@ -3,6 +3,9 @@ from sklearn.cluster import AgglomerativeClustering
 from sklearn.metrics.pairwise import cosine_similarity
 from config import embedder
 
+def normalize(term):
+    return " ".join(term.lower().strip().split())
+
 
 def cluster_keywords(keywords, min_clusters=2):
     if not keywords:
@@ -11,8 +14,8 @@ def cluster_keywords(keywords, min_clusters=2):
         term, score = keywords[0]
         return {term: [(term, score)]}, {}
 
-    terms  = [kw for kw, score in keywords]
-    scores = {kw: score for kw, score in keywords}
+    terms  = [normalize(kw) for kw, score in keywords]
+    scores = {normalize(kw): score for kw, score in keywords}
 
     embeddings      = embedder.encode(terms, convert_to_numpy=True)
     sim_matrix      = cosine_similarity(embeddings)
@@ -31,6 +34,7 @@ def cluster_keywords(keywords, min_clusters=2):
 
     raw_clusters = {}
     for term, label in zip(terms, labels):
+        term = normalize(term)
         raw_clusters.setdefault(label, []).append((term, scores[term]))
 
     named_clusters = {}
@@ -42,8 +46,17 @@ def cluster_keywords(keywords, min_clusters=2):
 
 
 def cluster_coherence(members, term_embeddings):
-    terms = [kw for kw, _ in members]
-    emb   = np.array([term_embeddings[t] for t in terms])  # ← reuse, no re-encoding
+    terms = [normalize(kw) for kw, _ in members]
+
+    for t in terms:
+        if t not in term_embeddings:
+            print(f"⚠️ Missing embedding for: '{t}'")
+
+    emb = np.array([term_embeddings[t] for t in terms if t in term_embeddings])
+
+    if len(emb) < 2:
+        return 0
+
     return cosine_similarity(emb).mean()
 
 

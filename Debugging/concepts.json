@@ -1,27 +1,27 @@
 {
   "concepts": [
     {
-      "name": "Addition within 20",
+      "name": "Addition",
       "prerequisites": []
     },
     {
-      "name": "Subtraction within 20",
+      "name": "Subtraction",
       "prerequisites": [
-        "Addition within 20"
+        "Addition"
       ]
     },
     {
       "name": "Story Problems",
       "prerequisites": [
-        "Addition within 20",
-        "Subtraction within 20"
+        "Addition",
+        "Subtraction"
       ]
     },
     {
       "name": "Numbers to 120",
       "prerequisites": [
-        "Addition within 20",
-        "Subtraction within 20"
+        "Addition",
+        "Subtraction"
       ]
     },
     {
@@ -31,23 +31,17 @@
       ]
     },
     {
+      "name": "Related Subtraction Facts",
+      "prerequisites": [
+        "Subtraction"
+      ]
+    },
+    {
       "name": "Solving Story Problems",
       "prerequisites": [
         "Story Problems",
-        "Numbers to 120"
-      ]
-    },
-    {
-      "name": "Related Subtraction Facts",
-      "prerequisites": [
-        "Subtraction within 20"
-      ]
-    },
-    {
-      "name": "Addition and Subtraction Concepts",
-      "prerequisites": [
-        "Addition within 20",
-        "Subtraction within 20"
+        "Addition",
+        "Subtraction"
       ]
     },
     {
@@ -57,51 +51,29 @@
       ]
     },
     {
-      "name": "Using Drawings to Solve Problems",
+      "name": "Value Difference",
       "prerequisites": [
-        "Drawing to Represent Numbers",
-        "Solving Story Problems"
+        "Subtraction"
+      ]
+    },
+    {
+      "name": "Number Words",
+      "prerequisites": [
+        "Numbers to 120"
       ]
     },
     {
       "name": "Correct Equations",
       "prerequisites": [
-        "Addition and Subtraction Concepts"
-      ]
-    },
-    {
-      "name": "Value Difference",
-      "prerequisites": [
-        "Subtraction within 20"
+        "Addition",
+        "Subtraction"
       ]
     },
     {
       "name": "Number Riddles",
       "prerequisites": [
-        "Numbers to 120",
-        "Representing Numbers"
-      ]
-    },
-    {
-      "name": "Riddle Cards Assessment",
-      "prerequisites": [
-        "Number Riddles"
-      ]
-    },
-    {
-      "name": "Subtracting 20",
-      "prerequisites": [
-        "Subtraction within 20"
-      ]
-    },
-    {
-      "name": "Counting and Basic Number Sense",
-      "prerequisites": []
-    },
-    {
-      "name": "Tens and Ones",
-      "prerequisites": [
-        "Counting and Basic Number Sense",
+        "Addition",
+        "Subtraction",
         "Numbers to 120"
       ]
     }

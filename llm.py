@@ -3,6 +3,12 @@ import json
 from config import groq_client
 
 
+#-------------------------------------------------------
+# Verification and saving of LLM output
+#-------------------------------------------------------
+
+
+
 def build_prompt(all_clusters_by_chunk, toc_context):
     clusters_section = ""
     for chunk_label, cluster_names in all_clusters_by_chunk.items():
@@ -12,10 +18,10 @@ def build_prompt(all_clusters_by_chunk, toc_context):
 
     return f"""
 You are a curriculum analyst.
-Use the table of contents if present and the topic clusters extracted from each 
+Below is the ONLY source of truth, use the table of contents if present and the topic clusters extracted from each 
 section of a curriculum document. Your job is to use your relational reasoning to identify and link educational concepts
 and their prerequisite relationships. Pass through all TOC context and cluster names to inform your analysis.
- Ignore any cluster that refers to materials, objects, or activities rather than math concepts.
+Ignore any cluster that refers to materials, objects, or activities rather than curriculum concepts.
 {toc_context}
 
 ALL TOPIC CLUSTERS BY SECTION:

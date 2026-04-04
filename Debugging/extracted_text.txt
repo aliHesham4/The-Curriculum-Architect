@@ -4174,54 +4174,39 @@ www.coreknowledge.org
 ══════════════════════════════════════════════════════
   FINAL CONCEPTS AND PREREQUISITES
 ══════════════════════════════════════════════════════
-  Concept: Addition within 20
+  Concept: Addition
   Prerequisites: None
 
-  Concept: Subtraction within 20
-  Prerequisites: Addition within 20
+  Concept: Subtraction
+  Prerequisites: Addition
 
   Concept: Story Problems
-  Prerequisites: Addition within 20, Subtraction within 20
+  Prerequisites: Addition, Subtraction
 
   Concept: Numbers to 120
-  Prerequisites: Addition within 20, Subtraction within 20
+  Prerequisites: Addition, Subtraction
 
   Concept: Representing Numbers
   Prerequisites: Numbers to 120
 
-  Concept: Solving Story Problems
-  Prerequisites: Story Problems, Numbers to 120
-
   Concept: Related Subtraction Facts
-  Prerequisites: Subtraction within 20
+  Prerequisites: Subtraction
 
-  Concept: Addition and Subtraction Concepts
-  Prerequisites: Addition within 20, Subtraction within 20
+  Concept: Solving Story Problems
+  Prerequisites: Story Problems, Addition, Subtraction
 
   Concept: Drawing to Represent Numbers
   Prerequisites: Representing Numbers
 
-  Concept: Using Drawings to Solve Problems
-  Prerequisites: Drawing to Represent Numbers, Solving Story Problems
+  Concept: Value Difference
+  Prerequisites: Subtraction
+
+  Concept: Number Words
+  Prerequisites: Numbers to 120
 
   Concept: Correct Equations
-  Prerequisites: Addition and Subtraction Concepts
-
-  Concept: Value Difference
-  Prerequisites: Subtraction within 20
+  Prerequisites: Addition, Subtraction
 
   Concept: Number Riddles
-  Prerequisites: Numbers to 120, Representing Numbers
-
-  Concept: Riddle Cards Assessment
-  Prerequisites: Number Riddles
-
-  Concept: Subtracting 20
-  Prerequisites: Subtraction within 20
-
-  Concept: Counting and Basic Number Sense
-  Prerequisites: None
-
-  Concept: Tens and Ones
-  Prerequisites: Counting and Basic Number Sense, Numbers to 120
+  Prerequisites: Addition, Subtraction, Numbers to 120
 

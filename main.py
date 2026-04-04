@@ -18,6 +18,8 @@ print_similarity_report(similarities, chunks)
 
 all_clusters_by_chunk = {}
 toc_context           = ""
+toc_page_count = 0
+toc_ended      = False
 
 with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
 
@@ -29,13 +31,15 @@ with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
             page     = doc[page_number]
             raw_text = page.get_text()
 
-            if is_toc_page(raw_text):
+            if not toc_ended and toc_page_count < 3 and is_toc_page(raw_text):
+                toc_page_count += 1
                 text = clean_text(raw_text)
-                print(f"\n===== PAGE {page_number + 1} (TOC) =====")
-                print(f" TOC page:\n {text}...")
                 toc_context += text + "\n"
                 chunk_text  += f"\n\n===== PAGE {page_number + 1} (TOC) =====\n{text}"
                 continue
+            else:
+                if toc_page_count > 0:
+                    toc_ended = True  # TOC block is done, never detect again
 
             text = clean_text(raw_text)
             if len(text.strip()) < 20:
