@@ -1,27 +1,46 @@
 import re
 import json
 from sentence_transformers import SentenceTransformer, util
-from config import groq_client, doc
+from config import groq_client
 from cleaning import clean_text
+from config import doc
 verification_model = SentenceTransformer("all-MiniLM-L6-v2")
 
-
-
-#-------------------------------------------------------
-# Verification and saving of LLM output
 #-------------------------------------------------------
 def build_document_index():
     pages = []
     for page_num in range(len(doc)):
         raw_text = doc[page_num].get_text()
         text     = clean_text(raw_text).strip()
-        if len(text) > 20:
-            pages.append({"page": page_num + 1, "text": text})
+        # Keep all pages; use empty string for very short pages
+        pages.append({
+            "page": page_num + 1,
+            "text": text if len(text) > 20 else ""
+        })
 
     texts      = [p["text"] for p in pages]
     embeddings = verification_model.encode(texts, convert_to_tensor=True)
 
     return pages, embeddings
+
+
+#-------------------------------------------------------
+#Relation verification layer
+#-------------------------------------------------------
+def query_llm_relation_verifier(prompt):
+    response = groq_client.chat.completions.create(
+        model="llama-3.3-70b-versatile",
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0
+    )
+
+    return response.choices[0].message.content
+
+
+#-------------------------------------------------------
+# Verification and saving of LLM output
+#-------------------------------------------------------
+
 
 def verify_concept_in_document(concept_name, pages, embeddings, threshold=0.5):
     concept_emb = verification_model.encode(concept_name, convert_to_tensor=True)
@@ -135,6 +154,8 @@ def query_llm(all_clusters_by_chunk, toc_context):
         print("\n===== RUNNING VERIFICATION CONSTRAINT =====")
         pages, embeddings    = build_document_index()
         parsed, flagged      = rag_verify_llm_output(parsed, pages, embeddings)
+        # relation_prompt = build_relation_verification_prompt(parsed, pages)
+        # relation_scores = query_llm_relation_verifier(relation_prompt)
 
         return parsed, flagged
 

@@ -1,78 +1,76 @@
 {
   "concepts": [
     {
-      "name": "Addition Within 20",
+      "name": "Addition within 20",
       "prerequisites": []
     },
     {
-      "name": "Subtraction Within 20",
+      "name": "Subtraction within 20",
       "prerequisites": [
-        "Addition Within 20"
+        "Addition within 20"
       ]
     },
     {
       "name": "Story Problems",
       "prerequisites": [
-        "Addition Within 20",
-        "Subtraction Within 20"
+        "Addition within 20",
+        "Subtraction within 20"
       ]
     },
     {
       "name": "Numbers to 120",
       "prerequisites": [
-        "Addition Within 20",
-        "Subtraction Within 20"
+        "Addition within 20",
+        "Subtraction within 20"
       ]
     },
     {
-      "name": "Solving Story Problems",
-      "prerequisites": [
-        "Story Problems",
-        "Addition Within 20",
-        "Subtraction Within 20"
-      ]
-    },
-    {
-      "name": "Related Subtraction Facts",
-      "prerequisites": [
-        "Subtraction Within 20"
-      ]
-    },
-    {
-      "name": "Subtracting 20",
-      "prerequisites": [
-        "Subtraction Within 20"
-      ]
-    },
-    {
-      "name": "Addition and Subtraction Relationships",
-      "prerequisites": [
-        "Addition Within 20",
-        "Subtraction Within 20"
-      ]
-    },
-    {
-      "name": "Representing Story Equations",
-      "prerequisites": [
-        "Solving Story Problems",
-        "Addition Within 20",
-        "Subtraction Within 20"
-      ]
-    },
-    {
-      "name": "Counting and Basic Number Sense",
+      "name": "Representing Count",
       "prerequisites": []
     },
     {
-      "name": "Number Sense to 120",
+      "name": "Understanding Number",
       "prerequisites": [
-        "Counting and Basic Number Sense"
+        "Representing Count"
       ]
     },
     {
-      "name": "Basic Addition and Subtraction Facts",
+      "name": "Addition and Subtraction",
       "prerequisites": [
-        "Counting and Basic Number Sense"
+        "Addition within 20",
+        "Subtraction within 20"
+      ]
+    },
+    {
+      "name": "Structuring Numbers",
+      "prerequisites": [
+        "Numbers to 120"
+      ]
+    },
+    {
+      "name": "Using Drawings",
+      "prerequisites": [
+        "Representing Count",
+        "Understanding Number"
+      ]
+    },
+    {
+      "name": "Equations",
+      "prerequisites": [
+        "Addition and Subtraction"
+      ]
+    },
+    {
+      "name": "Value and Difference",
+      "prerequisites": [
+        "Addition and Subtraction",
+        "Numbers to 120"
+      ]
+    },
+    {
+      "name": "Number Riddles",
+      "prerequisites": [
+        "Understanding Number"
       ]
     }
   ]

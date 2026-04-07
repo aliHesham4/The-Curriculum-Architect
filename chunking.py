@@ -3,16 +3,16 @@ from config import embedder
 from cleaning import clean_text
 
 
-def semantic_chunk(doc, total_pages, drop_threshold, min_pages, max_pages):
+def semantic_chunk(pages, drop_threshold, min_pages, max_pages):
     print("Embedding pages for semantic chunking...")
     page_texts = []
-    for i in range(total_pages):
-        text = clean_text(doc[i].get_text())
-        page_texts.append(text if len(text.strip()) > 20 else "empty page")
+    for i in range(len(pages)):
+        text = pages[i]["text"]
+        page_texts.append(text)  # Keep empty but avoid errors
 
     embeddings  = embedder.encode(page_texts, convert_to_numpy=True, show_progress_bar=True)
     similarities = []
-    for i in range(1, total_pages):
+    for i in range(1, len(pages)):
         sim = cosine_similarity([embeddings[i - 1]], [embeddings[i]])[0][0]
         similarities.append(sim)
 
@@ -22,7 +22,7 @@ def semantic_chunk(doc, total_pages, drop_threshold, min_pages, max_pages):
     for i, sim in enumerate(similarities):
         next_page    = i + 1
         current_size = len(current_chunk)
-
+        
         if current_size >= max_pages:
             chunks.append(current_chunk)
             print(f"  → Forced split at page {next_page + 1} (max pages reached)")
@@ -39,7 +39,7 @@ def semantic_chunk(doc, total_pages, drop_threshold, min_pages, max_pages):
     if current_chunk:
         chunks.append(current_chunk)
 
-    print(f"\n✅ Semantic chunking: {len(chunks)} chunks from {total_pages} pages\n")
+    print(f"\n✅ Semantic chunking: {len(chunks)} chunks from {len(pages)} pages\n")
     return chunks, similarities
 
 

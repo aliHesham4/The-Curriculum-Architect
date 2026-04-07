@@ -5,10 +5,13 @@ from detection import is_toc_page
 from images import extract_page_images
 from chunking import semantic_chunk, print_similarity_report
 from clustering import cluster_keywords, filter_by_coherence, print_and_save_clusters
-from llm import query_llm, save_concepts
+from llm import query_llm, save_concepts, build_document_index
+
+
+pages, page_embeddings = build_document_index()
 
 chunks, similarities = semantic_chunk(
-    doc, total_pages,
+    pages,
     drop_threshold=0.45,
     min_pages=3,
     max_pages=20
@@ -72,7 +75,7 @@ with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
             continue
 
         clusters, term_embeddings = cluster_keywords(keywords, min_clusters=2)
-        clusters = filter_by_coherence(clusters, term_embeddings, threshold=0.45)
+        clusters = filter_by_coherence(clusters, term_embeddings, threshold=0.4)
         print_and_save_clusters(clusters, chunk_label, f)
         all_clusters_by_chunk[chunk_label] = list(clusters.keys())
 
