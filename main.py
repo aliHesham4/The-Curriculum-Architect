@@ -1,11 +1,12 @@
 import json
-from config import doc, total_pages, OUTPUT_FILE, CONCEPTS_FILE, kw_model
+from config import doc, OUTPUT_FILE, CONCEPTS_FILE,CLEAN_RELATIONS_FILE,DETERMINSITIC_VALIDATOR_OUTPUT, kw_model
 from cleaning import clean_text, clean_for_keybert, is_good_keyword
 from detection import is_toc_page
 from images import extract_page_images
 from chunking import semantic_chunk, print_similarity_report
 from clustering import cluster_keywords, filter_by_coherence, print_and_save_clusters
-from llm import query_llm, save_concepts, build_document_index
+from llm import query_llm, save_concepts, build_document_index, save_relation_scores,validate_prerequisite_ordering
+from DAG import build_networkx_dag, print_dag_summary, plot_dag
 
 
 pages, page_embeddings = build_document_index()
@@ -79,13 +80,32 @@ with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         print_and_save_clusters(clusters, chunk_label, f)
         all_clusters_by_chunk[chunk_label] = list(clusters.keys())
 
-    parsed, flagged = query_llm(all_clusters_by_chunk, toc_context)
-    save_concepts(parsed, flagged, f)
+    parsed, flagged, clean_relations, relation_scores  = query_llm(all_clusters_by_chunk, toc_context,pages,page_embeddings,chunks)
+    print("\n===== RUNNING DETERMINISTIC VALIDATOR =====")
 
+
+    save_concepts(parsed, flagged, f)
     if parsed:
         with open(CONCEPTS_FILE, "w", encoding="utf-8") as jf:
             json.dump(parsed, jf, indent=2)
         print(f"\n✅ Concepts saved to {CONCEPTS_FILE}")
+
+    save_relation_scores(relation_scores, f)
+    if clean_relations:
+        with open(CLEAN_RELATIONS_FILE, "w", encoding="utf-8") as rf:
+            json.dump(clean_relations, rf, indent=2)
+            G= build_networkx_dag(clean_relations)
+            plot_dag(G)
+            print_dag_summary(G)
+
+        print(f"\n✅ Clean relations saved to {CLEAN_RELATIONS_FILE}")
+    
+    
+    
+    print("\n===== DETERMINISTIC VALIDATOR RESULTS =====\n")
+    deterministic_results = validate_prerequisite_ordering( parsed,pages,page_embeddings,chunks,DETERMINSITIC_VALIDATOR_OUTPUT)
+    print("CURRICULUM ARCHITECTURE EXTRACTION COMPLETE.")
+
 
 doc.close()
 print(f"\nAll text saved to {OUTPUT_FILE}")

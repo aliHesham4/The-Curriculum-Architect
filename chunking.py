@@ -8,7 +8,7 @@ def semantic_chunk(pages, drop_threshold, min_pages, max_pages):
     page_texts = []
     for i in range(len(pages)):
         text = pages[i]["text"]
-        page_texts.append(text)  # Keep empty but avoid errors
+        page_texts.append(text if len(text.strip()) > 20 else "")  # Keep empty but avoid errors
 
     embeddings  = embedder.encode(page_texts, convert_to_numpy=True, show_progress_bar=True)
     similarities = []
@@ -21,7 +21,11 @@ def semantic_chunk(pages, drop_threshold, min_pages, max_pages):
 
     for i, sim in enumerate(similarities):
         next_page    = i + 1
-        current_size = len(current_chunk)
+        current_size = sum(1 for p in current_chunk if len(pages[p]["text"].strip()) > 20)
+
+        if pages[i]["text"] == "" or pages[i+1]["text"] == "":
+            current_chunk.append(next_page)
+            continue
         
         if current_size >= max_pages:
             chunks.append(current_chunk)
