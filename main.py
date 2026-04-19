@@ -94,9 +94,12 @@ with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
     if clean_relations:
         with open(CLEAN_RELATIONS_FILE, "w", encoding="utf-8") as rf:
             json.dump(clean_relations, rf, indent=2)
-            G= build_networkx_dag(clean_relations)
-            plot_dag(G)
-            print_dag_summary(G)
+            try:
+                G_llm = build_networkx_dag(clean_relations)
+                plot_dag(G_llm,file_name="dag_llm.png", title="Curriculum DAG — LLM Verified")
+                print_dag_summary(G_llm)
+            except Exception as e:
+                print(f"Error occurred while building DAG: {e}")
 
         print(f"\n✅ Clean relations saved to {CLEAN_RELATIONS_FILE}")
     

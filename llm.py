@@ -309,7 +309,7 @@ def validate_prerequisite_ordering(
     output_file,
     top_k_chunks=2,
     top_k_pages=2,
-    page_threshold=0.45
+    page_threshold=0.4
 ):
 
     if not isinstance(page_embeddings, np.ndarray):
@@ -410,9 +410,12 @@ def validate_prerequisite_ordering(
 
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(final_output, f, indent=2)
-        G= build_networkx_dag(final_output)
-        plot_dag(G)
-        print_dag_summary(G)
+        try:
+            G_deterministic= build_networkx_dag(final_output)
+            plot_dag(G_deterministic, file_name="dag_deterministic.png", title="Curriculum DAG — Deterministic Validation")
+            print_dag_summary(G_deterministic)
+        except Exception as e:
+            print(f"Error occurred while building DAG: {e}")
 
     print(f"\n✅ Valid prerequisite graph saved to {output_file}")
     return {"summary": counts, "results": results}

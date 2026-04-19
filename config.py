@@ -10,7 +10,7 @@ import pytesseract
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
 # ── Paths ──
-PDF_PATH     = r"D:\GUC\The Curriculum Architect\Dataset\Math Curriculum For Children.pdf"
+PDF_PATH     = r"D:\GUC\The Curriculum Architect\Dataset\Computer Grade 5.pdf"
 OUTPUT_FILE  = r"D:\GUC\The Curriculum Architect\Python Files\Debugging\extracted_text.txt"
 CONCEPTS_FILE = r"D:\GUC\The Curriculum Architect\Python Files\Debugging\concepts_found_in_document.json"
 CLEAN_RELATIONS_FILE = r"D:\GUC\The Curriculum Architect\Python Files\Debugging\clean_relations.json"

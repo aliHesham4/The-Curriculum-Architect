@@ -6,6 +6,7 @@ def is_toc_page(text):
         r'\bunit overview\b',
         r'\bsection overview\b',
         r'\bconcept overview\b',
+        r'\bbrief contents\b',
     ]
     has_toc_header = any(re.search(p, text, re.IGNORECASE) for p in toc_signals)
 
