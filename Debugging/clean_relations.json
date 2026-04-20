@@ -1,38 +1,54 @@
 {
   "concepts": [
     {
-      "name": "ICT Tools",
+      "name": "Digital Communication",
       "prerequisites": [
         "ICT"
       ]
     },
     {
-      "name": "Network",
+      "name": "Networks",
       "prerequisites": [
         "ICT"
+      ]
+    },
+    {
+      "name": "Internet Connection",
+      "prerequisites": [
+        "Networks"
+      ]
+    },
+    {
+      "name": "Information Search Strategies",
+      "prerequisites": [
+        "Digital Communication",
+        "Internet Connection"
+      ]
+    },
+    {
+      "name": "Sharing Information",
+      "prerequisites": [
+        "Information Search Strategies"
+      ]
+    },
+    {
+      "name": "Online Safety",
+      "prerequisites": [
+        "Digital Communication"
+      ]
+    },
+    {
+      "name": "Intellectual Property Rights",
+      "prerequisites": [
+        "Online Safety"
       ]
     },
     {
       "name": "Online Research",
       "prerequisites": [
-        "ICT Tools"
+        "Information Search Strategies",
+        "Online Safety"
       ]
-    },
-    {
-      "name": "File Management",
-      "prerequisites": [
-        "ICT Tools"
-      ]
-    },
-    {
-      "name": "Information Organization",
-      "prerequisites": [
-        "File Management"
-      ]
-    },
-    {
-      "name": "Intellectual Property Rights",
-      "prerequisites": []
     },
     {
       "name": "Password Protection",
@@ -41,24 +57,25 @@
       ]
     },
     {
-      "name": "Search Terms",
+      "name": "Scam Awareness",
       "prerequisites": [
-        "Online Research"
+        "Online Safety"
       ]
     },
     {
-      "name": "Presentation",
+      "name": "URL Understanding",
       "prerequisites": [
-        "Information Organization",
-        "Online Research"
+        "Internet Connection"
+      ]
+    },
+    {
+      "name": "Search Terms",
+      "prerequisites": [
+        "Information Search Strategies"
       ]
     },
     {
       "name": "ICT",
-      "prerequisites": []
-    },
-    {
-      "name": "Online Safety",
       "prerequisites": []
     }
   ]

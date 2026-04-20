@@ -4,6 +4,33 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
+
+def _detect_cycles_dfs(G):
+ 
+    WHITE, GRAY, BLACK = 0, 1, 2
+    color  = {n: WHITE for n in G.nodes()}
+    cycles = []
+
+    def dfs(u, path):
+        color[u] = GRAY
+        path.append(u)
+        for v in G.successors(u):
+            if color[v] == GRAY:
+                # Back edge found — extract the cycle
+                cycle_start = path.index(v)
+                cycles.append(path[cycle_start:])
+            elif color[v] == WHITE:
+                dfs(v, path)
+        path.pop()
+        color[u] = BLACK
+
+    for node in G.nodes():
+        if color[node] == WHITE:
+            dfs(node, [])
+
+    return cycles
+
+
 def get_topological_order(G):
     return list(nx.topological_sort(G))
 
@@ -19,7 +46,7 @@ def build_networkx_dag(parsed):
             G.add_edge(prereq, c_name)
 
     # ── Cycle detection ───────────────────────────────────────────────────────
-    cycles = list(nx.simple_cycles(G))
+    cycles = _detect_cycles_dfs(G)
 
     if cycles:
         print("\n  ❌ CIRCULAR DEPENDENCIES DETECTED")

@@ -83,7 +83,7 @@ x7 6 اﻟǻ ﻴﺔ xاﻟ Sgﻴm xاﻟ Sgﻴm اﻟﻔﻨ
 ===== CHUNK 2 (Pages 4–7) =====
 
 
-===== PAGE 4 =====
+===== PAGE 4 (TOC) =====
 Theme 1
 Role of Information and Communication
 Technology (ICT) in our lives
@@ -407,23 +407,23 @@ legal awareness
 ===== KEYWORD CLUSTERS FOR CHUNK 2 (Pages 4–7) =====
 
   [TECHNOLOGY ICT LIVES]
-      technology ict lives: 0.631
-      ict lives: 0.592
-      ict lives essential: 0.586
+      technology ict lives: 0.653
+      ict lives: 0.616
+      ict lives essential: 0.610
 
   [TECHNOLOGY ICT]
-      technology ict: 0.602
-      ict issues: 0.599
-      using ict: 0.588
-      use ict: 0.588
-      question use ict: 0.579
-      relating ict: 0.574
-      ict: 0.573
-      concepts relating ict: 0.567
+      technology ict: 0.622
+      using ict: 0.614
+      use ict: 0.611
+      ict issues: 0.607
+      relating ict: 0.604
+      question use ict: 0.594
+      concepts relating ict: 0.593
 
   [USE ICT TOOLS]
-      use ict tools: 0.570
-      using ict tools: 0.567
+      use ict tools: 0.600
+      using ict tools: 0.598
+      relating ict tools: 0.596
 
 
 ===== CHUNK 3 (Pages 8–11) =====
@@ -3202,52 +3202,54 @@ Corporation, and not affiliated with Microsoft in any manner.
   Concept: ICT
   Prerequisites: None
 
-  Concept: ICT Tools
+  Concept: Digital Communication
   Prerequisites: ICT
 
-  Concept: Network
+  Concept: Networks
   Prerequisites: ICT
 
-  Concept: Online Research
-  Prerequisites: ICT Tools
+  Concept: Internet Connection
+  Prerequisites: Networks
 
-  Concept: File Management
-  Prerequisites: ICT Tools
+  Concept: Information Search Strategies
+  Prerequisites: Digital Communication, Internet Connection
 
-  Concept: Information Organization
-  Prerequisites: File Management
+  Concept: Sharing Information
+  Prerequisites: Information Search Strategies
 
   Concept: Online Safety
-  Prerequisites: None
+  Prerequisites: Internet Connection, Digital Communication
 
   Concept: Intellectual Property Rights
-  Prerequisites: Online Research
+  Prerequisites: Sharing Information, Online Safety
+
+  Concept: Online Research
+  Prerequisites: Information Search Strategies, Online Safety
 
   Concept: Password Protection
   Prerequisites: Online Safety
 
-  Concept: URLs
-  Prerequisites: None
+  Concept: Scam Awareness
+  Prerequisites: Online Safety
+
+  Concept: URL Understanding
+  Prerequisites: Internet Connection
 
   Concept: Search Terms
-  Prerequisites: Online Research
-
-  Concept: Presentation
-  Prerequisites: Information Organization, Online Research
+  Prerequisites: Information Search Strategies
 
 
 ══════════════════════════════════════════════════════
   FLAGGED HALLUCINATIONS
 ══════════════════════════════════════════════════════
-  ⚠ Internet
-  ⚠ Internet
-  ⚠ Internet
-  ⚠ Internet
-  ⚠ Note-taking
+  ⚠ Digital File Management
+  ⚠ Digital File Management
+  ⚠ Note Taking
+  ⚠ Paraphrasing
   ⚠ quantum entanglement theory
 
 
 ══════════════════════════════════════════════════════
    RELATIONSHIP VERIFICATION SCORES
 ═════════════════════════════════════════════════════
-"[\n  {\n    \"concept\": \"ICT Tools\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"ICT\",\n        \"score\": 0.66\n      }\n    ]\n  },\n  {\n    \"concept\": \"Network\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"ICT\",\n        \"score\": 0.60\n      }\n    ]\n  },\n  {\n    \"concept\": \"Online Research\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"ICT Tools\",\n        \"score\": 0.56\n      }\n    ]\n  },\n  {\n    \"concept\": \"File Management\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"ICT Tools\",\n        \"score\": 0.59\n      }\n    ]\n  },\n  {\n    \"concept\": \"Information Organization\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"File Management\",\n        \"score\": 0.54\n      }\n    ]\n  },\n  {\n    \"concept\": \"Intellectual Property Rights\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Online Research\",\n        \"score\": 0.48\n      }\n    ]\n  },\n  {\n    \"concept\": \"Password Protection\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Online Safety\",\n        \"score\": 0.55\n      }\n    ]\n  },\n  {\n    \"concept\": \"Search Terms\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Online Research\",\n        \"score\": 0.57\n      }\n    ]\n  },\n  {\n    \"concept\": \"Presentation\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Information Organization\",\n        \"score\": 0.51\n      },\n      {\n        \"prerequisite\": \"Online Research\",\n        \"score\": 0.50\n      }\n    ]\n  }\n]"
+"[\n  {\n    \"concept\": \"Digital Communication\",\n    \"prerequisites\": [\n      { \"prerequisite\": \"ICT\", \"score\": 0.59 }\n    ]\n  },\n  {\n    \"concept\": \"Networks\",\n    \"prerequisites\": [\n      { \"prerequisite\": \"ICT\", \"score\": 0.58 }\n    ]\n  },\n  {\n    \"concept\": \"Internet Connection\",\n    \"prerequisites\": [\n      { \"prerequisite\": \"Networks\", \"score\": 0.65 }\n    ]\n  },\n  {\n    \"concept\": \"Information Search Strategies\",\n    \"prerequisites\": [\n      { \"prerequisite\": \"Digital Communication\", \"score\": 0.58 },\n      { \"prerequisite\": \"Internet Connection\", \"score\": 0.56 }\n    ]\n  },\n  {\n    \"concept\": \"Sharing Information\",\n    \"prerequisites\": [\n      { \"prerequisite\": \"Information Search Strategies\", \"score\": 0.57 }\n    ]\n  },\n  {\n    \"concept\": \"Online Safety\",\n    \"prerequisites\": [\n      { \"prerequisite\": \"Internet Connection\", \"score\": 0.49 },\n      { \"prerequisite\": \"Digital Communication\", \"score\": 0.55 }\n    ]\n  },\n  {\n    \"concept\": \"Intellectual Property Rights\",\n    \"prerequisites\": [\n      { \"prerequisite\": \"Sharing Information\", \"score\": 0.45 },\n      { \"prerequisite\": \"Online Safety\", \"score\": 0.50 }\n    ]\n  },\n  {\n    \"concept\": \"Online Research\",\n    \"prerequisites\": [\n      { \"prerequisite\": \"Information Search Strategies\", \"score\": 0.59 },\n      { \"prerequisite\": \"Online Safety\", \"score\": 0.53 }\n    ]\n  },\n  {\n    \"concept\": \"Password Protection\",\n    \"prerequisites\": [\n      { \"prerequisite\": \"Online Safety\", \"score\": 0.55 }\n    ]\n  },\n  {\n    \"concept\": \"Scam Awareness\",\n    \"prerequisites\": [\n      { \"prerequisite\": \"Online Safety\", \"score\": 0.59 }\n    ]\n  },\n  {\n    \"concept\": \"URL Understanding\",\n    \"prerequisites\": [\n      { \"prerequisite\": \"Internet Connection\", \"score\": 0.51 }\n    ]\n  },\n  {\n    \"concept\": \"Search Terms\",\n    \"prerequisites\": [\n      { \"prerequisite\": \"Information Search Strategies\", \"score\": 0.57 }\n    ]\n  }\n]"

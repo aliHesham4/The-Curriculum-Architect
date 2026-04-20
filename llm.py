@@ -37,11 +37,9 @@ Your task:
    understand BEFORE learning it.
 3. IMPORTANT: Prerequisites must only come from concepts that also appear 
    in the clusters above. Do not invent external prerequisites.
-4. Avoid making concept names too broad or too narrow and DO NOT OUTPUT SIMILAR DUPLICATED CONCEPTS. Use your judgment to find the right level of granularity.
+4. Avoid making concept names too broad or too narrow and DO NOT OUTPUT SIMILAR DUPLICATED CONCEPTS.
 5. If a concept has no prerequisites within this curriculum, set prerequisites to [].
-6. Recognize students level based on  curriculum context and avoid mentioning prerequisites that are advanced for curriculum's target audience.
-7. Avoid including concepts that are relevant to "Assessments", "Materials", "Activities" or "Solving Problems", or other non-conceptual clusters.
-
+6. Avoid including concepts that are relevant to "Assessments", "Materials", "Activities" or "Solving Problems", or other non-conceptual clusters.
 Return ONLY valid JSON, no explanation, no markdown:
 {{
   "concepts": [
@@ -122,7 +120,7 @@ def verify_concept_in_document(concept_name, pages, embeddings, threshold=0.5):
         "best_page": best_page
     }
 
-def rag_verify_llm_output(parsed, pages, embeddings, threshold=0.5):
+def rag_verify_llm_output(parsed, pages, embeddings, threshold=0.47):
     clean   = []
     flagged = []
 
@@ -433,7 +431,8 @@ def query_llm(all_clusters_by_chunk, toc_context,pages, page_embeddings, chunks)
         response = groq_client.chat.completions.create(
             model="llama-3.3-70b-versatile",
             messages=[{"role": "user", "content": prompt}],
-            temperature=0.2
+            temperature=0,
+            top_p=1
         )
         raw = response.choices[0].message.content.strip()
         raw = re.sub(r'^```json\s*', '', raw)

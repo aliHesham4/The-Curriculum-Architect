@@ -5,43 +5,55 @@
       "prerequisites": []
     },
     {
-      "name": "ICT Tools",
+      "name": "Digital Communication",
       "prerequisites": [
         "ICT"
       ]
     },
     {
-      "name": "Network",
+      "name": "Networks",
       "prerequisites": [
         "ICT"
+      ]
+    },
+    {
+      "name": "Internet Connection",
+      "prerequisites": [
+        "Networks"
+      ]
+    },
+    {
+      "name": "Information Search Strategies",
+      "prerequisites": [
+        "Digital Communication",
+        "Internet Connection"
+      ]
+    },
+    {
+      "name": "Sharing Information",
+      "prerequisites": [
+        "Information Search Strategies"
+      ]
+    },
+    {
+      "name": "Online Safety",
+      "prerequisites": [
+        "Internet Connection",
+        "Digital Communication"
+      ]
+    },
+    {
+      "name": "Intellectual Property Rights",
+      "prerequisites": [
+        "Sharing Information",
+        "Online Safety"
       ]
     },
     {
       "name": "Online Research",
       "prerequisites": [
-        "ICT Tools"
-      ]
-    },
-    {
-      "name": "File Management",
-      "prerequisites": [
-        "ICT Tools"
-      ]
-    },
-    {
-      "name": "Information Organization",
-      "prerequisites": [
-        "File Management"
-      ]
-    },
-    {
-      "name": "Online Safety",
-      "prerequisites": []
-    },
-    {
-      "name": "Intellectual Property Rights",
-      "prerequisites": [
-        "Online Research"
+        "Information Search Strategies",
+        "Online Safety"
       ]
     },
     {
@@ -51,20 +63,21 @@
       ]
     },
     {
-      "name": "URLs",
-      "prerequisites": []
+      "name": "Scam Awareness",
+      "prerequisites": [
+        "Online Safety"
+      ]
+    },
+    {
+      "name": "URL Understanding",
+      "prerequisites": [
+        "Internet Connection"
+      ]
     },
     {
       "name": "Search Terms",
       "prerequisites": [
-        "Online Research"
-      ]
-    },
-    {
-      "name": "Presentation",
-      "prerequisites": [
-        "Information Organization",
-        "Online Research"
+        "Information Search Strategies"
       ]
     }
   ]
