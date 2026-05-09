@@ -1,82 +1,84 @@
 {
   "concepts": [
     {
-      "name": "Digital Communication",
+      "name": "Addition within a grade unit",
       "prerequisites": [
-        "ICT"
+        "Counting and basic number sense"
       ]
     },
     {
-      "name": "Networks",
-      "prerequisites": [
-        "ICT"
-      ]
-    },
-    {
-      "name": "Internet Connection",
-      "prerequisites": [
-        "Networks"
-      ]
-    },
-    {
-      "name": "Information Search Strategies",
-      "prerequisites": [
-        "Digital Communication",
-        "Internet Connection"
-      ]
-    },
-    {
-      "name": "Sharing Information",
-      "prerequisites": [
-        "Information Search Strategies"
-      ]
-    },
-    {
-      "name": "Online Safety",
-      "prerequisites": [
-        "Digital Communication"
-      ]
-    },
-    {
-      "name": "Intellectual Property Rights",
-      "prerequisites": [
-        "Online Safety"
-      ]
-    },
-    {
-      "name": "Online Research",
-      "prerequisites": [
-        "Information Search Strategies",
-        "Online Safety"
-      ]
-    },
-    {
-      "name": "Password Protection",
-      "prerequisites": [
-        "Online Safety"
-      ]
-    },
-    {
-      "name": "Scam Awareness",
-      "prerequisites": [
-        "Online Safety"
-      ]
-    },
-    {
-      "name": "URL Understanding",
-      "prerequisites": [
-        "Internet Connection"
-      ]
-    },
-    {
-      "name": "Search Terms",
-      "prerequisites": [
-        "Information Search Strategies"
-      ]
-    },
-    {
-      "name": "ICT",
+      "name": "Counting and basic number sense",
       "prerequisites": []
+    },
+    {
+      "name": "Addition and subtraction facts",
+      "prerequisites": [
+        "Addition within a grade unit",
+        "Subtraction within 20"
+      ]
+    },
+    {
+      "name": "Subtraction within 20",
+      "prerequisites": []
+    },
+    {
+      "name": "Drawing and representing numbers",
+      "prerequisites": [
+        "Counting and basic number sense",
+        "Representing amounts with tens"
+      ]
+    },
+    {
+      "name": "Representing amounts with tens",
+      "prerequisites": []
+    },
+    {
+      "name": "Comparing numbers",
+      "prerequisites": [
+        "Counting and basic number sense",
+        "Representing amounts with tens"
+      ]
+    },
+    {
+      "name": "Number riddles and clues",
+      "prerequisites": [
+        "Counting and basic number sense",
+        "Representing amounts with tens"
+      ]
+    },
+    {
+      "name": "Solving story problems with subtraction",
+      "prerequisites": [
+        "Addition and subtraction facts",
+        "Subtraction within 20"
+      ]
+    },
+    {
+      "name": "Representing story problems with equations",
+      "prerequisites": [
+        "Addition and subtraction facts",
+        "Solving story problems with subtraction"
+      ]
+    },
+    {
+      "name": "Numbers and words",
+      "prerequisites": [
+        "Counting and basic number sense",
+        "Representing amounts with tens"
+      ]
+    },
+    {
+      "name": "Comparing lengths and objects",
+      "prerequisites": [
+        "Counting and basic number sense",
+        "Representing amounts with tens"
+      ]
     }
-  ]
+  ],
+  "stats": {
+    "strong": 17,
+    "weak": 0,
+    "reverse": 0,
+    "total_edges": 17
+  }
 }

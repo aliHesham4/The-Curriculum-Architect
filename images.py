@@ -83,7 +83,7 @@ def extract_page_images(page, page_number, max_images_per_page=3):
 
         # Fast dimension check before even extracting bytes
         if width < 150 or height < 150:
-            print(f"  → Skipping image {img_index + 1} on page {page_number + 1} — too small ({width}x{height}px)")
+            # print(f"  → Skipping image {img_index + 1} on page {page_number + 1} — too small ({width}x{height}px)")
             continue
 
         try:

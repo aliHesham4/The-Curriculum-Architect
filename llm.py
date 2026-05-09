@@ -1,13 +1,19 @@
+import os
 import re
 import json
+import google.api_core.retry as api_retry
 from sentence_transformers import SentenceTransformer, util
 from DAG import build_networkx_dag, plot_dag, print_dag_summary
-from config import groq_client
 from cleaning import clean_text
 from config import doc
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
+import google.generativeai as genai
+from config import model
+from detection import is_toc_page
 verification_model = SentenceTransformer("all-MiniLM-L6-v2")
+from groq import Groq
+groq_client = Groq(api_key=os.getenv("GROQ_KEY"))
 
 
 
@@ -21,25 +27,29 @@ def build_prompt(all_clusters_by_chunk, toc_context):
             clusters_section += f"    - {name}\n"
 
     return f"""
-You are a curriculum analyst.
-Below is the ONLY source of truth, use the table of contents if present and the topic clusters extracted from each 
-section of a curriculum document. Your job is to use your relational reasoning to identify and link educational concepts
-and their prerequisite relationships. Pass through all TOC context and cluster names to inform your analysis.
-Ignore any cluster that refers to materials, objects, or activities rather than curriculum concepts.
-{toc_context}
+You are a curriculum analyst extracting educational concepts and prerequisite relations.
+You are given TWO sources with DIFFERENT priorities:
 
-ALL TOPIC CLUSTERS BY SECTION:
+1. TOPIC CLUSTERS BY SECTION (PRIMARY SOURCE)
+Use these as the main evidence for atomic concepts extraction.
 {clusters_section}
 
+2. TABLE OF CONTENTS (SECONDARY SOURCE)
+Use only to understand document structure, sequencing, and section boundaries.
+Add missing concepts from TOC only if they are NOT present in clusters but are strongly implied by section titles.
+{toc_context}
+
 Your task:
-1. Identify all distinct educational concepts.
+1. Identify all  educational concepts from the clusters
 2. For each concept, list its prerequisites — concepts a student must 
-   understand BEFORE learning it.
+   understand BEFORE learning it, even rules from prior sections.
 3. IMPORTANT: Prerequisites must only come from concepts that also appear 
    in the clusters above. Do not invent external prerequisites.
-4. Avoid making concept names too broad or too narrow and DO NOT OUTPUT SIMILAR DUPLICATED CONCEPTS.
+4. Prefer specific named concepts over broad categories, MERGE similar concepts into one concept. 
+   For example: prefer 'Chain Rule' over 'Differentiation Techniques'. and DO NOT OUTPUT SIMILAR DUPLICATED CONCEPTS.
 5. If a concept has no prerequisites within this curriculum, set prerequisites to [].
-6. Avoid including concepts that are relevant to "Assessments", "Materials", "Activities" or "Solving Problems", or other non-conceptual clusters.
+6.IMPORTANT: Do NOT use raw cluster labels as concept names, map them to their proper educational concept name.
+7. Remove concepts that include Activity, Exercise, Problem, Example, Application, or similar non-concept terms.
 Return ONLY valid JSON, no explanation, no markdown:
 {{
   "concepts": [
@@ -49,6 +59,9 @@ Return ONLY valid JSON, no explanation, no markdown:
     }}
   ]
 }}
+
+
+
 """
 
 #-------------------------------------------------------
@@ -57,7 +70,15 @@ def build_document_index():
     for page_num in range(len(doc)):
         raw_text = doc[page_num].get_text()
         text     = clean_text(raw_text).strip()
-        # Keep all pages; use empty string for very short pages
+
+        # Skip TOC pages — they cause false early-page matches
+        if is_toc_page(raw_text):
+            pages.append({
+                "page": page_num + 1,
+                "text": ""  # ← empty string, treated as blank page
+            })
+            continue
+    
         pages.append({
             "page": page_num + 1,
             "text": text if len(text) > 20 else ""
@@ -70,7 +91,7 @@ def build_document_index():
 
 # ── Private helper (shared by both queries inside the function) ───────────────
 
-def _get_best_page(query,pages,page_embeddings_np,chunk_embeddings,chunks,top_k_chunks,top_k_pages,page_threshold):
+def _get_best_page(query,pages,page_embeddings_np,chunk_embeddings,chunks,top_k_chunks,top_k_pages,page_threshold,early_bias=0.002):
     """
     Two-stage RAG retrieval: chunks → pages.
     Returns the single highest-scoring page above threshold, or None.
@@ -94,20 +115,24 @@ def _get_best_page(query,pages,page_embeddings_np,chunk_embeddings,chunks,top_k_
             text       = pages[page_index]["text"]
             if not text.strip():
                 continue
-            if best is None or score > best["score"]:
+            page_num   = pages[page_index]["page"]
+            biased_score= score - (page_num * early_bias)  # Slight bias towards earlier pages
+            if best is None or biased_score > best["score"]:
                 best = {
                     "page_num":   pages[page_index]["page"],
                     "page_index": page_index,
                     "score":      round(float(score), 3),
+                    "biased_score": biased_score
                 }
     return best
+
 
 #-------------------------------------------------------
 # Verification and saving of LLM output
 #-------------------------------------------------------
 
 
-def verify_concept_in_document(concept_name, pages, embeddings, threshold=0.5):
+def verify_concept_in_document(concept_name, pages, embeddings, threshold):
     concept_emb = verification_model.encode(concept_name, convert_to_tensor=True)
     scores      = util.cos_sim(concept_emb, embeddings)[0]
     best_score  = scores.max().item()
@@ -120,46 +145,113 @@ def verify_concept_in_document(concept_name, pages, embeddings, threshold=0.5):
         "best_page": best_page
     }
 
-def rag_verify_llm_output(parsed, pages, embeddings, threshold=0.47):
-    clean   = []
+def rag_verify_llm_output(parsed, pages, embeddings, threshold=0.37):
+    clean = []
     flagged = []
 
+    # Track all verified standalone concepts
+    verified_concepts = set()
+
+    # First pass: verify main concepts
     for concept in parsed["concepts"]:
-        name_result = verify_concept_in_document(concept["name"], pages, embeddings, threshold)
+        name_result = verify_concept_in_document(
+            concept["name"],
+            pages,
+            embeddings,
+            threshold
+        )
 
         if not name_result["found"]:
-            print(f"  ⚠ Hallucinated concept:    '{concept['name']}' (score: {name_result['score']}, best page: {name_result['best_page']})")
+            print(
+                f"  ⚠ Hallucinated concept: "
+                f"'{concept['name']}' "
+                f"(score: {name_result['score']}, "
+                f"best page: {name_result['best_page']})"
+            )
             flagged.append(concept["name"])
             continue
 
+        verified_concepts.add(concept["name"])
+
         verified_prereqs = []
+
         for prereq in concept["prerequisites"]:
-            prereq_result = verify_concept_in_document(prereq, pages, embeddings, threshold)
+            prereq_result = verify_concept_in_document(
+                prereq,
+                pages,
+                embeddings,
+                threshold
+            )
+
             if prereq_result["found"]:
                 verified_prereqs.append(prereq)
+
+                # IMPORTANT:
+                # add prerequisite itself as a verified concept
+                verified_concepts.add(prereq)
+
             else:
-                print(f"  ⚠ Hallucinated prerequisite: '{prereq}' (score: {prereq_result['score']}, best page: {prereq_result['best_page']})")
+                print(
+                    f"  ⚠ Hallucinated prerequisite: "
+                    f"'{prereq}' "
+                    f"(score: {prereq_result['score']}, "
+                    f"best page: {prereq_result['best_page']})"
+                )
                 flagged.append(prereq)
 
-        clean.append({**concept, "prerequisites": verified_prereqs})
+        clean.append({
+            **concept,
+            "prerequisites": verified_prereqs
+        })
+
+    # ------------------------------------------------------------------
+    # Add missing prerequisite-only concepts as standalone root nodes
+    # ------------------------------------------------------------------
+
+    existing_names = {c["name"] for c in clean}
+
+    missing_prereqs = verified_concepts - existing_names
+
+    for prereq in sorted(missing_prereqs):
+        clean.append({
+            "name": prereq,
+            "prerequisites": []
+        })
 
     print(f"\n  ✅ Verified concepts:       {len(clean)}")
     print(f"  ⚠ Flagged hallucinations:  {len(flagged)}")
 
     return {"concepts": clean}, flagged
 
-
 #-------------------------------------------------------
 #Relation verification layer (LLM + RAG)
 #-------------------------------------------------------
 def query_llm_relation_verifier(prompt):
-    response = groq_client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
-        messages=[{"role": "user", "content": prompt}],
-        temperature=0
-    )
+    # ── Primary: Groq ───────────────────────────────────────────────
+    try:
+        groq_response = groq_client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0
+        )
+        print("  ✅ Relation verifier: Groq responded")
+        return groq_response.choices[0].message.content.strip()
+    except Exception as e:
+        print(f"  ⚠ Relation verifier Groq failed: {e}")
+        print("  🔄 Falling back to Gemini...")
 
-    return response.choices[0].message.content
+    # ── Fallback: Gemini ────────────────────────────────────────────────
+    try:
+        response = model.generate_content(
+            prompt,
+            generation_config=genai.types.GenerationConfig(temperature=0
+        ), request_options={"retry": api_retry.Retry(maximum=0), "timeout": 200})
+        print("  ✅ Relation verifier: Gemini responded")
+        return response.text
+
+    except Exception as gemini_e:
+        print(f"  ✖ Relation verifier Gemini also failed: {gemini_e}")
+        return None
 
 def build_relation_verification_prompt( parsed, pages, page_embeddings,chunks,top_k_chunks=2,top_k_pages=2,max_chars=400,
 page_threshold=0.45):
@@ -248,53 +340,120 @@ For each concept to appear once and below it all its prerequisites with their sc
     return prompt
 
 
-def transform_relation_scores_to_concepts(relation_scores_json):
-    data = json.loads(relation_scores_json)
+import json
 
-    # 🔹 Initialize concept map
+def transform_relation_scores_to_concepts(relation_scores_json):
+
+    import json
+
+    # Parse JSON string if needed
+    if isinstance(relation_scores_json, str):
+        relation_scores_json = json.loads(relation_scores_json)
+
+    # Support:
+    # { "concepts": [...] }
+    # OR [...]
+    if isinstance(relation_scores_json, dict):
+        data = relation_scores_json.get("concepts", [])
+
+    elif isinstance(relation_scores_json, list):
+        data = relation_scores_json
+
+    else:
+        raise ValueError("Unexpected relation score format")
+
     concept_map = {}
 
-    # 🔹 Ensure all concepts exist
+    stats = {
+        "strong": 0,
+        "weak": 0,
+        "reverse": 0,
+        "total_edges": 0
+    }
+
     for item in data:
-        concept_map[item["concept"]] = set()
 
-    # 🔹 Process relations
-    for item in data:
-        concept = item["concept"]
+        concept_name = item.get("name") or item.get("concept") 
 
-        for pr in item["prerequisites"]:
-            prereq = pr["prerequisite"]
-            score  = pr["score"]
+        if not concept_name:
+            continue
 
-            # Ensure prereq exists as concept node
-            if prereq not in concept_map:
-                concept_map[prereq] = set()
+        if concept_name not in concept_map:
+            concept_map[concept_name] = set()
 
-            # ✅ Case 1: Strong prerequisite
-            if score >= 0.5:
-                concept_map[concept].add(prereq)
+        prereqs = item.get("prerequisites", [])
 
-            # ❌ Case 2: weak → ignore
-            elif -0.5 < score < 0.5:
+        for pr in prereqs:
+
+            # ----------------------------
+            # HANDLE MULTIPLE FORMATS
+            # ----------------------------
+
+            prereq_name = None
+            score = 0
+
+            # Case 1:
+            # { "name": "...", "score": ... }
+            if isinstance(pr, dict):
+
+                prereq_name = (
+                    pr.get("name")
+                    or pr.get("concept")
+                    or pr.get("prerequisite")
+                )
+
+                score = float(pr.get("score", 0))
+
+            # Case 2:
+            # ["Limits", 0.95]
+            elif isinstance(pr, list) and len(pr) >= 2:
+
+                prereq_name = pr[0]
+                score = float(pr[1])
+
+            # Case 3:
+            # "Limits"
+            elif isinstance(pr, str):
+
+                prereq_name = pr
+                score = 1.0
+
+            # Skip malformed
+            if not prereq_name:
                 continue
 
-            # 🔄 Case 3: reverse relation
-            elif score <= -0.5:
-                concept_map[prereq].add(concept)
+            stats["total_edges"] += 1
 
-    # 🔹 Convert to required format
+            if prereq_name not in concept_map:
+                concept_map[prereq_name] = set()
+
+            # Strong prerequisite
+            if score >= 0.45:
+                concept_map[concept_name].add(prereq_name)
+                stats["strong"] += 1
+
+            # Weak prerequisite
+            elif 0 < score < 0.45:
+                stats["weak"] += 1
+
+            # Reverse relation
+            elif score <= -0.5:
+                concept_map[prereq_name].add(concept_name)
+                stats["reverse"] += 1
+
     output = {
-        "concepts": []
+        "concepts": [],
+        "stats": stats
     }
 
     for concept, prereqs in concept_map.items():
+
         output["concepts"].append({
             "name": concept,
             "prerequisites": sorted(list(prereqs))
         })
 
     return output
-
 #-------------------------------------------------------
 # Deterministic positional validator ( purely RAG + arithmetic)
 #-------------------------------------------------------
@@ -305,9 +464,9 @@ def validate_prerequisite_ordering(
     page_embeddings,
     chunks,
     output_file,
-    top_k_chunks=2,
-    top_k_pages=2,
-    page_threshold=0.4
+    top_k_chunks=3,
+    top_k_pages=4,
+    page_threshold=0.38
 ):
 
     if not isinstance(page_embeddings, np.ndarray):
@@ -359,7 +518,7 @@ def validate_prerequisite_ordering(
                 page_diff = None
             else:
                 page_diff = prereq_hit["page_num"] - concept_hit["page_num"]
-                status = "valid" if page_diff <= 0 else "invalid"
+                status = "valid" if page_diff <= 4 else "invalid"
 
             counts[status] += 1
 
@@ -412,6 +571,14 @@ def validate_prerequisite_ordering(
             G_deterministic= build_networkx_dag(final_output)
             plot_dag(G_deterministic, file_name="dag_deterministic.png", title="Curriculum DAG — Deterministic Validation")
             print_dag_summary(G_deterministic)
+        
+            import networkx as nx
+            longest_path = nx.dag_longest_path(G_deterministic)
+            length = len(longest_path)
+
+            print("Longest prerequisite chain:")
+            print(" → ".join(longest_path))
+            print("Length:", length)
         except Exception as e:
             print(f"Error occurred while building DAG: {e}")
 
@@ -419,52 +586,105 @@ def validate_prerequisite_ordering(
     return {"summary": counts, "results": results}
 
 
-def query_llm(all_clusters_by_chunk, toc_context,pages, page_embeddings, chunks):
-    print("\n===== SENDING ALL CLUSTERS TO LLaMA =====")
+def query_llm(all_clusters_by_chunk, toc_context, pages, page_embeddings, chunks):
+
+    print("\n===== SENDING ALL CLUSTERS TO LLAMA =====")
+
     prompt = build_prompt(all_clusters_by_chunk, toc_context)
 
     if len(prompt) > 20000:
         print("⚠ Prompt is large — consider reducing top_n or chunk count")
-        return None
+        return None, [], None, []
 
+    raw = None
+
+    # ── Primary: Groq ───────────────────────────────────────────────
     try:
-        response = groq_client.chat.completions.create(
+        groq_response = groq_client.chat.completions.create(
             model="llama-3.3-70b-versatile",
             messages=[{"role": "user", "content": prompt}],
             temperature=0,
             top_p=1
         )
-        raw = response.choices[0].message.content.strip()
+
+        raw = groq_response.choices[0].message.content.strip()
+        print("  ✅ Groq responded successfully")
+
+    except Exception as e:
+        print(f"  ⚠ Groq failed: {e}")
+        print("  🔄 Falling back to Gemini...")
+
+        # ── Fallback: Gemini ───────────────────────────────────────
+        try:
+            response = model.generate_content(
+                prompt,
+                generation_config=genai.types.GenerationConfig(
+                    temperature=0,
+                    top_p=1
+                ),
+                request_options={
+                    "retry": api_retry.Retry(maximum=0),
+                    "timeout": 200
+                }
+            )
+
+            raw = response.text.strip()
+            print("  ✅ Gemini responded successfully")
+
+        except Exception as e:
+            print(f"  ⚠ Gemini failed: {e}")
+            return None, [], None, []
+
+    # ── raw must be set by here ────────────────────────────────────
+    if raw is None:
+        print("  ✖ No response from any provider.")
+        return None, [], None, []
+
+    try:
         raw = re.sub(r'^```json\s*', '', raw)
         raw = re.sub(r'^```\s*', '', raw)
         raw = re.sub(r'\s*```$', '', raw)
+
         parsed = json.loads(raw)
-        # Mouse Trap for testing verification: inject a fake concept that should be flagged as hallucinated
+
+        # Mouse Trap for testing verification
         parsed["concepts"].append({
-        "name": "quantum entanglement theory",
-        "prerequisites": ["relativistic calculus", "wave function collapse"]
+            "name": "quantum entanglement theory",
+            "prerequisites": [
+                "relativistic calculus",
+                "wave function collapse"
+            ]
         })
+
         print("  🧪 Injected test concept: 'quantum entanglement theory'")
+
         #-------------------------------------------------------------------
         print("\n===== RUNNING VERIFICATION CONSTRAINT =====")
         parsed, flagged      = rag_verify_llm_output(parsed, pages, page_embeddings)
         relation_prompt = build_relation_verification_prompt(parsed, pages,page_embeddings,chunks)
+        with open("Debugging/relation_prompt.txt", "w", encoding="utf-8") as f:
+           f.write(relation_prompt)
         print("\n===== QUERYING LLM FOR RELATION VERIFICATION =====")
         relation_scores = query_llm_relation_verifier(relation_prompt)
+        if relation_scores is None:
+            print("  ✖ Relation verification failed — skipping.")
+            return parsed, flagged, None, []
+    
+        print(relation_scores)
         clean_relations = transform_relation_scores_to_concepts(relation_scores)
         
 
-        return parsed, flagged, clean_relations, relation_scores
+        return parsed, flagged, relation_scores, clean_relations
 
     
 
     except json.JSONDecodeError as e:
         print(f"  ⚠ JSON parse error: {e}")
-        return None
+        return None, [], None, []
     except Exception as e:
         print(f"  ⚠ LLM error: {e}")
-        return None
-    
+        return None, [], None, []
+
 #-------------------------------------------------------
 # Saving results in a human-readable format
 #-------------------------------------------------------

@@ -1,0 +1,297 @@
+You are verifying prerequisite relationships between concepts.
+
+For EACH pair, return a JSON object with:
+- concept
+- prerequisite
+- Return a score range between -1 and 1 up to 2 decimal places, where:
+
++1 = strong evidence prerequisite
+0  = unrelated
+-1 = strong reverse
+
+Use BOTH:
+- the provided evidence
+- your reasoning about curriculum structure
+
+Return ONLY a JSON array. No explanation.
+{
+  "concepts": [
+    {
+      name: "concept name",
+      prerequisites: [
+        "prerequisite 1", score: "0.85",
+        "prerequisite 2", score: "-0.4"
+      ]
+    }
+  ]
+}
+
+For each concept to appear once and below it all its prerequisites with their scores. Now evaluate the concepts and their prerequisites.
+
+                Concept: Addition within a grade unit
+                Prerequisite: Counting and basic number sense
+                Evidence:
+                (Page 30, score=0.70) Response to Student Thinking
+Students do not write a related addition
+equation.
+Next Day Support
+Before the first activity, pair students up to
+discuss their responses.
+The work in this lesson builds from the addition
+and subtraction concepts developed in a prior
+Prior Unit Support
+Grade 1, Unit 3, Section A: Develop Fluency with
+Addition and Subtraction within 10
+Grade 1, Unit 8
+                
+---
+
+                Concept: Addition and subtraction facts
+                Prerequisite: Addition within a grade unit
+                Evidence:
+                (Page 30, score=0.74) Response to Student Thinking
+Students do not write a related addition
+equation.
+Next Day Support
+Before the first activity, pair students up to
+discuss their responses.
+The work in this lesson builds from the addition
+and subtraction concepts developed in a prior
+Prior Unit Support
+Grade 1, Unit 3, Section A: Develop Fluency with
+Addition and Subtraction within 10
+Grade 1, Unit 8
+                
+---
+
+                Concept: Addition and subtraction facts
+                Prerequisite: Subtraction within 20
+                Evidence:
+                (Page 35, score=0.65) Unit 8 Lesson 3
+Synthesis
+“What is the same and what is different
+about how you and your classmates added
+or subtracted?” (Some of us wrote
+equations. Some of us made 10 for the
+addition and subtraction expressions.)
+Display
+“How did this student find the difference
+between 13 and 6?” (They broke 6 into 3
+and 3. They took 3 from 13 to get to 10 and
+then took the other 3 away.)
+“Why is it helpful t
+                
+---
+
+                Concept: Drawing and representing numbers
+                Prerequisite: Representing amounts with tens
+                Evidence:
+                (Page 67, score=0.60) Unit 8 Lesson 7
+Student-facing Task Statement
+How many objects are in your collection?
+Represent how many in as many ways as you
+Student Responses
+Sample responses: 107,
+ones, 10 tens 7 ones, base-ten drawing of 10
+tens and 7 ones.
+Launch
+Groups of 2
+Give each group a collection of objects and
+access to double 10-frames, plates, and
+cups, or other tools that can be used to
+organize collections.
+“W
+                
+---
+
+                Concept: Drawing and representing numbers
+                Prerequisite: Counting and basic number sense
+                Evidence:
+                (Page 74, score=0.57) The purpose of this activity is for students to represent numbers within 100 using drawings,
+words, numbers, expressions, and equations. Students choose their favorite number and
+represent this number in different ways. In the next activity, students participate in a gallery walk
+to see their classmates’ representations.
+Action and Expression: Internalize Executive Functions. Invite students to pl
+                
+---
+
+                Concept: Comparing numbers
+                Prerequisite: Counting and basic number sense
+                Evidence:
+                (Page 137, score=0.53) Lesson 10: Write Number Riddles
+Cool Down: What’s the Math?
+What do you need to know about numbers to write number riddles?
+Grade 1 Unit 8
+                
+---
+
+                Concept: Comparing numbers
+                Prerequisite: Representing amounts with tens
+                Evidence:
+                (Page 129, score=0.58) Solution
+Problem 16
+Roll a cube on the number mat twice.
+a. Find the value of the sum.
+b. Find the value of the difference.
+Sample response 1: for 7 and 3
+Sample response 2: for 8 and 5
+, since
+Standards Alignments
+Narrative
+Students compare the value of a sum with a two-digit number using
+. The first two
+items add a number of tens to a two-digit number. Students can perform the addition mentally 
+                
+---
+
+                Concept: Number riddles and clues
+                Prerequisite: Counting and basic number sense
+                Evidence:
+                (Page 137, score=0.66) Lesson 10: Write Number Riddles
+Cool Down: What’s the Math?
+What do you need to know about numbers to write number riddles?
+Grade 1 Unit 8
+                
+---
+
+                Concept: Number riddles and clues
+                Prerequisite: Representing amounts with tens
+                Evidence:
+                (Page 85, score=0.67) Unit 8 Lesson 9
+move on to the next riddle. I will let you
+know when to move.”
+20 minutes: partner work time
+Synthesis
+Invite students to share the secret number
+for each riddle.
+Lesson Synthesis
+“Today we solved lots of number riddles. I’m really stumped on this one and need your help.“
+Display the chart with only the first clue showing. “My number has more than 6 tens.“
+“What could my secret num
+                
+---
+
+                Concept: Solving story problems with subtraction
+                Prerequisite: Subtraction within 20
+                Evidence:
+                (Page 53, score=0.63) Unit 8 Lesson 5
+2. Kiran saw 16 objects in the sky.
+11 of the objects were stars.
+The rest of the objects were planets.
+How many of the objects were planets?
+If you have time: Solve each problem using both
+equations.
+Student Responses
+Invite students to share why one of
+the equations does not represent
+the problem.
+Lesson Synthesis
+“Today we solved story problems where there was a total number of 
+                
+---
+
+                Concept: Solving story problems with subtraction
+                Prerequisite: Addition and subtraction facts
+                Evidence:
+                (Page 53, score=0.66) Unit 8 Lesson 5
+2. Kiran saw 16 objects in the sky.
+11 of the objects were stars.
+The rest of the objects were planets.
+How many of the objects were planets?
+If you have time: Solve each problem using both
+equations.
+Student Responses
+Invite students to share why one of
+the equations does not represent
+the problem.
+Lesson Synthesis
+“Today we solved story problems where there was a total number of 
+                
+---
+
+                Concept: Representing story problems with equations
+                Prerequisite: Addition and subtraction facts
+                Evidence:
+                (Page 53, score=0.66) Unit 8 Lesson 5
+2. Kiran saw 16 objects in the sky.
+11 of the objects were stars.
+The rest of the objects were planets.
+How many of the objects were planets?
+If you have time: Solve each problem using both
+equations.
+Student Responses
+Invite students to share why one of
+the equations does not represent
+the problem.
+Lesson Synthesis
+“Today we solved story problems where there was a total number of 
+                
+---
+
+                Concept: Representing story problems with equations
+                Prerequisite: Solving story problems with subtraction
+                Evidence:
+                (Page 53, score=0.62) Unit 8 Lesson 5
+2. Kiran saw 16 objects in the sky.
+11 of the objects were stars.
+The rest of the objects were planets.
+How many of the objects were planets?
+If you have time: Solve each problem using both
+equations.
+Student Responses
+Invite students to share why one of
+the equations does not represent
+the problem.
+Lesson Synthesis
+“Today we solved story problems where there was a total number of 
+                
+---
+
+                Concept: Numbers and words
+                Prerequisite: Counting and basic number sense
+                Evidence:
+                (Page 137, score=0.54) Lesson 10: Write Number Riddles
+Cool Down: What’s the Math?
+What do you need to know about numbers to write number riddles?
+Grade 1 Unit 8
+                
+---
+
+                Concept: Numbers and words
+                Prerequisite: Representing amounts with tens
+                Evidence:
+                (Page 137, score=0.57) Lesson 10: Write Number Riddles
+Cool Down: What’s the Math?
+What do you need to know about numbers to write number riddles?
+Grade 1 Unit 8
+                
+---
+
+                Concept: Comparing lengths and objects
+                Prerequisite: Counting and basic number sense
+                Evidence:
+                (Page 127, score=0.63) Problem 13
+Solution
+Problem 14
+Standards Alignments
+Narrative
+Students compare lengths of three objects. They are not given measurements so the item assesses
+student ability to indirectly compare the length of two objects using a third object and also
+assesses their understanding that each comparison can be made using “shorter” or “longer.” If
+students do not select D or F then they need more prac
+                
+---
+
+                Concept: Comparing lengths and objects
+                Prerequisite: Representing amounts with tens
+                Evidence:
+                (Page 127, score=0.58) Problem 13
+Solution
+Problem 14
+Standards Alignments
+Narrative
+Students compare lengths of three objects. They are not given measurements so the item assesses
+student ability to indirectly compare the length of two objects using a third object and also
+assesses their understanding that each comparison can be made using “shorter” or “longer.” If
+students do not select D or F then they need more prac
+                

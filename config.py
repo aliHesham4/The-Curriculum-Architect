@@ -6,11 +6,13 @@ from keybert import KeyBERT
 from sentence_transformers import SentenceTransformer
 from transformers import BlipProcessor, BlipForConditionalGeneration
 import pytesseract
+import google.generativeai as genai
+
 
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
 # ── Paths ──
-PDF_PATH     = r"D:\GUC\The Curriculum Architect\Dataset\Computer Grade 5.pdf"
+PDF_PATH     = r"D:\GUC\The Curriculum Architect\Dataset\Math Curriculum For Children.pdf"
 OUTPUT_FILE  = r"D:\GUC\The Curriculum Architect\Python Files\Debugging\extracted_text.txt"
 CONCEPTS_FILE = r"D:\GUC\The Curriculum Architect\Python Files\Debugging\concepts_found_in_document.json"
 CLEAN_RELATIONS_FILE = r"D:\GUC\The Curriculum Architect\Python Files\Debugging\clean_relations.json"
@@ -32,10 +34,11 @@ kw_model = KeyBERT(model=embedder)
 
 # ── Groq client ──
 load_dotenv()
-print("Loading LLaMA API...")
-groq_client = Groq(api_key=os.getenv("GROQ_KEY"))
-response = groq_client.chat.completions.create(
-    model="llama-3.3-70b-versatile",
-    messages=[{"role": "user", "content": "Say hello"}]
-)
-print(response.choices[0].message.content)
+print("Loading Gemini API...")
+
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+
+model = genai.GenerativeModel("gemini-2.5-flash")
+# response = model.generate_content("Say hello")
+
+# print(response.text)

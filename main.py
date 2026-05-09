@@ -13,7 +13,7 @@ pages, page_embeddings = build_document_index()
 
 chunks, similarities = semantic_chunk(
     pages,
-    drop_threshold=0.45,
+    drop_threshold=0.38,
     min_pages=3,
     max_pages=20
 )
@@ -35,7 +35,7 @@ with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
             page     = doc[page_number]
             raw_text = page.get_text()
 
-            if not toc_ended and toc_page_count < 3 and is_toc_page(raw_text):
+            if not toc_ended and toc_page_count < 4 and is_toc_page(raw_text):
                 toc_page_count += 1
                 text = clean_text(raw_text)
                 toc_context += text + "\n"
@@ -66,8 +66,9 @@ with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
             keybert_input,
             keyphrase_ngram_range=(1, 3),
             stop_words='english',
-            top_n=15,
-            # use_maxsum=True
+            top_n = 15
+            
+            
         )
         keywords = [kw for kw in keywords if is_good_keyword(kw[0])]
 
@@ -76,38 +77,49 @@ with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
             continue
 
         clusters, term_embeddings = cluster_keywords(keywords, min_clusters=2)
-        clusters = filter_by_coherence(clusters, term_embeddings, threshold=0.4)
+        clusters = filter_by_coherence(clusters, term_embeddings, threshold=0.32)
         print_and_save_clusters(clusters, chunk_label, f)
         all_clusters_by_chunk[chunk_label] = list(clusters.keys())
 
-    parsed, flagged, clean_relations, relation_scores  = query_llm(all_clusters_by_chunk, toc_context,pages,page_embeddings,chunks)
+    parsed, flagged, relation_scores, clean_relations = query_llm(all_clusters_by_chunk, toc_context,pages,page_embeddings,chunks)
     print("\n===== RUNNING DETERMINISTIC VALIDATOR =====")
+    if parsed is None:
+        print("\n✖ LLM extraction failed — skipping all downstream steps.")
+    else:
 
 
-    save_concepts(parsed, flagged, f)
-    if parsed:
-        with open(CONCEPTS_FILE, "w", encoding="utf-8") as jf:
-            json.dump(parsed, jf, indent=2)
-        print(f"\n✅ Concepts saved to {CONCEPTS_FILE}")
+        save_concepts(parsed, flagged, f)
+        if parsed:
+            with open(CONCEPTS_FILE, "w", encoding="utf-8") as jf:
+                json.dump(parsed, jf, indent=2)
+            print(f"\n✅ Concepts saved to {CONCEPTS_FILE}")
 
-    save_relation_scores(relation_scores, f)
-    if clean_relations:
-        with open(CLEAN_RELATIONS_FILE, "w", encoding="utf-8") as rf:
-            json.dump(clean_relations, rf, indent=2)
-            try:
-                G_llm = build_networkx_dag(clean_relations)
-                plot_dag(G_llm,file_name="dag_llm.png", title="Curriculum DAG — LLM Verified")
-                print_dag_summary(G_llm)
-            except Exception as e:
-                print(f"Error occurred while building DAG: {e}")
+        save_relation_scores(relation_scores, f)
+        if clean_relations:
+            with open(CLEAN_RELATIONS_FILE, "w", encoding="utf-8") as rf:
+                json.dump(clean_relations, rf, indent=2)
+                try:
+                    G_llm = build_networkx_dag(clean_relations)
+                    plot_dag(G_llm,file_name="dag_llm.png", title="Curriculum DAG — LLM Verified")
+                    print_dag_summary(G_llm)
+                    import networkx as nx
 
-        print(f"\n✅ Clean relations saved to {CLEAN_RELATIONS_FILE}")
-    
-    
-    
-    print("\n===== DETERMINISTIC VALIDATOR RESULTS =====\n")
-    deterministic_results = validate_prerequisite_ordering( parsed,pages,page_embeddings,chunks,DETERMINSITIC_VALIDATOR_OUTPUT)
-    print("CURRICULUM ARCHITECTURE EXTRACTION COMPLETE.")
+                    longest_path = nx.dag_longest_path(G_llm)
+                    length = len(longest_path)
+
+                    print("Longest prerequisite chain:")
+                    print(" → ".join(longest_path))
+                    print("Length:", length)
+                except Exception as e:
+                    print(f"Error occurred while building DAG: {e}")
+
+            print(f"\n✅ Clean relations saved to {CLEAN_RELATIONS_FILE}")
+        
+        
+        
+        print("\n===== DETERMINISTIC VALIDATOR RESULTS =====\n")
+        deterministic_results = validate_prerequisite_ordering( parsed,pages,page_embeddings,chunks,DETERMINSITIC_VALIDATOR_OUTPUT)
+        print("CURRICULUM ARCHITECTURE EXTRACTION COMPLETE.")
 
 
 doc.close()

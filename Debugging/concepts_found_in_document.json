@@ -1,83 +1,77 @@
 {
   "concepts": [
     {
-      "name": "ICT",
+      "name": "Subtraction within 20",
       "prerequisites": []
     },
     {
-      "name": "Digital Communication",
+      "name": "Representing amounts with tens",
+      "prerequisites": []
+    },
+    {
+      "name": "Counting and basic number sense",
+      "prerequisites": []
+    },
+    {
+      "name": "Addition within a grade unit",
       "prerequisites": [
-        "ICT"
+        "Counting and basic number sense"
       ]
     },
     {
-      "name": "Networks",
+      "name": "Addition and subtraction facts",
       "prerequisites": [
-        "ICT"
+        "Addition within a grade unit",
+        "Subtraction within 20"
       ]
     },
     {
-      "name": "Internet Connection",
+      "name": "Drawing and representing numbers",
       "prerequisites": [
-        "Networks"
+        "Representing amounts with tens",
+        "Counting and basic number sense"
       ]
     },
     {
-      "name": "Information Search Strategies",
+      "name": "Comparing numbers",
       "prerequisites": [
-        "Digital Communication",
-        "Internet Connection"
+        "Counting and basic number sense",
+        "Representing amounts with tens"
       ]
     },
     {
-      "name": "Sharing Information",
+      "name": "Number riddles and clues",
       "prerequisites": [
-        "Information Search Strategies"
+        "Counting and basic number sense",
+        "Representing amounts with tens"
       ]
     },
     {
-      "name": "Online Safety",
+      "name": "Solving story problems with subtraction",
       "prerequisites": [
-        "Internet Connection",
-        "Digital Communication"
+        "Subtraction within 20",
+        "Addition and subtraction facts"
       ]
     },
     {
-      "name": "Intellectual Property Rights",
+      "name": "Representing story problems with equations",
       "prerequisites": [
-        "Sharing Information",
-        "Online Safety"
+        "Addition and subtraction facts",
+        "Solving story problems with subtraction"
       ]
     },
     {
-      "name": "Online Research",
+      "name": "Numbers and words",
       "prerequisites": [
-        "Information Search Strategies",
-        "Online Safety"
+        "Counting and basic number sense",
+        "Representing amounts with tens"
       ]
     },
     {
-      "name": "Password Protection",
+      "name": "Comparing lengths and objects",
       "prerequisites": [
-        "Online Safety"
-      ]
-    },
-    {
-      "name": "Scam Awareness",
-      "prerequisites": [
-        "Online Safety"
-      ]
-    },
-    {
-      "name": "URL Understanding",
-      "prerequisites": [
-        "Internet Connection"
-      ]
-    },
-    {
-      "name": "Search Terms",
-      "prerequisites": [
-        "Information Search Strategies"
+        "Counting and basic number sense",
+        "Representing amounts with tens"
       ]
     }
   ]

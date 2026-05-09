@@ -1,83 +1,73 @@
 {
   "concepts": [
     {
-      "name": "ICT",
+      "name": "Subtraction within 20",
       "prerequisites": []
     },
     {
-      "name": "Digital Communication",
+      "name": "Representing amounts with tens",
+      "prerequisites": []
+    },
+    {
+      "name": "Counting and basic number sense",
+      "prerequisites": []
+    },
+    {
+      "name": "Addition within a grade unit",
+      "prerequisites": []
+    },
+    {
+      "name": "Addition and subtraction facts",
       "prerequisites": [
-        "ICT"
+        "Addition within a grade unit"
       ]
     },
     {
-      "name": "Networks",
+      "name": "Drawing and representing numbers",
       "prerequisites": [
-        "ICT"
+        "Counting and basic number sense"
       ]
     },
     {
-      "name": "Internet Connection",
+      "name": "Comparing numbers",
       "prerequisites": [
-        "Networks"
+        "Counting and basic number sense",
+        "Representing amounts with tens"
       ]
     },
     {
-      "name": "Information Search Strategies",
+      "name": "Number riddles and clues",
       "prerequisites": [
-        "Digital Communication",
-        "Internet Connection"
+        "Counting and basic number sense",
+        "Representing amounts with tens"
       ]
     },
     {
-      "name": "Sharing Information",
+      "name": "Solving story problems with subtraction",
       "prerequisites": [
-        "Information Search Strategies"
+        "Subtraction within 20",
+        "Addition and subtraction facts"
       ]
     },
     {
-      "name": "Online Safety",
+      "name": "Representing story problems with equations",
       "prerequisites": [
-        "Internet Connection",
-        "Digital Communication"
+        "Addition and subtraction facts",
+        "Solving story problems with subtraction"
       ]
     },
     {
-      "name": "Intellectual Property Rights",
+      "name": "Numbers and words",
       "prerequisites": [
-        "Sharing Information",
-        "Online Safety"
+        "Counting and basic number sense",
+        "Representing amounts with tens"
       ]
     },
     {
-      "name": "Online Research",
+      "name": "Comparing lengths and objects",
       "prerequisites": [
-        "Information Search Strategies",
-        "Online Safety"
-      ]
-    },
-    {
-      "name": "Password Protection",
-      "prerequisites": [
-        "Online Safety"
-      ]
-    },
-    {
-      "name": "Scam Awareness",
-      "prerequisites": [
-        "Online Safety"
-      ]
-    },
-    {
-      "name": "URL Understanding",
-      "prerequisites": [
-        "Internet Connection"
-      ]
-    },
-    {
-      "name": "Search Terms",
-      "prerequisites": [
-        "Information Search Strategies"
+        "Counting and basic number sense",
+        "Representing amounts with tens"
       ]
     }
   ]
