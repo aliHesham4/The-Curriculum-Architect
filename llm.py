@@ -1,7 +1,9 @@
 import os
 import re
 import json
+from dotenv import load_dotenv
 import google.api_core.retry as api_retry
+import networkx as nx
 from sentence_transformers import SentenceTransformer, util
 from DAG import build_networkx_dag, plot_dag, print_dag_summary
 from cleaning import clean_text
@@ -13,6 +15,7 @@ from config import model
 from detection import is_toc_page
 verification_model = SentenceTransformer("all-MiniLM-L6-v2")
 from groq import Groq
+load_dotenv(override=True)
 groq_client = Groq(api_key=os.getenv("GROQ_KEY"))
 
 
@@ -26,43 +29,71 @@ def build_prompt(all_clusters_by_chunk, toc_context):
         for name in cluster_names:
             clusters_section += f"    - {name}\n"
 
-    return f"""
-You are a curriculum analyst extracting educational concepts and prerequisite relations.
-You are given TWO sources with DIFFERENT priorities:
+    return f"""You are a curriculum analyst. Your task is to extract a clean, 
+non-redundant set of atomic educational concepts and their prerequisite 
+relationships from the sources below.
 
-1. TOPIC CLUSTERS BY SECTION (PRIMARY SOURCE)
-Use these as the main evidence for atomic concepts extraction.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SOURCE 1 — TOPIC CLUSTERS (PRIMARY, use as main evidence)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 {clusters_section}
 
-2. TABLE OF CONTENTS (SECONDARY SOURCE)
-Use only to understand document structure, sequencing, and section boundaries.
-Add missing concepts from TOC only if they are NOT present in clusters but are strongly implied by section titles.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SOURCE 2 — TABLE OF CONTENTS (SECONDARY, structure only)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 {toc_context}
 
-Your task:
-1. Identify all  educational concepts from the clusters
-2. For each concept, list its prerequisites — concepts a student must 
-   understand BEFORE learning it, even rules from prior sections.
-3. IMPORTANT: Prerequisites must only come from concepts that also appear 
-   in the clusters above. Do not invent external prerequisites.
-4. Prefer specific named concepts over broad categories, MERGE similar concepts into one concept. 
-   For example: prefer 'Chain Rule' over 'Differentiation Techniques'. and DO NOT OUTPUT SIMILAR DUPLICATED CONCEPTS.
-5. If a concept has no prerequisites within this curriculum, set prerequisites to [].
-6.IMPORTANT: Do NOT use raw cluster labels as concept names, map them to their proper educational concept name.
-7. Remove concepts that include Activity, Exercise, Problem, Example, Application, or similar non-concept terms.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+EXTRACTION RULES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CONCEPT EXTRACTION:
+- Extract only atomic, teachable concepts — things a student would learn 
+  and be tested on individually.
+- Use the TOC only to fill gaps where a major section heading corresponds 
+  to no cluster at all. Do not mine the TOC for sub-concepts.
+- Map raw cluster labels to their proper educational names.
+  BAD:  "diff_techniques_cluster_3"
+  GOOD: "Chain Rule"
+- Exclude anything that is an activity, exercise, example, problem set, 
+  exam, or review session. If a cluster represents one of these, skip it.
+
+DEDUPLICATION (apply strictly before outputting):
+- Merge concepts only when they are the same mathematical object at the 
+  same level of abstraction.
+  MERGE:  "Derivative of sin" + "Derivative of cos" → "Derivatives of 
+           Trigonometric Functions"
+  DO NOT MERGE: "First Fundamental Theorem of Calculus" + 
+                "Second Fundamental Theorem of Calculus" (distinct results)
+- If two names differ only in phrasing, keep the more specific one.
+  KEEP: "Integration by Parts"   DROP: "Advanced Integration Technique"
+
+PREREQUISITES:
+- For each concept, list only concepts a student must understand BEFORE 
+  learning it, based on the curriculum content above.
+- CRITICAL: Every prerequisite listed MUST appear as a concept name 
+  elsewhere in your output. If you cannot find it in your own concept 
+  list, do not list it as a prerequisite.
+- If a concept has no prerequisites within this curriculum, set 
+  prerequisites to [].
+- Prerequisites reflect cognitive dependency, not just syllabus order. 
+  Ask: "Can a student learn X without knowing Y?" If yes, Y is not a 
+  prerequisite.
+
+OUTPUT SIZE:
+- Aim for 25–50 concepts for a full-semester university course.
+- Fewer than 20 suggests under-extraction. More than 60 suggests 
+  failure to merge.
+
 Return ONLY valid JSON, no explanation, no markdown:
 {{
   "concepts": [
     {{
       "name": "concept name",
-      "prerequisites": ["prerequisite 1", "prerequisite 2",...]
+      "prerequisites": ["prerequisite 1", "prerequisite 2"]
     }}
   ]
-}}
-
-
-
-"""
+}}"""
 
 #-------------------------------------------------------
 def build_document_index():
@@ -253,7 +284,7 @@ def query_llm_relation_verifier(prompt):
         print(f"  ✖ Relation verifier Gemini also failed: {gemini_e}")
         return None
 
-def build_relation_verification_prompt( parsed, pages, page_embeddings,chunks,top_k_chunks=2,top_k_pages=2,max_chars=400,
+def build_relation_verification_prompt( parsed, pages, page_embeddings,chunks,top_k_chunks=2,top_k_pages=2,max_chars=500,
 page_threshold=0.45):
 
     # 🔹 Ensure embeddings are numpy
@@ -276,9 +307,9 @@ For EACH pair, return a JSON object with:
 - prerequisite
 - Return a score range between -1 and 1 up to 2 decimal places, where:
 
-+1 = strong evidence prerequisite
++1 = strong prerequisite
 0  = unrelated
--1 = strong reverse
+-1 = reversed prerequisite (the "prerequisite" is actually a more advanced concept that should come after "concept")
 
 Use BOTH:
 - the provided evidence
@@ -592,9 +623,9 @@ def query_llm(all_clusters_by_chunk, toc_context, pages, page_embeddings, chunks
 
     prompt = build_prompt(all_clusters_by_chunk, toc_context)
 
-    if len(prompt) > 20000:
-        print("⚠ Prompt is large — consider reducing top_n or chunk count")
-        return None, [], None, []
+    # if len(prompt) > 20000:
+    #     print("⚠ Prompt is large — consider reducing top_n or chunk count")
+    #     return None, [], None, []
 
     raw = None
 
@@ -661,29 +692,29 @@ def query_llm(all_clusters_by_chunk, toc_context, pages, page_embeddings, chunks
         #-------------------------------------------------------------------
         print("\n===== RUNNING VERIFICATION CONSTRAINT =====")
         parsed, flagged      = rag_verify_llm_output(parsed, pages, page_embeddings)
-        relation_prompt = build_relation_verification_prompt(parsed, pages,page_embeddings,chunks)
-        with open("Debugging/relation_prompt.txt", "w", encoding="utf-8") as f:
-           f.write(relation_prompt)
-        print("\n===== QUERYING LLM FOR RELATION VERIFICATION =====")
-        relation_scores = query_llm_relation_verifier(relation_prompt)
-        if relation_scores is None:
-            print("  ✖ Relation verification failed — skipping.")
-            return parsed, flagged, None, []
+        # relation_prompt = build_relation_verification_prompt(parsed, pages,page_embeddings,chunks)
+        # with open("Debugging/relation_prompt.txt", "w", encoding="utf-8") as f:
+        #    f.write(relation_prompt)
+        # print("\n===== QUERYING LLM FOR RELATION VERIFICATION =====")
+        # relation_scores = query_llm_relation_verifier(relation_prompt)
+        # if relation_scores is None:
+        #     print("  ✖ Relation verification failed — skipping.")
+        #     return parsed, flagged, None, []
     
-        print(relation_scores)
-        clean_relations = transform_relation_scores_to_concepts(relation_scores)
+        
+        # clean_relations = transform_relation_scores_to_concepts(relation_scores)
         
 
-        return parsed, flagged, relation_scores, clean_relations
+        return parsed, flagged
 
     
 
     except json.JSONDecodeError as e:
         print(f"  ⚠ JSON parse error: {e}")
-        return None, [], None, []
+        return None, []
     except Exception as e:
         print(f"  ⚠ LLM error: {e}")
-        return None, [], None, []
+        return None, []
 
 #-------------------------------------------------------
 # Saving results in a human-readable format
@@ -729,3 +760,113 @@ def save_relation_scores(relation_scores, file_handle):
     file_handle.write(json.dumps(relation_scores, indent=2))
     
     print(relation_scores)
+
+
+def verification_loop(G_llm, pages, page_embeddings, chunks):
+    """
+    POST-DAG verification loop.
+    Takes the completed DAG and checks D for missing dependencies
+    between concepts that currently have NO edge between them.
+    """
+    
+    if not isinstance(page_embeddings, np.ndarray):
+        page_embeddings_np = np.array([emb for emb in page_embeddings])
+    else:
+        page_embeddings_np = page_embeddings
+
+    chunk_embeddings = [
+        np.mean([page_embeddings_np[p] for p in chunk], axis=0)
+        for chunk in chunks
+    ]
+
+    nodes = list(G_llm.nodes())
+    missing_found = []
+    
+    print("\n===== VERIFICATION LOOP — SCANNING FOR MISSING DEPENDENCIES =====")
+
+    for i, concept_a in enumerate(nodes):
+        for concept_b in nodes[i+1:]:
+
+            # Skip if any edge already exists between this pair
+            if G_llm.has_edge(concept_a, concept_b):
+                continue
+            if G_llm.has_edge(concept_b, concept_a):
+                continue
+
+            # ── Query D for co-occurrence page ────────────────────────
+            hit = _get_best_page(
+                query=f"{concept_a} {concept_b}",
+                pages=pages,
+                page_embeddings_np=page_embeddings_np,
+                chunk_embeddings=chunk_embeddings,
+                chunks=chunks,
+                top_k_chunks=2,
+                top_k_pages=2,
+                page_threshold=0.40
+            )
+
+            if hit is None:
+                continue
+
+            page_text = pages[hit["page_index"]]["text"][:500]
+
+            # ── Ask LLM to read the actual page text ──────────────────
+            prompt = f"""You are auditing a curriculum prerequisite graph.
+
+These two concepts currently have NO relationship in the graph:
+- Concept A: {concept_a}  
+- Concept B: {concept_b}
+
+Relevant page from the curriculum document (Page {hit['page_num']}):
+\"\"\"{page_text}\"\"\"
+
+Based ONLY on this text:
+Does a prerequisite relationship exist between these two concepts?
+If yes, which must be learned first?
+
+Reply ONLY with this JSON, no explanation:
+{{"dependency_exists": true or false, "first": "A" or "B" or null, "confidence": 0.0_to_1.0}}"""
+
+            try:
+                response = groq_client.chat.completions.create(
+                    model="llama-3.3-70b-versatile",
+                    messages=[{"role": "user", "content": prompt}],
+                    temperature=0
+                )
+                raw = response.choices[0].message.content.strip()
+                raw = re.sub(r'```json|```', '', raw).strip()
+                result = json.loads(raw)
+
+                if result.get("dependency_exists") and result.get("confidence", 0) >= 0.9:
+                    
+                    # Determine direction
+                    if result.get("first") == "A":
+                        prereq, concept = concept_a, concept_b
+                    else:
+                        prereq, concept = concept_b, concept_a
+
+                    # ── Cycle check before adding ─────────────────────
+                    G_llm.add_edge(prereq, concept)
+                    if not nx.is_directed_acyclic_graph(G_llm):
+                        G_llm.remove_edge(prereq, concept)
+                        print(f"  ⚠ Skipped {prereq} → {concept} (would create cycle)")
+                        continue
+
+                    missing_found.append({
+                        "prereq": prereq,
+                        "concept": concept,
+                        "confidence": result["confidence"],
+                        "evidence_page": hit["page_num"]
+                    })
+                    print(f"  ✅ Missing dependency added: "
+                          f"{prereq} → {concept} "
+                          f"(page {hit['page_num']}, "
+                          f"confidence {result['confidence']})")
+
+            except Exception:
+                continue
+
+    print(f"\n  Verification loop complete.")
+    print(f"  Missing dependencies found and added: {len(missing_found)}")
+    
+    return G_llm, missing_found

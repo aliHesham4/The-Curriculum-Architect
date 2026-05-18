@@ -1,77 +1,146 @@
 {
   "concepts": [
     {
-      "name": "Subtraction within 20",
+      "name": "Data Visualization",
       "prerequisites": []
     },
     {
-      "name": "Representing amounts with tens",
+      "name": "Data Science",
+      "prerequisites": [
+        "Data Visualization"
+      ]
+    },
+    {
+      "name": "Python Programming",
       "prerequisites": []
     },
     {
-      "name": "Counting and basic number sense",
-      "prerequisites": []
-    },
-    {
-      "name": "Addition within a grade unit",
+      "name": "Pandas Library",
       "prerequisites": [
-        "Counting and basic number sense"
+        "Python Programming"
       ]
     },
     {
-      "name": "Addition and subtraction facts",
+      "name": "Data Analysis",
       "prerequisites": [
-        "Addition within a grade unit",
-        "Subtraction within 20"
+        "Data Science",
+        "Pandas Library"
       ]
     },
     {
-      "name": "Drawing and representing numbers",
+      "name": "Statistical Analysis",
       "prerequisites": [
-        "Representing amounts with tens",
-        "Counting and basic number sense"
+        "Data Analysis"
       ]
     },
     {
-      "name": "Comparing numbers",
+      "name": "Probability Distribution",
       "prerequisites": [
-        "Counting and basic number sense",
-        "Representing amounts with tens"
+        "Statistical Analysis"
       ]
     },
     {
-      "name": "Number riddles and clues",
+      "name": "Inferential Statistics",
       "prerequisites": [
-        "Counting and basic number sense",
-        "Representing amounts with tens"
+        "Statistical Analysis"
       ]
     },
     {
-      "name": "Solving story problems with subtraction",
+      "name": "Hypothesis Testing",
       "prerequisites": [
-        "Subtraction within 20",
-        "Addition and subtraction facts"
+        "Inferential Statistics"
       ]
     },
     {
-      "name": "Representing story problems with equations",
+      "name": "Confidence Interval",
       "prerequisites": [
-        "Addition and subtraction facts",
-        "Solving story problems with subtraction"
+        "Inferential Statistics"
       ]
     },
     {
-      "name": "Numbers and words",
+      "name": "Regression Analysis",
       "prerequisites": [
-        "Counting and basic number sense",
-        "Representing amounts with tens"
+        "Statistical Analysis"
       ]
     },
     {
-      "name": "Comparing lengths and objects",
+      "name": "Correlation Coefficient",
       "prerequisites": [
-        "Counting and basic number sense",
-        "Representing amounts with tens"
+        "Regression Analysis"
+      ]
+    },
+    {
+      "name": "Time Series Analysis",
+      "prerequisites": [
+        "Statistical Analysis"
+      ]
+    },
+    {
+      "name": "Machine Learning",
+      "prerequisites": [
+        "Data Science",
+        "Python Programming"
+      ]
+    },
+    {
+      "name": "Neural Networks",
+      "prerequisites": [
+        "Machine Learning"
+      ]
+    },
+    {
+      "name": "Deep Learning",
+      "prerequisites": [
+        "Neural Networks"
+      ]
+    },
+    {
+      "name": "Natural Language Processing",
+      "prerequisites": [
+        "Machine Learning"
+      ]
+    },
+    {
+      "name": "Data Ethics",
+      "prerequisites": [
+        "Data Science"
+      ]
+    },
+    {
+      "name": "Data Privacy",
+      "prerequisites": [
+        "Data Ethics"
+      ]
+    },
+    {
+      "name": "Data Security",
+      "prerequisites": [
+        "Data Privacy"
+      ]
+    },
+    {
+      "name": "Data Visualization Tools",
+      "prerequisites": [
+        "Data Visualization"
+      ]
+    },
+    {
+      "name": "Matplotlib Library",
+      "prerequisites": [
+        "Data Visualization Tools",
+        "Python Programming"
+      ]
+    },
+    {
+      "name": "Excel Data Analysis",
+      "prerequisites": [
+        "Data Analysis"
+      ]
+    },
+    {
+      "name": "R Studio",
+      "prerequisites": [
+        "Data Analysis"
       ]
     }
   ]

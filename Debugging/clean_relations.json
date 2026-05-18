@@ -1,84 +1,256 @@
 {
   "concepts": [
     {
-      "name": "Addition within a grade unit",
+      "name": "Continuity",
       "prerequisites": [
-        "Counting and basic number sense"
+        "Limits"
       ]
     },
     {
-      "name": "Counting and basic number sense",
+      "name": "Limits",
       "prerequisites": []
     },
     {
-      "name": "Addition and subtraction facts",
+      "name": "Trigonometric Limits",
       "prerequisites": [
-        "Addition within a grade unit",
-        "Subtraction within 20"
+        "Limits",
+        "Trigonometry"
       ]
     },
     {
-      "name": "Subtraction within 20",
+      "name": "Trigonometry",
       "prerequisites": []
     },
     {
-      "name": "Drawing and representing numbers",
+      "name": "Higher Derivatives",
       "prerequisites": [
-        "Counting and basic number sense",
-        "Representing amounts with tens"
+        "Derivatives"
       ]
     },
     {
-      "name": "Representing amounts with tens",
+      "name": "Derivatives",
       "prerequisites": []
     },
     {
-      "name": "Comparing numbers",
+      "name": "Chain Rule",
       "prerequisites": [
-        "Counting and basic number sense",
-        "Representing amounts with tens"
+        "Derivatives"
       ]
     },
     {
-      "name": "Number riddles and clues",
+      "name": "Implicit Differentiation",
       "prerequisites": [
-        "Counting and basic number sense",
-        "Representing amounts with tens"
+        "Derivatives"
       ]
     },
     {
-      "name": "Solving story problems with subtraction",
+      "name": "Exponential and Logarithmic Differentiation",
       "prerequisites": [
-        "Addition and subtraction facts",
-        "Subtraction within 20"
+        "Derivatives",
+        "Exponentials",
+        "Logarithms"
       ]
     },
     {
-      "name": "Representing story problems with equations",
+      "name": "Exponentials",
+      "prerequisites": []
+    },
+    {
+      "name": "Logarithms",
+      "prerequisites": []
+    },
+    {
+      "name": "Hyperbolic Functions",
       "prerequisites": [
-        "Addition and subtraction facts",
-        "Solving story problems with subtraction"
+        "Exponentials",
+        "Logarithms"
       ]
     },
     {
-      "name": "Numbers and words",
+      "name": "Linear Approximation",
       "prerequisites": [
-        "Counting and basic number sense",
-        "Representing amounts with tens"
+        "Derivatives"
       ]
     },
     {
-      "name": "Comparing lengths and objects",
+      "name": "Quadratic Approximation",
       "prerequisites": [
-        "Counting and basic number sense",
-        "Representing amounts with tens"
+        "Derivatives",
+        "Linear Approximation"
+      ]
+    },
+    {
+      "name": "Curve Sketching",
+      "prerequisites": [
+        "Derivatives",
+        "Linear Approximation"
+      ]
+    },
+    {
+      "name": "Max/Min Problems",
+      "prerequisites": [
+        "Derivatives"
+      ]
+    },
+    {
+      "name": "Related Rates",
+      "prerequisites": [
+        "Derivatives",
+        "Implicit Differentiation"
+      ]
+    },
+    {
+      "name": "Newton's Method",
+      "prerequisites": [
+        "Derivatives",
+        "Linear Approximation"
+      ]
+    },
+    {
+      "name": "Mean Value Theorem",
+      "prerequisites": [
+        "Continuity",
+        "Derivatives"
+      ]
+    },
+    {
+      "name": "Differentials",
+      "prerequisites": [
+        "Derivatives"
+      ]
+    },
+    {
+      "name": "Antiderivatives",
+      "prerequisites": [
+        "Derivatives",
+        "Differentials"
+      ]
+    },
+    {
+      "name": "Differential Equations",
+      "prerequisites": [
+        "Antiderivatives"
+      ]
+    },
+    {
+      "name": "Definite Integrals",
+      "prerequisites": [
+        "Antiderivatives"
+      ]
+    },
+    {
+      "name": "First Fundamental Theorem of Calculus",
+      "prerequisites": [
+        "Antiderivatives",
+        "Definite Integrals"
+      ]
+    },
+    {
+      "name": "Second Fundamental Theorem of Calculus",
+      "prerequisites": [
+        "Definite Integrals",
+        "First Fundamental Theorem of Calculus"
+      ]
+    },
+    {
+      "name": "Volumes by Disks and Shells",
+      "prerequisites": [
+        "Definite Integrals"
+      ]
+    },
+    {
+      "name": "Work and Average Value",
+      "prerequisites": [
+        "Definite Integrals"
+      ]
+    },
+    {
+      "name": "Numerical Integration",
+      "prerequisites": [
+        "Definite Integrals"
+      ]
+    },
+    {
+      "name": "Trigonometric Integrals",
+      "prerequisites": [
+        "Definite Integrals",
+        "Trigonometry"
+      ]
+    },
+    {
+      "name": "Integration by Substitution",
+      "prerequisites": [
+        "Definite Integrals"
+      ]
+    },
+    {
+      "name": "Integration by Parts",
+      "prerequisites": [
+        "Definite Integrals",
+        "Integration by Substitution"
+      ]
+    },
+    {
+      "name": "Partial Fractions",
+      "prerequisites": [
+        "Definite Integrals",
+        "Integration by Substitution"
+      ]
+    },
+    {
+      "name": "Parametric Equations",
+      "prerequisites": [
+        "Calculus"
+      ]
+    },
+    {
+      "name": "Calculus",
+      "prerequisites": []
+    },
+    {
+      "name": "Polar Coordinates",
+      "prerequisites": [
+        "Calculus",
+        "Trigonometry"
+      ]
+    },
+    {
+      "name": "Indeterminate Forms",
+      "prerequisites": [
+        "Limits"
+      ]
+    },
+    {
+      "name": "L'H\u00f4pital's Rule",
+      "prerequisites": [
+        "Derivatives",
+        "Indeterminate Forms"
+      ]
+    },
+    {
+      "name": "Improper Integrals",
+      "prerequisites": [
+        "Definite Integrals"
+      ]
+    },
+    {
+      "name": "Infinite Series",
+      "prerequisites": [
+        "Calculus"
+      ]
+    },
+    {
+      "name": "Taylor Series",
+      "prerequisites": [
+        "Calculus",
+        "Infinite Series"
       ]
     }
   ],
   "stats": {
-    "strong": 17,
+    "strong": 52,
     "weak": 0,
     "reverse": 0,
-    "total_edges": 17
+    "total_edges": 54
   }
 }

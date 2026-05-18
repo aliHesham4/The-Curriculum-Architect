@@ -28,270 +28,894 @@ Return ONLY a JSON array. No explanation.
 
 For each concept to appear once and below it all its prerequisites with their scores. Now evaluate the concepts and their prerequisites.
 
-                Concept: Addition within a grade unit
-                Prerequisite: Counting and basic number sense
+                Concept: Continuity
+                Prerequisite: Limits
                 Evidence:
-                (Page 30, score=0.70) Response to Student Thinking
-Students do not write a related addition
-equation.
-Next Day Support
-Before the first activity, pair students up to
-discuss their responses.
-The work in this lesson builds from the addition
-and subtraction concepts developed in a prior
-Prior Unit Support
-Grade 1, Unit 3, Section A: Develop Fluency with
-Addition and Subtraction within 10
-Grade 1, Unit 8
+                (Page 16, score=0.51) Lecture 2
+4. Other (ugly) discontinuities
+Figure 8: An example of an ugly discontinuity: a function that oscillates a lot as it approaches the origin
+This function doesn’t even go to ±∞ it doesn’t make sense to say it goes to anything. For
+something like this, we say the limit does not exist.
                 
 ---
 
-                Concept: Addition and subtraction facts
-                Prerequisite: Addition within a grade unit
+                Concept: Trigonometric Limits
+                Prerequisite: Limits
                 Evidence:
-                (Page 30, score=0.74) Response to Student Thinking
-Students do not write a related addition
-equation.
-Next Day Support
-Before the first activity, pair students up to
-discuss their responses.
-The work in this lesson builds from the addition
-and subtraction concepts developed in a prior
-Prior Unit Support
-Grade 1, Unit 3, Section A: Develop Fluency with
-Addition and Subtraction within 10
-Grade 1, Unit 8
+                (Page 170, score=0.56) Lecture 34
+Example 1. Apply L’Hôpital’s rule (a.k.a. “L’Hop”) to
+to get
+Let’s compare this with the answer we’d get if we used linear approximation techniques, instead of
+L’Hôpital’s rule:
+Similarly,
+Therefore,
+Example 2. Apply L’Hop to
+to get
+This is the same as
+d sin(3x)
+Example 3.
+lim sin x − cos x = lim cos x + sin x =
+f(x) = sin x − cos x, f 0(x) = cos x + sin x
+Remark: Derivatives lim
+are al
                 
 ---
 
-                Concept: Addition and subtraction facts
-                Prerequisite: Subtraction within 20
+                Concept: Trigonometric Limits
+                Prerequisite: Trigonometry
                 Evidence:
-                (Page 35, score=0.65) Unit 8 Lesson 3
-Synthesis
-“What is the same and what is different
-about how you and your classmates added
-or subtracted?” (Some of us wrote
-equations. Some of us made 10 for the
-addition and subtraction expressions.)
-Display
-“How did this student find the difference
-between 13 and 6?” (They broke 6 into 3
-and 3. They took 3 from 13 to get to 10 and
-then took the other 3 away.)
-“Why is it helpful t
+                (Page 19, score=0.54) Lecture 2
+Two Trig Limits
+Note: In the expressions below, θ is in radians NOT degrees!
+lim sin θ = 1;
+lim 1 − cos θ = 0
+Here is a geometric proof for the ﬁrst limit:
+length
+Figure 12: A circle of radius 1 with an arc of angle θ
+length
+Figure 13: The sector in Fig. 12 as θ becomes very small
+Imagine what happens to the picture as θ gets very small (see Fig. 13). As θ
+0, we see that
                 
 ---
 
-                Concept: Drawing and representing numbers
-                Prerequisite: Representing amounts with tens
+                Concept: Higher Derivatives
+                Prerequisite: Derivatives
                 Evidence:
-                (Page 67, score=0.60) Unit 8 Lesson 7
-Student-facing Task Statement
-How many objects are in your collection?
-Represent how many in as many ways as you
-Student Responses
-Sample responses: 107,
-ones, 10 tens 7 ones, base-ten drawing of 10
-tens and 7 ones.
-Launch
-Groups of 2
-Give each group a collection of objects and
-access to double 10-frames, plates, and
-cups, or other tools that can be used to
-organize collections.
-“W
+                (Page 8, score=0.46) Lecture 1
+Figure 5: Graph of x
+Notations
+Calculus, rather like English or any other language, was developed by several people. As a result,
+just as there are many ways to express the same thing, there are many notations for the derivative.
+Since y = f(x), it’s natural to write
+We say “Delta y” or “Delta f” or the “change in y”.
+If we divide both sides by Δx = x − x0, we get two expressions for the
                 
 ---
 
-                Concept: Drawing and representing numbers
-                Prerequisite: Counting and basic number sense
+                Concept: Chain Rule
+                Prerequisite: Derivatives
                 Evidence:
-                (Page 74, score=0.57) The purpose of this activity is for students to represent numbers within 100 using drawings,
-words, numbers, expressions, and equations. Students choose their favorite number and
-represent this number in different ways. In the next activity, students participate in a gallery walk
-to see their classmates’ representations.
-Action and Expression: Internalize Executive Functions. Invite students to pl
+                (Page 26, score=0.54) Lecture 4
+Lecture 4
+Chain
+Rule, and Higher
+Derivatives
+Chain Rule
+We’ve got general procedures for diﬀerentiating expressions with addition, subtraction, and multi­
+plication. What about composition?
+Example 1. y = f(x) = sin x, x = g(t) = t2 .
+So, y = f(g(t)) = sin(t2). To ﬁnd dy , write
+Δy = Δy Δx
+0 too, because of continuity. So we get:
+The Chain Rule!
+In the example, dx
+dt = 2t and dy
+dx = cos
                 
 ---
 
-                Concept: Comparing numbers
-                Prerequisite: Counting and basic number sense
+                Concept: Implicit Differentiation
+                Prerequisite: Derivatives
                 Evidence:
-                (Page 137, score=0.53) Lesson 10: Write Number Riddles
-Cool Down: What’s the Math?
-What do you need to know about numbers to write number riddles?
-Grade 1 Unit 8
+                (Page 31, score=0.50) Lecture 5
+So, implicit diﬀerentiation makes it possible to ﬁnd the derivative of the inverse function.
+Example. y = arctan(x)
+dx [tan(y)]
+dy [tan(y)]
+cos2(y) = cos2(arctan(x))
+This form is messy. Let us use some geometry to simplify it.
+Figure 1: Triangle with angles and lengths corresponding to those in the example illustrating diﬀerentiation using
+the inverse function arctan
+In this triangle, ta
                 
 ---
 
-                Concept: Comparing numbers
-                Prerequisite: Representing amounts with tens
+                Concept: Exponential and Logarithmic Differentiation
+                Prerequisite: Derivatives
                 Evidence:
-                (Page 129, score=0.58) Solution
-Problem 16
-Roll a cube on the number mat twice.
-a. Find the value of the sum.
-b. Find the value of the difference.
-Sample response 1: for 7 and 3
-Sample response 2: for 8 and 5
-, since
-Standards Alignments
-Narrative
-Students compare the value of a sum with a two-digit number using
-. The first two
-items add a number of tens to a two-digit number. Students can perform the addition mentally 
+                (Page 38, score=0.50) Lecture 6
+Apply this to f(x) = a .
+ln f(x) = x ln a =
+(Remember, ln(a) is a constant, not a variable.) Hence,
+a = (ln a)a
+Example 1.
+With variable (“moving”) exponents, you should use either base e or logarithmic diﬀerentiation.
+In this example, we will use the latter.
+Therefore,
+If you wanted to solve this using the base e approach, you would say f = ex ln x and diﬀerentiate
+it using the chain ru
                 
 ---
 
-                Concept: Number riddles and clues
-                Prerequisite: Counting and basic number sense
+                Concept: Exponential and Logarithmic Differentiation
+                Prerequisite: Exponentials
                 Evidence:
-                (Page 137, score=0.66) Lesson 10: Write Number Riddles
-Cool Down: What’s the Math?
-What do you need to know about numbers to write number riddles?
-Grade 1 Unit 8
+                (Page 38, score=0.50) Lecture 6
+Apply this to f(x) = a .
+ln f(x) = x ln a =
+(Remember, ln(a) is a constant, not a variable.) Hence,
+a = (ln a)a
+Example 1.
+With variable (“moving”) exponents, you should use either base e or logarithmic diﬀerentiation.
+In this example, we will use the latter.
+Therefore,
+If you wanted to solve this using the base e approach, you would say f = ex ln x and diﬀerentiate
+it using the chain ru
                 
 ---
 
-                Concept: Number riddles and clues
-                Prerequisite: Representing amounts with tens
+                Concept: Exponential and Logarithmic Differentiation
+                Prerequisite: Logarithms
                 Evidence:
-                (Page 85, score=0.67) Unit 8 Lesson 9
-move on to the next riddle. I will let you
-know when to move.”
-20 minutes: partner work time
-Synthesis
-Invite students to share the secret number
-for each riddle.
-Lesson Synthesis
-“Today we solved lots of number riddles. I’m really stumped on this one and need your help.“
-Display the chart with only the first clue showing. “My number has more than 6 tens.“
-“What could my secret num
+                (Page 38, score=0.52) Lecture 6
+Apply this to f(x) = a .
+ln f(x) = x ln a =
+(Remember, ln(a) is a constant, not a variable.) Hence,
+a = (ln a)a
+Example 1.
+With variable (“moving”) exponents, you should use either base e or logarithmic diﬀerentiation.
+In this example, we will use the latter.
+Therefore,
+If you wanted to solve this using the base e approach, you would say f = ex ln x and diﬀerentiate
+it using the chain ru
                 
 ---
 
-                Concept: Solving story problems with subtraction
-                Prerequisite: Subtraction within 20
+                Concept: Hyperbolic Functions
+                Prerequisite: Exponentials
                 Evidence:
-                (Page 53, score=0.63) Unit 8 Lesson 5
-2. Kiran saw 16 objects in the sky.
-11 of the objects were stars.
-The rest of the objects were planets.
-How many of the objects were planets?
-If you have time: Solve each problem using both
-equations.
-Student Responses
-Invite students to share why one of
-the equations does not represent
-the problem.
-Lesson Synthesis
-“Today we solved story problems where there was a total number of 
+                (Page 40, score=0.67) Lecture 7
+Lecture 7: Continuation and Exam Review
+Hyperbolic Sine and Cosine
+Hyperbolic sine (pronounced “sinsh”):
+sinh(x) = ex − e−x
+Hyperbolic cosine (pronounced “cosh”):
+cosh(x) =
+d sinh(x) = d
+Likewise,
+d cosh(x) = sinh(x)
+(Note that this is diﬀerent from
+Important identity:
+cosh2(x) − sinh2(x) = 1
+Proof:
+cosh2(x) − sinh2(x)
+cosh2(x) − sinh2(x)
+Why are these functions called “hyperbolic”?
+Let 
                 
 ---
 
-                Concept: Solving story problems with subtraction
-                Prerequisite: Addition and subtraction facts
+                Concept: Hyperbolic Functions
+                Prerequisite: Logarithms
                 Evidence:
-                (Page 53, score=0.66) Unit 8 Lesson 5
-2. Kiran saw 16 objects in the sky.
-11 of the objects were stars.
-The rest of the objects were planets.
-How many of the objects were planets?
-If you have time: Solve each problem using both
-equations.
-Student Responses
-Invite students to share why one of
-the equations does not represent
-the problem.
-Lesson Synthesis
-“Today we solved story problems where there was a total number of 
+                (Page 40, score=0.66) Lecture 7
+Lecture 7: Continuation and Exam Review
+Hyperbolic Sine and Cosine
+Hyperbolic sine (pronounced “sinsh”):
+sinh(x) = ex − e−x
+Hyperbolic cosine (pronounced “cosh”):
+cosh(x) =
+d sinh(x) = d
+Likewise,
+d cosh(x) = sinh(x)
+(Note that this is diﬀerent from
+Important identity:
+cosh2(x) − sinh2(x) = 1
+Proof:
+cosh2(x) − sinh2(x)
+cosh2(x) − sinh2(x)
+Why are these functions called “hyperbolic”?
+Let 
                 
 ---
 
-                Concept: Representing story problems with equations
-                Prerequisite: Addition and subtraction facts
+                Concept: Linear Approximation
+                Prerequisite: Derivatives
                 Evidence:
-                (Page 53, score=0.66) Unit 8 Lesson 5
-2. Kiran saw 16 objects in the sky.
-11 of the objects were stars.
-The rest of the objects were planets.
-How many of the objects were planets?
-If you have time: Solve each problem using both
-equations.
-Student Responses
-Invite students to share why one of
-the equations does not represent
-the problem.
-Lesson Synthesis
-“Today we solved story problems where there was a total number of 
+                (Page 45, score=0.61) Lecture 9: Linear and Quadratic Approximations
+Unit 2: Applications of Diﬀerentiation
+Today, we’ll be using diﬀerentiation to make approximations.
+Linear Approximation
+Figure 1: Tangent as a linear approximation to a curve
+The tangent line approximates f(x). It gives a good approximation near the tangent point x0.
+As you move away from x0, however, the approximation grows less accurate.
+Example 1.
                 
 ---
 
-                Concept: Representing story problems with equations
-                Prerequisite: Solving story problems with subtraction
+                Concept: Quadratic Approximation
+                Prerequisite: Linear Approximation
                 Evidence:
-                (Page 53, score=0.62) Unit 8 Lesson 5
-2. Kiran saw 16 objects in the sky.
-11 of the objects were stars.
-The rest of the objects were planets.
-How many of the objects were planets?
-If you have time: Solve each problem using both
-equations.
-Student Responses
-Invite students to share why one of
-the equations does not represent
-the problem.
-Lesson Synthesis
-“Today we solved story problems where there was a total number of 
+                (Page 48, score=0.61) satellite
+(with velocity v)
+Here, T 0 is the time I measure on my wristwatch, and T is the time measured onboard the satellite.
+If v = 4 km/s, and the speed of light (c) is 3 × 105 km/s, v
+≈ 10−10 . There’s hardly any diﬀerence
+between the times measured on the ground and in the satellite. Nevertheless, engineers used this very
+approximation (along with several other such approximations) to calibr
                 
 ---
 
-                Concept: Numbers and words
-                Prerequisite: Counting and basic number sense
+                Concept: Quadratic Approximation
+                Prerequisite: Derivatives
                 Evidence:
-                (Page 137, score=0.54) Lesson 10: Write Number Riddles
-Cool Down: What’s the Math?
-What do you need to know about numbers to write number riddles?
-Grade 1 Unit 8
+                (Page 48, score=0.60) satellite
+(with velocity v)
+Here, T 0 is the time I measure on my wristwatch, and T is the time measured onboard the satellite.
+If v = 4 km/s, and the speed of light (c) is 3 × 105 km/s, v
+≈ 10−10 . There’s hardly any diﬀerence
+between the times measured on the ground and in the satellite. Nevertheless, engineers used this very
+approximation (along with several other such approximations) to calibr
                 
 ---
 
-                Concept: Numbers and words
-                Prerequisite: Representing amounts with tens
+                Concept: Curve Sketching
+                Prerequisite: Derivatives
                 Evidence:
-                (Page 137, score=0.57) Lesson 10: Write Number Riddles
-Cool Down: What’s the Math?
-What do you need to know about numbers to write number riddles?
-Grade 1 Unit 8
+                (Page 56, score=0.45) 2nd Derivative Information
+When f 00 > 0, f 0 is increasing. When f 00 < 0, f 0 is decreasing. (See Fig. 8 and Fig. 9)
+slope < 0
+slope = 0
+slope > 0
+Figure 8: f is convex (concave-up). The slope increases from negative to positive as x increases.
+Figure 9: f is concave-down. The slope decreases from positive to negative as x increases.
+Therefore, the sign of the second derivative tells us about co
                 
 ---
 
-                Concept: Comparing lengths and objects
-                Prerequisite: Counting and basic number sense
+                Concept: Curve Sketching
+                Prerequisite: Linear Approximation
                 Evidence:
-                (Page 127, score=0.63) Problem 13
-Solution
-Problem 14
-Standards Alignments
-Narrative
-Students compare lengths of three objects. They are not given measurements so the item assesses
-student ability to indirectly compare the length of two objects using a third object and also
-assesses their understanding that each comparison can be made using “shorter” or “longer.” If
-students do not select D or F then they need more prac
+                (Page 45, score=0.57) Lecture 9: Linear and Quadratic Approximations
+Unit 2: Applications of Diﬀerentiation
+Today, we’ll be using diﬀerentiation to make approximations.
+Linear Approximation
+Figure 1: Tangent as a linear approximation to a curve
+The tangent line approximates f(x). It gives a good approximation near the tangent point x0.
+As you move away from x0, however, the approximation grows less accurate.
+Example 1.
                 
 ---
 
-                Concept: Comparing lengths and objects
-                Prerequisite: Representing amounts with tens
+                Concept: Max/Min Problems
+                Prerequisite: Derivatives
                 Evidence:
-                (Page 127, score=0.58) Problem 13
-Solution
-Problem 14
-Standards Alignments
-Narrative
-Students compare lengths of three objects. They are not given measurements so the item assesses
-student ability to indirectly compare the length of two objects using a third object and also
-assesses their understanding that each comparison can be made using “shorter” or “longer.” If
-students do not select D or F then they need more prac
+                (Page 56, score=0.51) 2nd Derivative Information
+When f 00 > 0, f 0 is increasing. When f 00 < 0, f 0 is decreasing. (See Fig. 8 and Fig. 9)
+slope < 0
+slope = 0
+slope > 0
+Figure 8: f is convex (concave-up). The slope increases from negative to positive as x increases.
+Figure 9: f is concave-down. The slope decreases from positive to negative as x increases.
+Therefore, the sign of the second derivative tells us about co
+                
+---
+
+                Concept: Max/Min Problems
+                Prerequisite: Linear Approximation
+                Evidence:
+                No strong evidence found.
+                
+---
+
+                Concept: Related Rates
+                Prerequisite: Derivatives
+                Evidence:
+                (Page 11, score=0.56) Lecture 2
+Lecture 2: Limits, Continuity, and Trigonometric
+Limits
+More about the “rate of change” interpretation of the
+derivative
+Figure 1: Graph of a generic function, with Δx and Δy marked on the graph
+temperature gradient
+dx as Δx → 0
+Average rate of change
+Instantaneous rate of change
+Examples
+1. q = charge
+dt = electrical current
+2. s = distance
+dt = speed
+= temperature
+                
+---
+
+                Concept: Related Rates
+                Prerequisite: Implicit Differentiation
+                Evidence:
+                (Page 11, score=0.53) Lecture 2
+Lecture 2: Limits, Continuity, and Trigonometric
+Limits
+More about the “rate of change” interpretation of the
+derivative
+Figure 1: Graph of a generic function, with Δx and Δy marked on the graph
+temperature gradient
+dx as Δx → 0
+Average rate of change
+Instantaneous rate of change
+Examples
+1. q = charge
+dt = electrical current
+2. s = distance
+dt = speed
+= temperature
+                
+---
+
+                Concept: Newton's Method
+                Prerequisite: Derivatives
+                Evidence:
+                (Page 70, score=0.49) Lecture 13, Version 3.0
+This yields
+which is just what we hoped: x =
+Warning 1. Newton’s Method can ﬁnd an unexpected root.
+Example: if you take x0 = −1, then xk → −
+3 instead of +
+3. This convergence to an unexpected
+root is illustrated in Fig. 4
+tangent to
+curve at x = x0
+Figure 4: Newton’s method converging to an unexpected root.
+Warning 2. Newton’s Method can fail completely.
+This failure is i
+                
+---
+
+                Concept: Newton's Method
+                Prerequisite: Linear Approximation
+                Evidence:
+                (Page 45, score=0.53) Lecture 9: Linear and Quadratic Approximations
+Unit 2: Applications of Diﬀerentiation
+Today, we’ll be using diﬀerentiation to make approximations.
+Linear Approximation
+Figure 1: Tangent as a linear approximation to a curve
+The tangent line approximates f(x). It gives a good approximation near the tangent point x0.
+As you move away from x0, however, the approximation grows less accurate.
+Example 1.
+                
+---
+
+                Concept: Mean Value Theorem
+                Prerequisite: Derivatives
+                Evidence:
+                (Page 73, score=0.58) Lecture 14: Mean Value Theorem and Inequalities
+Mean-Value Theorem
+The Mean-Value Theorem (MVT) is the underpinning of calculus. It says:
+If f is diﬀerentiable on a < x < b, and continuous on a ≤ x ≤ b, then
+(for some c, a < c < b)
+is the slope of a secant line, while f 0(c) is the slope of a tangent line.
+secant line
+slope
+Geometric Proof: Take (dotted) lines parallel to the secant line, as in Fi
+                
+---
+
+                Concept: Mean Value Theorem
+                Prerequisite: Continuity
+                Evidence:
+                (Page 73, score=0.56) Lecture 14: Mean Value Theorem and Inequalities
+Mean-Value Theorem
+The Mean-Value Theorem (MVT) is the underpinning of calculus. It says:
+If f is diﬀerentiable on a < x < b, and continuous on a ≤ x ≤ b, then
+(for some c, a < c < b)
+is the slope of a secant line, while f 0(c) is the slope of a tangent line.
+secant line
+slope
+Geometric Proof: Take (dotted) lines parallel to the secant line, as in Fi
+                
+---
+
+                Concept: Differentials
+                Prerequisite: Derivatives
+                Evidence:
+                (Page 4, score=0.59) Lecture 1
+Unit 1: Derivatives
+A. What is a derivative?
+Geometric interpretation
+Physical interpretation
+Important for any measurement (economics, political science, ﬁnance, physics, etc.)
+B. How to diﬀerentiate any function you know.
+For example:
+e x arctan x . We will discuss what a derivative is today. Figuring out how to
+diﬀerentiate any function is the subject of the ﬁrst two weeks of this cou
+                
+---
+
+                Concept: Antiderivatives
+                Prerequisite: Derivatives
+                Evidence:
+                (Page 79, score=0.53) Uniqueness of the antiderivative up to an additive constant.
+If F 0(x) = f(x), and G0(x) = f(x), then G(x) = F (x) + c for some constant factor c.
+Proof:
+Recall that we proved as a corollary of the Mean Value Theorem that if a function has a derivative
+zero then it is constant. Hence G(x) − F (x) = c (for some constant c). That is, G(x) = F (x) + c.
+Method of substitution.
+Example 1.
+Substitution:
+                
+---
+
+                Concept: Antiderivatives
+                Prerequisite: Differentials
+                Evidence:
+                (Page 79, score=0.52) Uniqueness of the antiderivative up to an additive constant.
+If F 0(x) = f(x), and G0(x) = f(x), then G(x) = F (x) + c for some constant factor c.
+Proof:
+Recall that we proved as a corollary of the Mean Value Theorem that if a function has a derivative
+zero then it is constant. Hence G(x) − F (x) = c (for some constant c). That is, G(x) = F (x) + c.
+Method of substitution.
+Example 1.
+Substitution:
+                
+---
+
+                Concept: Differential Equations
+                Prerequisite: Derivatives
+                Evidence:
+                No strong evidence found.
+                
+---
+
+                Concept: Differential Equations
+                Prerequisite: Antiderivatives
+                Evidence:
+                (Page 79, score=0.49) Uniqueness of the antiderivative up to an additive constant.
+If F 0(x) = f(x), and G0(x) = f(x), then G(x) = F (x) + c for some constant factor c.
+Proof:
+Recall that we proved as a corollary of the Mean Value Theorem that if a function has a derivative
+zero then it is constant. Hence G(x) − F (x) = c (for some constant c). That is, G(x) = F (x) + c.
+Method of substitution.
+Example 1.
+Substitution:
+                
+---
+
+                Concept: Definite Integrals
+                Prerequisite: Antiderivatives
+                Evidence:
+                (Page 95, score=0.52) Lecture 19
+Integrals have an important additive property (See Figure 3.)
+New Deﬁnition:
+This deﬁnition is used so that the fundamental theorem is valid no matter if a < b or b < a. It also
+makes it so that the additive property works for a, b, c in any order, not just the one pictured in
+Figure 3.
+                
+---
+
+                Concept: First Fundamental Theorem of Calculus
+                Prerequisite: Definite Integrals
+                Evidence:
+                (Page 93, score=0.60) Lecture 19
+Lecture 19: First Fundamental Theorem of
+Calculus
+Fundamental Theorem of Calculus (FTC 1)
+If f(x) is continuous and F 0(x) = f(x), then
+Notation: F (x)
+Example 1. F (x) =
+Example 2. Area under one hump of sin x (See Figure 1.)
+sin x dx = − cos x
+Figure 1: Graph of f (x) = sin x for 0 ≤ x ≤ π.
+Example 3.
+                
+---
+
+                Concept: First Fundamental Theorem of Calculus
+                Prerequisite: Antiderivatives
+                Evidence:
+                (Page 93, score=0.56) Lecture 19
+Lecture 19: First Fundamental Theorem of
+Calculus
+Fundamental Theorem of Calculus (FTC 1)
+If f(x) is continuous and F 0(x) = f(x), then
+Notation: F (x)
+Example 1. F (x) =
+Example 2. Area under one hump of sin x (See Figure 1.)
+sin x dx = − cos x
+Figure 1: Graph of f (x) = sin x for 0 ≤ x ≤ π.
+Example 3.
+                
+---
+
+                Concept: Second Fundamental Theorem of Calculus
+                Prerequisite: First Fundamental Theorem of Calculus
+                Evidence:
+                (Page 93, score=0.56) Lecture 19
+Lecture 19: First Fundamental Theorem of
+Calculus
+Fundamental Theorem of Calculus (FTC 1)
+If f(x) is continuous and F 0(x) = f(x), then
+Notation: F (x)
+Example 1. F (x) =
+Example 2. Area under one hump of sin x (See Figure 1.)
+sin x dx = − cos x
+Figure 1: Graph of f (x) = sin x for 0 ≤ x ≤ π.
+Example 3.
+                
+---
+
+                Concept: Second Fundamental Theorem of Calculus
+                Prerequisite: Definite Integrals
+                Evidence:
+                (Page 93, score=0.58) Lecture 19
+Lecture 19: First Fundamental Theorem of
+Calculus
+Fundamental Theorem of Calculus (FTC 1)
+If f(x) is continuous and F 0(x) = f(x), then
+Notation: F (x)
+Example 1. F (x) =
+Example 2. Area under one hump of sin x (See Figure 1.)
+sin x dx = − cos x
+Figure 1: Graph of f (x) = sin x for 0 ≤ x ≤ π.
+Example 3.
+                
+---
+
+                Concept: Volumes by Disks and Shells
+                Prerequisite: Definite Integrals
+                Evidence:
+                (Page 107, score=0.68) Lecture 22
+Lecture 22: Volumes by Disks and Shells
+Disks and Shells
+We will illustrate the 2 methods of ﬁnding volume through an example.
+Example 1. A witch’s cauldron
+Figure 1: y = x
+rotated around the y-axis.
+Method 1: Disks
+thickness of dy
+Figure 2: Volume by Disks for the Witch’s Cauldron problem.
+The area of the disk in Figure 2 is πx2 . The disk has thickness dy and volume dV = πx2dy.
+The vo
+                
+---
+
+                Concept: Work and Average Value
+                Prerequisite: Definite Integrals
+                Evidence:
+                (Page 112, score=0.49) Lecture 23
+Lecture 23: Work, Average Value, Probability
+Application of Integration to Average Value
+You already know how to take the average of a set of discrete numbers:
+Now, we want to ﬁnd the average of a continuum.
+Figure 1: Discrete approximation to y = f (x) on a ≤ x ≤ b.
+Average ≈ y1 + y2 + + yn
+where
+The limit of the Riemann Sums is
+Divide by b − a to get the continuous average
+                
+---
+
+                Concept: Numerical Integration
+                Prerequisite: Definite Integrals
+                Evidence:
+                (Page 126, score=0.53) Lecture 24
+Example 1. Evaluate
+dx using two methods (trapezoidal and Simpson’s) of numerical
+integration.
+Figure 6: Area under (1+
+By Simpson’s rule:
+Exact answer:
+Roughly speaking, the error, | Simpson’s − Exact |, has order of magnitude (Δx)4 .
+By the trapezoidal rule:
+                
+---
+
+                Concept: Trigonometric Integrals
+                Prerequisite: Definite Integrals
+                Evidence:
+                (Page 134, score=0.59) Lecture 26
+We get the answer by “advanced guessing,” i.e., “knowing the answer ahead of time.”
+sec x + tan x
+sec2 x + sec x tan x
+sec x dx = sec x
+sec x + tan x
+tan x + sec x
+Make the following substitutions:
+u = tan x + sec x
+du = (sec2 x + sec x tan x) dx
+This gives
+sec x dx =
+= ln(u) + c = ln(tan x + sec x) + c
+Cases like n = 3, m = 0 or more generally n odd and m even are more complicated and 
+                
+---
+
+                Concept: Trigonometric Integrals
+                Prerequisite: Trigonometry
+                Evidence:
+                (Page 134, score=0.57) Lecture 26
+We get the answer by “advanced guessing,” i.e., “knowing the answer ahead of time.”
+sec x + tan x
+sec2 x + sec x tan x
+sec x dx = sec x
+sec x + tan x
+tan x + sec x
+Make the following substitutions:
+u = tan x + sec x
+du = (sec2 x + sec x tan x) dx
+This gives
+sec x dx =
+= ln(u) + c = ln(tan x + sec x) + c
+Cases like n = 3, m = 0 or more generally n odd and m even are more complicated and 
+                
+---
+
+                Concept: Integration by Substitution
+                Prerequisite: Definite Integrals
+                Evidence:
+                (Page 138, score=0.51) Lecture 28
+Figure 3: Area divided into a sector and a triangle.
+Here is a list of integrals that can be computed using a trig substitution and a trig identity.
+integral
+substitution trig identity
+x = tan u
+tan2 u + 1 = sec2 u
+x = sec u
+sec2 u − 1 = tan2 u
+x = sin u
+1 − sin2 u = cos2 u
+Let’s extend this further. How can we evaluate an integral like this?
+When you have a linear and a quadratic term 
+                
+---
+
+                Concept: Integration by Parts
+                Prerequisite: Definite Integrals
+                Evidence:
+                (Page 146, score=0.55) Lecture 30
+Putting these into the integration by parts formula gives us:
+x e x dx = x e
+nx n−1 e x dx
+Repeat, going from n → (n − 1) → (n − 2) → etc.
+Bad news: If you change the integrals just a little bit, they become impossible to evaluate:
+dx = impossible
+e dx = also impossible
+Good news: When you can’t evaluate an integral, then
+is an answer, not a question. This is the solution you don’t have
+                
+---
+
+                Concept: Integration by Parts
+                Prerequisite: Integration by Substitution
+                Evidence:
+                (Page 144, score=0.55) Lecture 30
+Lecture 30: Integration by Parts, Reduction
+Formulae
+Integration by Parts
+Remember the product rule:
+We can rewrite that as
+Integrate this to get the formula for integration by parts:
+uv0 dx = uv −
+Example 1.
+tan−1 x dx.
+At ﬁrst, it’s not clear how integration by parts helps. Write
+tan−1 x dx =
+Therefore,
+Plug all of these into the formula for integration by parts to get:
+tan−1 x dx =
+u
+                
+---
+
+                Concept: Partial Fractions
+                Prerequisite: Definite Integrals
+                Evidence:
+                (Page 167, score=0.57) Lecture 32: Exam 4 Review
+Postscript: Systematic integration of rational functions
+For a general rational function P/Q, the ﬁrst step is to express P/Q as the sum of a polynomial
+and a ratio in which the numerator has smaller degree than the denominator.
+For example,
+(To carry out this long division, do not factor the denominator Q(x) = x2 − 2x + 1, just leave it
+alone.) The quotient x + 2 is a po
+                
+---
+
+                Concept: Partial Fractions
+                Prerequisite: Integration by Substitution
+                Evidence:
+                (Page 165, score=0.57) Lecture 32: Exam 4 Review
+Exam 4 Review Handout
+1. Integrate by trigonometric substitution; evaluate the trigonometric integral and work
+backwards to the original variable by evaluating trig(trig−1) using a right triangle:
+a) a2 − x2 use x = a sin u, dx = a cos u du.
+b) a2 + x2 use x = a tan u, dx = a sec2 u du
+c) x2 − a2 use x = a sec u, dx = a sec u tan u du
+2. Integrate rational functions P/Q (
+                
+---
+
+                Concept: Parametric Equations
+                Prerequisite: Calculus
+                Evidence:
+                (Page 150, score=0.46) Lecture 30
+Figure 6: s = angle in radians.
+Parametric Equations
+Example 6.
+x = a cos t
+y = a sin t
+Ask yourself: what’s constant? What’s varying? Here, t is variable and a is constant.
+Is there a relationship between x and y? Yes:
+Extra information (besides the circle):
+x = a cos
+= 0 and y = a sin
+Thus, for 0 ≤ t ≤ π/2, a quarter circle is traced counter-clockwise (Figure 7).
+                
+---
+
+                Concept: Polar Coordinates
+                Prerequisite: Calculus
+                Evidence:
+                (Page 156, score=0.69) Lecture 32
+Lecture 32: Polar Co-ordinates, Area in Polar
+Co-ordinates
+Polar Coordinates
+Figure 1: Polar Co-ordinates.
+In polar coordinates, we specify an object’s position in terms of its distance r from the origin
+and the angle θ that the ray from the origin to the point makes with respect to the x-axis.
+Example 1. What are the polar coordinates for the point speciﬁed by (1, −1) in rectangular
+co
+                
+---
+
+                Concept: Polar Coordinates
+                Prerequisite: Trigonometry
+                Evidence:
+                (Page 156, score=0.72) Lecture 32
+Lecture 32: Polar Co-ordinates, Area in Polar
+Co-ordinates
+Polar Coordinates
+Figure 1: Polar Co-ordinates.
+In polar coordinates, we specify an object’s position in terms of its distance r from the origin
+and the angle θ that the ray from the origin to the point makes with respect to the x-axis.
+Example 1. What are the polar coordinates for the point speciﬁed by (1, −1) in rectangular
+co
+                
+---
+
+                Concept: Indeterminate Forms
+                Prerequisite: Limits
+                Evidence:
+                (Page 169, score=0.67) Lecture 34
+Lecture 34: Indeterminate Forms - L’Hôpital’s Rule
+L’Hôpital’s Rule
+(Two correct spellings: “L’Hôpital” and “L’Hospital”)
+Sometimes, we run into indeterminate forms. These are things like
+For instance, how do you deal with the following?
+Example 0. One way of dealing with this is to use algebra to simplify things:
+In general, when f(a) = g(a) = 0,
+lim g(x) − g(a)
+This is the easy versio
+                
+---
+
+                Concept: Indeterminate Forms
+                Prerequisite: Derivatives
+                Evidence:
+                (Page 169, score=0.66) Lecture 34
+Lecture 34: Indeterminate Forms - L’Hôpital’s Rule
+L’Hôpital’s Rule
+(Two correct spellings: “L’Hôpital” and “L’Hospital”)
+Sometimes, we run into indeterminate forms. These are things like
+For instance, how do you deal with the following?
+Example 0. One way of dealing with this is to use algebra to simplify things:
+In general, when f(a) = g(a) = 0,
+lim g(x) − g(a)
+This is the easy versio
+                
+---
+
+                Concept: L'Hôpital's Rule
+                Prerequisite: Indeterminate Forms
+                Evidence:
+                (Page 169, score=0.80) Lecture 34
+Lecture 34: Indeterminate Forms - L’Hôpital’s Rule
+L’Hôpital’s Rule
+(Two correct spellings: “L’Hôpital” and “L’Hospital”)
+Sometimes, we run into indeterminate forms. These are things like
+For instance, how do you deal with the following?
+Example 0. One way of dealing with this is to use algebra to simplify things:
+In general, when f(a) = g(a) = 0,
+lim g(x) − g(a)
+This is the easy versio
+                
+---
+
+                Concept: L'Hôpital's Rule
+                Prerequisite: Derivatives
+                Evidence:
+                (Page 169, score=0.65) Lecture 34
+Lecture 34: Indeterminate Forms - L’Hôpital’s Rule
+L’Hôpital’s Rule
+(Two correct spellings: “L’Hôpital” and “L’Hospital”)
+Sometimes, we run into indeterminate forms. These are things like
+For instance, how do you deal with the following?
+Example 0. One way of dealing with this is to use algebra to simplify things:
+In general, when f(a) = g(a) = 0,
+lim g(x) − g(a)
+This is the easy versio
+                
+---
+
+                Concept: Improper Integrals
+                Prerequisite: Definite Integrals
+                Evidence:
+                (Page 176, score=0.60) Lecture 35
+Determining Divergence and Convergence
+To decide whether an integral converges or diverges, don’t need to evaluate. Instead one can compare
+it to a simpler integral that can be evaluated.
+The General Story for powers:
+From Examples 4, 5 and 6 we know that this diverges (is inﬁnite) for 0 < p ≤ 1 and converges (is
+ﬁnite) for p > 1.
+The comparison of integrals says that a larger function 
+                
+---
+
+                Concept: Infinite Series
+                Prerequisite: Calculus
+                Evidence:
+                (Page 180, score=0.62) Lecture 36
+Deﬁnition
+means the same thing as
+lim Sn = s, where Sn =
+We say the series converges to s, if the limit exists and is ﬁnite. The importance of convergence is
+illustrated here by the example of the geometric series. If a = 1, S = 1 + 1 + 1 + = ∞. But
+does not make sense and is not usable!
+Another type of series:
+We can use integrals to decide if this type of series converges. First, turn
+                
+---
+
+                Concept: Taylor Series
+                Prerequisite: Infinite Series
+                Evidence:
+                (Page 188, score=0.55) Lecture 37
+Taylor’s Series and Taylor’s Formula
+, we want to ﬁgure out what all these coeﬃcients are.
+Diﬀerentiating,
+Let’s plug in x = 0 to all of these equations.
+Taylor’s Formula tells us what the coeﬃcients are:
+(2)(1) and 0! = 1. Coeﬃcients an are given by:
+Example 7. f(x) = e .
+Therefore, by Taylor’s Formula an =
+Or in compact form,
+Now, we can calculate e to any accuracy:
+Example 7. f(x) = 
+                
+---
+
+                Concept: Taylor Series
+                Prerequisite: Calculus
+                Evidence:
+                (Page 188, score=0.54) Lecture 37
+Taylor’s Series and Taylor’s Formula
+, we want to ﬁgure out what all these coeﬃcients are.
+Diﬀerentiating,
+Let’s plug in x = 0 to all of these equations.
+Taylor’s Formula tells us what the coeﬃcients are:
+(2)(1) and 0! = 1. Coeﬃcients an are given by:
+Example 7. f(x) = e .
+Therefore, by Taylor’s Formula an =
+Or in compact form,
+Now, we can calculate e to any accuracy:
+Example 7. f(x) = 
                 
