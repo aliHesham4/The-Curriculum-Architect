@@ -30,16 +30,20 @@ def build_prompt(all_clusters_by_chunk, toc_context):
             clusters_section += f"    - {name}\n"
 
     return f"""You are a curriculum analyst. Your task is to extract a clean, 
-non-redundant set of atomic educational concepts and their prerequisite 
-relationships from the sources below.
+non-redundant set of teachable concepts and their prerequisite relationships 
+from the sources below.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SOURCE 1 — TOPIC CLUSTERS (PRIMARY, use as main evidence)
+SOURCE 1 — TOPIC CLUSTERS BY SECTION (PRIMARY)
+Use these as the main evidence for concept extraction.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 {clusters_section}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SOURCE 2 — TABLE OF CONTENTS (SECONDARY, structure only)
+SOURCE 2 — TABLE OF CONTENTS (SECONDARY)
+Use only to understand structure and sequencing.
+Add a concept from the TOC only if it is entirely absent from the clusters
+but is strongly implied by a major section title.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 {toc_context}
 
@@ -48,42 +52,42 @@ EXTRACTION RULES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 CONCEPT EXTRACTION:
-- Extract only atomic, teachable concepts — things a student would learn 
-  and be tested on individually.
-- Use the TOC only to fill gaps where a major section heading corresponds 
-  to no cluster at all. Do not mine the TOC for sub-concepts.
+- Extract every teachable concept a student would learn and be tested on 
+  individually. Do not under-extract.
 - Map raw cluster labels to their proper educational names.
-  BAD:  "diff_techniques_cluster_3"
-  GOOD: "Chain Rule"
-- Exclude anything that is an activity, exercise, example, problem set, 
-  exam, or review session. If a cluster represents one of these, skip it.
+    BAD:  "diff_techniques_cluster_3"
+    GOOD: "Chain Rule"
+- Prefer specific named concepts over broad categories.
+    KEEP: "Chain Rule"   DROP: "Differentiation Techniques"
+- Exclude anything that is an activity, exercise, example, problem set,
+  exam, review session, or application task. If a cluster represents one 
+  of these, skip it entirely.
 
-DEDUPLICATION (apply strictly before outputting):
-- Merge concepts only when they are the same mathematical object at the 
-  same level of abstraction.
-  MERGE:  "Derivative of sin" + "Derivative of cos" → "Derivatives of 
-           Trigonometric Functions"
-  DO NOT MERGE: "First Fundamental Theorem of Calculus" + 
-                "Second Fundamental Theorem of Calculus" (distinct results)
+DEDUPLICATION:
+- Merge concepts only when they are the same object at the same level 
+  of abstraction.
+    MERGE:     "Derivative of sin" + "Derivative of cos"
+               → "Derivatives of Trigonometric Functions"
+    DO NOT MERGE: "First Fundamental Theorem of Calculus" +
+                  "Second Fundamental Theorem of Calculus"
 - If two names differ only in phrasing, keep the more specific one.
-  KEEP: "Integration by Parts"   DROP: "Advanced Integration Technique"
 
 PREREQUISITES:
 - For each concept, list only concepts a student must understand BEFORE 
-  learning it, based on the curriculum content above.
+  learning it, based on the curriculum sources above.
+- Prerequisites reflect cognitive dependency, not syllabus order.
+  Test: "Can a student learn X without knowing Y?" 
+  If yes → Y is NOT a prerequisite.
 - CRITICAL: Every prerequisite listed MUST appear as a concept name 
-  elsewhere in your output. If you cannot find it in your own concept 
-  list, do not list it as a prerequisite.
-- If a concept has no prerequisites within this curriculum, set 
-  prerequisites to [].
-- Prerequisites reflect cognitive dependency, not just syllabus order. 
-  Ask: "Can a student learn X without knowing Y?" If yes, Y is not a 
-  prerequisite.
+  elsewhere in your output. Never invent external prerequisites.
+- If a concept has no prerequisites within this curriculum, 
+  set prerequisites to [].
 
 OUTPUT SIZE:
-- Aim for 25–50 concepts for a full-semester university course.
-- Fewer than 20 suggests under-extraction. More than 60 suggests 
-  failure to merge.
+- Extract ALL valid concepts. For a full-semester university course, 
+  expect 25–60 concepts.
+- Fewer than 20 → you are under-extracting.
+- More than 80 → you are over-extracting or not merging duplicates.
 
 Return ONLY valid JSON, no explanation, no markdown:
 {{
@@ -94,7 +98,6 @@ Return ONLY valid JSON, no explanation, no markdown:
     }}
   ]
 }}"""
-
 #-------------------------------------------------------
 def build_document_index():
     pages = []
@@ -285,7 +288,7 @@ def query_llm_relation_verifier(prompt):
         return None
 
 def build_relation_verification_prompt( parsed, pages, page_embeddings,chunks,top_k_chunks=2,top_k_pages=2,max_chars=500,
-page_threshold=0.45):
+page_threshold=0.4):
 
     # 🔹 Ensure embeddings are numpy
     if not isinstance(page_embeddings, np.ndarray):
@@ -622,6 +625,7 @@ def query_llm(all_clusters_by_chunk, toc_context, pages, page_embeddings, chunks
     print("\n===== SENDING ALL CLUSTERS TO LLAMA =====")
 
     prompt = build_prompt(all_clusters_by_chunk, toc_context)
+    print(prompt)
 
     # if len(prompt) > 20000:
     #     print("⚠ Prompt is large — consider reducing top_n or chunk count")
@@ -692,29 +696,29 @@ def query_llm(all_clusters_by_chunk, toc_context, pages, page_embeddings, chunks
         #-------------------------------------------------------------------
         print("\n===== RUNNING VERIFICATION CONSTRAINT =====")
         parsed, flagged      = rag_verify_llm_output(parsed, pages, page_embeddings)
-        # relation_prompt = build_relation_verification_prompt(parsed, pages,page_embeddings,chunks)
-        # with open("Debugging/relation_prompt.txt", "w", encoding="utf-8") as f:
-        #    f.write(relation_prompt)
-        # print("\n===== QUERYING LLM FOR RELATION VERIFICATION =====")
-        # relation_scores = query_llm_relation_verifier(relation_prompt)
-        # if relation_scores is None:
-        #     print("  ✖ Relation verification failed — skipping.")
-        #     return parsed, flagged, None, []
+        relation_prompt = build_relation_verification_prompt(parsed, pages,page_embeddings,chunks)
+        with open("Debugging/relation_prompt.txt", "w", encoding="utf-8") as f:
+           f.write(relation_prompt)
+        print("\n===== QUERYING LLM FOR RELATION VERIFICATION =====")
+        relation_scores = query_llm_relation_verifier(relation_prompt)
+        if relation_scores is None:
+            print("  ✖ Relation verification failed — skipping.")
+            return parsed, flagged, None, []
     
         
-        # clean_relations = transform_relation_scores_to_concepts(relation_scores)
+        clean_relations = transform_relation_scores_to_concepts(relation_scores)
         
 
-        return parsed, flagged
+        return parsed, flagged, relation_scores, clean_relations
 
     
 
     except json.JSONDecodeError as e:
         print(f"  ⚠ JSON parse error: {e}")
-        return None, []
+        return None, [], None, []
     except Exception as e:
         print(f"  ⚠ LLM error: {e}")
-        return None, []
+        return None, [], None, []
 
 #-------------------------------------------------------
 # Saving results in a human-readable format

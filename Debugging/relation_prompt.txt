@@ -5,9 +5,9 @@ For EACH pair, return a JSON object with:
 - prerequisite
 - Return a score range between -1 and 1 up to 2 decimal places, where:
 
-+1 = strong evidence prerequisite
++1 = strong prerequisite
 0  = unrelated
--1 = strong reverse
+-1 = reversed prerequisite (the "prerequisite" is actually a more advanced concept that should come after "concept")
 
 Use BOTH:
 - the provided evidence
@@ -39,10 +39,10 @@ something like this, we say the limit does not exist.
                 
 ---
 
-                Concept: Trigonometric Limits
+                Concept: Derivatives
                 Prerequisite: Limits
                 Evidence:
-                (Page 170, score=0.56) Lecture 34
+                (Page 170, score=0.54) Lecture 34
 Example 1. Apply L’Hôpital’s rule (a.k.a. “L’Hop”) to
 to get
 Let’s compare this with the answer we’d get if we used linear approximation techniques, instead of
@@ -57,39 +57,32 @@ Example 3.
 lim sin x − cos x = lim cos x + sin x =
 f(x) = sin x − cos x, f 0(x) = cos x + sin x
 Remark: Derivatives lim
-are al
+are always a
+type of limit.
+Example 4. lim cos x − 1 .
+Use L’Hôpital’s rule to evaluate the limit:
+lim cos
                 
 ---
 
-                Concept: Trigonometric Limits
-                Prerequisite: Trigonometry
-                Evidence:
-                (Page 19, score=0.54) Lecture 2
-Two Trig Limits
-Note: In the expressions below, θ is in radians NOT degrees!
-lim sin θ = 1;
-lim 1 − cos θ = 0
-Here is a geometric proof for the ﬁrst limit:
-length
-Figure 12: A circle of radius 1 with an arc of angle θ
-length
-Figure 13: The sector in Fig. 12 as θ becomes very small
-Imagine what happens to the picture as θ gets very small (see Fig. 13). As θ
-0, we see that
-                
----
-
-                Concept: Higher Derivatives
+                Concept: Derivatives of Trigonometric Functions
                 Prerequisite: Derivatives
                 Evidence:
-                (Page 8, score=0.46) Lecture 1
-Figure 5: Graph of x
-Notations
-Calculus, rather like English or any other language, was developed by several people. As a result,
-just as there are many ways to express the same thing, there are many notations for the derivative.
-Since y = f(x), it’s natural to write
-We say “Delta y” or “Delta f” or the “change in y”.
-If we divide both sides by Δx = x − x0, we get two expressions for the
+                (Page 22, score=0.56) Lecture 3
+Lecture 3
+Derivatives of Products, Quotients, Sine, and
+Cosine
+Derivative Formulas
+There are two kinds of derivative formulas:
+1. Speciﬁc Examples:
+2. General Examples: (u + v)0 = u0 + v0 and (cu) = cu0 (where c is a constant)
+A notational convention we will use today is:
+uv(x) = u(x)v(x)
+Proof of (u + v) = u0 + v0. (General)
+Start by using the deﬁnition of the derivative.
+Follow the same procedure to prove that (cu)0 = cu0.
+Derivatives of sin x and cos x. (Speciﬁc)
+Last time, we compu
                 
 ---
 
@@ -111,7 +104,28 @@ So, y = f(g(t)) = sin(t2). To ﬁnd dy , write
 The Chain Rule!
 In the example, dx
 dt = 2t and dy
-dx = cos
+dx = cos x.
+(cos x)(2t)
+Another notation for the chain rule
+Example 1. (continued)
+Composition of functions 
+                
+---
+
+                Concept: Higher Derivatives
+                Prerequisite: Derivatives
+                Evidence:
+                (Page 8, score=0.46) Lecture 1
+Figure 5: Graph of x
+Notations
+Calculus, rather like English or any other language, was developed by several people. As a result,
+just as there are many ways to express the same thing, there are many notations for the derivative.
+Since y = f(x), it’s natural to write
+We say “Delta y” or “Delta f” or the “change in y”.
+If we divide both sides by Δx = x − x0, we get two expressions for the diﬀerence quotient:
+Taking the limit as Δx → 0, we get
+dx (Leibniz’ notation)
+f 0(x0) (Newton’s not
                 
 ---
 
@@ -127,31 +141,31 @@ cos2(y) = cos2(arctan(x))
 This form is messy. Let us use some geometry to simplify it.
 Figure 1: Triangle with angles and lengths corresponding to those in the example illustrating diﬀerentiation using
 the inverse function arctan
-In this triangle, ta
+In this triangle, tan(y) = x so
+arctan(x) = y
+The Pythagorian theorem tells us the length of the hypotenuse:
+From this, 
                 
 ---
 
-                Concept: Exponential and Logarithmic Differentiation
+                Concept: Inverse Functions
                 Prerequisite: Derivatives
                 Evidence:
-                (Page 38, score=0.50) Lecture 6
-Apply this to f(x) = a .
-ln f(x) = x ln a =
-(Remember, ln(a) is a constant, not a variable.) Hence,
-a = (ln a)a
-Example 1.
-With variable (“moving”) exponents, you should use either base e or logarithmic diﬀerentiation.
-In this example, we will use the latter.
-Therefore,
-If you wanted to solve this using the base e approach, you would say f = ex ln x and diﬀerentiate
-it using the chain ru
+                (Page 32, score=0.48) Lecture 5
+In other words,
+arctan(x) =
+Graphing an Inverse Function.
+Suppose y = f(x) and g(y) = f −1(y) = x. To graph g and f together we need to write g as a
+function of the variable x. If g(x) = y, then x = f(y), and what we have done is to trade the
+variables x and y. This is illustrated in Fig. 2
+Figure 2: You can think about f −1 as the graph of f reﬂected about the line y = x
                 
 ---
 
-                Concept: Exponential and Logarithmic Differentiation
-                Prerequisite: Exponentials
+                Concept: Logarithmic Differentiation
+                Prerequisite: Derivatives
                 Evidence:
-                (Page 38, score=0.50) Lecture 6
+                (Page 38, score=0.49) Lecture 6
 Apply this to f(x) = a .
 ln f(x) = x ln a =
 (Remember, ln(a) is a constant, not a variable.) Hence,
@@ -161,12 +175,13 @@ With variable (“moving”) exponents, you should use either base e or logarith
 In this example, we will use the latter.
 Therefore,
 If you wanted to solve this using the base e approach, you would say f = ex ln x and diﬀerentiate
-it using the chain ru
+it using the chain rule. It gets you the same answer, but requires a little more writing.
+Example 2. Use logs to evaluate
                 
 ---
 
-                Concept: Exponential and Logarithmic Differentiation
-                Prerequisite: Logarithms
+                Concept: Logarithmic Differentiation
+                Prerequisite: Exponential and Logarithmic Functions
                 Evidence:
                 (Page 38, score=0.52) Lecture 6
 Apply this to f(x) = a .
@@ -178,36 +193,13 @@ With variable (“moving”) exponents, you should use either base e or logarith
 In this example, we will use the latter.
 Therefore,
 If you wanted to solve this using the base e approach, you would say f = ex ln x and diﬀerentiate
-it using the chain ru
+it using the chain rule. It gets you the same answer, but requires a little more writing.
+Example 2. Use logs to evaluate
                 
 ---
 
                 Concept: Hyperbolic Functions
-                Prerequisite: Exponentials
-                Evidence:
-                (Page 40, score=0.67) Lecture 7
-Lecture 7: Continuation and Exam Review
-Hyperbolic Sine and Cosine
-Hyperbolic sine (pronounced “sinsh”):
-sinh(x) = ex − e−x
-Hyperbolic cosine (pronounced “cosh”):
-cosh(x) =
-d sinh(x) = d
-Likewise,
-d cosh(x) = sinh(x)
-(Note that this is diﬀerent from
-Important identity:
-cosh2(x) − sinh2(x) = 1
-Proof:
-cosh2(x) − sinh2(x)
-cosh2(x) − sinh2(x)
-Why are these functions called “hyperbolic”?
-Let 
-                
----
-
-                Concept: Hyperbolic Functions
-                Prerequisite: Logarithms
+                Prerequisite: Exponential and Logarithmic Functions
                 Evidence:
                 (Page 40, score=0.66) Lecture 7
 Lecture 7: Continuation and Exam Review
@@ -226,26 +218,32 @@ Proof:
 cosh2(x) − sinh2(x)
 cosh2(x) − sinh2(x)
 Why are these functions called “hyperbolic”?
-Let 
+Let u = cosh(x) and v = sinh(x), then
+which is the equation of a hyperbola.
+Regular trig functions are “
                 
 ---
 
-                Concept: Linear Approximation
+                Concept: Linear Approximations
                 Prerequisite: Derivatives
                 Evidence:
-                (Page 45, score=0.61) Lecture 9: Linear and Quadratic Approximations
+                (Page 45, score=0.60) Lecture 9: Linear and Quadratic Approximations
 Unit 2: Applications of Diﬀerentiation
 Today, we’ll be using diﬀerentiation to make approximations.
 Linear Approximation
 Figure 1: Tangent as a linear approximation to a curve
 The tangent line approximates f(x). It gives a good approximation near the tangent point x0.
 As you move away from x0, however, the approximation grows less accurate.
-Example 1.
+Example 1. f(x) = ln x,
+x0 = 1 (basepoint)
+Change the basepoint:
+Basepoint u0 = x0 − 1 = 0.
+Lecture 9
                 
 ---
 
-                Concept: Quadratic Approximation
-                Prerequisite: Linear Approximation
+                Concept: Quadratic Approximations
+                Prerequisite: Linear Approximations
                 Evidence:
                 (Page 48, score=0.61) satellite
 (with velocity v)
@@ -253,20 +251,8 @@ Here, T 0 is the time I measure on my wristwatch, and T is the time measured onb
 If v = 4 km/s, and the speed of light (c) is 3 × 105 km/s, v
 ≈ 10−10 . There’s hardly any diﬀerence
 between the times measured on the ground and in the satellite. Nevertheless, engineers used this very
-approximation (along with several other such approximations) to calibr
-                
----
-
-                Concept: Quadratic Approximation
-                Prerequisite: Derivatives
-                Evidence:
-                (Page 48, score=0.60) satellite
-(with velocity v)
-Here, T 0 is the time I measure on my wristwatch, and T is the time measured onboard the satellite.
-If v = 4 km/s, and the speed of light (c) is 3 × 105 km/s, v
-≈ 10−10 . There’s hardly any diﬀerence
-between the times measured on the ground and in the satellite. Nevertheless, engineers used this very
-approximation (along with several other such approximations) to calibr
+approximation (along with several other such approximations) to calibrate the radio transmitters
+on GPS satellites. (The satellites transmit at a slightly oﬀset frequency
                 
 ---
 
@@ -280,21 +266,9 @@ slope = 0
 slope > 0
 Figure 8: f is convex (concave-up). The slope increases from negative to positive as x increases.
 Figure 9: f is concave-down. The slope decreases from positive to negative as x increases.
-Therefore, the sign of the second derivative tells us about co
-                
----
-
-                Concept: Curve Sketching
-                Prerequisite: Linear Approximation
-                Evidence:
-                (Page 45, score=0.57) Lecture 9: Linear and Quadratic Approximations
-Unit 2: Applications of Diﬀerentiation
-Today, we’ll be using diﬀerentiation to make approximations.
-Linear Approximation
-Figure 1: Tangent as a linear approximation to a curve
-The tangent line approximates f(x). It gives a good approximation near the tangent point x0.
-As you move away from x0, however, the approximation grows less accurate.
-Example 1.
+Therefore, the sign of the second derivative tells us about concavity/convexity of the graph. Thus
+the second derivative is good for two purposes.
+1. Deciding whe
                 
 ---
 
@@ -308,14 +282,9 @@ slope = 0
 slope > 0
 Figure 8: f is convex (concave-up). The slope increases from negative to positive as x increases.
 Figure 9: f is concave-down. The slope decreases from positive to negative as x increases.
-Therefore, the sign of the second derivative tells us about co
-                
----
-
-                Concept: Max/Min Problems
-                Prerequisite: Linear Approximation
-                Evidence:
-                No strong evidence found.
+Therefore, the sign of the second derivative tells us about concavity/convexity of the graph. Thus
+the second derivative is good for two purposes.
+1. Deciding whe
                 
 ---
 
@@ -323,28 +292,6 @@ Therefore, the sign of the second derivative tells us about co
                 Prerequisite: Derivatives
                 Evidence:
                 (Page 11, score=0.56) Lecture 2
-Lecture 2: Limits, Continuity, and Trigonometric
-Limits
-More about the “rate of change” interpretation of the
-derivative
-Figure 1: Graph of a generic function, with Δx and Δy marked on the graph
-temperature gradient
-dx as Δx → 0
-Average rate of change
-Instantaneous rate of change
-Examples
-1. q = charge
-dt = electrical current
-2. s = distance
-dt = speed
-= temperature
-                
----
-
-                Concept: Related Rates
-                Prerequisite: Implicit Differentiation
-                Evidence:
-                (Page 11, score=0.53) Lecture 2
 Lecture 2: Limits, Continuity, and Trigonometric
 Limits
 More about the “rate of change” interpretation of the
@@ -378,21 +325,8 @@ tangent to
 curve at x = x0
 Figure 4: Newton’s method converging to an unexpected root.
 Warning 2. Newton’s Method can fail completely.
-This failure is i
-                
----
-
-                Concept: Newton's Method
-                Prerequisite: Linear Approximation
-                Evidence:
-                (Page 45, score=0.53) Lecture 9: Linear and Quadratic Approximations
-Unit 2: Applications of Diﬀerentiation
-Today, we’ll be using diﬀerentiation to make approximations.
-Linear Approximation
-Figure 1: Tangent as a linear approximation to a curve
-The tangent line approximates f(x). It gives a good approximation near the tangent point x0.
-As you move away from x0, however, the approximation grows less accurate.
-Example 1.
+This failure is illustrated in Fig. 5. In this case, x2 = x0, x3 = x1, and so forth. It repeats in a
+cycle, and never
                 
 ---
 
@@ -407,38 +341,8 @@ If f is diﬀerentiable on a < x < b, and continuous on a ≤ x ≤ b, then
 is the slope of a secant line, while f 0(c) is the slope of a tangent line.
 secant line
 slope
-Geometric Proof: Take (dotted) lines parallel to the secant line, as in Fi
-                
----
-
-                Concept: Mean Value Theorem
-                Prerequisite: Continuity
-                Evidence:
-                (Page 73, score=0.56) Lecture 14: Mean Value Theorem and Inequalities
-Mean-Value Theorem
-The Mean-Value Theorem (MVT) is the underpinning of calculus. It says:
-If f is diﬀerentiable on a < x < b, and continuous on a ≤ x ≤ b, then
-(for some c, a < c < b)
-is the slope of a secant line, while f 0(c) is the slope of a tangent line.
-secant line
-slope
-Geometric Proof: Take (dotted) lines parallel to the secant line, as in Fi
-                
----
-
-                Concept: Differentials
-                Prerequisite: Derivatives
-                Evidence:
-                (Page 4, score=0.59) Lecture 1
-Unit 1: Derivatives
-A. What is a derivative?
-Geometric interpretation
-Physical interpretation
-Important for any measurement (economics, political science, ﬁnance, physics, etc.)
-B. How to diﬀerentiate any function you know.
-For example:
-e x arctan x . We will discuss what a derivative is today. Figuring out how to
-diﬀerentiate any function is the subject of the ﬁrst two weeks of this cou
+Geometric Proof: Take (dotted) lines parallel to the secant line, as in Fig. 1 and shift them up
+from below the graph until one of them ﬁrst touches the graph. Alternatively,
                 
 ---
 
@@ -453,48 +357,35 @@ zero then it is constant. Hence G(x) − F (x) = c (for some constant c). That i
 Method of substitution.
 Example 1.
 Substitution:
-                
----
-
-                Concept: Antiderivatives
-                Prerequisite: Differentials
-                Evidence:
-                (Page 79, score=0.52) Uniqueness of the antiderivative up to an additive constant.
-If F 0(x) = f(x), and G0(x) = f(x), then G(x) = F (x) + c for some constant factor c.
-Proof:
-Recall that we proved as a corollary of the Mean Value Theorem that if a function has a derivative
-zero then it is constant. Hence G(x) − F (x) = c (for some constant c). That is, G(x) = F (x) + c.
-Method of substitution.
-Example 1.
-Substitution:
+du = 4x 3dx,
+x 3dx = du
+Hence,
+Example 2.
+Another way to ﬁnd an anti-derivative is “advanced guessi
                 
 ---
 
                 Concept: Differential Equations
                 Prerequisite: Derivatives
                 Evidence:
-                No strong evidence found.
-                
----
-
-                Concept: Differential Equations
-                Prerequisite: Antiderivatives
-                Evidence:
-                (Page 79, score=0.49) Uniqueness of the antiderivative up to an additive constant.
-If F 0(x) = f(x), and G0(x) = f(x), then G(x) = F (x) + c for some constant factor c.
-Proof:
-Recall that we proved as a corollary of the Mean Value Theorem that if a function has a derivative
-zero then it is constant. Hence G(x) − F (x) = c (for some constant c). That is, G(x) = F (x) + c.
-Method of substitution.
-Example 1.
-Substitution:
+                (Page 8, score=0.42) Lecture 1
+Figure 5: Graph of x
+Notations
+Calculus, rather like English or any other language, was developed by several people. As a result,
+just as there are many ways to express the same thing, there are many notations for the derivative.
+Since y = f(x), it’s natural to write
+We say “Delta y” or “Delta f” or the “change in y”.
+If we divide both sides by Δx = x − x0, we get two expressions for the diﬀerence quotient:
+Taking the limit as Δx → 0, we get
+dx (Leibniz’ notation)
+f 0(x0) (Newton’s not
                 
 ---
 
                 Concept: Definite Integrals
-                Prerequisite: Antiderivatives
+                Prerequisite: Limits
                 Evidence:
-                (Page 95, score=0.52) Lecture 19
+                (Page 95, score=0.48) Lecture 19
 Integrals have an important additive property (See Figure 3.)
 New Deﬁnition:
 This deﬁnition is used so that the fundamental theorem is valid no matter if a < b or b < a. It also
@@ -554,54 +445,37 @@ Example 3.
                 
 ---
 
-                Concept: Second Fundamental Theorem of Calculus
+                Concept: Volumes of Solids
                 Prerequisite: Definite Integrals
                 Evidence:
-                (Page 93, score=0.58) Lecture 19
-Lecture 19: First Fundamental Theorem of
-Calculus
-Fundamental Theorem of Calculus (FTC 1)
-If f(x) is continuous and F 0(x) = f(x), then
-Notation: F (x)
-Example 1. F (x) =
-Example 2. Area under one hump of sin x (See Figure 1.)
-sin x dx = − cos x
-Figure 1: Graph of f (x) = sin x for 0 ≤ x ≤ π.
-Example 3.
+                (Page 88, score=0.51) Lecture 18
+Lecture 18: Deﬁnite Integrals
+Integrals are used to calculate cumulative totals, averages, areas.
+Area under a curve: (See Figure 1.)
+1. Divide region into rectangles
+2. Add up area of rectangles
+3. Take limit as rectangles become thin
+Figure 1: (i) Area under a curve; (ii) sum of areas under rectangles
+Example 1. f(x) = x2 , a = 0, b arbitrary
+1. Divide into n intervals
+Length b/n = base of rectangle
+2. Heights:
+height =
+height =
+Sum of areas of rectangles:
                 
 ---
 
-                Concept: Volumes by Disks and Shells
+                Concept: Surface Area
                 Prerequisite: Definite Integrals
                 Evidence:
-                (Page 107, score=0.68) Lecture 22
-Lecture 22: Volumes by Disks and Shells
-Disks and Shells
-We will illustrate the 2 methods of ﬁnding volume through an example.
-Example 1. A witch’s cauldron
-Figure 1: y = x
-rotated around the y-axis.
-Method 1: Disks
-thickness of dy
-Figure 2: Volume by Disks for the Witch’s Cauldron problem.
-The area of the disk in Figure 2 is πx2 . The disk has thickness dy and volume dV = πx2dy.
-The vo
-                
----
-
-                Concept: Work and Average Value
-                Prerequisite: Definite Integrals
-                Evidence:
-                (Page 112, score=0.49) Lecture 23
-Lecture 23: Work, Average Value, Probability
-Application of Integration to Average Value
-You already know how to take the average of a set of discrete numbers:
-Now, we want to ﬁnd the average of a continuum.
-Figure 1: Discrete approximation to y = f (x) on a ≤ x ≤ b.
-Average ≈ y1 + y2 + + yn
-where
-The limit of the Riemann Sums is
-Divide by b − a to get the continuous average
+                (Page 153, score=0.45) Lecture 31
+Surface Area (surfaces of revolution)
+Figure 2: Calculating surface area
+ds (the inﬁnitesimal curve length in Figure 2) is revolved a distance 2πy. The surface area of the
+thin strip of width ds is 2πy ds.
+Example 2. Revolve Example 1 (x = t2, y = t3 , 0 ≤ t ≤ 1) around the x-axis. Refer to Figure 3.
+Figure 3: Curved surface of a trumpet.
                 
 ---
 
@@ -636,27 +510,10 @@ du = (sec2 x + sec x tan x) dx
 This gives
 sec x dx =
 = ln(u) + c = ln(tan x + sec x) + c
-Cases like n = 3, m = 0 or more generally n odd and m even are more complicated and 
-                
----
-
-                Concept: Trigonometric Integrals
-                Prerequisite: Trigonometry
-                Evidence:
-                (Page 134, score=0.57) Lecture 26
-We get the answer by “advanced guessing,” i.e., “knowing the answer ahead of time.”
-sec x + tan x
-sec2 x + sec x tan x
-sec x dx = sec x
-sec x + tan x
-tan x + sec x
-Make the following substitutions:
-u = tan x + sec x
-du = (sec2 x + sec x tan x) dx
-This gives
-sec x dx =
-= ln(u) + c = ln(tan x + sec x) + c
-Cases like n = 3, m = 0 or more generally n odd and m even are more complicated and 
+Cases like n = 3, m = 0 or more generally n odd and m even are more complicated and will be
+discussed later.
+Trigonometric Substitution
+Knowing how to evaluate all of these trigonometr
                 
 ---
 
@@ -675,7 +532,10 @@ sec2 u − 1 = tan2 u
 x = sin u
 1 − sin2 u = cos2 u
 Let’s extend this further. How can we evaluate an integral like this?
-When you have a linear and a quadratic term 
+When you have a linear and a quadratic term under the square root, complete the square.
+x 2 + 4x = (something)2 ± constant
+In this case,
+Now, we
                 
 ---
 
@@ -691,29 +551,8 @@ Bad news: If you change the integrals just a little bit, they become impossible 
 dx = impossible
 e dx = also impossible
 Good news: When you can’t evaluate an integral, then
-is an answer, not a question. This is the solution you don’t have
-                
----
-
-                Concept: Integration by Parts
-                Prerequisite: Integration by Substitution
-                Evidence:
-                (Page 144, score=0.55) Lecture 30
-Lecture 30: Integration by Parts, Reduction
-Formulae
-Integration by Parts
-Remember the product rule:
-We can rewrite that as
-Integrate this to get the formula for integration by parts:
-uv0 dx = uv −
-Example 1.
-tan−1 x dx.
-At ﬁrst, it’s not clear how integration by parts helps. Write
-tan−1 x dx =
-Therefore,
-Plug all of these into the formula for integration by parts to get:
-tan−1 x dx =
-u
+is an answer, not a question. This is the solution you don’t have to integrate it!
+The most important thing is setting up the integral! (Once you’ve done that, you c
                 
 ---
 
@@ -726,69 +565,8 @@ For a general rational function P/Q, the ﬁrst step is to express P/Q as the su
 and a ratio in which the numerator has smaller degree than the denominator.
 For example,
 (To carry out this long division, do not factor the denominator Q(x) = x2 − 2x + 1, just leave it
-alone.) The quotient x + 2 is a po
-                
----
-
-                Concept: Partial Fractions
-                Prerequisite: Integration by Substitution
-                Evidence:
-                (Page 165, score=0.57) Lecture 32: Exam 4 Review
-Exam 4 Review Handout
-1. Integrate by trigonometric substitution; evaluate the trigonometric integral and work
-backwards to the original variable by evaluating trig(trig−1) using a right triangle:
-a) a2 − x2 use x = a sin u, dx = a cos u du.
-b) a2 + x2 use x = a tan u, dx = a sec2 u du
-c) x2 − a2 use x = a sec u, dx = a sec u tan u du
-2. Integrate rational functions P/Q (
-                
----
-
-                Concept: Parametric Equations
-                Prerequisite: Calculus
-                Evidence:
-                (Page 150, score=0.46) Lecture 30
-Figure 6: s = angle in radians.
-Parametric Equations
-Example 6.
-x = a cos t
-y = a sin t
-Ask yourself: what’s constant? What’s varying? Here, t is variable and a is constant.
-Is there a relationship between x and y? Yes:
-Extra information (besides the circle):
-x = a cos
-= 0 and y = a sin
-Thus, for 0 ≤ t ≤ π/2, a quarter circle is traced counter-clockwise (Figure 7).
-                
----
-
-                Concept: Polar Coordinates
-                Prerequisite: Calculus
-                Evidence:
-                (Page 156, score=0.69) Lecture 32
-Lecture 32: Polar Co-ordinates, Area in Polar
-Co-ordinates
-Polar Coordinates
-Figure 1: Polar Co-ordinates.
-In polar coordinates, we specify an object’s position in terms of its distance r from the origin
-and the angle θ that the ray from the origin to the point makes with respect to the x-axis.
-Example 1. What are the polar coordinates for the point speciﬁed by (1, −1) in rectangular
-co
-                
----
-
-                Concept: Polar Coordinates
-                Prerequisite: Trigonometry
-                Evidence:
-                (Page 156, score=0.72) Lecture 32
-Lecture 32: Polar Co-ordinates, Area in Polar
-Co-ordinates
-Polar Coordinates
-Figure 1: Polar Co-ordinates.
-In polar coordinates, we specify an object’s position in terms of its distance r from the origin
-and the angle θ that the ray from the origin to the point makes with respect to the x-axis.
-Example 1. What are the polar coordinates for the point speciﬁed by (1, −1) in rectangular
-co
+alone.) The quotient x + 2 is a polynomial and is easy to integrate. The remainder term
+has a numerator 3x − 2 of degree 1 which is le
                 
 ---
 
@@ -804,23 +582,10 @@ For instance, how do you deal with the following?
 Example 0. One way of dealing with this is to use algebra to simplify things:
 In general, when f(a) = g(a) = 0,
 lim g(x) − g(a)
-This is the easy versio
-                
----
-
-                Concept: Indeterminate Forms
-                Prerequisite: Derivatives
-                Evidence:
-                (Page 169, score=0.66) Lecture 34
-Lecture 34: Indeterminate Forms - L’Hôpital’s Rule
-L’Hôpital’s Rule
-(Two correct spellings: “L’Hôpital” and “L’Hospital”)
-Sometimes, we run into indeterminate forms. These are things like
-For instance, how do you deal with the following?
-Example 0. One way of dealing with this is to use algebra to simplify things:
-In general, when f(a) = g(a) = 0,
-lim g(x) − g(a)
-This is the easy versio
+This is the easy version of L’Hôpital’s rule:
+Note: this only works when g0(a) = 0
+In example 0,
+The limit is f 0(1)/g0(1) 
                 
 ---
 
@@ -836,23 +601,10 @@ For instance, how do you deal with the following?
 Example 0. One way of dealing with this is to use algebra to simplify things:
 In general, when f(a) = g(a) = 0,
 lim g(x) − g(a)
-This is the easy versio
-                
----
-
-                Concept: L'Hôpital's Rule
-                Prerequisite: Derivatives
-                Evidence:
-                (Page 169, score=0.65) Lecture 34
-Lecture 34: Indeterminate Forms - L’Hôpital’s Rule
-L’Hôpital’s Rule
-(Two correct spellings: “L’Hôpital” and “L’Hospital”)
-Sometimes, we run into indeterminate forms. These are things like
-For instance, how do you deal with the following?
-Example 0. One way of dealing with this is to use algebra to simplify things:
-In general, when f(a) = g(a) = 0,
-lim g(x) − g(a)
-This is the easy versio
+This is the easy version of L’Hôpital’s rule:
+Note: this only works when g0(a) = 0
+In example 0,
+The limit is f 0(1)/g0(1) 
                 
 ---
 
@@ -866,22 +618,8 @@ it to a simpler integral that can be evaluated.
 The General Story for powers:
 From Examples 4, 5 and 6 we know that this diverges (is inﬁnite) for 0 < p ≤ 1 and converges (is
 ﬁnite) for p > 1.
-The comparison of integrals says that a larger function 
-                
----
-
-                Concept: Infinite Series
-                Prerequisite: Calculus
-                Evidence:
-                (Page 180, score=0.62) Lecture 36
-Deﬁnition
-means the same thing as
-lim Sn = s, where Sn =
-We say the series converges to s, if the limit exists and is ﬁnite. The importance of convergence is
-illustrated here by the example of the geometric series. If a = 1, S = 1 + 1 + 1 + = ∞. But
-does not make sense and is not usable!
-Another type of series:
-We can use integrals to decide if this type of series converges. First, turn
+The comparison of integrals says that a larger function has a larger integral. If we restrict
+ourselves to nonnegative functions, then even when the region 
                 
 ---
 
@@ -899,23 +637,5 @@ Example 7. f(x) = e .
 Therefore, by Taylor’s Formula an =
 Or in compact form,
 Now, we can calculate e to any accuracy:
-Example 7. f(x) = 
-                
----
-
-                Concept: Taylor Series
-                Prerequisite: Calculus
-                Evidence:
-                (Page 188, score=0.54) Lecture 37
-Taylor’s Series and Taylor’s Formula
-, we want to ﬁgure out what all these coeﬃcients are.
-Diﬀerentiating,
-Let’s plug in x = 0 to all of these equations.
-Taylor’s Formula tells us what the coeﬃcients are:
-(2)(1) and 0! = 1. Coeﬃcients an are given by:
-Example 7. f(x) = e .
-Therefore, by Taylor’s Formula an =
-Or in compact form,
-Now, we can calculate e to any accuracy:
-Example 7. f(x) = 
+Example 7. f(x) = cos x.
                 

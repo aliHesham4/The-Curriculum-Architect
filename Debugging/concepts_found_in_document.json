@@ -1,146 +1,217 @@
 {
   "concepts": [
     {
-      "name": "Data Visualization",
+      "name": "Limits",
       "prerequisites": []
     },
     {
-      "name": "Data Science",
+      "name": "Continuity",
       "prerequisites": [
-        "Data Visualization"
+        "Limits"
       ]
     },
     {
-      "name": "Python Programming",
+      "name": "Derivatives",
+      "prerequisites": [
+        "Limits"
+      ]
+    },
+    {
+      "name": "Derivatives of Trigonometric Functions",
+      "prerequisites": [
+        "Derivatives"
+      ]
+    },
+    {
+      "name": "Chain Rule",
+      "prerequisites": [
+        "Derivatives"
+      ]
+    },
+    {
+      "name": "Higher Derivatives",
+      "prerequisites": [
+        "Derivatives"
+      ]
+    },
+    {
+      "name": "Implicit Differentiation",
+      "prerequisites": [
+        "Derivatives"
+      ]
+    },
+    {
+      "name": "Inverse Functions",
+      "prerequisites": [
+        "Derivatives"
+      ]
+    },
+    {
+      "name": "Exponential and Logarithmic Functions",
       "prerequisites": []
     },
     {
-      "name": "Pandas Library",
+      "name": "Logarithmic Differentiation",
       "prerequisites": [
-        "Python Programming"
+        "Derivatives",
+        "Exponential and Logarithmic Functions"
       ]
     },
     {
-      "name": "Data Analysis",
+      "name": "Hyperbolic Functions",
       "prerequisites": [
-        "Data Science",
-        "Pandas Library"
+        "Exponential and Logarithmic Functions"
       ]
     },
     {
-      "name": "Statistical Analysis",
+      "name": "Linear Approximations",
       "prerequisites": [
-        "Data Analysis"
+        "Derivatives"
       ]
     },
     {
-      "name": "Probability Distribution",
+      "name": "Quadratic Approximations",
       "prerequisites": [
-        "Statistical Analysis"
+        "Linear Approximations"
       ]
     },
     {
-      "name": "Inferential Statistics",
+      "name": "Curve Sketching",
       "prerequisites": [
-        "Statistical Analysis"
+        "Derivatives"
       ]
     },
     {
-      "name": "Hypothesis Testing",
+      "name": "Max/Min Problems",
       "prerequisites": [
-        "Inferential Statistics"
+        "Derivatives"
       ]
     },
     {
-      "name": "Confidence Interval",
+      "name": "Related Rates",
       "prerequisites": [
-        "Inferential Statistics"
+        "Derivatives"
       ]
     },
     {
-      "name": "Regression Analysis",
+      "name": "Newton's Method",
       "prerequisites": [
-        "Statistical Analysis"
+        "Derivatives"
       ]
     },
     {
-      "name": "Correlation Coefficient",
+      "name": "Mean Value Theorem",
       "prerequisites": [
-        "Regression Analysis"
+        "Derivatives"
       ]
     },
     {
-      "name": "Time Series Analysis",
+      "name": "Antiderivatives",
       "prerequisites": [
-        "Statistical Analysis"
+        "Derivatives"
       ]
     },
     {
-      "name": "Machine Learning",
+      "name": "Differential Equations",
       "prerequisites": [
-        "Data Science",
-        "Python Programming"
+        "Derivatives"
       ]
     },
     {
-      "name": "Neural Networks",
+      "name": "Definite Integrals",
       "prerequisites": [
-        "Machine Learning"
+        "Limits"
       ]
     },
     {
-      "name": "Deep Learning",
+      "name": "First Fundamental Theorem of Calculus",
       "prerequisites": [
-        "Neural Networks"
+        "Definite Integrals",
+        "Antiderivatives"
       ]
     },
     {
-      "name": "Natural Language Processing",
+      "name": "Second Fundamental Theorem of Calculus",
       "prerequisites": [
-        "Machine Learning"
+        "First Fundamental Theorem of Calculus"
       ]
     },
     {
-      "name": "Data Ethics",
+      "name": "Volumes of Solids",
       "prerequisites": [
-        "Data Science"
+        "Definite Integrals"
       ]
     },
     {
-      "name": "Data Privacy",
+      "name": "Surface Area",
       "prerequisites": [
-        "Data Ethics"
+        "Definite Integrals"
       ]
     },
     {
-      "name": "Data Security",
+      "name": "Numerical Integration",
       "prerequisites": [
-        "Data Privacy"
+        "Definite Integrals"
       ]
     },
     {
-      "name": "Data Visualization Tools",
+      "name": "Trigonometric Integrals",
       "prerequisites": [
-        "Data Visualization"
+        "Definite Integrals"
       ]
     },
     {
-      "name": "Matplotlib Library",
+      "name": "Integration by Substitution",
       "prerequisites": [
-        "Data Visualization Tools",
-        "Python Programming"
+        "Definite Integrals"
       ]
     },
     {
-      "name": "Excel Data Analysis",
+      "name": "Integration by Parts",
       "prerequisites": [
-        "Data Analysis"
+        "Definite Integrals"
       ]
     },
     {
-      "name": "R Studio",
+      "name": "Partial Fractions",
       "prerequisites": [
-        "Data Analysis"
+        "Definite Integrals"
+      ]
+    },
+    {
+      "name": "Parametric Equations",
+      "prerequisites": []
+    },
+    {
+      "name": "Polar Coordinates",
+      "prerequisites": []
+    },
+    {
+      "name": "Indeterminate Forms",
+      "prerequisites": [
+        "Limits"
+      ]
+    },
+    {
+      "name": "L'H\u00f4pital's Rule",
+      "prerequisites": [
+        "Indeterminate Forms"
+      ]
+    },
+    {
+      "name": "Improper Integrals",
+      "prerequisites": [
+        "Definite Integrals"
+      ]
+    },
+    {
+      "name": "Infinite Series",
+      "prerequisites": []
+    },
+    {
+      "name": "Taylor Series",
+      "prerequisites": [
+        "Infinite Series"
       ]
     }
   ]
