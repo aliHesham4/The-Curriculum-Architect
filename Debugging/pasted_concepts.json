@@ -7,17 +7,14 @@
       ]
     },
     {
-      "name": "Limits",
-      "prerequisites": []
-    },
-    {
-      "name": "Derivatives",
+      "name": "Trigonometric Limits",
       "prerequisites": [
-        "Limits"
+        "Limits",
+        "Trigonometry"
       ]
     },
     {
-      "name": "Derivatives of Trigonometric Functions",
+      "name": "Higher Derivatives",
       "prerequisites": [
         "Derivatives"
       ]
@@ -29,80 +26,72 @@
       ]
     },
     {
-      "name": "Higher Derivatives",
-      "prerequisites": [
-        "Derivatives"
-      ]
-    },
-    {
       "name": "Implicit Differentiation",
       "prerequisites": [
         "Derivatives"
       ]
     },
     {
-      "name": "Inverses",
-      "prerequisites": [
-        "Derivatives"
-      ]
-    },
-    {
-      "name": "Logarithmic Differentiation",
+      "name": "Exponential and Logarithmic Differentiation",
       "prerequisites": [
         "Derivatives",
-        "Exponential and Logarithmic Functions"
+        "Exponentials",
+        "Logarithms"
       ]
-    },
-    {
-      "name": "Exponential and Logarithmic Functions",
-      "prerequisites": []
     },
     {
       "name": "Hyperbolic Functions",
       "prerequisites": [
-        "Exponential and Logarithmic Functions"
+        "Exponentials",
+        "Logarithms"
       ]
     },
     {
-      "name": "Linear Approximations",
+      "name": "Linear Approximation",
       "prerequisites": [
         "Derivatives"
       ]
     },
     {
-      "name": "Quadratic Approximations",
+      "name": "Quadratic Approximation",
       "prerequisites": [
-        "Linear Approximations"
+        "Linear Approximation",
+        "Derivatives"
       ]
     },
     {
       "name": "Curve Sketching",
       "prerequisites": [
-        "Derivatives"
+        "Derivatives",
+        "Linear Approximation"
       ]
     },
     {
       "name": "Max/Min Problems",
       "prerequisites": [
-        "Derivatives"
+        "Derivatives",
+        "Linear Approximation"
       ]
     },
     {
       "name": "Related Rates",
       "prerequisites": [
-        "Derivatives"
+        "Derivatives",
+        "Implicit Differentiation"
       ]
     },
     {
       "name": "Newton's Method",
       "prerequisites": [
-        "Derivatives"
+        "Derivatives",
+        "Implicit Differentiation"
       ]
     },
     {
       "name": "Mean Value Theorem",
       "prerequisites": [
-        "Derivatives"
+        "Derivatives",
+        "Continuity"
       ]
     },
     {
@@ -114,153 +103,171 @@
     {
       "name": "Antiderivatives",
       "prerequisites": [
-        "Derivatives"
+        "Derivatives",
+        "Differentials"
       ]
     },
     {
       "name": "Differential Equations",
-      "prerequisites": []
+      "prerequisites": [
+        "Derivatives",
+        "Antiderivatives"
+      ]
     },
     {
       "name": "Definite Integrals",
       "prerequisites": [
-        "Antiderivatives",
-        "Limits"
+        "Antiderivatives"
       ]
     },
     {
       "name": "First Fundamental Theorem of Calculus",
       "prerequisites": [
-        "Antiderivatives",
-        "Definite Integrals"
+        "Definite Integrals",
+        "Antiderivatives"
       ]
     },
     {
       "name": "Second Fundamental Theorem of Calculus",
       "prerequisites": [
-        "First Fundamental Theorem of Calculus"
+        "First Fundamental Theorem of Calculus",
+        "Definite Integrals"
       ]
     },
     {
       "name": "Volumes by Disks and Shells",
       "prerequisites": [
-        "Definite Integrals"
+        "Definite Integrals",
+        "First Fundamental Theorem of Calculus"
       ]
     },
     {
       "name": "Work",
-      "prerequisites": []
+      "prerequisites": [
+        "Definite Integrals",
+        "First Fundamental Theorem of Calculus"
+      ]
     },
     {
       "name": "Average Value",
       "prerequisites": [
-        "Definite Integrals"
+        "Definite Integrals",
+        "First Fundamental Theorem of Calculus"
       ]
     },
     {
       "name": "Probability",
-      "prerequisites": []
+      "prerequisites": [
+        "Definite Integrals",
+        "First Fundamental Theorem of Calculus"
+      ]
     },
     {
       "name": "Numerical Integration",
       "prerequisites": [
-        "Definite Integrals"
+        "Definite Integrals",
+        "First Fundamental Theorem of Calculus"
       ]
     },
     {
       "name": "Trigonometric Integrals",
       "prerequisites": [
-        "Definite Integrals"
+        "Definite Integrals",
+        "Trigonometry"
       ]
     },
     {
       "name": "Substitution Method",
       "prerequisites": [
-        "Definite Integrals"
+        "Definite Integrals",
+        "Trigonometric Integrals"
       ]
     },
     {
       "name": "Integration by Parts",
       "prerequisites": [
-        "Definite Integrals"
+        "Definite Integrals",
+        "Substitution Method",
+        "Trigonometric Integrals"
       ]
     },
     {
       "name": "Partial Fractions",
       "prerequisites": [
-        "Definite Integrals"
+        "Definite Integrals",
+        "Rational Functions"
+      ]
+    },
+    {
+      "name": "Parametric Equations",
+      "prerequisites": [
+        "Trigonometry",
+        "Derivatives"
       ]
     },
     {
       "name": "Arclength",
       "prerequisites": [
-        "Definite Integrals",
-        "Parametric Equations"
+        "Parametric Equations",
+        "Derivatives"
       ]
-    },
-    {
-      "name": "Parametric Equations",
-      "prerequisites": []
     },
     {
       "name": "Surface Area",
       "prerequisites": [
-        "Definite Integrals",
-        "Parametric Equations"
+        "Arclength",
+        "Parametric Equations",
+        "Derivatives"
+      ]
+    },
+    {
+      "name": "Polar Coordinates",
+      "prerequisites": [
+        "Trigonometry",
+        "Derivatives"
       ]
     },
     {
       "name": "Area in Polar Coordinates",
       "prerequisites": [
-        "Definite Integrals",
-        "Polar Coordinates"
+        "Polar Coordinates",
+        "Definite Integrals"
       ]
-    },
-    {
-      "name": "Polar Coordinates",
-      "prerequisites": []
     },
     {
       "name": "Indeterminate Forms",
       "prerequisites": [
-        "Limits"
+        "Limits",
+        "Derivatives"
       ]
     },
     {
-      "name": "L'H\u00f4pital's Rule",
+      "name": "L'Hôpital's Rule",
       "prerequisites": [
-        "Indeterminate Forms"
+        "Indeterminate Forms",
+        "Derivatives"
       ]
     },
     {
       "name": "Improper Integrals",
       "prerequisites": [
-        "Definite Integrals"
+        "Definite Integrals",
+        "Limits"
       ]
     },
     {
       "name": "Infinite Series",
       "prerequisites": [
-        "Limits"
-      ]
-    },
-    {
-      "name": "Convergence Tests",
-      "prerequisites": [
-        "Infinite Series"
+        "Limits",
+        "Definite Integrals"
       ]
     },
     {
       "name": "Taylor Series",
       "prerequisites": [
-        "Infinite Series"
+        "Infinite Series",
+        "Derivatives"
       ]
     }
-  ],
-  "stats": {
-    "strong": 43,
-    "weak": 2,
-    "reverse": 0,
-    "total_edges": 46
-  }
+  ]
 }

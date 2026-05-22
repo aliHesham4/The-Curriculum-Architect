@@ -148,17 +148,22 @@ From this,
                 
 ---
 
-                Concept: Inverse Functions
+                Concept: Inverses
                 Prerequisite: Derivatives
                 Evidence:
-                (Page 32, score=0.48) Lecture 5
-In other words,
-arctan(x) =
-Graphing an Inverse Function.
-Suppose y = f(x) and g(y) = f −1(y) = x. To graph g and f together we need to write g as a
-function of the variable x. If g(x) = y, then x = f(y), and what we have done is to trade the
-variables x and y. This is illustrated in Fig. 2
-Figure 2: You can think about f −1 as the graph of f reﬂected about the line y = x
+                (Page 31, score=0.46) Lecture 5
+So, implicit diﬀerentiation makes it possible to ﬁnd the derivative of the inverse function.
+Example. y = arctan(x)
+dx [tan(y)]
+dy [tan(y)]
+cos2(y) = cos2(arctan(x))
+This form is messy. Let us use some geometry to simplify it.
+Figure 1: Triangle with angles and lengths corresponding to those in the example illustrating diﬀerentiation using
+the inverse function arctan
+In this triangle, tan(y) = x so
+arctan(x) = y
+The Pythagorian theorem tells us the length of the hypotenuse:
+From this, 
                 
 ---
 
@@ -346,6 +351,26 @@ from below the graph until one of them ﬁrst touches the graph. Alternatively,
                 
 ---
 
+                Concept: Differentials
+                Prerequisite: Derivatives
+                Evidence:
+                (Page 4, score=0.59) Lecture 1
+Unit 1: Derivatives
+A. What is a derivative?
+Geometric interpretation
+Physical interpretation
+Important for any measurement (economics, political science, ﬁnance, physics, etc.)
+B. How to diﬀerentiate any function you know.
+For example:
+e x arctan x . We will discuss what a derivative is today. Figuring out how to
+diﬀerentiate any function is the subject of the ﬁrst two weeks of this course.
+Lecture 1: Derivatives, Slope, Velocity, and Rate
+of Change
+Geometric Viewpoint on Derivatives
+
+                
+---
+
                 Concept: Antiderivatives
                 Prerequisite: Derivatives
                 Evidence:
@@ -386,6 +411,18 @@ f 0(x0) (Newton’s not
                 Prerequisite: Limits
                 Evidence:
                 (Page 95, score=0.48) Lecture 19
+Integrals have an important additive property (See Figure 3.)
+New Deﬁnition:
+This deﬁnition is used so that the fundamental theorem is valid no matter if a < b or b < a. It also
+makes it so that the additive property works for a, b, c in any order, not just the one pictured in
+Figure 3.
+                
+---
+
+                Concept: Definite Integrals
+                Prerequisite: Antiderivatives
+                Evidence:
+                (Page 95, score=0.52) Lecture 19
 Integrals have an important additive property (See Figure 3.)
 New Deﬁnition:
 This deﬁnition is used so that the fundamental theorem is valid no matter if a < b or b < a. It also
@@ -445,37 +482,58 @@ Example 3.
                 
 ---
 
-                Concept: Volumes of Solids
+                Concept: Volumes by Disks and Shells
                 Prerequisite: Definite Integrals
                 Evidence:
-                (Page 88, score=0.51) Lecture 18
-Lecture 18: Deﬁnite Integrals
-Integrals are used to calculate cumulative totals, averages, areas.
-Area under a curve: (See Figure 1.)
-1. Divide region into rectangles
-2. Add up area of rectangles
-3. Take limit as rectangles become thin
-Figure 1: (i) Area under a curve; (ii) sum of areas under rectangles
-Example 1. f(x) = x2 , a = 0, b arbitrary
-1. Divide into n intervals
-Length b/n = base of rectangle
-2. Heights:
-height =
-height =
-Sum of areas of rectangles:
+                (Page 107, score=0.68) Lecture 22
+Lecture 22: Volumes by Disks and Shells
+Disks and Shells
+We will illustrate the 2 methods of ﬁnding volume through an example.
+Example 1. A witch’s cauldron
+Figure 1: y = x
+rotated around the y-axis.
+Method 1: Disks
+thickness of dy
+Figure 2: Volume by Disks for the Witch’s Cauldron problem.
+The area of the disk in Figure 2 is πx2 . The disk has thickness dy and volume dV = πx2dy.
+The volume V of the cauldron is
+πx2 dy (substitute y = x 2)
+πy dy = π
                 
 ---
 
-                Concept: Surface Area
+                Concept: Work
                 Prerequisite: Definite Integrals
                 Evidence:
-                (Page 153, score=0.45) Lecture 31
-Surface Area (surfaces of revolution)
-Figure 2: Calculating surface area
-ds (the inﬁnitesimal curve length in Figure 2) is revolved a distance 2πy. The surface area of the
-thin strip of width ds is 2πy ds.
-Example 2. Revolve Example 1 (x = t2, y = t3 , 0 ≤ t ≤ 1) around the x-axis. Refer to Figure 3.
-Figure 3: Curved surface of a trumpet.
+                (Page 95, score=0.42) Lecture 19
+Integrals have an important additive property (See Figure 3.)
+New Deﬁnition:
+This deﬁnition is used so that the fundamental theorem is valid no matter if a < b or b < a. It also
+makes it so that the additive property works for a, b, c in any order, not just the one pictured in
+Figure 3.
+                
+---
+
+                Concept: Average Value
+                Prerequisite: Definite Integrals
+                Evidence:
+                (Page 112, score=0.55) Lecture 23
+Lecture 23: Work, Average Value, Probability
+Application of Integration to Average Value
+You already know how to take the average of a set of discrete numbers:
+Now, we want to ﬁnd the average of a continuum.
+Figure 1: Discrete approximation to y = f (x) on a ≤ x ≤ b.
+Average ≈ y1 + y2 + + yn
+where
+The limit of the Riemann Sums is
+Divide by b − a to get the continuous average
+                
+---
+
+                Concept: Probability
+                Prerequisite: Definite Integrals
+                Evidence:
+                No strong evidence found.
                 
 ---
 
@@ -517,10 +575,10 @@ Knowing how to evaluate all of these trigonometr
                 
 ---
 
-                Concept: Integration by Substitution
+                Concept: Substitution Method
                 Prerequisite: Definite Integrals
                 Evidence:
-                (Page 138, score=0.51) Lecture 28
+                (Page 138, score=0.50) Lecture 28
 Figure 3: Area divided into a sector and a triangle.
 Here is a list of integrals that can be computed using a trig substitution and a trig identity.
 integral
@@ -567,6 +625,93 @@ For example,
 (To carry out this long division, do not factor the denominator Q(x) = x2 − 2x + 1, just leave it
 alone.) The quotient x + 2 is a polynomial and is easy to integrate. The remainder term
 has a numerator 3x − 2 of degree 1 which is le
+                
+---
+
+                Concept: Arclength
+                Prerequisite: Parametric Equations
+                Evidence:
+                (Page 152, score=0.68) Lecture 31
+Lecture 31: Parametric Equations, Arclength,
+Surface Area
+Arclength, continued
+Example 1. Consider this parametric equation:
+Figure 1: Inﬁnitesimal Arclength.
+Length =
+Even if you can’t evaluate the integral analytically, you can always use numerical methods.
+                
+---
+
+                Concept: Arclength
+                Prerequisite: Definite Integrals
+                Evidence:
+                (Page 147, score=0.55) Lecture 30
+Arc Length
+This is very useful to know for 18.02 (multi-variable calculus).
+Figure 1: Inﬁnitesimal Arc Length ds
+Figure 2: Zoom in on Figure 1 to see an approximate right triangle.
+In Figures 1 and 2, s denotes arc length and ds = the inﬁnitesmal of arc length.
+1 + (dy/dx)2dx
+Integrating with respect to ds ﬁnds the length of a curve between two points (see Figure 3).
+To ﬁnd the length of the curve between P0 and P1, evaluate:
+                
+---
+
+                Concept: Surface Area
+                Prerequisite: Parametric Equations
+                Evidence:
+                (Page 153, score=0.46) Lecture 31
+Surface Area (surfaces of revolution)
+Figure 2: Calculating surface area
+ds (the inﬁnitesimal curve length in Figure 2) is revolved a distance 2πy. The surface area of the
+thin strip of width ds is 2πy ds.
+Example 2. Revolve Example 1 (x = t2, y = t3 , 0 ≤ t ≤ 1) around the x-axis. Refer to Figure 3.
+Figure 3: Curved surface of a trumpet.
+                
+---
+
+                Concept: Surface Area
+                Prerequisite: Definite Integrals
+                Evidence:
+                (Page 153, score=0.45) Lecture 31
+Surface Area (surfaces of revolution)
+Figure 2: Calculating surface area
+ds (the inﬁnitesimal curve length in Figure 2) is revolved a distance 2πy. The surface area of the
+thin strip of width ds is 2πy ds.
+Example 2. Revolve Example 1 (x = t2, y = t3 , 0 ≤ t ≤ 1) around the x-axis. Refer to Figure 3.
+Figure 3: Curved surface of a trumpet.
+                
+---
+
+                Concept: Area in Polar Coordinates
+                Prerequisite: Polar Coordinates
+                Evidence:
+                (Page 159, score=0.71) Lecture 32
+Figure 6: Using polar co-ordinates to ﬁnd area of a generic function.
+Area in Polar Coordinates
+Since radius is a function of angle (r = f(θ)), we will integrate with respect to θ. The question
+is: what, exactly, should we integrate?
+Let’s look at a very small slice of this region:
+Figure 7: Approximate slice of area in polar coordinates.
+This inﬁnitesimal slice is approximately a right triangle. To ﬁnd its area, we take:
+Area of slice ≈ 2(base) (height) = 2 r(r dθ)
+Total Area =
+                
+---
+
+                Concept: Area in Polar Coordinates
+                Prerequisite: Definite Integrals
+                Evidence:
+                (Page 159, score=0.73) Lecture 32
+Figure 6: Using polar co-ordinates to ﬁnd area of a generic function.
+Area in Polar Coordinates
+Since radius is a function of angle (r = f(θ)), we will integrate with respect to θ. The question
+is: what, exactly, should we integrate?
+Let’s look at a very small slice of this region:
+Figure 7: Approximate slice of area in polar coordinates.
+This inﬁnitesimal slice is approximately a right triangle. To ﬁnd its area, we take:
+Area of slice ≈ 2(base) (height) = 2 r(r dθ)
+Total Area =
                 
 ---
 
@@ -620,6 +765,38 @@ From Examples 4, 5 and 6 we know that this diverges (is inﬁnite) for 0 < p ≤
 ﬁnite) for p > 1.
 The comparison of integrals says that a larger function has a larger integral. If we restrict
 ourselves to nonnegative functions, then even when the region 
+                
+---
+
+                Concept: Infinite Series
+                Prerequisite: Limits
+                Evidence:
+                (Page 180, score=0.67) Lecture 36
+Deﬁnition
+means the same thing as
+lim Sn = s, where Sn =
+We say the series converges to s, if the limit exists and is ﬁnite. The importance of convergence is
+illustrated here by the example of the geometric series. If a = 1, S = 1 + 1 + 1 + = ∞. But
+does not make sense and is not usable!
+Another type of series:
+We can use integrals to decide if this type of series converges. First, turn the sum into an integral:
+If that improper integral evaluates to a ﬁnite number, the series converg
+                
+---
+
+                Concept: Convergence Tests
+                Prerequisite: Infinite Series
+                Evidence:
+                (Page 180, score=0.61) Lecture 36
+Deﬁnition
+means the same thing as
+lim Sn = s, where Sn =
+We say the series converges to s, if the limit exists and is ﬁnite. The importance of convergence is
+illustrated here by the example of the geometric series. If a = 1, S = 1 + 1 + 1 + = ∞. But
+does not make sense and is not usable!
+Another type of series:
+We can use integrals to decide if this type of series converges. First, turn the sum into an integral:
+If that improper integral evaluates to a ﬁnite number, the series converg
                 
 ---
 

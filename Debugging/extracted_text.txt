@@ -4660,7 +4660,7 @@ And in a matrix bind them.
   Concept: Implicit Differentiation
   Prerequisites: Derivatives
 
-  Concept: Inverse Functions
+  Concept: Inverses
   Prerequisites: Derivatives
 
   Concept: Exponential and Logarithmic Functions
@@ -4693,6 +4693,9 @@ And in a matrix bind them.
   Concept: Mean Value Theorem
   Prerequisites: Derivatives
 
+  Concept: Differentials
+  Prerequisites: Derivatives
+
   Concept: Antiderivatives
   Prerequisites: Derivatives
 
@@ -4700,7 +4703,7 @@ And in a matrix bind them.
   Prerequisites: Derivatives
 
   Concept: Definite Integrals
-  Prerequisites: Limits
+  Prerequisites: Limits, Antiderivatives
 
   Concept: First Fundamental Theorem of Calculus
   Prerequisites: Definite Integrals, Antiderivatives
@@ -4708,10 +4711,16 @@ And in a matrix bind them.
   Concept: Second Fundamental Theorem of Calculus
   Prerequisites: First Fundamental Theorem of Calculus
 
-  Concept: Volumes of Solids
+  Concept: Volumes by Disks and Shells
   Prerequisites: Definite Integrals
 
-  Concept: Surface Area
+  Concept: Work
+  Prerequisites: Definite Integrals
+
+  Concept: Average Value
+  Prerequisites: Definite Integrals
+
+  Concept: Probability
   Prerequisites: Definite Integrals
 
   Concept: Numerical Integration
@@ -4720,7 +4729,7 @@ And in a matrix bind them.
   Concept: Trigonometric Integrals
   Prerequisites: Definite Integrals
 
-  Concept: Integration by Substitution
+  Concept: Substitution Method
   Prerequisites: Definite Integrals
 
   Concept: Integration by Parts
@@ -4732,8 +4741,17 @@ And in a matrix bind them.
   Concept: Parametric Equations
   Prerequisites: None
 
+  Concept: Arclength
+  Prerequisites: Parametric Equations, Definite Integrals
+
+  Concept: Surface Area
+  Prerequisites: Parametric Equations, Definite Integrals
+
   Concept: Polar Coordinates
   Prerequisites: None
+
+  Concept: Area in Polar Coordinates
+  Prerequisites: Polar Coordinates, Definite Integrals
 
   Concept: Indeterminate Forms
   Prerequisites: Limits
@@ -4745,7 +4763,10 @@ And in a matrix bind them.
   Prerequisites: Definite Integrals
 
   Concept: Infinite Series
-  Prerequisites: None
+  Prerequisites: Limits
+
+  Concept: Convergence Tests
+  Prerequisites: Infinite Series
 
   Concept: Taylor Series
   Prerequisites: Infinite Series
@@ -4760,4 +4781,4 @@ And in a matrix bind them.
 ══════════════════════════════════════════════════════
    RELATIONSHIP VERIFICATION SCORES
 ═════════════════════════════════════════════════════
-"[\n  {\n    \"concept\": \"Continuity\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Limits\",\n        \"score\": 0.51\n      }\n    ]\n  },\n  {\n    \"concept\": \"Derivatives\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Limits\",\n        \"score\": 0.54\n      }\n    ]\n  },\n  {\n    \"concept\": \"Derivatives of Trigonometric Functions\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.56\n      }\n    ]\n  },\n  {\n    \"concept\": \"Chain Rule\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.54\n      }\n    ]\n  },\n  {\n    \"concept\": \"Higher Derivatives\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.46\n      }\n    ]\n  },\n  {\n    \"concept\": \"Implicit Differentiation\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.50\n      }\n    ]\n  },\n  {\n    \"concept\": \"Inverse Functions\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.48\n      }\n    ]\n  },\n  {\n    \"concept\": \"Logarithmic Differentiation\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.49\n      },\n      {\n        \"prerequisite\": \"Exponential and Logarithmic Functions\",\n        \"score\": 0.52\n      }\n    ]\n  },\n  {\n    \"concept\": \"Hyperbolic Functions\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Exponential and Logarithmic Functions\",\n        \"score\": 0.66\n      }\n    ]\n  },\n  {\n    \"concept\": \"Linear Approximations\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.60\n      }\n    ]\n  },\n  {\n    \"concept\": \"Quadratic Approximations\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Linear Approximations\",\n        \"score\": 0.61\n      }\n    ]\n  },\n  {\n    \"concept\": \"Curve Sketching\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.45\n      }\n    ]\n  },\n  {\n    \"concept\": \"Max/Min Problems\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.51\n      }\n    ]\n  },\n  {\n    \"concept\": \"Related Rates\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.56\n      }\n    ]\n  },\n  {\n    \"concept\": \"Newton's Method\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.49\n      }\n    ]\n  },\n  {\n    \"concept\": \"Mean Value Theorem\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.58\n      }\n    ]\n  },\n  {\n    \"concept\": \"Antiderivatives\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.53\n      }\n    ]\n  },\n  {\n    \"concept\": \"Differential Equations\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.42\n      }\n    ]\n  },\n  {\n    \"concept\": \"Definite Integrals\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Limits\",\n        \"score\": 0.48\n      }\n    ]\n  },\n  {\n    \"concept\": \"First Fundamental Theorem of Calculus\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Definite Integrals\",\n        \"score\": 0.60\n      },\n      {\n        \"prerequisite\": \"Antiderivatives\",\n        \"score\": 0.56\n      }\n    ]\n  },\n  {\n    \"concept\": \"Second Fundamental Theorem of Calculus\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"First Fundamental Theorem of Calculus\",\n        \"score\": 0.56\n      }\n    ]\n  },\n  {\n    \"concept\": \"Volumes of Solids\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Definite Integrals\",\n        \"score\": 0.51\n      }\n    ]\n  },\n  {\n    \"concept\": \"Surface Area\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Definite Integrals\",\n        \"score\": 0.45\n      }\n    ]\n  },\n  {\n    \"concept\": \"Numerical Integration\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Definite Integrals\",\n        \"score\": 0.53\n      }\n    ]\n  },\n  {\n    \"concept\": \"Trigonometric Integrals\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Definite Integrals\",\n        \"score\": 0.59\n      }\n    ]\n  },\n  {\n    \"concept\": \"Integration by Substitution\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Definite Integrals\",\n        \"score\": 0.51\n      }\n    ]\n  },\n  {\n    \"concept\": \"Integration by Parts\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Definite Integrals\",\n        \"score\": 0.55\n      }\n    ]\n  },\n  {\n    \"concept\": \"Partial Fractions\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Definite Integrals\",\n        \"score\": 0.57\n      }\n    ]\n  },\n  {\n    \"concept\": \"Indeterminate Forms\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Limits\",\n        \"score\": 0.67\n      }\n    ]\n  },\n  {\n    \"concept\": \"L'H\u00f4pital's Rule\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Indeterminate Forms\",\n        \"score\": 0.80\n      }\n    ]\n  },\n  {\n    \"concept\": \"Improper Integrals\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Definite Integrals\",\n        \"score\": 0.60\n      }\n    ]\n  },\n  {\n    \"concept\": \"Taylor Series\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Infinite Series\",\n        \"score\": 0.55\n      }\n    ]\n  }\n]"
+"[\n  {\n    \"concept\": \"Continuity\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Limits\",\n        \"score\": 0.51\n      }\n    ]\n  },\n  {\n    \"concept\": \"Derivatives\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Limits\",\n        \"score\": 0.54\n      }\n    ]\n  },\n  {\n    \"concept\": \"Derivatives of Trigonometric Functions\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.56\n      }\n    ]\n  },\n  {\n    \"concept\": \"Chain Rule\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.54\n      }\n    ]\n  },\n  {\n    \"concept\": \"Higher Derivatives\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.46\n      }\n    ]\n  },\n  {\n    \"concept\": \"Implicit Differentiation\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.50\n      }\n    ]\n  },\n  {\n    \"concept\": \"Inverses\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.46\n      }\n    ]\n  },\n  {\n    \"concept\": \"Logarithmic Differentiation\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.49\n      },\n      {\n        \"prerequisite\": \"Exponential and Logarithmic Functions\",\n        \"score\": 0.52\n      }\n    ]\n  },\n  {\n    \"concept\": \"Hyperbolic Functions\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Exponential and Logarithmic Functions\",\n        \"score\": 0.66\n      }\n    ]\n  },\n  {\n    \"concept\": \"Linear Approximations\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.60\n      }\n    ]\n  },\n  {\n    \"concept\": \"Quadratic Approximations\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Linear Approximations\",\n        \"score\": 0.61\n      }\n    ]\n  },\n  {\n    \"concept\": \"Curve Sketching\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.45\n      }\n    ]\n  },\n  {\n    \"concept\": \"Max/Min Problems\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.51\n      }\n    ]\n  },\n  {\n    \"concept\": \"Related Rates\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.56\n      }\n    ]\n  },\n  {\n    \"concept\": \"Newton's Method\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.49\n      }\n    ]\n  },\n  {\n    \"concept\": \"Mean Value Theorem\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.58\n      }\n    ]\n  },\n  {\n    \"concept\": \"Differentials\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.59\n      }\n    ]\n  },\n  {\n    \"concept\": \"Antiderivatives\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.53\n      }\n    ]\n  },\n  {\n    \"concept\": \"Differential Equations\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Derivatives\",\n        \"score\": 0.42\n      }\n    ]\n  },\n  {\n    \"concept\": \"Definite Integrals\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Limits\",\n        \"score\": 0.48\n      },\n      {\n        \"prerequisite\": \"Antiderivatives\",\n        \"score\": 0.52\n      }\n    ]\n  },\n  {\n    \"concept\": \"First Fundamental Theorem of Calculus\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Definite Integrals\",\n        \"score\": 0.60\n      },\n      {\n        \"prerequisite\": \"Antiderivatives\",\n        \"score\": 0.56\n      }\n    ]\n  },\n  {\n    \"concept\": \"Second Fundamental Theorem of Calculus\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"First Fundamental Theorem of Calculus\",\n        \"score\": 0.56\n      }\n    ]\n  },\n  {\n    \"concept\": \"Volumes by Disks and Shells\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Definite Integrals\",\n        \"score\": 0.68\n      }\n    ]\n  },\n  {\n    \"concept\": \"Work\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Definite Integrals\",\n        \"score\": 0.42\n      }\n    ]\n  },\n  {\n    \"concept\": \"Average Value\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Definite Integrals\",\n        \"score\": 0.55\n      }\n    ]\n  },\n  {\n    \"concept\": \"Probability\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Definite Integrals\",\n        \"score\": 0.0\n      }\n    ]\n  },\n  {\n    \"concept\": \"Numerical Integration\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Definite Integrals\",\n        \"score\": 0.53\n      }\n    ]\n  },\n  {\n    \"concept\": \"Trigonometric Integrals\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Definite Integrals\",\n        \"score\": 0.59\n      }\n    ]\n  },\n  {\n    \"concept\": \"Substitution Method\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Definite Integrals\",\n        \"score\": 0.50\n      }\n    ]\n  },\n  {\n    \"concept\": \"Integration by Parts\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Definite Integrals\",\n        \"score\": 0.55\n      }\n    ]\n  },\n  {\n    \"concept\": \"Partial Fractions\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Definite Integrals\",\n        \"score\": 0.57\n      }\n    ]\n  },\n  {\n    \"concept\": \"Arclength\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Parametric Equations\",\n        \"score\": 0.68\n      },\n      {\n        \"prerequisite\": \"Definite Integrals\",\n        \"score\": 0.55\n      }\n    ]\n  },\n  {\n    \"concept\": \"Surface Area\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Parametric Equations\",\n        \"score\": 0.46\n      },\n      {\n        \"prerequisite\": \"Definite Integrals\",\n        \"score\": 0.45\n      }\n    ]\n  },\n  {\n    \"concept\": \"Area in Polar Coordinates\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Polar Coordinates\",\n        \"score\": 0.71\n      },\n      {\n        \"prerequisite\": \"Definite Integrals\",\n        \"score\": 0.73\n      }\n    ]\n  },\n  {\n    \"concept\": \"Indeterminate Forms\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Limits\",\n        \"score\": 0.67\n      }\n    ]\n  },\n  {\n    \"concept\": \"L'H\u00f4pital's Rule\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Indeterminate Forms\",\n        \"score\": 0.80\n      }\n    ]\n  },\n  {\n    \"concept\": \"Improper Integrals\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Definite Integrals\",\n        \"score\": 0.60\n      }\n    ]\n  },\n  {\n    \"concept\": \"Infinite Series\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Limits\",\n        \"score\": 0.67\n      }\n    ]\n  },\n  {\n    \"concept\": \"Convergence Tests\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Infinite Series\",\n        \"score\": 0.61\n      }\n    ]\n  },\n  {\n    \"concept\": \"Taylor Series\",\n    \"prerequisites\": [\n      {\n        \"prerequisite\": \"Infinite Series\",\n        \"score\": 0.55\n      }\n    ]\n  }\n]"

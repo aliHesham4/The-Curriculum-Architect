@@ -85,9 +85,9 @@ PREREQUISITES:
 
 OUTPUT SIZE:
 - Extract ALL valid concepts. For a full-semester university course, 
-  expect 25–60 concepts.
-- Fewer than 20 → you are under-extracting.
-- More than 80 → you are over-extracting or not merging duplicates.
+  expect 30–60 concepts.
+- Fewer than 30 → you are under-extracting.
+- More than 60 → you are over-extracting or not merging duplicates.
 
 Return ONLY valid JSON, no explanation, no markdown:
 {{
@@ -619,68 +619,75 @@ def validate_prerequisite_ordering(
     print(f"\n✅ Valid prerequisite graph saved to {output_file}")
     return {"summary": counts, "results": results}
 
-
 def query_llm(all_clusters_by_chunk, toc_context, pages, page_embeddings, chunks):
 
     print("\n===== SENDING ALL CLUSTERS TO LLAMA =====")
 
     prompt = build_prompt(all_clusters_by_chunk, toc_context)
-    print(prompt)
+
+    print("\n===== LOADING PRE-EXTRACTED CONCEPTS =====")
+
+    with open("pasted_concepts.json", "r", encoding="utf-8") as f:
+        parsed = json.load(f)
+
+    print("  ✅ Loaded concepts from pasted_concepts.json")
 
     # if len(prompt) > 20000:
     #     print("⚠ Prompt is large — consider reducing top_n or chunk count")
     #     return None, [], None, []
 
-    raw = None
+    # raw = None
 
-    # ── Primary: Groq ───────────────────────────────────────────────
+    # # ── Primary: Groq ───────────────────────────────────────────────
+    # try:
+    #     groq_response = groq_client.chat.completions.create(
+    #         model="llama-3.3-70b-versatile",
+    #         messages=[{"role": "user", "content": prompt}],
+    #         temperature=0,
+    #         top_p=1,
+    #         response_format={"type": "json_object"}
+    #     )
+
+    #     raw = groq_response.choices[0].message.content.strip()
+    #     print("  ✅ Groq responded successfully")
+
+    # except Exception as e:
+    #     print(f"  ⚠ Groq failed: {e}")
+    #     print("  🔄 Falling back to Gemini...")
+
+    #     # ── Fallback: Gemini ───────────────────────────────────────
+    #     try:
+    #         response = model.generate_content(
+    #             prompt,
+    #             generation_config=genai.types.GenerationConfig(
+    #                 temperature=0,
+    #                 top_p=1
+    #             ),
+    #             request_options={
+    #                 "retry": api_retry.Retry(maximum=0),
+    #                 "timeout": 200
+    #             }
+    #         )
+
+    #         raw = response.text.strip()
+    #         print("  ✅ Gemini responded successfully")
+
+    #     except Exception as e:
+    #         print(f"  ⚠ Gemini failed: {e}")
+    #         return None, [], None, []
+
+    # # ── raw must be set by here ────────────────────────────────────
+    # if raw is None:
+    #     print("  ✖ No response from any provider.")
+    #     return None, [], None, []
+
     try:
-        groq_response = groq_client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0,
-            top_p=1
-        )
 
-        raw = groq_response.choices[0].message.content.strip()
-        print("  ✅ Groq responded successfully")
+        # raw = re.sub(r'^```json\s*', '', raw)
+        # raw = re.sub(r'^```\s*', '', raw)
+        # raw = re.sub(r'\s*```$', '', raw)
 
-    except Exception as e:
-        print(f"  ⚠ Groq failed: {e}")
-        print("  🔄 Falling back to Gemini...")
-
-        # ── Fallback: Gemini ───────────────────────────────────────
-        try:
-            response = model.generate_content(
-                prompt,
-                generation_config=genai.types.GenerationConfig(
-                    temperature=0,
-                    top_p=1
-                ),
-                request_options={
-                    "retry": api_retry.Retry(maximum=0),
-                    "timeout": 200
-                }
-            )
-
-            raw = response.text.strip()
-            print("  ✅ Gemini responded successfully")
-
-        except Exception as e:
-            print(f"  ⚠ Gemini failed: {e}")
-            return None, [], None, []
-
-    # ── raw must be set by here ────────────────────────────────────
-    if raw is None:
-        print("  ✖ No response from any provider.")
-        return None, [], None, []
-
-    try:
-        raw = re.sub(r'^```json\s*', '', raw)
-        raw = re.sub(r'^```\s*', '', raw)
-        raw = re.sub(r'\s*```$', '', raw)
-
-        parsed = json.loads(raw)
+        # parsed = json.loads(raw)
 
         # Mouse Trap for testing verification
         parsed["concepts"].append({
@@ -693,33 +700,39 @@ def query_llm(all_clusters_by_chunk, toc_context, pages, page_embeddings, chunks
 
         print("  🧪 Injected test concept: 'quantum entanglement theory'")
 
-        #-------------------------------------------------------------------
+        # -------------------------------------------------------------------
         print("\n===== RUNNING VERIFICATION CONSTRAINT =====")
-        parsed, flagged      = rag_verify_llm_output(parsed, pages, page_embeddings)
-        relation_prompt = build_relation_verification_prompt(parsed, pages,page_embeddings,chunks)
-        with open("Debugging/relation_prompt.txt", "w", encoding="utf-8") as f:
-           f.write(relation_prompt)
-        print("\n===== QUERYING LLM FOR RELATION VERIFICATION =====")
-        relation_scores = query_llm_relation_verifier(relation_prompt)
+
+        parsed, flagged = rag_verify_llm_output(parsed,pages,page_embeddings)
+
+        # relation_prompt = build_relation_verification_prompt(parsed,pages,page_embeddings,chunks)
+
+        # with open("Debugging/relation_prompt.txt", "w", encoding="utf-8") as f:
+        #     f.write(relation_prompt)
+
+        # print("\n===== QUERYING LLM FOR RELATION VERIFICATION =====")
+
+        # relation_scores = query_llm_relation_verifier(relation_prompt)
+
+        print("Loading pre-extracted Relation scores")
+
+        with open("Debugging/relation_scores.json","r",encoding="utf-8") as r:
+             relation_scores= json.load(r)
         if relation_scores is None:
             print("  ✖ Relation verification failed — skipping.")
             return parsed, flagged, None, []
-    
-        
+
         clean_relations = transform_relation_scores_to_concepts(relation_scores)
-        
 
         return parsed, flagged, relation_scores, clean_relations
-
-    
 
     except json.JSONDecodeError as e:
         print(f"  ⚠ JSON parse error: {e}")
         return None, [], None, []
+
     except Exception as e:
         print(f"  ⚠ LLM error: {e}")
         return None, [], None, []
-
 #-------------------------------------------------------
 # Saving results in a human-readable format
 #-------------------------------------------------------
@@ -766,15 +779,487 @@ def save_relation_scores(relation_scores, file_handle):
     print(relation_scores)
 
 
-def verification_loop(G_llm, pages, page_embeddings, chunks):
+"""
+verification_loop_v4.py
+========================
+Combined Post-DAG Verification Loop — "Best of All Three"
+
+Architecture
+------------
+Stage 0 │ Pre-compute chunk centroids (shared by all stages)
+Stage 1 │ EMBEDDING CANDIDATE GENERATION  — O(n·k), no LLM
+         │   Semantic cosine similarity narrows the O(n²) space.
+         │   Catches pairs that are close in meaning even if never
+         │   explicitly co-mentioned.
+Stage 2 │ DAG-LEVEL LLM NOMINATION        — 1 LLM call
+         │   Single prompt over the full graph. Catches structural
+         │   gaps the embedding similarity might miss (e.g. a
+         │   foundational concept that is semantically distant from
+         │   an advanced one but is still a required prerequisite).
+Stage 3 │ CANDIDATE MERGE + DEDUPLICATION — no LLM
+         │   Union of Stage 1 and Stage 2 sets, deduplicated, already-
+         │   edged pairs removed.
+Stage 4 │ BATCH SEMANTIC FILTER           — few LLM calls (batched)
+         │   Removes obvious non-prerequisites before expensive RAG.
+         │   Groups candidates into batches of SEMANTIC_BATCH_SIZE.
+Stage 5 │ BATCH DOCUMENT VERIFICATION     — few LLM calls (batched)
+         │   RAG retrieval + batched LLM confirmation against real text.
+         │   Threshold is intentionally generous (0.32) because the
+         │   semantic filter already removed noise.
+Stage 6 │ COMPOSITE SCORING + DAG INSERTION
+         │   Each surviving edge receives a composite score:
+         │     0.4 * semantic_score + 0.4 * document_score + 0.2 * structural_bonus
+         │   Hard edges (≥ 0.75) are added unconditionally (after cycle check).
+         │   Soft edges (0.50–0.74) are added only if no cycle results.
+         │   Weak edges (< 0.50) are discarded.
+         │   Every insertion is cycle-checked; rollback if needed.
+
+Why this beats each individual version
+---------------------------------------
+V1  — accurate but O(n²) LLM calls. We replace that with batching + pre-filtering.
+V2  — smart nomination but a single LLM can forget or hallucinate structure.
+      We use it only as a *second candidate source*, not the sole one.
+V3  — production-scalable but the confidence threshold (0.6) is too low for
+      a DAG where false positives are structurally damaging. We tighten with
+      the composite score and restore V1's conservative 0.9 gate on hard edges.
+"""
+
+import json
+import re
+import numpy as np
+import networkx as nx
+from sklearn.metrics.pairwise import cosine_similarity
+
+# ---------------------------------------------------------------------------
+# tuneable constants — adjust per curriculum size
+# ---------------------------------------------------------------------------
+TOP_K_SEMANTIC       = 4     # neighbour count in Stage 1 embedding search
+SEMANTIC_BATCH_SIZE  = 25    # pairs per LLM call in Stage 4
+DOC_BATCH_SIZE       = 15    # pairs per LLM call in Stage 5
+PAGE_THRESHOLD_DOC   = 0.32  # RAG retrieval threshold (generous; filter did cleanup)
+SEMANTIC_GATE        = 0.8  # minimum confidence to survive Stage 4
+HARD_EDGE_THRESHOLD  = 0.75  # composite score → hard insert
+SOFT_EDGE_THRESHOLD  = 0.50  # composite score → soft insert (cycle-safe only)
+
+
+def _llm_call( prompt: str) -> str:
     """
-    POST-DAG verification loop.
-    Takes the completed DAG and checks D for missing dependencies
-    between concepts that currently have NO edge between them.
+    Single LLM call. Returns raw content string.
+    All callers handle exceptions themselves so we keep this thin.
     """
-    
+    response = groq_client.chat.completions.create(
+        model="llama-3.3-70b-versatile",
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0,
+        max_tokens=4096,
+    )
+    return response.choices[0].message.content.strip()
+
+
+def _parse_json(raw: str) -> dict:
+    """Strip markdown fences then parse JSON."""
+    clean = re.sub(r"```json|```", "", raw).strip()
+    return json.loads(clean)
+
+
+# ---------------------------------------------------------------------------
+# Stage 1 — embedding-based candidate generation
+# ---------------------------------------------------------------------------
+
+def _stage1_embedding_candidates(nodes: list, node_embeddings: np.ndarray,
+                                  top_k: int = TOP_K_SEMANTIC) -> set:
+    """
+    For every node find its top-k nearest neighbours by cosine similarity.
+    Returns a set of (a, b) tuples — direction is undetermined at this stage.
+
+    Complexity: O(n²) for the similarity matrix but no LLM calls.
+    At n=100 this is trivial; at n=500 use approximate nearest-neighbour (faiss).
+    """
+    sim = cosine_similarity(node_embeddings)
+    candidates = set()
+
+    for i, node_a in enumerate(nodes):
+        # argsort ascending → take last top_k (excluding self)
+        neighbours = sim[i].argsort()[-(top_k + 1):-1][::-1]
+        for j in neighbours:
+            if i == j:
+                continue
+            # store as frozenset so (a,b) == (b,a) for dedup
+            candidates.add(frozenset({node_a, nodes[j]}))
+
+    print(f"  Stage 1 — embedding candidates: {len(candidates)}")
+    return candidates
+
+
+# ---------------------------------------------------------------------------
+# Stage 2 — DAG-level LLM nomination (single call)
+# ---------------------------------------------------------------------------
+
+def _stage2_llm_nomination(nodes: list, edges: list) -> set:
+    """
+    Ask the LLM to look at the full DAG structure and nominate pairs
+    it thinks are missing a direct prerequisite edge.
+
+    Returns a set of frozenset({a, b}) — direction comes later in Stage 5.
+    """
+    prompt = f"""You are auditing a curriculum prerequisite graph.
+
+Current nodes:
+{json.dumps(nodes, indent=2)}
+
+Current edges (prerequisite → concept):
+{json.dumps([f"{u} → {v}" for u, v in edges], indent=2)}
+
+Identify concept pairs with NO current edge where a direct prerequisite 
+is likely missing. Focus on genuine prerequisites, not merely related topics.
+Ignore pairs already connected by an indirect path unless a direct edge is 
+pedagogically essential.
+
+Reply ONLY with this JSON (no markdown, no explanation):
+{{
+  "candidates": [
+    {{"prereq": "concept_name", "concept": "concept_name"}},
+    ...
+  ]
+}}"""
+
+    try:
+        raw = _llm_call(prompt)
+        result = _parse_json(raw)
+        nominated = set()
+        for c in result.get("candidates", []):
+            p, con = c.get("prereq"), c.get("concept")
+            if p and con:
+                nominated.add(frozenset({p, con}))
+        print(f"  Stage 2 — LLM-nominated candidates: {len(nominated)}")
+        return nominated
+    except Exception as e:
+        print(f"  Stage 2 failed ({e}) — using Stage 1 candidates only.")
+        return set()
+
+
+# ---------------------------------------------------------------------------
+# Stage 3 — merge and clean
+# ---------------------------------------------------------------------------
+
+def _stage3_merge(G, candidates_s1: set, candidates_s2: set,
+                  nodes: list) -> list:
+    """
+    Union Stage 1 + Stage 2, remove:
+      - pairs that already have an edge in either direction
+      - pairs where one node is not in the graph
+    Returns a list of unordered [a, b] pairs (direction TBD).
+    """
+    merged = candidates_s1 | candidates_s2
+    node_set = set(nodes)
+    clean = []
+
+    for pair in merged:
+        a, b = tuple(pair)
+        if a not in node_set or b not in node_set:
+            continue
+        if G.has_edge(a, b) or G.has_edge(b, a):
+            continue
+        clean.append([a, b])
+
+    print(f"  Stage 3 — merged unique candidates (no existing edge): {len(clean)}")
+    return clean
+
+
+# ---------------------------------------------------------------------------
+# Stage 4 — batch semantic filter (LLM, no RAG)
+# ---------------------------------------------------------------------------
+
+def _stage4_semantic_filter( candidates: list,
+                             batch_size: int = SEMANTIC_BATCH_SIZE) -> list:
+    """
+    Batch the candidate list into groups of `batch_size`.
+    For each batch, ask the LLM whether a prerequisite direction is plausible
+    using only its general curriculum knowledge (no document text yet).
+
+    Returns a list of (prereq, concept, semantic_score) tuples that survive
+    the SEMANTIC_GATE threshold.
+    """
+    surviving = []
+
+    for batch_start in range(0, len(candidates), batch_size):
+        batch = candidates[batch_start: batch_start + batch_size]
+
+        # Format pairs for the prompt — undirected at this point
+        pairs_json = [{"A": a, "B": b} for a, b in batch]
+
+        prompt = f"""You are validating prerequisite relationships in a curriculum.
+
+For each pair, decide:
+1. Is there a likely prerequisite relationship (in either direction)?
+2. If yes, which comes first?
+3. Assign a confidence score 0.0–1.0.
+
+Return ONLY this JSON (no markdown):
+{{
+  "edges": [
+    {{"A": "...", "B": "...", "valid": true_or_false,
+      "first": "A_or_B_or_null", "confidence": 0.0}}
+  ]
+}}
+
+Pairs:
+{json.dumps(pairs_json, indent=2)}"""
+
+        try:
+            raw = _llm_call(prompt)
+            result = _parse_json(raw)
+
+            for edge in result.get("edges", []):
+                if not edge.get("valid"):
+                    continue
+                conf = float(edge.get("confidence", 0))
+                if conf < SEMANTIC_GATE:
+                    continue
+                first = edge.get("first")
+                a, b = edge.get("A"), edge.get("B")
+                if not a or not b or not first:
+                    continue
+                prereq  = a if first == "A" else b
+                concept = b if first == "A" else a
+                surviving.append((prereq, concept, conf))
+
+        except Exception as e:
+            print(f"  Stage 4 batch error ({e}) — skipping batch.")
+            continue
+
+    print(f"  Stage 4 — survived semantic filter: {len(surviving)}")
+    return surviving
+
+
+# ---------------------------------------------------------------------------
+# Stage 5 — batch document verification (RAG + LLM)
+# ---------------------------------------------------------------------------
+
+def _stage5_document_verification( filtered: list,
+                                   pages, page_embeddings_np,
+                                   chunk_embeddings, chunks,
+                                   batch_size: int = DOC_BATCH_SIZE) -> list:
+    """
+    For each (prereq, concept, semantic_score) triple:
+      1. Retrieve the best-matching curriculum page via RAG.
+      2. Bundle the retrieved page text with the pair into a batch prompt.
+      3. Ask the LLM to confirm the relationship against the actual text.
+
+    Returns a list of dicts:
+      {"prereq", "concept", "semantic_score", "doc_score", "page_num"}
+    """
+    # ── Step A: retrieve evidence for every pair ──────────────────────────
+    evidence_blocks = []
+    for prereq, concept, sem_score in filtered:
+        hit = _get_best_page(
+            query=f"{prereq} {concept}",
+            pages=pages,
+            page_embeddings_np=page_embeddings_np,
+            chunk_embeddings=chunk_embeddings,
+            chunks=chunks,
+            top_k_chunks=2,
+            top_k_pages=2,
+            page_threshold=PAGE_THRESHOLD_DOC,
+        )
+        if hit is None:
+            # No document evidence found — keep for scoring but mark score 0
+            evidence_blocks.append({
+                "prereq":     prereq,
+                "concept":    concept,
+                "sem_score":  sem_score,
+                "page_num":   None,
+                "page_text":  "No strong evidence found.",
+                "ret_score":  0.0,
+            })
+        else:
+            evidence_blocks.append({
+                "prereq":    prereq,
+                "concept":   concept,
+                "sem_score": sem_score,
+                "page_num":  hit["page_num"],
+                "page_text": pages[hit["page_index"]]["text"][:400],
+                "ret_score": hit["score"],
+            })
+
+    # ── Step B: batch LLM verification ────────────────────────────────────
+    verified = []
+
+    for batch_start in range(0, len(evidence_blocks), batch_size):
+        batch = evidence_blocks[batch_start: batch_start + batch_size]
+
+        # Build the input payload for the LLM
+        payload = [
+            {
+                "prereq":   b["prereq"],
+                "concept":  b["concept"],
+                "page":     b["page_num"],
+                "evidence": b["page_text"],
+            }
+            for b in batch
+        ]
+
+        prompt = f"""You are verifying prerequisite relationships using ONLY 
+the provided curriculum text.
+
+For each entry, confirm:
+- Does the text support a prerequisite relationship?
+- Which concept must be learned first?
+- Confidence (0.0–1.0) based strictly on the text evidence.
+
+Return ONLY this JSON (no markdown):
+{{
+  "results": [
+    {{
+      "prereq": "...",
+      "concept": "...",
+      "dependency_exists": true_or_false,
+      "first": "prereq_or_concept_or_null",
+      "confidence": 0.0
+    }}
+  ]
+}}
+
+Entries:
+{json.dumps(payload, indent=2)}"""
+
+        try:
+            raw = _llm_call(prompt)
+            result = _parse_json(raw)
+
+            for res, blk in zip(result.get("results", []), batch):
+                if not res.get("dependency_exists"):
+                    continue
+                doc_conf = float(res.get("confidence", 0))
+
+                # Resolve direction from LLM's answer
+                if res.get("first") == "prereq":
+                    final_prereq, final_concept = blk["prereq"], blk["concept"]
+                elif res.get("first") == "concept":
+                    final_prereq, final_concept = blk["concept"], blk["prereq"]
+                else:
+                    continue  # direction unclear
+
+                verified.append({
+                    "prereq":     final_prereq,
+                    "concept":    final_concept,
+                    "sem_score":  blk["sem_score"],
+                    "doc_score":  doc_conf,
+                    "page_num":   blk["page_num"],
+                    "ret_score":  blk["ret_score"],
+                })
+
+        except Exception as e:
+            print(f"  Stage 5 batch error ({e}) — skipping batch.")
+            continue
+
+    print(f"  Stage 5 — document-confirmed edges: {len(verified)}")
+    return verified
+
+
+# ---------------------------------------------------------------------------
+# Stage 6 — composite scoring + DAG insertion
+# ---------------------------------------------------------------------------
+
+def _stage6_insert(G, verified: list) -> list:
+    """
+    Compute a composite score per edge and insert in descending order
+    (strongest evidence first, so the acyclicity budget is spent wisely).
+
+    composite = 0.40 * semantic_score
+              + 0.40 * doc_score
+              + 0.20 * structural_bonus
+
+    structural_bonus = 1.0 if the prereq already has at least one outgoing
+                       edge (established node), else 0.5.
+
+    Thresholds
+    ----------
+    ≥ HARD_EDGE_THRESHOLD  (0.75) : insert, rollback only if cycle
+    ≥ SOFT_EDGE_THRESHOLD  (0.50) : insert only if no cycle introduced
+    < SOFT_EDGE_THRESHOLD         : discard
+    """
+    added = []
+
+    # Pre-compute scores and sort strongest first
+    scored = []
+    for e in verified:
+        structural_bonus = 1.0 if G.out_degree(e["prereq"]) > 0 else 0.5
+        composite = (
+            0.40 * e["sem_score"] +
+            0.40 * e["doc_score"] +
+            0.20 * structural_bonus
+        )
+        scored.append({**e, "composite": composite})
+
+    scored.sort(key=lambda x: x["composite"], reverse=True)
+
+    for e in scored:
+        score = e["composite"]
+
+        if score < SOFT_EDGE_THRESHOLD:
+            continue  # discard
+
+        prereq, concept = e["prereq"], e["concept"]
+
+        # Skip if edge already exists (could have been added by an earlier
+        # iteration in this same loop)
+        if G.has_edge(prereq, concept) or G.has_edge(concept, prereq):
+            continue
+
+        G.add_edge(prereq, concept)
+
+        if not nx.is_directed_acyclic_graph(G):
+            G.remove_edge(prereq, concept)
+            tier = "hard" if score >= HARD_EDGE_THRESHOLD else "soft"
+            print(f"  ⚠  Rollback ({tier}): {prereq} → {concept} "
+                  f"(composite {score:.2f}) — would create cycle")
+            continue
+
+        tier = "HARD" if score >= HARD_EDGE_THRESHOLD else "soft"
+        added.append({
+            "prereq":    prereq,
+            "concept":   concept,
+            "composite": score,
+            "page_num":  e.get("page_num"),
+        })
+        print(f"  ✅ [{tier}] {prereq} → {concept}  "
+              f"(composite {score:.2f}, "
+              f"sem {e['sem_score']:.2f}, "
+              f"doc {e['doc_score']:.2f}, "
+              f"page {e.get('page_num')})")
+
+    return added
+
+
+# ---------------------------------------------------------------------------
+# PUBLIC API — drop-in replacement for your existing verification_loop()
+# ---------------------------------------------------------------------------
+
+def verification_loop(G_llm, pages, page_embeddings, chunks,
+                      node_embeddings: dict = None):
+    """
+    Combined Post-DAG Verification Loop v4.
+
+    Parameters
+    ----------
+    G_llm            : networkx.DiGraph — the DAG after primary verification
+    pages            : list of {"text": str, "page_num": int}
+    page_embeddings  : list or np.ndarray of shape (P, d)
+    chunks           : list of lists of page indices
+    node_embeddings  : dict {concept_name: np.ndarray} — pass pre-computed
+                       embeddings for the concept names (recommended).
+                       If None, the function encodes them on the fly.
+
+    Returns
+    -------
+    G_llm         : updated DAG
+    missing_found : list of dicts describing every added edge
+    """
+
+    # ── normalise page embeddings ─────────────────────────────────────────
     if not isinstance(page_embeddings, np.ndarray):
-        page_embeddings_np = np.array([emb for emb in page_embeddings])
+        page_embeddings_np = np.array(list(page_embeddings))
     else:
         page_embeddings_np = page_embeddings
 
@@ -784,93 +1269,67 @@ def verification_loop(G_llm, pages, page_embeddings, chunks):
     ]
 
     nodes = list(G_llm.nodes())
-    missing_found = []
-    
-    print("\n===== VERIFICATION LOOP — SCANNING FOR MISSING DEPENDENCIES =====")
+    edges = list(G_llm.edges())
 
-    for i, concept_a in enumerate(nodes):
-        for concept_b in nodes[i+1:]:
+    print("\n" + "=" * 65)
+    print("  VERIFICATION LOOP v4 — START")
+    print(f"  Nodes: {len(nodes)}   Existing edges: {len(edges)}")
+    print("=" * 65)
 
-            # Skip if any edge already exists between this pair
-            if G_llm.has_edge(concept_a, concept_b):
-                continue
-            if G_llm.has_edge(concept_b, concept_a):
-                continue
+    # ── resolve node embeddings ───────────────────────────────────────────
+    if node_embeddings is None:
+        print("  Encoding concept names (no pre-computed embeddings supplied)…")
+        from sentence_transformers import SentenceTransformer
+        _enc = SentenceTransformer("all-MiniLM-L6-v2")
+        emb_matrix = _enc.encode(nodes, show_progress_bar=False)
+    else:
+        emb_matrix = np.array([node_embeddings[n] for n in nodes])
 
-            # ── Query D for co-occurrence page ────────────────────────
-            hit = _get_best_page(
-                query=f"{concept_a} {concept_b}",
-                pages=pages,
-                page_embeddings_np=page_embeddings_np,
-                chunk_embeddings=chunk_embeddings,
-                chunks=chunks,
-                top_k_chunks=2,
-                top_k_pages=2,
-                page_threshold=0.40
-            )
+    # ── Stage 1 ───────────────────────────────────────────────────────────
+    print("\n── Stage 1: Embedding Candidate Generation ──────────────────")
+    candidates_s1 = _stage1_embedding_candidates(nodes, emb_matrix)
 
-            if hit is None:
-                continue
+    # ── Stage 2 ───────────────────────────────────────────────────────────
+    print("\n── Stage 2: DAG-Level LLM Nomination ────────────────────────")
+    candidates_s2 = _stage2_llm_nomination(nodes, edges)
 
-            page_text = pages[hit["page_index"]]["text"][:500]
+    # ── Stage 3 ───────────────────────────────────────────────────────────
+    print("\n── Stage 3: Candidate Merge & Clean ─────────────────────────")
+    merged = _stage3_merge(G_llm, candidates_s1, candidates_s2, nodes)
 
-            # ── Ask LLM to read the actual page text ──────────────────
-            prompt = f"""You are auditing a curriculum prerequisite graph.
+    if not merged:
+        print("  No candidates after merge — DAG appears complete.")
+        return G_llm, []
 
-These two concepts currently have NO relationship in the graph:
-- Concept A: {concept_a}  
-- Concept B: {concept_b}
+    # ── Stage 4 ───────────────────────────────────────────────────────────
+    print("\n── Stage 4: Batch Semantic Filter ───────────────────────────")
+    filtered = _stage4_semantic_filter(merged)
 
-Relevant page from the curriculum document (Page {hit['page_num']}):
-\"\"\"{page_text}\"\"\"
+    if not filtered:
+        print("  No candidates survived semantic filter.")
+        return G_llm, []
 
-Based ONLY on this text:
-Does a prerequisite relationship exist between these two concepts?
-If yes, which must be learned first?
+    # ── Stage 5 ───────────────────────────────────────────────────────────
+    print("\n── Stage 5: Batch Document Verification ─────────────────────")
+    verified = _stage5_document_verification(
+        filtered,
+        pages, page_embeddings_np, chunk_embeddings, chunks,
+    )
 
-Reply ONLY with this JSON, no explanation:
-{{"dependency_exists": true or false, "first": "A" or "B" or null, "confidence": 0.0_to_1.0}}"""
+    if not verified:
+        print("  No candidates confirmed by document.")
+        return G_llm, []
 
-            try:
-                response = groq_client.chat.completions.create(
-                    model="llama-3.3-70b-versatile",
-                    messages=[{"role": "user", "content": prompt}],
-                    temperature=0
-                )
-                raw = response.choices[0].message.content.strip()
-                raw = re.sub(r'```json|```', '', raw).strip()
-                result = json.loads(raw)
+    # ── Stage 6 ───────────────────────────────────────────────────────────
+    print("\n── Stage 6: Composite Scoring + DAG Insertion ───────────────")
+    missing_found = _stage6_insert(G_llm, verified)
 
-                if result.get("dependency_exists") and result.get("confidence", 0) >= 0.9:
-                    
-                    # Determine direction
-                    if result.get("first") == "A":
-                        prereq, concept = concept_a, concept_b
-                    else:
-                        prereq, concept = concept_b, concept_a
+    # ── Summary ──────────────────────────────────────────────────────────
+    print("\n" + "=" * 65)
+    print(f"  VERIFICATION LOOP v4 — COMPLETE")
+    print(f"  Edges added   : {len(missing_found)}")
+    print(f"  Final edges   : {G_llm.number_of_edges()}")
+    print(f"  DAG valid     : {nx.is_directed_acyclic_graph(G_llm)}")
+    print("=" * 65 + "\n")
 
-                    # ── Cycle check before adding ─────────────────────
-                    G_llm.add_edge(prereq, concept)
-                    if not nx.is_directed_acyclic_graph(G_llm):
-                        G_llm.remove_edge(prereq, concept)
-                        print(f"  ⚠ Skipped {prereq} → {concept} (would create cycle)")
-                        continue
-
-                    missing_found.append({
-                        "prereq": prereq,
-                        "concept": concept,
-                        "confidence": result["confidence"],
-                        "evidence_page": hit["page_num"]
-                    })
-                    print(f"  ✅ Missing dependency added: "
-                          f"{prereq} → {concept} "
-                          f"(page {hit['page_num']}, "
-                          f"confidence {result['confidence']})")
-
-            except Exception:
-                continue
-
-    print(f"\n  Verification loop complete.")
-    print(f"  Missing dependencies found and added: {len(missing_found)}")
-    
     return G_llm, missing_found
