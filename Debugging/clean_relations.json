@@ -11,25 +11,28 @@
       "prerequisites": []
     },
     {
-      "name": "Derivatives",
+      "name": "Trigonometric Limits",
       "prerequisites": [
-        "Limits"
+        "Limits",
+        "Trigonometry"
       ]
     },
     {
-      "name": "Derivatives of Trigonometric Functions",
-      "prerequisites": [
-        "Derivatives"
-      ]
-    },
-    {
-      "name": "Chain Rule",
-      "prerequisites": [
-        "Derivatives"
-      ]
+      "name": "Trigonometry",
+      "prerequisites": []
     },
     {
       "name": "Higher Derivatives",
+      "prerequisites": [
+        "Derivatives"
+      ]
+    },
+    {
+      "name": "Derivatives",
+      "prerequisites": []
+    },
+    {
+      "name": "Chain Rule",
       "prerequisites": [
         "Derivatives"
       ]
@@ -41,38 +44,39 @@
       ]
     },
     {
-      "name": "Inverses",
-      "prerequisites": [
-        "Derivatives"
-      ]
-    },
-    {
-      "name": "Logarithmic Differentiation",
+      "name": "Exponential and Logarithmic Differentiation",
       "prerequisites": [
         "Derivatives",
-        "Exponential and Logarithmic Functions"
+        "Exponentials",
+        "Logarithms"
       ]
     },
     {
-      "name": "Exponential and Logarithmic Functions",
+      "name": "Exponentials",
+      "prerequisites": []
+    },
+    {
+      "name": "Logarithms",
       "prerequisites": []
     },
     {
       "name": "Hyperbolic Functions",
       "prerequisites": [
-        "Exponential and Logarithmic Functions"
+        "Exponentials",
+        "Logarithms"
       ]
     },
     {
-      "name": "Linear Approximations",
+      "name": "Linear Approximation",
       "prerequisites": [
         "Derivatives"
       ]
     },
     {
-      "name": "Quadratic Approximations",
+      "name": "Quadratic Approximation",
       "prerequisites": [
-        "Linear Approximations"
+        "Derivatives",
+        "Linear Approximation"
       ]
     },
     {
@@ -90,7 +94,8 @@
     {
       "name": "Related Rates",
       "prerequisites": [
-        "Derivatives"
+        "Derivatives",
+        "Implicit Differentiation"
       ]
     },
     {
@@ -102,6 +107,7 @@
     {
       "name": "Mean Value Theorem",
       "prerequisites": [
+        "Continuity",
         "Derivatives"
       ]
     },
@@ -114,18 +120,21 @@
     {
       "name": "Antiderivatives",
       "prerequisites": [
-        "Derivatives"
+        "Derivatives",
+        "Differentials"
       ]
     },
     {
       "name": "Differential Equations",
-      "prerequisites": []
+      "prerequisites": [
+        "Antiderivatives",
+        "Derivatives"
+      ]
     },
     {
       "name": "Definite Integrals",
       "prerequisites": [
-        "Antiderivatives",
-        "Limits"
+        "Antiderivatives"
       ]
     },
     {
@@ -138,39 +147,48 @@
     {
       "name": "Second Fundamental Theorem of Calculus",
       "prerequisites": [
+        "Definite Integrals",
         "First Fundamental Theorem of Calculus"
       ]
     },
     {
       "name": "Volumes by Disks and Shells",
       "prerequisites": [
-        "Definite Integrals"
+        "Definite Integrals",
+        "First Fundamental Theorem of Calculus"
       ]
     },
     {
       "name": "Work",
-      "prerequisites": []
-    },
-    {
-      "name": "Average Value",
       "prerequisites": [
         "Definite Integrals"
       ]
     },
     {
+      "name": "Average Value",
+      "prerequisites": [
+        "Definite Integrals",
+        "First Fundamental Theorem of Calculus"
+      ]
+    },
+    {
       "name": "Probability",
-      "prerequisites": []
+      "prerequisites": [
+        "Definite Integrals"
+      ]
     },
     {
       "name": "Numerical Integration",
       "prerequisites": [
-        "Definite Integrals"
+        "Definite Integrals",
+        "First Fundamental Theorem of Calculus"
       ]
     },
     {
       "name": "Trigonometric Integrals",
       "prerequisites": [
-        "Definite Integrals"
+        "Definite Integrals",
+        "Trigonometry"
       ]
     },
     {
@@ -182,31 +200,46 @@
     {
       "name": "Integration by Parts",
       "prerequisites": [
-        "Definite Integrals"
+        "Definite Integrals",
+        "Substitution Method"
       ]
     },
     {
       "name": "Partial Fractions",
       "prerequisites": [
-        "Definite Integrals"
+        "Definite Integrals",
+        "Rational Functions"
+      ]
+    },
+    {
+      "name": "Rational Functions",
+      "prerequisites": []
+    },
+    {
+      "name": "Parametric Equations",
+      "prerequisites": [
+        "Trigonometry"
       ]
     },
     {
       "name": "Arclength",
       "prerequisites": [
-        "Definite Integrals",
+        "Derivatives",
         "Parametric Equations"
       ]
     },
     {
-      "name": "Parametric Equations",
-      "prerequisites": []
-    },
-    {
       "name": "Surface Area",
       "prerequisites": [
-        "Definite Integrals",
+        "Arclength",
         "Parametric Equations"
+      ]
+    },
+    {
+      "name": "Polar Coordinates",
+      "prerequisites": [
+        "Derivatives",
+        "Trigonometry"
       ]
     },
     {
@@ -217,50 +250,45 @@
       ]
     },
     {
-      "name": "Polar Coordinates",
-      "prerequisites": []
-    },
-    {
       "name": "Indeterminate Forms",
       "prerequisites": [
+        "Derivatives",
         "Limits"
       ]
     },
     {
       "name": "L'H\u00f4pital's Rule",
       "prerequisites": [
+        "Derivatives",
         "Indeterminate Forms"
       ]
     },
     {
       "name": "Improper Integrals",
       "prerequisites": [
-        "Definite Integrals"
+        "Definite Integrals",
+        "Limits"
       ]
     },
     {
       "name": "Infinite Series",
       "prerequisites": [
+        "Definite Integrals",
         "Limits"
-      ]
-    },
-    {
-      "name": "Convergence Tests",
-      "prerequisites": [
-        "Infinite Series"
       ]
     },
     {
       "name": "Taylor Series",
       "prerequisites": [
+        "Derivatives",
         "Infinite Series"
       ]
     }
   ],
   "stats": {
-    "strong": 43,
-    "weak": 2,
+    "strong": 65,
+    "weak": 9,
     "reverse": 0,
-    "total_edges": 46
+    "total_edges": 74
   }
 }

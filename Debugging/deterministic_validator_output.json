@@ -1,21 +1,19 @@
 {
   "concepts": [
     {
-      "name": "Limits",
-      "prerequisites": []
-    },
-    {
       "name": "Continuity",
       "prerequisites": [
         "Limits"
       ]
     },
     {
-      "name": "Derivatives",
-      "prerequisites": []
+      "name": "Trigonometric Limits",
+      "prerequisites": [
+        "Limits"
+      ]
     },
     {
-      "name": "Derivatives of Trigonometric Functions",
+      "name": "Higher Derivatives",
       "prerequisites": [
         "Derivatives"
       ]
@@ -27,80 +25,72 @@
       ]
     },
     {
-      "name": "Higher Derivatives",
-      "prerequisites": [
-        "Derivatives"
-      ]
-    },
-    {
       "name": "Implicit Differentiation",
       "prerequisites": [
         "Derivatives"
       ]
     },
     {
-      "name": "Inverses",
-      "prerequisites": [
-        "Derivatives"
-      ]
-    },
-    {
-      "name": "Exponential and Logarithmic Functions",
-      "prerequisites": []
-    },
-    {
-      "name": "Logarithmic Differentiation",
+      "name": "Exponential and Logarithmic Differentiation",
       "prerequisites": [
         "Derivatives",
-        "Exponential and Logarithmic Functions"
+        "Exponentials",
+        "Logarithms"
       ]
     },
     {
       "name": "Hyperbolic Functions",
       "prerequisites": [
-        "Exponential and Logarithmic Functions"
+        "Exponentials",
+        "Logarithms"
       ]
     },
     {
-      "name": "Linear Approximations",
+      "name": "Linear Approximation",
       "prerequisites": [
         "Derivatives"
       ]
     },
     {
-      "name": "Quadratic Approximations",
+      "name": "Quadratic Approximation",
       "prerequisites": [
-        "Linear Approximations"
+        "Linear Approximation",
+        "Derivatives"
       ]
     },
     {
       "name": "Curve Sketching",
       "prerequisites": [
-        "Derivatives"
+        "Derivatives",
+        "Linear Approximation"
       ]
     },
     {
       "name": "Max/Min Problems",
       "prerequisites": [
-        "Derivatives"
+        "Derivatives",
+        "Linear Approximation"
       ]
     },
     {
       "name": "Related Rates",
       "prerequisites": [
-        "Derivatives"
+        "Derivatives",
+        "Implicit Differentiation"
       ]
     },
     {
       "name": "Newton's Method",
       "prerequisites": [
-        "Derivatives"
+        "Derivatives",
+        "Implicit Differentiation"
       ]
     },
     {
       "name": "Mean Value Theorem",
       "prerequisites": [
-        "Derivatives"
+        "Derivatives",
+        "Continuity"
       ]
     },
     {
@@ -112,19 +102,20 @@
     {
       "name": "Antiderivatives",
       "prerequisites": [
-        "Derivatives"
+        "Derivatives",
+        "Differentials"
       ]
     },
     {
       "name": "Differential Equations",
       "prerequisites": [
-        "Derivatives"
+        "Derivatives",
+        "Antiderivatives"
       ]
     },
     {
       "name": "Definite Integrals",
       "prerequisites": [
-        "Limits",
         "Antiderivatives"
       ]
     },
@@ -138,13 +129,15 @@
     {
       "name": "Second Fundamental Theorem of Calculus",
       "prerequisites": [
-        "First Fundamental Theorem of Calculus"
+        "First Fundamental Theorem of Calculus",
+        "Definite Integrals"
       ]
     },
     {
       "name": "Volumes by Disks and Shells",
       "prerequisites": [
-        "Definite Integrals"
+        "Definite Integrals",
+        "First Fundamental Theorem of Calculus"
       ]
     },
     {
@@ -154,7 +147,8 @@
     {
       "name": "Average Value",
       "prerequisites": [
-        "Definite Integrals"
+        "Definite Integrals",
+        "First Fundamental Theorem of Calculus"
       ]
     },
     {
@@ -164,7 +158,8 @@
     {
       "name": "Numerical Integration",
       "prerequisites": [
-        "Definite Integrals"
+        "Definite Integrals",
+        "First Fundamental Theorem of Calculus"
       ]
     },
     {
@@ -176,13 +171,15 @@
     {
       "name": "Substitution Method",
       "prerequisites": [
-        "Definite Integrals"
+        "Definite Integrals",
+        "Trigonometric Integrals"
       ]
     },
     {
       "name": "Integration by Parts",
       "prerequisites": [
-        "Definite Integrals"
+        "Definite Integrals",
+        "Trigonometric Integrals"
       ]
     },
     {
@@ -193,25 +190,32 @@
     },
     {
       "name": "Parametric Equations",
-      "prerequisites": []
+      "prerequisites": [
+        "Trigonometry",
+        "Derivatives"
+      ]
     },
     {
       "name": "Arclength",
       "prerequisites": [
         "Parametric Equations",
-        "Definite Integrals"
+        "Derivatives"
       ]
     },
     {
       "name": "Surface Area",
       "prerequisites": [
+        "Arclength",
         "Parametric Equations",
-        "Definite Integrals"
+        "Derivatives"
       ]
     },
     {
       "name": "Polar Coordinates",
-      "prerequisites": []
+      "prerequisites": [
+        "Trigonometry",
+        "Derivatives"
+      ]
     },
     {
       "name": "Area in Polar Coordinates",
@@ -223,38 +227,61 @@
     {
       "name": "Indeterminate Forms",
       "prerequisites": [
-        "Limits"
+        "Limits",
+        "Derivatives"
       ]
     },
     {
       "name": "L'H\u00f4pital's Rule",
       "prerequisites": [
-        "Indeterminate Forms"
+        "Indeterminate Forms",
+        "Derivatives"
       ]
     },
     {
       "name": "Improper Integrals",
       "prerequisites": [
-        "Definite Integrals"
+        "Definite Integrals",
+        "Limits"
       ]
     },
     {
       "name": "Infinite Series",
       "prerequisites": [
-        "Limits"
-      ]
-    },
-    {
-      "name": "Convergence Tests",
-      "prerequisites": [
-        "Infinite Series"
+        "Limits",
+        "Definite Integrals"
       ]
     },
     {
       "name": "Taylor Series",
       "prerequisites": [
-        "Infinite Series"
+        "Infinite Series",
+        "Derivatives"
       ]
+    },
+    {
+      "name": "Derivatives",
+      "prerequisites": []
+    },
+    {
+      "name": "Exponentials",
+      "prerequisites": []
+    },
+    {
+      "name": "Limits",
+      "prerequisites": []
+    },
+    {
+      "name": "Logarithms",
+      "prerequisites": []
+    },
+    {
+      "name": "Rational Functions",
+      "prerequisites": []
+    },
+    {
+      "name": "Trigonometry",
+      "prerequisites": []
     }
   ]
 }

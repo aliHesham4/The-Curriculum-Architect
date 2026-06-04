@@ -7,8 +7,10 @@ import networkx as nx
 from images import extract_page_images
 from chunking import semantic_chunk, print_similarity_report
 from clustering import cluster_keywords, filter_by_coherence, print_and_save_clusters
-from llm import query_llm, save_concepts, build_document_index, save_relation_scores, validate_prerequisite_ordering, verification_loop
+from llm import query_llm, save_concepts, build_document_index, save_relation_scores, validate_prerequisite_ordering 
+from dual_validator import dual_validate_prerequisites, print_type_analysis
 from DAG import build_networkx_dag, print_dag_summary, plot_dag
+
 
 
 pages, page_embeddings = build_document_index()
@@ -85,7 +87,6 @@ with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         all_clusters_by_chunk, toc_context, pages, page_embeddings, chunks
     )
 
-    print("\n===== RUNNING DETERMINISTIC VALIDATOR =====")
 
     if parsed is None:
         print("\n✖ LLM extraction failed — skipping all downstream steps.")
@@ -103,44 +104,70 @@ with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
             with open(CLEAN_RELATIONS_FILE, "w", encoding="utf-8") as rf:
                 json.dump(clean_relations, rf, indent=2)
 
-            try:
-                G_llm = build_networkx_dag(clean_relations)
-                plot_dag(G_llm, file_name="dag_llm.png", title="Curriculum DAG — LLM Verified")
-                print_dag_summary(G_llm)
+DUAL_VALIDATOR_OUTPUT = "Debugging/dual_validator_output.json"
 
-                print("\n===== RUNNING VERIFICATION LOOP =====")
-                G_llm, missing_deps = verification_loop(
-                    G_llm, pages, page_embeddings, chunks
-                )
+print("\n===== DUAL VALIDATOR =====\n")
+dual_results = dual_validate_prerequisites(
+    parsed, pages, page_embeddings, chunks,
+    output_file=DUAL_VALIDATOR_OUTPUT
+)
 
-                edges = list(G_llm.edges())
-                pd.DataFrame(edges, columns=["prereq", "concept"]).to_csv("Debugging/edges_sys.csv", index=False)
+G_dual= dual_results.get("dag")
+# ── Transitive Reduction ──────────────────────────────────────────────────
+print("\n── Transitive Reduction ──────────────────────────────────────────")
+edges_before = G_dual.number_of_edges()
 
-                if missing_deps:
-                    print(f"\n  Augmented DAG with {len(missing_deps)} missing edges")
-                    plot_dag(
-                        G_llm,
-                        file_name="dag_llm_augmented.png",
-                        title="Curriculum DAG — LLM Verified + Augmented"
-                    )
-                    print_dag_summary(G_llm)
+G_reduced = nx.transitive_reduction(G_dual)
+for u, v in G_reduced.edges():
+    G_reduced[u][v].update(G_dual[u][v])
 
-                longest_path = nx.dag_longest_path(G_llm)
-                length       = len(longest_path)
-                print("Longest prerequisite chain:")
-                print(" → ".join(longest_path))
-                print("Length:", length)
+edges_after = G_reduced.number_of_edges()
+print(f"  Edges before : {edges_before}")
+print(f"  Edges after  : {edges_after}")
+print(f"  Removed      : {edges_before - edges_after} redundant edges")
 
-            except Exception as e:
-                print(f"Error occurred while building DAG: {e}")
+plot_dag(G_reduced, file_name="dag_dual_reduced.png", title="Curriculum DAG — Dual Validator (Reduced)")
+print_dag_summary(G_reduced)
 
-            print(f"\n✅ Clean relations saved to {CLEAN_RELATIONS_FILE}")
+#ALL OF THIS ARE THE LLM AND DETERMINTIC VALIDATOR STEPS, COMMENTED OUT FOR NOW TO FOCUS ON DUAL VALIDATOR
+            # try:
+            #     G_llm = build_networkx_dag(clean_relations)
+            #     plot_dag(G_llm, file_name="dag_llm.png", title="Curriculum DAG — LLM Verified")
+            #     print_dag_summary(G_llm)
 
-        print("\n===== DETERMINISTIC VALIDATOR RESULTS =====\n")
-        deterministic_results = validate_prerequisite_ordering(
-            parsed, pages, page_embeddings, chunks, DETERMINSITIC_VALIDATOR_OUTPUT
-        )
-        print("CURRICULUM ARCHITECTURE EXTRACTION COMPLETE.")
+            #     print("\n===== RUNNING VERIFICATION LOOP =====")
+            #     G_llm, missing_deps = verification_loop(
+            #         G_llm, pages, page_embeddings, chunks
+            #     )
+
+            #     edges = list(G_llm.edges())
+            #     pd.DataFrame(edges, columns=["prereq", "concept"]).to_csv("Debugging/edges_sys.csv", index=False)
+
+            #     if missing_deps:
+            #         print(f"\n  Augmented DAG with {len(missing_deps)} missing edges")
+            #         plot_dag(
+            #             G_llm,
+            #             file_name="dag_llm_augmented.png",
+            #             title="Curriculum DAG — LLM Verified + Augmented"
+            #         )
+            #         print_dag_summary(G_llm)
+
+            #     longest_path = nx.dag_longest_path(G_llm)
+            #     length       = len(longest_path)
+            #     print("Longest prerequisite chain:")
+            #     print(" → ".join(longest_path))
+            #     print("Length:", length)
+
+            # except Exception as e:
+            #     print(f"Error occurred while building DAG: {e}")
+
+            # print(f"\n✅ Clean relations saved to {CLEAN_RELATIONS_FILE}")
+
+        # print("\n===== DETERMINISTIC VALIDATOR RESULTS =====\n")
+        # deterministic_results = validate_prerequisite_ordering(
+        #     parsed, pages, page_embeddings, chunks, DETERMINSITIC_VALIDATOR_OUTPUT
+        # )
+        # print("CURRICULUM ARCHITECTURE EXTRACTION COMPLETE.")
 
 doc.close()
 print(f"\nAll text saved to {OUTPUT_FILE}")
