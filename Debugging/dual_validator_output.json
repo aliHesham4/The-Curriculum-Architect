@@ -10,6 +10,15 @@
       ]
     },
     {
+      "name": "Derivatives",
+      "prerequisites": [
+        {
+          "name": "Limits",
+          "type": "foundational"
+        }
+      ]
+    },
+    {
       "name": "Trigonometric Limits",
       "prerequisites": [
         {
@@ -198,7 +207,7 @@
       "prerequisites": [
         {
           "name": "Antiderivatives",
-          "type": "procedural"
+          "type": "pedagogical"
         }
       ]
     },
@@ -217,16 +226,7 @@
     },
     {
       "name": "Second Fundamental Theorem of Calculus",
-      "prerequisites": [
-        {
-          "name": "First Fundamental Theorem of Calculus",
-          "type": "foundational"
-        },
-        {
-          "name": "Definite Integrals",
-          "type": "foundational"
-        }
-      ]
+      "prerequisites": []
     },
     {
       "name": "Volumes by Disks and Shells",
@@ -246,7 +246,7 @@
       "prerequisites": [
         {
           "name": "Definite Integrals",
-          "type": "procedural"
+          "type": "foundational"
         },
         {
           "name": "First Fundamental Theorem of Calculus",
@@ -263,7 +263,7 @@
         },
         {
           "name": "First Fundamental Theorem of Calculus",
-          "type": "procedural"
+          "type": "foundational"
         }
       ]
     },
@@ -302,11 +302,11 @@
         },
         {
           "name": "Trigonometry",
-          "type": "procedural"
+          "type": "foundational"
         },
         {
-          "name": "Substitution Method",
-          "type": "unknown"
+          "name": "Integration by Parts",
+          "type": "procedural"
         }
       ]
     },
@@ -325,6 +325,10 @@
         {
           "name": "Definite Integrals",
           "type": "foundational"
+        },
+        {
+          "name": "Substitution Method",
+          "type": "procedural"
         }
       ]
     },
@@ -350,7 +354,7 @@
         },
         {
           "name": "Derivatives",
-          "type": "foundational"
+          "type": "procedural"
         }
       ]
     },
@@ -359,7 +363,7 @@
       "prerequisites": [
         {
           "name": "Parametric Equations",
-          "type": "foundational"
+          "type": "procedural"
         },
         {
           "name": "Derivatives",
@@ -419,7 +423,7 @@
         },
         {
           "name": "Derivatives",
-          "type": "pedagogical"
+          "type": "procedural"
         }
       ]
     },
@@ -471,13 +475,9 @@
         },
         {
           "name": "Derivatives",
-          "type": "procedural"
+          "type": "foundational"
         }
       ]
-    },
-    {
-      "name": "Derivatives",
-      "prerequisites": []
     },
     {
       "name": "Exponentials",

@@ -113,18 +113,32 @@ dual_results = dual_validate_prerequisites(
 )
 
 G_dual= dual_results.get("dag")
-# ── Transitive Reduction ──────────────────────────────────────────────────
 print("\n── Transitive Reduction ──────────────────────────────────────────")
-edges_before = G_dual.number_of_edges()
+
+edges_before_set = set(G_dual.edges())
+edges_before = len(edges_before_set)
 
 G_reduced = nx.transitive_reduction(G_dual)
+
+# Restore edge attributes
 for u, v in G_reduced.edges():
     G_reduced[u][v].update(G_dual[u][v])
 
-edges_after = G_reduced.number_of_edges()
+edges_after_set = set(G_reduced.edges())
+edges_after = len(edges_after_set)
+
+removed_edges = edges_before_set - edges_after_set
+
 print(f"  Edges before : {edges_before}")
 print(f"  Edges after  : {edges_after}")
-print(f"  Removed      : {edges_before - edges_after} redundant edges")
+print(f"  Removed      : {len(removed_edges)} redundant edges")
+
+if removed_edges:
+    print("\n  Removed edges:")
+    for u, v in sorted(removed_edges):
+        print(f"    {u} → {v}")
+else:
+    print("\n  No redundant edges found.")
 
 plot_dag(G_reduced, file_name="dag_dual_reduced.png", title="Curriculum DAG — Dual Validator (Reduced)")
 print_dag_summary(G_reduced)

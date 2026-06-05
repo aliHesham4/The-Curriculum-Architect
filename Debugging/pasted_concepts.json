@@ -6,6 +6,12 @@
         "Limits"
       ]
     },
+        {
+      "name": "Derivatives",
+      "prerequisites": [
+        "Limits"
+      ]
+    },
     {
       "name": "Trigonometric Limits",
       "prerequisites": [

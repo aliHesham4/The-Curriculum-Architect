@@ -103,7 +103,7 @@ TYPE_WEIGHTS = {
     "unknown":      (0.55, 0.45),
 }
 
-DAG_TYPES                 = {"foundational", "procedural"}
+DAG_TYPES                 = {"foundational", "procedural","pedagogical"}  # types of edges to include in the DAG
 DUAL_ACCEPTANCE_THRESHOLD = 0.6    # composite score gate for admission
 DUAL_LLM_BATCH_SIZE       = 8      # pairs per LLM call
 DUAL_PAGE_THRESHOLD       = 0.38   # RAG threshold for anchor retrieval
@@ -585,7 +585,6 @@ def dual_validate_prerequisites(
 
     # ── Build outputs ─────────────────────────────────────────────────────────
     # full_output preserves all valid edges (including pedagogical) for logging
-    # dag_output restricts to foundational + procedural for graph construction
     full_output = {
         "concepts": [
             {"name": concept, "prerequisites": prereqs}

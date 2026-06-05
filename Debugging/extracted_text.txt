@@ -4642,6 +4642,9 @@ And in a matrix bind them.
   Concept: Continuity
   Prerequisites: Limits
 
+  Concept: Derivatives
+  Prerequisites: Limits
+
   Concept: Trigonometric Limits
   Prerequisites: Limits, Trigonometry
 
@@ -4755,9 +4758,6 @@ And in a matrix bind them.
 
   Concept: Taylor Series
   Prerequisites: Infinite Series, Derivatives
-
-  Concept: Derivatives
-  Prerequisites: None
 
   Concept: Exponentials
   Prerequisites: None
