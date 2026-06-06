@@ -270,7 +270,7 @@ def query_llm_relation_verifier(prompt):
             ),
             request_options={
                 "retry": api_retry.Retry(maximum=0),
-                "timeout": 200
+                "timeout": 20
             }
         )
 
@@ -634,69 +634,69 @@ def query_llm(all_clusters_by_chunk, toc_context, pages, page_embeddings, chunks
 
     prompt = build_prompt(all_clusters_by_chunk, toc_context)
 
-    print("\n===== LOADING PRE-EXTRACTED CONCEPTS =====")
+    # print("\n===== LOADING PRE-EXTRACTED CONCEPTS =====")
 
-    with open("Debugging/pasted_concepts.json", "r", encoding="utf-8") as f:
-        parsed = json.load(f)
+    # with open("Debugging/pasted_concepts.json", "r", encoding="utf-8") as f:
+    #     parsed = json.load(f)
 
-    print("  ✅ Loaded concepts from pasted_concepts.json")
+    # print("  ✅ Loaded concepts from pasted_concepts.json")
 
-    # if len(prompt) > 20000:
-    #     print("⚠ Prompt is large — consider reducing top_n or chunk count")
-    #     return None, [], None, []
+    if len(prompt) > 20000:
+        print("⚠ Prompt is large — consider reducing top_n or chunk count")
+        return None, [], None, []
 
-    # raw = None
+    raw = None
 
-    # # ── Primary: Groq ───────────────────────────────────────────────
-    # try:
-    #     groq_response = groq_client.chat.completions.create(
-    #         model="llama-3.3-70b-versatile",
-    #         messages=[{"role": "user", "content": prompt}],
-    #         temperature=0,
-    #         top_p=1,
-    #         response_format={"type": "json_object"}
-    #     )
+    # ── Primary: Groq ───────────────────────────────────────────────
+    try:
+        groq_response = groq_client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0,
+            top_p=1,
+            response_format={"type": "json_object"}
+        )
 
-    #     raw = groq_response.choices[0].message.content.strip()
-    #     print("  ✅ Groq responded successfully")
+        raw = groq_response.choices[0].message.content.strip()
+        print("  ✅ Groq responded successfully")
 
-    # except Exception as e:
-    #     print(f"  ⚠ Groq failed: {e}")
-    #     print("  🔄 Falling back to Gemini...")
+    except Exception as e:
+        print(f"  ⚠ Groq failed: {e}")
+        print("  🔄 Falling back to Gemini...")
 
-    #     # ── Fallback: Gemini ───────────────────────────────────────
-    #     try:
-    #         response = model.generate_content(
-    #             prompt,
-    #             generation_config=genai.types.GenerationConfig(
-    #                 temperature=0,
-    #                 top_p=1
-    #             ),
-    #             request_options={
-    #                 "retry": api_retry.Retry(maximum=0),
-    #                 "timeout": 200
-    #             }
-    #         )
+        # ── Fallback: Gemini ───────────────────────────────────────
+        try:
+            response = model.generate_content(
+                prompt,
+                generation_config=genai.types.GenerationConfig(
+                    temperature=0,
+                    top_p=1
+                ),
+                request_options={
+                    "retry": api_retry.Retry(maximum=0),
+                    "timeout": 200
+                }
+            )
 
-    #         raw = response.text.strip()
-    #         print("  ✅ Gemini responded successfully")
+            raw = response.text.strip()
+            print("  ✅ Gemini responded successfully")
 
-    #     except Exception as e:
-    #         print(f"  ⚠ Gemini failed: {e}")
-    #         return None, [], None, []
+        except Exception as e:
+            print(f"  ⚠ Gemini failed: {e}")
+            return None, [], None, []
 
-    # # ── raw must be set by here ────────────────────────────────────
-    # if raw is None:
-    #     print("  ✖ No response from any provider.")
-    #     return None, [], None, []
+    # ── raw must be set by here ────────────────────────────────────
+    if raw is None:
+        print("  ✖ No response from any provider.")
+        return None, [], None, []
 
     try:
 
-        # raw = re.sub(r'^```json\s*', '', raw)
-        # raw = re.sub(r'^```\s*', '', raw)
-        # raw = re.sub(r'\s*```$', '', raw)
+        raw = re.sub(r'^```json\s*', '', raw)
+        raw = re.sub(r'^```\s*', '', raw)
+        raw = re.sub(r'\s*```$', '', raw)
 
-        # parsed = json.loads(raw)
+        parsed = json.loads(raw)
 
         # Mouse Trap for testing verification
         parsed["concepts"].append({
@@ -708,25 +708,26 @@ def query_llm(all_clusters_by_chunk, toc_context, pages, page_embeddings, chunks
         })
 
         print("  🧪 Injected test concept: 'quantum entanglement theory'")
-
+        print("Prompt pasted to terminal for debugging:")
+        print(prompt)
         # -------------------------------------------------------------------
         print("\n===== RUNNING VERIFICATION CONSTRAINT =====")
 
         parsed, flagged = rag_verify_llm_output(parsed,pages,page_embeddings)
 
-        # relation_prompt = build_relation_verification_prompt(parsed,pages,page_embeddings,chunks)
+        relation_prompt = build_relation_verification_prompt(parsed,pages,page_embeddings,chunks)
 
-        # with open("Debugging/relation_prompt.txt", "w", encoding="utf-8") as f:
-        #     f.write(relation_prompt)
+        with open("Debugging/relation_prompt.txt", "w", encoding="utf-8") as f:
+            f.write(relation_prompt)
 
-        # print("\n===== QUERYING LLM FOR RELATION VERIFICATION =====")
+        print("\n===== QUERYING LLM FOR RELATION VERIFICATION =====")
 
-        # relation_scores = query_llm_relation_verifier(relation_prompt)
+        relation_scores = query_llm_relation_verifier(relation_prompt)
 
-        print("Loading Pre-extracted Relation Scores")
+        # print("Loading Pre-extracted Relation Scores")
 
-        with open("Debugging/relation_scores.json","r",encoding="utf-8") as r:
-             relation_scores= json.load(r)
+        # with open("Debugging/relation_scores.json","r",encoding="utf-8") as r:
+        #      relation_scores= json.load(r)
         if relation_scores is None:
             print("  ✖ Relation verification failed — skipping.")
             return parsed, flagged, None, []

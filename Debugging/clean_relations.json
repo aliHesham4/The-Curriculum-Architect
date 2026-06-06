@@ -1,294 +1,163 @@
 {
   "concepts": [
     {
-      "name": "Continuity",
+      "name": "Windscreen Wiper Controls",
       "prerequisites": [
-        "Limits"
+        "Driving Preparation Essentials"
       ]
     },
     {
-      "name": "Limits",
+      "name": "Driving Preparation Essentials",
       "prerequisites": []
     },
     {
-      "name": "Trigonometric Limits",
+      "name": "Headlight Controls",
       "prerequisites": [
-        "Limits",
-        "Trigonometry"
+        "Driving Preparation Essentials"
       ]
     },
     {
-      "name": "Trigonometry",
+      "name": "Stick Controls",
+      "prerequisites": [
+        "Driving Preparation Essentials"
+      ]
+    },
+    {
+      "name": "Blind Spots",
+      "prerequisites": [
+        "Driver Safety"
+      ]
+    },
+    {
+      "name": "Driver Safety",
       "prerequisites": []
     },
     {
-      "name": "Higher Derivatives",
+      "name": "Centreline Sealed Roads",
       "prerequisites": [
-        "Derivatives"
+        "Driving Preparation Essentials"
       ]
     },
     {
-      "name": "Derivatives",
-      "prerequisites": []
-    },
-    {
-      "name": "Chain Rule",
+      "name": "Driving on Sealed Roads",
       "prerequisites": [
-        "Derivatives"
+        "Centreline Sealed Roads"
       ]
     },
     {
-      "name": "Implicit Differentiation",
+      "name": "Steering a Car",
       "prerequisites": [
-        "Derivatives"
+        "Driving Preparation Essentials"
       ]
     },
     {
-      "name": "Exponential and Logarithmic Differentiation",
+      "name": "Hand Steering",
       "prerequisites": [
-        "Derivatives",
-        "Exponentials",
-        "Logarithms"
+        "Steering a Car"
       ]
     },
     {
-      "name": "Exponentials",
-      "prerequisites": []
-    },
-    {
-      "name": "Logarithms",
-      "prerequisites": []
-    },
-    {
-      "name": "Hyperbolic Functions",
+      "name": "Shifting Gears",
       "prerequisites": [
-        "Exponentials",
-        "Logarithms"
+        "Driving Preparation Essentials"
       ]
     },
     {
-      "name": "Linear Approximation",
+      "name": "Brake Shift",
       "prerequisites": [
-        "Derivatives"
+        "Shifting Gears"
       ]
     },
     {
-      "name": "Quadratic Approximation",
+      "name": "Driving Curves",
       "prerequisites": [
-        "Derivatives",
-        "Linear Approximation"
+        "Shifting Gears",
+        "Steering a Car"
       ]
     },
     {
-      "name": "Curve Sketching",
+      "name": "Speed Control on Curves",
       "prerequisites": [
-        "Derivatives"
+        "Driving Curves"
       ]
     },
     {
-      "name": "Max/Min Problems",
+      "name": "Driving at Night",
       "prerequisites": [
-        "Derivatives"
+        "Driver Safety"
       ]
     },
     {
-      "name": "Related Rates",
+      "name": "Emergency Steering",
       "prerequisites": [
-        "Derivatives",
-        "Implicit Differentiation"
+        "Steering a Car"
       ]
     },
     {
-      "name": "Newton's Method",
+      "name": "Anti-lock Brakes (ABS)",
       "prerequisites": [
-        "Derivatives"
+        "Brake Shift"
       ]
     },
     {
-      "name": "Mean Value Theorem",
+      "name": "Emergency Stop with ABS",
       "prerequisites": [
-        "Continuity",
-        "Derivatives"
+        "Anti-lock Brakes (ABS)"
       ]
     },
     {
-      "name": "Differentials",
+      "name": "Safely Pulling Out from the Side of the Road",
       "prerequisites": [
-        "Derivatives"
+        "Driving on Sealed Roads"
       ]
     },
     {
-      "name": "Antiderivatives",
+      "name": "Changing Lanes Safely",
       "prerequisites": [
-        "Derivatives",
-        "Differentials"
+        "Safely Pulling Out from the Side of the Road"
       ]
     },
     {
-      "name": "Differential Equations",
+      "name": "Crossing Lane Traffic",
       "prerequisites": [
-        "Antiderivatives",
-        "Derivatives"
+        "Changing Lanes Safely"
       ]
     },
     {
-      "name": "Definite Integrals",
+      "name": "Approaching Roundabouts",
       "prerequisites": [
-        "Antiderivatives"
+        "Driving on Sealed Roads"
       ]
     },
     {
-      "name": "First Fundamental Theorem of Calculus",
+      "name": "Stopping on Hills",
       "prerequisites": [
-        "Antiderivatives",
-        "Definite Integrals"
+        "Driving on Sealed Roads"
       ]
     },
     {
-      "name": "Second Fundamental Theorem of Calculus",
+      "name": "Hill Starts",
       "prerequisites": [
-        "Definite Integrals",
-        "First Fundamental Theorem of Calculus"
+        "Stopping on Hills"
       ]
     },
     {
-      "name": "Volumes by Disks and Shells",
+      "name": "Sharing the Road with Pedestrians",
       "prerequisites": [
-        "Definite Integrals",
-        "First Fundamental Theorem of Calculus"
+        "Driver Safety"
       ]
     },
     {
-      "name": "Work",
+      "name": "Driving Around Cyclists",
       "prerequisites": [
-        "Definite Integrals"
-      ]
-    },
-    {
-      "name": "Average Value",
-      "prerequisites": [
-        "Definite Integrals",
-        "First Fundamental Theorem of Calculus"
-      ]
-    },
-    {
-      "name": "Probability",
-      "prerequisites": [
-        "Definite Integrals"
-      ]
-    },
-    {
-      "name": "Numerical Integration",
-      "prerequisites": [
-        "Definite Integrals",
-        "First Fundamental Theorem of Calculus"
-      ]
-    },
-    {
-      "name": "Trigonometric Integrals",
-      "prerequisites": [
-        "Definite Integrals",
-        "Trigonometry"
-      ]
-    },
-    {
-      "name": "Substitution Method",
-      "prerequisites": [
-        "Definite Integrals"
-      ]
-    },
-    {
-      "name": "Integration by Parts",
-      "prerequisites": [
-        "Definite Integrals",
-        "Substitution Method"
-      ]
-    },
-    {
-      "name": "Partial Fractions",
-      "prerequisites": [
-        "Definite Integrals",
-        "Rational Functions"
-      ]
-    },
-    {
-      "name": "Rational Functions",
-      "prerequisites": []
-    },
-    {
-      "name": "Parametric Equations",
-      "prerequisites": [
-        "Trigonometry"
-      ]
-    },
-    {
-      "name": "Arclength",
-      "prerequisites": [
-        "Derivatives",
-        "Parametric Equations"
-      ]
-    },
-    {
-      "name": "Surface Area",
-      "prerequisites": [
-        "Arclength",
-        "Parametric Equations"
-      ]
-    },
-    {
-      "name": "Polar Coordinates",
-      "prerequisites": [
-        "Derivatives",
-        "Trigonometry"
-      ]
-    },
-    {
-      "name": "Area in Polar Coordinates",
-      "prerequisites": [
-        "Definite Integrals",
-        "Polar Coordinates"
-      ]
-    },
-    {
-      "name": "Indeterminate Forms",
-      "prerequisites": [
-        "Derivatives",
-        "Limits"
-      ]
-    },
-    {
-      "name": "L'H\u00f4pital's Rule",
-      "prerequisites": [
-        "Derivatives",
-        "Indeterminate Forms"
-      ]
-    },
-    {
-      "name": "Improper Integrals",
-      "prerequisites": [
-        "Definite Integrals",
-        "Limits"
-      ]
-    },
-    {
-      "name": "Infinite Series",
-      "prerequisites": [
-        "Definite Integrals",
-        "Limits"
-      ]
-    },
-    {
-      "name": "Taylor Series",
-      "prerequisites": [
-        "Derivatives",
-        "Infinite Series"
+        "Sharing the Road with Pedestrians"
       ]
     }
   ],
   "stats": {
-    "strong": 65,
-    "weak": 9,
+    "strong": 25,
+    "weak": 0,
     "reverse": 0,
-    "total_edges": 74
+    "total_edges": 25
   }
 }

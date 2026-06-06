@@ -104,44 +104,44 @@ with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
             with open(CLEAN_RELATIONS_FILE, "w", encoding="utf-8") as rf:
                 json.dump(clean_relations, rf, indent=2)
 
-DUAL_VALIDATOR_OUTPUT = "Debugging/dual_validator_output.json"
+        DUAL_VALIDATOR_OUTPUT = "Debugging/dual_validator_output.json"
 
-print("\n===== DUAL VALIDATOR =====\n")
-dual_results = dual_validate_prerequisites(
-    parsed, pages, page_embeddings, chunks,
-    output_file=DUAL_VALIDATOR_OUTPUT
-)
+        print("\n===== DUAL VALIDATOR =====\n")
+        dual_results = dual_validate_prerequisites(
+            parsed, pages, page_embeddings, chunks,
+            output_file=DUAL_VALIDATOR_OUTPUT
+        )
 
-G_dual= dual_results.get("dag")
-print("\n── Transitive Reduction ──────────────────────────────────────────")
+        G_dual= dual_results.get("dag")
+        print("\n── Transitive Reduction ──────────────────────────────────────────")
 
-edges_before_set = set(G_dual.edges())
-edges_before = len(edges_before_set)
+        edges_before_set = set(G_dual.edges())
+        edges_before = len(edges_before_set)
 
-G_reduced = nx.transitive_reduction(G_dual)
+        G_reduced = nx.transitive_reduction(G_dual)
 
-# Restore edge attributes
-for u, v in G_reduced.edges():
-    G_reduced[u][v].update(G_dual[u][v])
+        # Restore edge attributes
+        for u, v in G_reduced.edges():
+            G_reduced[u][v].update(G_dual[u][v])
 
-edges_after_set = set(G_reduced.edges())
-edges_after = len(edges_after_set)
+        edges_after_set = set(G_reduced.edges())
+        edges_after = len(edges_after_set)
 
-removed_edges = edges_before_set - edges_after_set
+        removed_edges = edges_before_set - edges_after_set
 
-print(f"  Edges before : {edges_before}")
-print(f"  Edges after  : {edges_after}")
-print(f"  Removed      : {len(removed_edges)} redundant edges")
+        print(f"  Edges before : {edges_before}")
+        print(f"  Edges after  : {edges_after}")
+        print(f"  Removed      : {len(removed_edges)} redundant edges")
 
-if removed_edges:
-    print("\n  Removed edges:")
-    for u, v in sorted(removed_edges):
-        print(f"    {u} → {v}")
-else:
-    print("\n  No redundant edges found.")
+        if removed_edges:
+            print("\n  Removed edges:")
+            for u, v in sorted(removed_edges):
+                print(f"    {u} → {v}")
+        else:
+            print("\n  No redundant edges found.")
 
-plot_dag(G_reduced, file_name="dag_dual_reduced.png", title="Curriculum DAG — Dual Validator (Reduced)")
-print_dag_summary(G_reduced)
+        plot_dag(G_reduced, file_name="dag_dual_reduced.png", title="Curriculum DAG — Dual Validator (Reduced)")
+        print_dag_summary(G_reduced)
 
 #ALL OF THIS ARE THE LLM AND DETERMINTIC VALIDATOR STEPS, COMMENTED OUT FOR NOW TO FOCUS ON DUAL VALIDATOR
             # try:

@@ -46,7 +46,7 @@ groq_client = Groq(api_key=os.getenv("GROQ_KEY"))
 TOP_K_SEMANTIC      = 2    # neighbours per node in Stage 1
 VERIFY_BATCH_SIZE   = 10    # pairs per LLM call in Stage 4
 PAGE_THRESHOLD      = 0.32  # RAG retrieval threshold
-ACCEPTANCE_THRESHOLD = 1.00 # minimum confidence to admit an edge
+ACCEPTANCE_THRESHOLD = 0.65 # minimum confidence to admit an edge
 DAG_TYPES           = {"foundational", "procedural"}
 
 
@@ -67,7 +67,7 @@ def _llm_call(prompt: str) -> str:
             ),
             request_options={
                 "retry": api_retry.Retry(maximum=0),
-                "timeout": 200
+                "timeout": 20
             }
         )
 

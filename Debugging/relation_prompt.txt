@@ -28,791 +28,386 @@ Return ONLY a JSON array. No explanation.
 
 For each concept to appear once and below it all its prerequisites with their scores. Now evaluate the concepts and their prerequisites.
 
-                Concept: Continuity
-                Prerequisite: Limits
+                Concept: Windscreen Wiper Controls
+                Prerequisite: Driving Preparation Essentials
                 Evidence:
-                (Page 16, score=0.51) Lecture 2
-4. Other (ugly) discontinuities
-Figure 8: An example of an ugly discontinuity: a function that oscillates a lot as it approaches the origin
-This function doesn’t even go to ±∞ it doesn’t make sense to say it goes to anything. For
-something like this, we say the limit does not exist.
+                (Page 9, score=0.58) Book Driving Lessons Now! https://www.a1drivingschool.co.nz/book-online-here/
+On the indicator stick is where you’ll normally find your headlight controls. Twisting the
+stick will turn them on while pushing the stick away from you switches on the high beam.
+Your windscreen wiper controls are usually on the left stick of your steering wheel. You
+can push it down in different stages to turn on the wipers and set their speed or push it
+up from the “off” position for a single wipe/ to remove mist. T
                 
 ---
 
-                Concept: Derivatives
-                Prerequisite: Limits
+                Concept: Headlight Controls
+                Prerequisite: Driving Preparation Essentials
                 Evidence:
-                (Page 170, score=0.54) Lecture 34
-Example 1. Apply L’Hôpital’s rule (a.k.a. “L’Hop”) to
-to get
-Let’s compare this with the answer we’d get if we used linear approximation techniques, instead of
-L’Hôpital’s rule:
-Similarly,
-Therefore,
-Example 2. Apply L’Hop to
-to get
-This is the same as
-d sin(3x)
-Example 3.
-lim sin x − cos x = lim cos x + sin x =
-f(x) = sin x − cos x, f 0(x) = cos x + sin x
-Remark: Derivatives lim
-are always a
-type of limit.
-Example 4. lim cos x − 1 .
-Use L’Hôpital’s rule to evaluate the limit:
-lim cos
+                (Page 19, score=0.45) Book Driving Lessons Now! https://www.a1drivingschool.co.nz/book-online-here/
+When changing lanes or any other time you cross the centre line.
+Whenever you have to move left or right by the width of your car or more.
+When pulling out or into a kerb.
+When entering or leaving a park.
+When merging after your lane comes to an end such as when joining a motorway from a
+feeder lane.
+At roundabouts.
+Remember to always turn off your indicator (if it doesn’t do so automatically) after making your
+turn to
                 
 ---
 
-                Concept: Derivatives of Trigonometric Functions
-                Prerequisite: Derivatives
+                Concept: Stick Controls
+                Prerequisite: Driving Preparation Essentials
                 Evidence:
-                (Page 22, score=0.56) Lecture 3
-Lecture 3
-Derivatives of Products, Quotients, Sine, and
-Cosine
-Derivative Formulas
-There are two kinds of derivative formulas:
-1. Speciﬁc Examples:
-2. General Examples: (u + v)0 = u0 + v0 and (cu) = cu0 (where c is a constant)
-A notational convention we will use today is:
-uv(x) = u(x)v(x)
-Proof of (u + v) = u0 + v0. (General)
-Start by using the deﬁnition of the derivative.
-Follow the same procedure to prove that (cu)0 = cu0.
-Derivatives of sin x and cos x. (Speciﬁc)
-Last time, we compu
+                (Page 9, score=0.50) Book Driving Lessons Now! https://www.a1drivingschool.co.nz/book-online-here/
+On the indicator stick is where you’ll normally find your headlight controls. Twisting the
+stick will turn them on while pushing the stick away from you switches on the high beam.
+Your windscreen wiper controls are usually on the left stick of your steering wheel. You
+can push it down in different stages to turn on the wipers and set their speed or push it
+up from the “off” position for a single wipe/ to remove mist. T
                 
 ---
 
-                Concept: Chain Rule
-                Prerequisite: Derivatives
+                Concept: Blind Spots
+                Prerequisite: Driver Safety
                 Evidence:
-                (Page 26, score=0.54) Lecture 4
-Lecture 4
-Chain
-Rule, and Higher
-Derivatives
-Chain Rule
-We’ve got general procedures for diﬀerentiating expressions with addition, subtraction, and multi­
-plication. What about composition?
-Example 1. y = f(x) = sin x, x = g(t) = t2 .
-So, y = f(g(t)) = sin(t2). To ﬁnd dy , write
-Δy = Δy Δx
-0 too, because of continuity. So we get:
-The Chain Rule!
-In the example, dx
-dt = 2t and dy
-dx = cos x.
-(cos x)(2t)
-Another notation for the chain rule
-Example 1. (continued)
-Composition of functions 
+                (Page 12, score=0.70) Book Driving Lessons Now! https://www.a1drivingschool.co.nz/book-online-here/
+3.0 DRIVER SAFETY
+In Chapter 3, learn about how to improve driver safety on the road by dealing with blind spots,
+scanning for hazards, utilising the 12 second rule and deciding on the best time to overtake
+other vehicles on the road.
+3.1 DEALING WITH BLIND SPOTS
+Blind spots are large areas around your car that can’t be
+seen by simply looking forward or checking your mirrors
+when driving. For a car, the main blind spot
                 
 ---
 
-                Concept: Higher Derivatives
-                Prerequisite: Derivatives
+                Concept: Centreline Sealed Roads
+                Prerequisite: Driving Preparation Essentials
                 Evidence:
-                (Page 8, score=0.46) Lecture 1
-Figure 5: Graph of x
-Notations
-Calculus, rather like English or any other language, was developed by several people. As a result,
-just as there are many ways to express the same thing, there are many notations for the derivative.
-Since y = f(x), it’s natural to write
-We say “Delta y” or “Delta f” or the “change in y”.
-If we divide both sides by Δx = x − x0, we get two expressions for the diﬀerence quotient:
-Taking the limit as Δx → 0, we get
-dx (Leibniz’ notation)
-f 0(x0) (Newton’s not
+                (Page 16, score=0.69) Book Driving Lessons Now! https://www.a1drivingschool.co.nz/book-online-here/
+4.0 GENERAL DRIVING
+4.1 HOW TO DRIVE ON SEALED ROADS WITHOUT THE
+CENTRELINE
+Sealed roads that don’t have a centreline are usually more winding and narrower than those that
+have a centreline. This significantly increases the risk of a head-on crash, as the lack of a
+centreline makes it harder for drivers
+to judge the position of their vehicle
+on the road.
+Here are some tips for driving on
+sealed roads without a centreli
                 
 ---
 
-                Concept: Implicit Differentiation
-                Prerequisite: Derivatives
+                Concept: Driving on Sealed Roads
+                Prerequisite: Centreline Sealed Roads
                 Evidence:
-                (Page 31, score=0.50) Lecture 5
-So, implicit diﬀerentiation makes it possible to ﬁnd the derivative of the inverse function.
-Example. y = arctan(x)
-dx [tan(y)]
-dy [tan(y)]
-cos2(y) = cos2(arctan(x))
-This form is messy. Let us use some geometry to simplify it.
-Figure 1: Triangle with angles and lengths corresponding to those in the example illustrating diﬀerentiation using
-the inverse function arctan
-In this triangle, tan(y) = x so
-arctan(x) = y
-The Pythagorian theorem tells us the length of the hypotenuse:
-From this, 
+                (Page 16, score=0.68) Book Driving Lessons Now! https://www.a1drivingschool.co.nz/book-online-here/
+4.0 GENERAL DRIVING
+4.1 HOW TO DRIVE ON SEALED ROADS WITHOUT THE
+CENTRELINE
+Sealed roads that don’t have a centreline are usually more winding and narrower than those that
+have a centreline. This significantly increases the risk of a head-on crash, as the lack of a
+centreline makes it harder for drivers
+to judge the position of their vehicle
+on the road.
+Here are some tips for driving on
+sealed roads without a centreli
                 
 ---
 
-                Concept: Inverses
-                Prerequisite: Derivatives
+                Concept: Steering a Car
+                Prerequisite: Driving Preparation Essentials
                 Evidence:
-                (Page 31, score=0.46) Lecture 5
-So, implicit diﬀerentiation makes it possible to ﬁnd the derivative of the inverse function.
-Example. y = arctan(x)
-dx [tan(y)]
-dy [tan(y)]
-cos2(y) = cos2(arctan(x))
-This form is messy. Let us use some geometry to simplify it.
-Figure 1: Triangle with angles and lengths corresponding to those in the example illustrating diﬀerentiation using
-the inverse function arctan
-In this triangle, tan(y) = x so
-arctan(x) = y
-The Pythagorian theorem tells us the length of the hypotenuse:
-From this, 
+                (Page 18, score=0.59) Book Driving Lessons Now! https://www.a1drivingschool.co.nz/book-online-here/
+5.0 DRIVING SKILLS
+5.1 STEERING A CAR
+Proper hand positioning is very important when steering a car. Your hands should firmly hold the
+steering wheel in the quarter to three position every time you’re driving. This is a safety
+precaution that ensures your hands don’t get
+in the way of the airbag in case of an accident.
+When steering, always remember to:
+Keep each hand on its side of the
+steering wheel; don’t cross them
                 
 ---
 
-                Concept: Logarithmic Differentiation
-                Prerequisite: Derivatives
+                Concept: Hand Steering
+                Prerequisite: Steering a Car
                 Evidence:
-                (Page 38, score=0.49) Lecture 6
-Apply this to f(x) = a .
-ln f(x) = x ln a =
-(Remember, ln(a) is a constant, not a variable.) Hence,
-a = (ln a)a
-Example 1.
-With variable (“moving”) exponents, you should use either base e or logarithmic diﬀerentiation.
-In this example, we will use the latter.
-Therefore,
-If you wanted to solve this using the base e approach, you would say f = ex ln x and diﬀerentiate
-it using the chain rule. It gets you the same answer, but requires a little more writing.
-Example 2. Use logs to evaluate
+                (Page 18, score=0.61) Book Driving Lessons Now! https://www.a1drivingschool.co.nz/book-online-here/
+5.0 DRIVING SKILLS
+5.1 STEERING A CAR
+Proper hand positioning is very important when steering a car. Your hands should firmly hold the
+steering wheel in the quarter to three position every time you’re driving. This is a safety
+precaution that ensures your hands don’t get
+in the way of the airbag in case of an accident.
+When steering, always remember to:
+Keep each hand on its side of the
+steering wheel; don’t cross them
                 
 ---
 
-                Concept: Logarithmic Differentiation
-                Prerequisite: Exponential and Logarithmic Functions
+                Concept: Shifting Gears
+                Prerequisite: Driving Preparation Essentials
                 Evidence:
-                (Page 38, score=0.52) Lecture 6
-Apply this to f(x) = a .
-ln f(x) = x ln a =
-(Remember, ln(a) is a constant, not a variable.) Hence,
-a = (ln a)a
-Example 1.
-With variable (“moving”) exponents, you should use either base e or logarithmic diﬀerentiation.
-In this example, we will use the latter.
-Therefore,
-If you wanted to solve this using the base e approach, you would say f = ex ln x and diﬀerentiate
-it using the chain rule. It gets you the same answer, but requires a little more writing.
-Example 2. Use logs to evaluate
+                (Page 21, score=0.56) Book Driving Lessons Now! https://www.a1drivingschool.co.nz/book-online-here/
+Shifting gears when driving
+To change gears when driving:
+1. Swiftly press in the clutch.
+2. Shift into the next gear down or up depending on whether you are increasing or
+decreasing speed.
+3. Slowly let out the clutch.
+Keep your eyes fixed on the road when changing gears, not looking down at the gear lever. Do
+some practice with the engine off to get comfortable shifting without looking before you hit the
+5.6 STARTING
                 
 ---
 
-                Concept: Hyperbolic Functions
-                Prerequisite: Exponential and Logarithmic Functions
+                Concept: Brake Shift
+                Prerequisite: Shifting Gears
                 Evidence:
-                (Page 40, score=0.66) Lecture 7
-Lecture 7: Continuation and Exam Review
-Hyperbolic Sine and Cosine
-Hyperbolic sine (pronounced “sinsh”):
-sinh(x) = ex − e−x
-Hyperbolic cosine (pronounced “cosh”):
-cosh(x) =
-d sinh(x) = d
-Likewise,
-d cosh(x) = sinh(x)
-(Note that this is diﬀerent from
-Important identity:
-cosh2(x) − sinh2(x) = 1
-Proof:
-cosh2(x) − sinh2(x)
-cosh2(x) − sinh2(x)
-Why are these functions called “hyperbolic”?
-Let u = cosh(x) and v = sinh(x), then
-which is the equation of a hyperbola.
-Regular trig functions are “
+                (Page 21, score=0.47) Book Driving Lessons Now! https://www.a1drivingschool.co.nz/book-online-here/
+Shifting gears when driving
+To change gears when driving:
+1. Swiftly press in the clutch.
+2. Shift into the next gear down or up depending on whether you are increasing or
+decreasing speed.
+3. Slowly let out the clutch.
+Keep your eyes fixed on the road when changing gears, not looking down at the gear lever. Do
+some practice with the engine off to get comfortable shifting without looking before you hit the
+5.6 STARTING
                 
 ---
 
-                Concept: Linear Approximations
-                Prerequisite: Derivatives
+                Concept: Driving Curves
+                Prerequisite: Steering a Car
                 Evidence:
-                (Page 45, score=0.60) Lecture 9: Linear and Quadratic Approximations
-Unit 2: Applications of Diﬀerentiation
-Today, we’ll be using diﬀerentiation to make approximations.
-Linear Approximation
-Figure 1: Tangent as a linear approximation to a curve
-The tangent line approximates f(x). It gives a good approximation near the tangent point x0.
-As you move away from x0, however, the approximation grows less accurate.
-Example 1. f(x) = ln x,
-x0 = 1 (basepoint)
-Change the basepoint:
-Basepoint u0 = x0 − 1 = 0.
-Lecture 9
+                (Page 18, score=0.45) Book Driving Lessons Now! https://www.a1drivingschool.co.nz/book-online-here/
+5.0 DRIVING SKILLS
+5.1 STEERING A CAR
+Proper hand positioning is very important when steering a car. Your hands should firmly hold the
+steering wheel in the quarter to three position every time you’re driving. This is a safety
+precaution that ensures your hands don’t get
+in the way of the airbag in case of an accident.
+When steering, always remember to:
+Keep each hand on its side of the
+steering wheel; don’t cross them
                 
 ---
 
-                Concept: Quadratic Approximations
-                Prerequisite: Linear Approximations
+                Concept: Driving Curves
+                Prerequisite: Shifting Gears
                 Evidence:
-                (Page 48, score=0.61) satellite
-(with velocity v)
-Here, T 0 is the time I measure on my wristwatch, and T is the time measured onboard the satellite.
-If v = 4 km/s, and the speed of light (c) is 3 × 105 km/s, v
-≈ 10−10 . There’s hardly any diﬀerence
-between the times measured on the ground and in the satellite. Nevertheless, engineers used this very
-approximation (along with several other such approximations) to calibrate the radio transmitters
-on GPS satellites. (The satellites transmit at a slightly oﬀset frequency
+                (Page 24, score=0.58) Book Driving Lessons Now! https://www.a1drivingschool.co.nz/book-online-here/
+5.10 DRIVING AROUND CURVES SPEED CONTROL
+Driving around curves at higher speeds takes both skill and a cool head. That’s because you will
+have less time to react and your vehicle will handle differently.
+Controlling your speed is essential to ensuring you
+negotiate curves safely.
+Here are some tips on how to control your speed:
+Check and use the recommended speed on a
+turn if there is a sign.
+Reduce your car’s speed be
                 
 ---
 
-                Concept: Curve Sketching
-                Prerequisite: Derivatives
+                Concept: Speed Control on Curves
+                Prerequisite: Driving Curves
                 Evidence:
-                (Page 56, score=0.45) 2nd Derivative Information
-When f 00 > 0, f 0 is increasing. When f 00 < 0, f 0 is decreasing. (See Fig. 8 and Fig. 9)
-slope < 0
-slope = 0
-slope > 0
-Figure 8: f is convex (concave-up). The slope increases from negative to positive as x increases.
-Figure 9: f is concave-down. The slope decreases from positive to negative as x increases.
-Therefore, the sign of the second derivative tells us about concavity/convexity of the graph. Thus
-the second derivative is good for two purposes.
-1. Deciding whe
+                (Page 24, score=0.69) Book Driving Lessons Now! https://www.a1drivingschool.co.nz/book-online-here/
+5.10 DRIVING AROUND CURVES SPEED CONTROL
+Driving around curves at higher speeds takes both skill and a cool head. That’s because you will
+have less time to react and your vehicle will handle differently.
+Controlling your speed is essential to ensuring you
+negotiate curves safely.
+Here are some tips on how to control your speed:
+Check and use the recommended speed on a
+turn if there is a sign.
+Reduce your car’s speed be
                 
 ---
 
-                Concept: Max/Min Problems
-                Prerequisite: Derivatives
+                Concept: Driving at Night
+                Prerequisite: Driver Safety
                 Evidence:
-                (Page 56, score=0.51) 2nd Derivative Information
-When f 00 > 0, f 0 is increasing. When f 00 < 0, f 0 is decreasing. (See Fig. 8 and Fig. 9)
-slope < 0
-slope = 0
-slope > 0
-Figure 8: f is convex (concave-up). The slope increases from negative to positive as x increases.
-Figure 9: f is concave-down. The slope decreases from positive to negative as x increases.
-Therefore, the sign of the second derivative tells us about concavity/convexity of the graph. Thus
-the second derivative is good for two purposes.
-1. Deciding whe
+                (Page 28, score=0.71) Book Driving Lessons Now! https://www.a1drivingschool.co.nz/book-online-here/
+6.0 DRIVING CONDITIONS
+6.1 TIPS FOR DRIVING SAFELY AT NIGHT
+Even roads that you’re familiar with during the day can feel quite different when you’re driving on
+them in the dark. The reduced ability to see warning signs and road markings, and the risk of
+encountering new hazards make driving at night more
+challenging.
+Here are a few tips to help you reduce the risk when
+driving at night:
+Prepare your car. Clean your win
                 
 ---
 
-                Concept: Related Rates
-                Prerequisite: Derivatives
+                Concept: Emergency Steering
+                Prerequisite: Steering a Car
                 Evidence:
-                (Page 11, score=0.56) Lecture 2
-Lecture 2: Limits, Continuity, and Trigonometric
-Limits
-More about the “rate of change” interpretation of the
-derivative
-Figure 1: Graph of a generic function, with Δx and Δy marked on the graph
-temperature gradient
-dx as Δx → 0
-Average rate of change
-Instantaneous rate of change
-Examples
-1. q = charge
-dt = electrical current
-2. s = distance
-dt = speed
-= temperature
+                (Page 18, score=0.54) Book Driving Lessons Now! https://www.a1drivingschool.co.nz/book-online-here/
+5.0 DRIVING SKILLS
+5.1 STEERING A CAR
+Proper hand positioning is very important when steering a car. Your hands should firmly hold the
+steering wheel in the quarter to three position every time you’re driving. This is a safety
+precaution that ensures your hands don’t get
+in the way of the airbag in case of an accident.
+When steering, always remember to:
+Keep each hand on its side of the
+steering wheel; don’t cross them
                 
 ---
 
-                Concept: Newton's Method
-                Prerequisite: Derivatives
+                Concept: Anti-lock Brakes (ABS)
+                Prerequisite: Brake Shift
                 Evidence:
-                (Page 70, score=0.49) Lecture 13, Version 3.0
-This yields
-which is just what we hoped: x =
-Warning 1. Newton’s Method can ﬁnd an unexpected root.
-Example: if you take x0 = −1, then xk → −
-3 instead of +
-3. This convergence to an unexpected
-root is illustrated in Fig. 4
-tangent to
-curve at x = x0
-Figure 4: Newton’s method converging to an unexpected root.
-Warning 2. Newton’s Method can fail completely.
-This failure is illustrated in Fig. 5. In this case, x2 = x0, x3 = x1, and so forth. It repeats in a
-cycle, and never
+                (Page 34, score=0.59) Book Driving Lessons Now! https://www.a1drivingschool.co.nz/book-online-here/
+7.5 MAKING AN EMERGENCY STOP WITH ANTI-LOCK BRAKES
+(ABS) AUTOMATIC CAR
+When stopping abruptly, it’s crucial that you keep the car from skidding as this will allow you to
+maintain control of the vehicle. ABS helps prevent the wheels from locking which causes the car
+to skid but some skill is still required in some situations to ensure it doesn’t happen.
+Tips for making an emergency stop with ABS:
+Since it’s an emergency
                 
 ---
 
-                Concept: Mean Value Theorem
-                Prerequisite: Derivatives
+                Concept: Emergency Stop with ABS
+                Prerequisite: Anti-lock Brakes (ABS)
                 Evidence:
-                (Page 73, score=0.58) Lecture 14: Mean Value Theorem and Inequalities
-Mean-Value Theorem
-The Mean-Value Theorem (MVT) is the underpinning of calculus. It says:
-If f is diﬀerentiable on a < x < b, and continuous on a ≤ x ≤ b, then
-(for some c, a < c < b)
-is the slope of a secant line, while f 0(c) is the slope of a tangent line.
-secant line
-slope
-Geometric Proof: Take (dotted) lines parallel to the secant line, as in Fig. 1 and shift them up
-from below the graph until one of them ﬁrst touches the graph. Alternatively,
+                (Page 34, score=0.74) Book Driving Lessons Now! https://www.a1drivingschool.co.nz/book-online-here/
+7.5 MAKING AN EMERGENCY STOP WITH ANTI-LOCK BRAKES
+(ABS) AUTOMATIC CAR
+When stopping abruptly, it’s crucial that you keep the car from skidding as this will allow you to
+maintain control of the vehicle. ABS helps prevent the wheels from locking which causes the car
+to skid but some skill is still required in some situations to ensure it doesn’t happen.
+Tips for making an emergency stop with ABS:
+Since it’s an emergency
                 
 ---
 
-                Concept: Differentials
-                Prerequisite: Derivatives
+                Concept: Safely Pulling Out from the Side of the Road
+                Prerequisite: Driving on Sealed Roads
                 Evidence:
-                (Page 4, score=0.59) Lecture 1
-Unit 1: Derivatives
-A. What is a derivative?
-Geometric interpretation
-Physical interpretation
-Important for any measurement (economics, political science, ﬁnance, physics, etc.)
-B. How to diﬀerentiate any function you know.
-For example:
-e x arctan x . We will discuss what a derivative is today. Figuring out how to
-diﬀerentiate any function is the subject of the ﬁrst two weeks of this course.
-Lecture 1: Derivatives, Slope, Velocity, and Rate
-of Change
-Geometric Viewpoint on Derivatives
-
+                (Page 16, score=0.61) Book Driving Lessons Now! https://www.a1drivingschool.co.nz/book-online-here/
+4.0 GENERAL DRIVING
+4.1 HOW TO DRIVE ON SEALED ROADS WITHOUT THE
+CENTRELINE
+Sealed roads that don’t have a centreline are usually more winding and narrower than those that
+have a centreline. This significantly increases the risk of a head-on crash, as the lack of a
+centreline makes it harder for drivers
+to judge the position of their vehicle
+on the road.
+Here are some tips for driving on
+sealed roads without a centreli
                 
 ---
 
-                Concept: Antiderivatives
-                Prerequisite: Derivatives
+                Concept: Changing Lanes Safely
+                Prerequisite: Safely Pulling Out from the Side of the Road
                 Evidence:
-                (Page 79, score=0.53) Uniqueness of the antiderivative up to an additive constant.
-If F 0(x) = f(x), and G0(x) = f(x), then G(x) = F (x) + c for some constant factor c.
-Proof:
-Recall that we proved as a corollary of the Mean Value Theorem that if a function has a derivative
-zero then it is constant. Hence G(x) − F (x) = c (for some constant c). That is, G(x) = F (x) + c.
-Method of substitution.
-Example 1.
-Substitution:
-du = 4x 3dx,
-x 3dx = du
-Hence,
-Example 2.
-Another way to ﬁnd an anti-derivative is “advanced guessi
+                (Page 38, score=0.65) Book Driving Lessons Now! https://www.a1drivingschool.co.nz/book-online-here/
+9.0 MERGING & LANE CHANGES
+9.1 HOW TO SAFELY PULL OUT FROM THE SIDE OF THE ROAD
+The most important thing to remember when moving off from the side of the road is to be
+patient. Take your time to ensure it’s safe before you
+start to move into traffic.
+The process for pulling out from the roadside is
+as follows:
+Check your side and rearview mirrors to see
+what is going on around the car.
+If there are no hazards, put on y
                 
 ---
 
-                Concept: Differential Equations
-                Prerequisite: Derivatives
+                Concept: Crossing Lane Traffic
+                Prerequisite: Changing Lanes Safely
                 Evidence:
-                (Page 8, score=0.42) Lecture 1
-Figure 5: Graph of x
-Notations
-Calculus, rather like English or any other language, was developed by several people. As a result,
-just as there are many ways to express the same thing, there are many notations for the derivative.
-Since y = f(x), it’s natural to write
-We say “Delta y” or “Delta f” or the “change in y”.
-If we divide both sides by Δx = x − x0, we get two expressions for the diﬀerence quotient:
-Taking the limit as Δx → 0, we get
-dx (Leibniz’ notation)
-f 0(x0) (Newton’s not
+                (Page 19, score=0.61) Book Driving Lessons Now! https://www.a1drivingschool.co.nz/book-online-here/
+When changing lanes or any other time you cross the centre line.
+Whenever you have to move left or right by the width of your car or more.
+When pulling out or into a kerb.
+When entering or leaving a park.
+When merging after your lane comes to an end such as when joining a motorway from a
+feeder lane.
+At roundabouts.
+Remember to always turn off your indicator (if it doesn’t do so automatically) after making your
+turn to
                 
 ---
 
-                Concept: Definite Integrals
-                Prerequisite: Limits
+                Concept: Approaching Roundabouts
+                Prerequisite: Driving on Sealed Roads
                 Evidence:
-                (Page 95, score=0.48) Lecture 19
-Integrals have an important additive property (See Figure 3.)
-New Deﬁnition:
-This deﬁnition is used so that the fundamental theorem is valid no matter if a < b or b < a. It also
-makes it so that the additive property works for a, b, c in any order, not just the one pictured in
-Figure 3.
+                (Page 17, score=0.51) Book Driving Lessons Now! https://www.a1drivingschool.co.nz/book-online-here/
+If a car approaches you, slow right down and steer your car as far to the left as you safely
+can. This will reduce your dust cloud and reduce the likelihood of loose stones chipping
+your windscreen.
+Don’t pull over to the side of the road too quickly as gravel along the sides is often
+deeper and looser and can make it difficult to brake or steer.
+If you happen to find yourself in deeper gravel, slow right down and stee
                 
 ---
 
-                Concept: Definite Integrals
-                Prerequisite: Antiderivatives
+                Concept: Stopping on Hills
+                Prerequisite: Driving on Sealed Roads
                 Evidence:
-                (Page 95, score=0.52) Lecture 19
-Integrals have an important additive property (See Figure 3.)
-New Deﬁnition:
-This deﬁnition is used so that the fundamental theorem is valid no matter if a < b or b < a. It also
-makes it so that the additive property works for a, b, c in any order, not just the one pictured in
-Figure 3.
+                (Page 17, score=0.48) Book Driving Lessons Now! https://www.a1drivingschool.co.nz/book-online-here/
+If a car approaches you, slow right down and steer your car as far to the left as you safely
+can. This will reduce your dust cloud and reduce the likelihood of loose stones chipping
+your windscreen.
+Don’t pull over to the side of the road too quickly as gravel along the sides is often
+deeper and looser and can make it difficult to brake or steer.
+If you happen to find yourself in deeper gravel, slow right down and stee
                 
 ---
 
-                Concept: First Fundamental Theorem of Calculus
-                Prerequisite: Definite Integrals
+                Concept: Hill Starts
+                Prerequisite: Stopping on Hills
                 Evidence:
-                (Page 93, score=0.60) Lecture 19
-Lecture 19: First Fundamental Theorem of
-Calculus
-Fundamental Theorem of Calculus (FTC 1)
-If f(x) is continuous and F 0(x) = f(x), then
-Notation: F (x)
-Example 1. F (x) =
-Example 2. Area under one hump of sin x (See Figure 1.)
-sin x dx = − cos x
-Figure 1: Graph of f (x) = sin x for 0 ≤ x ≤ π.
-Example 3.
+                (Page 52, score=0.53) Book Driving Lessons Now! https://www.a1drivingschool.co.nz/book-online-here/
+HILL WORK
+In Chapter 14, learn about starting and stopping on hills in both manual and automatic cars.
+14.1 STOPPING ON HILLS (AUTOMATIC)
+Driving up and down hills is essentially the same as driving on flat ground. However, you’ll need
+to take some extra steps to ensure that your car does
+not get pulled or pushed into dangerous positions.
+Stopping on hills
+Follow these steps when you want to stop on a hill:
+Check your 
                 
 ---
 
-                Concept: First Fundamental Theorem of Calculus
-                Prerequisite: Antiderivatives
+                Concept: Sharing the Road with Pedestrians
+                Prerequisite: Driver Safety
                 Evidence:
-                (Page 93, score=0.56) Lecture 19
-Lecture 19: First Fundamental Theorem of
-Calculus
-Fundamental Theorem of Calculus (FTC 1)
-If f(x) is continuous and F 0(x) = f(x), then
-Notation: F (x)
-Example 1. F (x) =
-Example 2. Area under one hump of sin x (See Figure 1.)
-sin x dx = − cos x
-Figure 1: Graph of f (x) = sin x for 0 ≤ x ≤ π.
-Example 3.
+                (Page 56, score=0.68) Book Driving Lessons Now! https://www.a1drivingschool.co.nz/book-online-here/
+OTHER ROAD USERS
+In Chapter 15, learn all about sharing the road with other road users such as cyclists.
+15.1 SHARING THE ROAD WITH OTHER ROAD USERS
+One of the keys to being a good driver is learning how to share the road with other road users.
+You need to know how to drive safely around other road users that are more vulnerable like
+pedestrians, cyclists and moped
+riders.
+It can be hard to spot these other
+road users 
                 
 ---
 
-                Concept: Second Fundamental Theorem of Calculus
-                Prerequisite: First Fundamental Theorem of Calculus
+                Concept: Driving Around Cyclists
+                Prerequisite: Sharing the Road with Pedestrians
                 Evidence:
-                (Page 93, score=0.56) Lecture 19
-Lecture 19: First Fundamental Theorem of
-Calculus
-Fundamental Theorem of Calculus (FTC 1)
-If f(x) is continuous and F 0(x) = f(x), then
-Notation: F (x)
-Example 1. F (x) =
-Example 2. Area under one hump of sin x (See Figure 1.)
-sin x dx = − cos x
-Figure 1: Graph of f (x) = sin x for 0 ≤ x ≤ π.
-Example 3.
-                
----
-
-                Concept: Volumes by Disks and Shells
-                Prerequisite: Definite Integrals
-                Evidence:
-                (Page 107, score=0.68) Lecture 22
-Lecture 22: Volumes by Disks and Shells
-Disks and Shells
-We will illustrate the 2 methods of ﬁnding volume through an example.
-Example 1. A witch’s cauldron
-Figure 1: y = x
-rotated around the y-axis.
-Method 1: Disks
-thickness of dy
-Figure 2: Volume by Disks for the Witch’s Cauldron problem.
-The area of the disk in Figure 2 is πx2 . The disk has thickness dy and volume dV = πx2dy.
-The volume V of the cauldron is
-πx2 dy (substitute y = x 2)
-πy dy = π
-                
----
-
-                Concept: Work
-                Prerequisite: Definite Integrals
-                Evidence:
-                (Page 95, score=0.42) Lecture 19
-Integrals have an important additive property (See Figure 3.)
-New Deﬁnition:
-This deﬁnition is used so that the fundamental theorem is valid no matter if a < b or b < a. It also
-makes it so that the additive property works for a, b, c in any order, not just the one pictured in
-Figure 3.
-                
----
-
-                Concept: Average Value
-                Prerequisite: Definite Integrals
-                Evidence:
-                (Page 112, score=0.55) Lecture 23
-Lecture 23: Work, Average Value, Probability
-Application of Integration to Average Value
-You already know how to take the average of a set of discrete numbers:
-Now, we want to ﬁnd the average of a continuum.
-Figure 1: Discrete approximation to y = f (x) on a ≤ x ≤ b.
-Average ≈ y1 + y2 + + yn
-where
-The limit of the Riemann Sums is
-Divide by b − a to get the continuous average
-                
----
-
-                Concept: Probability
-                Prerequisite: Definite Integrals
-                Evidence:
-                No strong evidence found.
-                
----
-
-                Concept: Numerical Integration
-                Prerequisite: Definite Integrals
-                Evidence:
-                (Page 126, score=0.53) Lecture 24
-Example 1. Evaluate
-dx using two methods (trapezoidal and Simpson’s) of numerical
-integration.
-Figure 6: Area under (1+
-By Simpson’s rule:
-Exact answer:
-Roughly speaking, the error, | Simpson’s − Exact |, has order of magnitude (Δx)4 .
-By the trapezoidal rule:
-                
----
-
-                Concept: Trigonometric Integrals
-                Prerequisite: Definite Integrals
-                Evidence:
-                (Page 134, score=0.59) Lecture 26
-We get the answer by “advanced guessing,” i.e., “knowing the answer ahead of time.”
-sec x + tan x
-sec2 x + sec x tan x
-sec x dx = sec x
-sec x + tan x
-tan x + sec x
-Make the following substitutions:
-u = tan x + sec x
-du = (sec2 x + sec x tan x) dx
-This gives
-sec x dx =
-= ln(u) + c = ln(tan x + sec x) + c
-Cases like n = 3, m = 0 or more generally n odd and m even are more complicated and will be
-discussed later.
-Trigonometric Substitution
-Knowing how to evaluate all of these trigonometr
-                
----
-
-                Concept: Substitution Method
-                Prerequisite: Definite Integrals
-                Evidence:
-                (Page 138, score=0.50) Lecture 28
-Figure 3: Area divided into a sector and a triangle.
-Here is a list of integrals that can be computed using a trig substitution and a trig identity.
-integral
-substitution trig identity
-x = tan u
-tan2 u + 1 = sec2 u
-x = sec u
-sec2 u − 1 = tan2 u
-x = sin u
-1 − sin2 u = cos2 u
-Let’s extend this further. How can we evaluate an integral like this?
-When you have a linear and a quadratic term under the square root, complete the square.
-x 2 + 4x = (something)2 ± constant
-In this case,
-Now, we
-                
----
-
-                Concept: Integration by Parts
-                Prerequisite: Definite Integrals
-                Evidence:
-                (Page 146, score=0.55) Lecture 30
-Putting these into the integration by parts formula gives us:
-x e x dx = x e
-nx n−1 e x dx
-Repeat, going from n → (n − 1) → (n − 2) → etc.
-Bad news: If you change the integrals just a little bit, they become impossible to evaluate:
-dx = impossible
-e dx = also impossible
-Good news: When you can’t evaluate an integral, then
-is an answer, not a question. This is the solution you don’t have to integrate it!
-The most important thing is setting up the integral! (Once you’ve done that, you c
-                
----
-
-                Concept: Partial Fractions
-                Prerequisite: Definite Integrals
-                Evidence:
-                (Page 167, score=0.57) Lecture 32: Exam 4 Review
-Postscript: Systematic integration of rational functions
-For a general rational function P/Q, the ﬁrst step is to express P/Q as the sum of a polynomial
-and a ratio in which the numerator has smaller degree than the denominator.
-For example,
-(To carry out this long division, do not factor the denominator Q(x) = x2 − 2x + 1, just leave it
-alone.) The quotient x + 2 is a polynomial and is easy to integrate. The remainder term
-has a numerator 3x − 2 of degree 1 which is le
-                
----
-
-                Concept: Arclength
-                Prerequisite: Parametric Equations
-                Evidence:
-                (Page 152, score=0.68) Lecture 31
-Lecture 31: Parametric Equations, Arclength,
-Surface Area
-Arclength, continued
-Example 1. Consider this parametric equation:
-Figure 1: Inﬁnitesimal Arclength.
-Length =
-Even if you can’t evaluate the integral analytically, you can always use numerical methods.
-                
----
-
-                Concept: Arclength
-                Prerequisite: Definite Integrals
-                Evidence:
-                (Page 147, score=0.55) Lecture 30
-Arc Length
-This is very useful to know for 18.02 (multi-variable calculus).
-Figure 1: Inﬁnitesimal Arc Length ds
-Figure 2: Zoom in on Figure 1 to see an approximate right triangle.
-In Figures 1 and 2, s denotes arc length and ds = the inﬁnitesmal of arc length.
-1 + (dy/dx)2dx
-Integrating with respect to ds ﬁnds the length of a curve between two points (see Figure 3).
-To ﬁnd the length of the curve between P0 and P1, evaluate:
-                
----
-
-                Concept: Surface Area
-                Prerequisite: Parametric Equations
-                Evidence:
-                (Page 153, score=0.46) Lecture 31
-Surface Area (surfaces of revolution)
-Figure 2: Calculating surface area
-ds (the inﬁnitesimal curve length in Figure 2) is revolved a distance 2πy. The surface area of the
-thin strip of width ds is 2πy ds.
-Example 2. Revolve Example 1 (x = t2, y = t3 , 0 ≤ t ≤ 1) around the x-axis. Refer to Figure 3.
-Figure 3: Curved surface of a trumpet.
-                
----
-
-                Concept: Surface Area
-                Prerequisite: Definite Integrals
-                Evidence:
-                (Page 153, score=0.45) Lecture 31
-Surface Area (surfaces of revolution)
-Figure 2: Calculating surface area
-ds (the inﬁnitesimal curve length in Figure 2) is revolved a distance 2πy. The surface area of the
-thin strip of width ds is 2πy ds.
-Example 2. Revolve Example 1 (x = t2, y = t3 , 0 ≤ t ≤ 1) around the x-axis. Refer to Figure 3.
-Figure 3: Curved surface of a trumpet.
-                
----
-
-                Concept: Area in Polar Coordinates
-                Prerequisite: Polar Coordinates
-                Evidence:
-                (Page 159, score=0.71) Lecture 32
-Figure 6: Using polar co-ordinates to ﬁnd area of a generic function.
-Area in Polar Coordinates
-Since radius is a function of angle (r = f(θ)), we will integrate with respect to θ. The question
-is: what, exactly, should we integrate?
-Let’s look at a very small slice of this region:
-Figure 7: Approximate slice of area in polar coordinates.
-This inﬁnitesimal slice is approximately a right triangle. To ﬁnd its area, we take:
-Area of slice ≈ 2(base) (height) = 2 r(r dθ)
-Total Area =
-                
----
-
-                Concept: Area in Polar Coordinates
-                Prerequisite: Definite Integrals
-                Evidence:
-                (Page 159, score=0.73) Lecture 32
-Figure 6: Using polar co-ordinates to ﬁnd area of a generic function.
-Area in Polar Coordinates
-Since radius is a function of angle (r = f(θ)), we will integrate with respect to θ. The question
-is: what, exactly, should we integrate?
-Let’s look at a very small slice of this region:
-Figure 7: Approximate slice of area in polar coordinates.
-This inﬁnitesimal slice is approximately a right triangle. To ﬁnd its area, we take:
-Area of slice ≈ 2(base) (height) = 2 r(r dθ)
-Total Area =
-                
----
-
-                Concept: Indeterminate Forms
-                Prerequisite: Limits
-                Evidence:
-                (Page 169, score=0.67) Lecture 34
-Lecture 34: Indeterminate Forms - L’Hôpital’s Rule
-L’Hôpital’s Rule
-(Two correct spellings: “L’Hôpital” and “L’Hospital”)
-Sometimes, we run into indeterminate forms. These are things like
-For instance, how do you deal with the following?
-Example 0. One way of dealing with this is to use algebra to simplify things:
-In general, when f(a) = g(a) = 0,
-lim g(x) − g(a)
-This is the easy version of L’Hôpital’s rule:
-Note: this only works when g0(a) = 0
-In example 0,
-The limit is f 0(1)/g0(1) 
-                
----
-
-                Concept: L'Hôpital's Rule
-                Prerequisite: Indeterminate Forms
-                Evidence:
-                (Page 169, score=0.80) Lecture 34
-Lecture 34: Indeterminate Forms - L’Hôpital’s Rule
-L’Hôpital’s Rule
-(Two correct spellings: “L’Hôpital” and “L’Hospital”)
-Sometimes, we run into indeterminate forms. These are things like
-For instance, how do you deal with the following?
-Example 0. One way of dealing with this is to use algebra to simplify things:
-In general, when f(a) = g(a) = 0,
-lim g(x) − g(a)
-This is the easy version of L’Hôpital’s rule:
-Note: this only works when g0(a) = 0
-In example 0,
-The limit is f 0(1)/g0(1) 
-                
----
-
-                Concept: Improper Integrals
-                Prerequisite: Definite Integrals
-                Evidence:
-                (Page 176, score=0.60) Lecture 35
-Determining Divergence and Convergence
-To decide whether an integral converges or diverges, don’t need to evaluate. Instead one can compare
-it to a simpler integral that can be evaluated.
-The General Story for powers:
-From Examples 4, 5 and 6 we know that this diverges (is inﬁnite) for 0 < p ≤ 1 and converges (is
-ﬁnite) for p > 1.
-The comparison of integrals says that a larger function has a larger integral. If we restrict
-ourselves to nonnegative functions, then even when the region 
-                
----
-
-                Concept: Infinite Series
-                Prerequisite: Limits
-                Evidence:
-                (Page 180, score=0.67) Lecture 36
-Deﬁnition
-means the same thing as
-lim Sn = s, where Sn =
-We say the series converges to s, if the limit exists and is ﬁnite. The importance of convergence is
-illustrated here by the example of the geometric series. If a = 1, S = 1 + 1 + 1 + = ∞. But
-does not make sense and is not usable!
-Another type of series:
-We can use integrals to decide if this type of series converges. First, turn the sum into an integral:
-If that improper integral evaluates to a ﬁnite number, the series converg
-                
----
-
-                Concept: Convergence Tests
-                Prerequisite: Infinite Series
-                Evidence:
-                (Page 180, score=0.61) Lecture 36
-Deﬁnition
-means the same thing as
-lim Sn = s, where Sn =
-We say the series converges to s, if the limit exists and is ﬁnite. The importance of convergence is
-illustrated here by the example of the geometric series. If a = 1, S = 1 + 1 + 1 + = ∞. But
-does not make sense and is not usable!
-Another type of series:
-We can use integrals to decide if this type of series converges. First, turn the sum into an integral:
-If that improper integral evaluates to a ﬁnite number, the series converg
-                
----
-
-                Concept: Taylor Series
-                Prerequisite: Infinite Series
-                Evidence:
-                (Page 188, score=0.55) Lecture 37
-Taylor’s Series and Taylor’s Formula
-, we want to ﬁgure out what all these coeﬃcients are.
-Diﬀerentiating,
-Let’s plug in x = 0 to all of these equations.
-Taylor’s Formula tells us what the coeﬃcients are:
-(2)(1) and 0! = 1. Coeﬃcients an are given by:
-Example 7. f(x) = e .
-Therefore, by Taylor’s Formula an =
-Or in compact form,
-Now, we can calculate e to any accuracy:
-Example 7. f(x) = cos x.
+                (Page 57, score=0.67) Book Driving Lessons Now! https://www.a1drivingschool.co.nz/book-online-here/
+15.2 TIPS FOR DRIVING AROUND CYCLISTS
+Cyclists are the second most vulnerable road users after pedestrians, and as such, drivers need to
+take extra care to ensure they don’t put cyclists in danger when they meet on the road.
+Here are a couple of tips for driving around
+cyclists safely:
+Cyclists may sometimes move faster
+than you anticipated, so make sure to
+check that you’re clear of them before
+you move back to your l
                 
